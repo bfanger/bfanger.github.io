@@ -1,0 +1,10 @@
+html {
+    background: radial-gradient(ellipse 45% 55%,#cbf123 28%,#72e328 100%);
+    font-size: 10px;
+    min-height: 100vh;
+    margin: 0; 
+}
+body {
+    padding: 1rem;
+    font: 300 14px 'Helvetica Neue', Helvetica, sans-serif;
+}
