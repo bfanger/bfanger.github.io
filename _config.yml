@@ -24,8 +24,8 @@ github_username:  bfanger
 
 # Build settings
 markdown: kramdown
-source: src/
-destination: build
+#source: src/
+#destination: build
 gems:
 exclude:
   - Gemfile
