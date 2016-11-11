@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<a style="float: right" href="{{ site.url }}">&lt; Terug naar home</a>
+Project:
+<h1>{{page.title}}</h1>
+<img src="screenshots/{{page.image}}">
+
+{{ content }}
+
+<h2>Details</h3>
+<dl>
+    <dt>Opgeleverd</dt><dd>{{page.released}}</dd>
+    <dt>Werkgever</dt><dd>{{page.employer}}</dd>
+</dl>
+{% if page.previous %}
+<a href="{{page.previous.url}}">Vorige</a>
+{% endif %}
+
+{% if page.next %}
+<a style="float:right" href="{{page.next.url}}">Volgende</a>
+{% endif %}
+<br clear="both">
+<br>
+
+<small>Projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse werkgevers en zijn de concept &amp; design fases reeds door overige partijen uitgevoerd.</small>

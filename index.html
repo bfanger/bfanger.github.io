@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bob Fanger
+title: Bob Fanger's Website
 ---
 
 <h1>Hoi, ik ben Bob&nbsp;Fanger</h1>
@@ -11,3 +11,14 @@ title: Bob Fanger
 <a href="http://stackoverflow.com/users/19165/bob-fanger">
     <img src="//stackoverflow.com/users/flair/19165.png" width="208" height="58" alt="profile for Bob Fanger at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Bob Fanger at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
 </a>
+
+<div>
+    {% assign projects = site.projects | sort: 'released' | reverse %}
+
+    <h2>Projecten</h2>
+
+
+{% for project in projects %}
+    <a href="{{project.url}}">{{project.released}} - {{project.title}}<br>
+{% endfor %}
+</div>

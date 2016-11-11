@@ -1,0 +1,10 @@
+{
+  "name": "bfanger.nl",
+  "version": "3.0.0",
+  "description": "",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "bundle exec jekyll serve --safe --incremental --drafts"
+  },
+  "homepage": "http://bfanger.nl/"
+}

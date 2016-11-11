@@ -1,5 +1,5 @@
 html {
-    background: radial-gradient(ellipse 45% 55%,#cbf123 28%,#72e328 100%);
+    background: #FFC107;
     font-size: 10px;
     min-height: 100vh;
     margin: 0; 
@@ -7,4 +7,27 @@ html {
 body {
     padding: 1rem;
     font: 300 14px 'Helvetica Neue', Helvetica, sans-serif;
+    letter-spacing: 0.4px;
+    background: #FFD54F;
+    max-width: 600px;
+    margin: 50px auto;
+}
+h1 {
+    font-weight: 300;
+    letter-spacing: 0.1px;
+    margin-top: 0;
+}
+h2 {
+    font-weight: 300;
+    letter-spacing: 0.1px;
+}
+img {
+    max-width: 100%;
+}
+dt {
+    float: left;
+}
+dt:after {
+    content: ':';
+    padding-right: 5px;
 }

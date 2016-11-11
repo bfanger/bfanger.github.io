@@ -15,18 +15,26 @@
 # in the templates via {{ site.myvariable }}.
 title: Bob Fanger's website
 email: bfanger@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Bob Fanger is a webdeveloper working at NoProtocol
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "bfanger.nl" # the base hostname & protocol for your site, e.g. http://example.com
+description: Software in Style
+baseurl: ""
+url: "bfanger.nl"
 twitter_username: bfanger
 github_username:  bfanger
 
-# Build settings
-markdown: kramdown
-#source: src/
-#destination: build
-gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - package.json
+  - composer.json
+  - composer.lock
+  - vendor
+
+collections:
+  projects:
+    output: true
+    layout: page
+defaults: 
+  - scope: 
+      type: "projects"
+    values:
+      layout: "project" 
