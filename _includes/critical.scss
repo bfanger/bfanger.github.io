@@ -26,8 +26,9 @@ img {
 }
 dt {
     float: left;
-}
-dt:after {
-    content: ':';
-    padding-right: 5px;
+
+    &:after {
+        content: ':';
+        padding-right: 5px;
+    }
 }

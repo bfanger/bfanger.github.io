@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npm run dev",
-    "dev": "bundle exec jekyll serve --safe --incremental --drafts"
+    "dev": "bundle exec jekyll serve --host 0.0.0.0 --incremental --drafts"
   },
   "homepage": "http://bfanger.nl/"
 }

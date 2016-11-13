@@ -4,9 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
+  {% if page.criticalcss != false %}
   <style>
-  {% include critical.css %}
+    {% capture styles %}
+    {% include critical.scss %}
+    {% endcapture %}
+    {{ styles | scssify }}
   </style>
+  {% endif %}
 </head>
 
 <body>
