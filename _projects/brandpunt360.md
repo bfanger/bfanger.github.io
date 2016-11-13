@@ -8,7 +8,7 @@ tags:
 - panorama
 - gear360
 - krpano
-image: brandpunt-360-game.png
+image: brandpunt360.png
 ---
 
 [360.kro-ncrv.nl](http://360.kro-ncrv.nl) met de techniek van de 360 game kun je de 360 video's opnames terugzien. die gemaakt zijn met een Samsung Gear 360 camera 

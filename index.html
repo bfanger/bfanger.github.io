@@ -13,12 +13,13 @@ title: Bob Fanger's Website
 </a>
 
 <div>
-    {% assign projects = site.projects | sort: 'released' | reverse %}
+    {% assign projects = site.projects | sort: 'released' | reverse  %}
 
-    <h2>Projecten</h2>
+    <h2>Recent projecten</h2>
 
-
-{% for project in projects %}
-    <a href="{{project.url}}">{{project.released}} - {{project.title}}<br>
-{% endfor %}
+    {% for project in projects limit:5 %}
+        <a href="{{project.url}}">{{project.title}}</a><br>
+    {% endfor %}
+    <br>
+    <a href="portfolio.html">Alle projecten</a>
 </div>
