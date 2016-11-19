@@ -1,25 +1,25 @@
 ---
 layout: default
 ---
-<a href="{{ "../portfolio.html" | relative_url }}">&lt; Terug naar porfolio</a><br>
+<a class="sans-serif" href="{{ "../portfolio.html" | relative_url }}">&lt; Terug naar porfolio</a><br>
 <br>
-Project:
+<span class="sans-serif">Project:</span>
 <h1>{{page.title}}</h1>
 <img src="screenshots/{{page.image}}">
 
 {{ content }}
 
 <h2>Details</h3>
-<dl>
+<dl class="sans-serif">
     <dt>Opgeleverd</dt><dd>{{page.released}}</dd>
     <dt>Werkgever</dt><dd>{{page.employer}}</dd>
 </dl>
 {% if page.previous %}
-<a href="{{page.previous.url}}">Vorige</a>
+<a class="sans-serif" href="{{page.previous.url}}">Vorige</a>
 {% endif %}
 
 {% if page.next %}
-<a style="float:right" href="{{page.next.url}}">Volgende</a>
+<a class="sans-serif" style="float:right" href="{{page.next.url}}">Volgende</a>
 {% endif %}
 <br clear="both">
 <br>
