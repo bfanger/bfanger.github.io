@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Bob Fanger's Website
+title: Bob Fanger's Portfolio
 ---
 
-<a href="{{ site.url }}">&lt; Terug naar home</a><br>
+<a class="sans-serif" href="{{ site.url }}">&lt; Terug naar home</a><br>
 <br>
 <h1>Porfolio van Bob&nbsp;Fanger</h1>
 
@@ -12,13 +12,16 @@ title: Bob Fanger's Website
 
     <h2>Alle projecten</h2>
 
-
+<ul>
 {% for project in projects %}
     {% assign year = project.released | truncate: 4, "" %}
     {% if year != prevYear %}
-    {% assign prevYear = year %} 
+    {% assign prevYear = year %}
+    </ul>
     <h2>{{year}}</h2>
+    <ul class="sans-serif">
     {% endif %}
-    <a href="{{project.url}}">{{project.title}}</a><br>
+    <li><a href="{{project.url}}">{{project.title}}</a></li>
 {% endfor %}
+</ul>
 </div>

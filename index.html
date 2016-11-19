@@ -3,24 +3,22 @@ layout: default
 title: Bob Fanger's Website
 ---
 
-<h1>Hoi, ik ben Bob&nbsp;Fanger</h1>
-<p>
-    Ik ben een webdeveloper werkzaam bij <a href="http://www.noprotocol.nl/">NoProtocol</a>.<br /> Daarnaast ben ik ook actief
-    op <a href="https://github.com/bfanger/"><i class="icon-github"></i> GitHub</a> en StackOverflow:<br />
-</p>
-<p>
-    <a href="http://stackoverflow.com/users/19165/bob-fanger">
-        <img src="//stackoverflow.com/users/flair/19165.png" width="208" height="58" alt="profile for Bob Fanger at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Bob Fanger at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-    </a>
-</p>
-<div class="sans-serif">
+<article>
+    <h1>Hoi, ik ben Bob&nbsp;Fanger</h1>
+    <p>
+        Ik ben een webdeveloper werkzaam bij <a href="http://www.noprotocol.nl/">NoProtocol</a>.<br /> Daarnaast ben ik ook actief
+        op <a href="https://github.com/bfanger/"><i class="icon-github"></i> GitHub</a> en <a href="http://stackoverflow.com/users/19165/bob-fanger">StackOverflow</a>.
+    </p>
+</article>
+
+<aside>
     {% assign projects = site.projects | sort: 'released' | reverse  %}
 
-    <h2>Recent projecten</h2>
-
+    <h2>Recente projecten</h2>
+    <ul class="sans-serif">
     {% for project in projects limit:5 %}
-        <a href="{{project.url}}">{{project.title}}</a><br>
+        <li><a href="{{project.url}}">{{project.title}}</a></li>
     {% endfor %}
-    <br>
-    <a href="portfolio.html">Alle projecten</a>
-</div>
+    </ul>
+    <a class="sans-serif" href="portfolio.html">Bekijk alle projecten</a>
+</aside>

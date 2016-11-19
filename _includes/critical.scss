@@ -6,23 +6,22 @@ html {
 }
 body {
     padding: 1rem;
-    font: normal 16px 'Esteban', serif;
+    font: normal 16px 'Crimson Text', serif;
     line-height: 1.5;
-    letter-spacing: 0.4px;
-    color: #4F4F4F;
+    /*letter-spacing: 0.4px;*/
+    color: #343434;
     max-width: 600px;
     margin: 50px auto;
 }
 h1 {
-    font: normal 30px 'Shanti', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.1px;
+    font: normal 32px 'Lato', sans-serif;
     margin: 0 0 0.3em 0;
+    color: #4a4a4a;
 }
 h2 {
-    font: normal 24px 'Shanti', sans-serif;
-    letter-spacing: 0.1px;
+    font: normal 24px 'Lato', sans-serif;
     margin: 0 0 0.3em 0;
+    color: #383838;
 }
 img {
     max-width: 100%;
@@ -46,5 +45,5 @@ dt {
     }
 }
 .sans-serif {
-    font-family: 'Shanti', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
