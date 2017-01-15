@@ -1,5 +1,5 @@
-_site
-.sass-cache
-.jekyll-metadata
-/composer.lock
-/vendor
+/node_modules
+/gh-pages
+/tmp
+/jekyll/.jekyll-metadata
+/jekyll/thumbs

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% if page.criticalcss != false %}
+  <link href="https://fonts.googleapis.com/css?family=Crimson Text|Lato" rel="stylesheet">
+  <style>
+    {% capture styles %}
+    {% include critical.scss %}
+    {% endcapture %}
+    {{ styles | scssify }}
+  </style>
+  {% endif %}
+</head>
+
+<body>
+  <bf-page inline-template>
+  {{ content }}
+  </bf-page>
+  <!--<script src="build/common.js"></script>
+  <script src="build/app.js"></script>-->
+</body>
+</html>
