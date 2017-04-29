@@ -1,114 +1,61 @@
+var path = require('path')
 var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var IS_PRODUCTION = (process.argv.indexOf('-p') !== -1)
 if (typeof process.env.NODE_ENV === 'undefined') {
-    process.env.NODE_ENV = IS_PRODUCTION ? 'production' : 'development'
+    process.env.NODE_ENV = (process.argv.indexOf('-p') !== -1) ? 'production' : 'development'
 }
 
-var config = {
-    devtool: IS_PRODUCTION ? 'source-map' : 'cheap-module-eval-source-map',
+module.exports = {
     entry: {
-        app: './src/bootstrap.js',
+        bfanger: './src/bootstrap.js',
         common: './src/common.js',
     },
     output: {
-        filename: '[name].js',
-        path: __dirname + '/dist',
+        filename: '[name].bundle.js',
+        path: path.join(__dirname, '/jekyll'),
         publicPath: '/'
     },
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.min.js'
+        }
+    },
     module: {
-        loaders: [],
+        rules: [{
+            test: /\.js$/,
+            include: path.join(__dirname, 'src'),
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: [['es2015', { modules: false }]],
+                    plugins: ['transform-vue-jsx']
+                }
+            }]
+        }, {
+            test: /\.scss$/,
+            include: path.join(__dirname, 'src'),
+            use: [{
+                loader: 'sass-loader'
+            }]
+        }, {
+            test: /\.vue$/,
+            include: path.join(__dirname, 'src'),
+            use: [{
+                loader: 'vue-loader'
+            }]
+        }]
     },
-    plugins: []
-}
-//
-// Javascript
-//
-config.babel = {
-    presets: [
-        ['es2015'],
-        'stage-1'
-    ],
     plugins: [
-        "transform-vue-jsx"
-    ]
-}
-config.resolve = {
-    extensions: ['', '.js', '.vue'],
-    alias: {
-        vue: IS_PRODUCTION ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js'
-    }
-}
-config.module.loaders.push({
-    test: /\.vue$/,
-    loader: 'vue',
-    include: __dirname + '/src'
-})
-config.module.loaders.push({
-    test: /\.js$/,
-    loader: 'babel',
-    include: __dirname + '/src'
-})
-
-//
-// Styles
-//
-config.postcss = [
-    autoprefixer(),
-]
-config.vue = {
-    postcss: config.postcss
-}
-var styleLoaders = ['css?sourceMap', 'postcss', 'sass?sourceMap']
-if (IS_PRODUCTION) {
-    // Extract css intro a style.css file
-    var extractCss = new ExtractTextPlugin('style.css')
-    config.plugins.push(extractCss)
-    config.module.loaders.push({
-        test: /\.scss$/,
-        include: __dirname + '/src',
-        loader: extractCss.extract('style', styleLoaders)
-    })
-} else {
-    config.module.loaders.push({
-        test: /\.scss$/,
-        include: __dirname + '/src',
-        loaders: ['style'].concat(styleLoaders)
-    });
-}
-config.module.loaders.push({
-    test: /\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eof)$/, // css resources
-    loader: IS_PRODUCTION ? "file" : "url"
-})
-//
-// Webpack Dev Server
-//
-config.devServer = {
-    stats: {
-        chunks: false,
-        version: false,
-        assets: false,
-        hash: false,
-        color: true,
-    },
-    proxy: {
-        '/': {
-            target: 'http://localhost:4000'
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        }),
+        new webpack.optimize.CommonsChunkPlugin({ name: "common" })
+    ],
+    devServer: {
+        proxy: {
+            '/': {
+                target: 'http://localhost:4000'
+            }
         }
     }
 }
-config.plugins.push(new webpack.DefinePlugin({
-    INJECT_WEBPACK_DEV_SERVER_SCRIPT: (process.argv[1].match(/webpack-dev-server$/) !== null) && (process.argv.indexOf('--inline') === -1),
-    IS_PRODUCTION: IS_PRODUCTION,
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-}))
-
-//
-// Other
-//
-config.plugins.push(new webpack.optimize.CommonsChunkPlugin({ name: "common" }))
-
-
-module.exports = config

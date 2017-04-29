@@ -1,4 +1,4 @@
-// Import vendor scripts and here to speed up compilation.
+// Import vendor scripts here to speed up compilation.
 import 'vue'
 import 'vue-rx'
 import 'rxjs/Observable'
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/filter'
 import 'rxjs/add/operator/catch'
 
-if (IS_PRODUCTION === false) {
+if (process.env.NODE_ENV !== 'development') {
     // Import styles (with large assets) that slow down the compilation.
-    require('./sass/main.scss')
+    // require('./sass/main.scss')
 }
