@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 if (typeof process.env.NODE_ENV === 'undefined') {
     process.env.NODE_ENV = (process.argv.indexOf('-p') !== -1) ? 'production' : 'development'
@@ -49,9 +50,11 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         }),
-        new webpack.optimize.CommonsChunkPlugin({ name: "common" })
+        new webpack.optimize.CommonsChunkPlugin({ name: "common" }),
+        new FriendlyErrorsWebpackPlugin()
     ],
     devServer: {
+        quiet: true,
         proxy: {
             '/': {
                 target: 'http://localhost:4000'
