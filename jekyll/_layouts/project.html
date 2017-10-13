@@ -6,8 +6,9 @@ layout: default
 <span class="sans-serif">Project:</span>
 <article>
     <h1>{{page.title}}</h1>
-    <img src="{{ 'thumbs/600w/' | append: page.image | relative_url }}" srcset="{{ 'thumbs/600w/' | append: page.image | relative_url }} 600w, {{ 'thumbs/1200w/' | append: page.image | relative_url }} 1200w">
-
+    <figure>
+        <img src="{{ 'thumbs/660w/' | append: page.image | relative_url }}" srcset="{{ 'thumbs/660w/' | append: page.image | relative_url }} 660w, {{ 'thumbs/1200w/' | append: page.image | relative_url }} 1200w">
+    </figure>
     {{ content }}
 </article>
 <aside>

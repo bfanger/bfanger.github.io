@@ -4,7 +4,6 @@ employer: noprotocol
 tags:
 - ing
 - unicef
-released: 2011
 image: kerstman-op-pad.png
 alt: Kerstman op pad
 released: "2011"

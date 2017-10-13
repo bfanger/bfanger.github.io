@@ -6,9 +6,9 @@ gulp.task('resize', function () {
   return gulp.src('jekyll/_projects/screenshots/*')
     .pipe(responsive({
       '*': [{
-        width: 600,
+        width: 660,
         rename: {
-          dirname: '600w'
+          dirname: '660w'
         }
       }, {
         width: 1200,

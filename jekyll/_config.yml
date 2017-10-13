@@ -35,6 +35,5 @@ defaults:
 sass:
   style: compressed
 
-gems:
+plugins:
   - jekyll-sitemap
-  - mini_magick
