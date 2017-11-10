@@ -1,0 +1,22 @@
+bf-blueprint {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #269;
+  background-size: 24px 24px, 24px 24px, 120% 100%;
+  background-position: -2px -2px, -1px -1px, -1px -1px, center center;
+
+  background-image: linear-gradient(rgba(#3493db, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(#3493db, 0.4) 1px, transparent 1px),
+    radial-gradient(100% 65%, #0272cf 50%, #014694 100%);
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url("../assets/blueprint-fabric.png");
+    mix-blend-mode: overlay;
+  }
+}

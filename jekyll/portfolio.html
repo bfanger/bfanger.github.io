@@ -3,25 +3,31 @@ layout: default
 title: Bob Fanger's Portfolio
 ---
 
-<a class="sans-serif" href="{{ '/' | relative_url }}">&lt; Terug naar home</a><br>
-<br>
-<h1>Portfolio van Bob&nbsp;Fanger</h1>
+<bf-card>
+    <a class="sans-serif" href="{{ '/' | relative_url }}">&lt; Terug naar home</a><br>
+    <br>
+    <h1>Portfolio van Bob&nbsp;Fanger</h1>
 
-<div>
-    {% assign projects = site.projects | sort: 'released' | reverse %}
+    <div>
+        {% assign projects = site.projects | sort: 'released' | reverse %}
 
-    <h2>Alle projecten</h2>
+        <h2>Alle projecten</h2>
 
-<ul>
-{% for project in projects %}
-    {% assign year = project.released | truncate: 4, "" %}
-    {% if year != prevYear %}
-    {% assign prevYear = year %}
-    </ul>
-    <h2>{{year}}</h2>
-    <ul class="sans-serif">
-    {% endif %}
-    <li><a href="{{project.url}}">{{project.title}}</a></li>
-{% endfor %}
-</ul>
-</div>
+        <ul>
+            {% for project in projects %} {% assign year = project.released | truncate: 4, "" %} {% if year != prevYear %} {% assign
+            prevYear = year %}
+        </ul>
+        <h2>{{year}}</h2>
+        <ul class="sans-serif">
+            {% endif %}
+            <li>
+                <a href="{{project.url}}">{{project.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</bf-card>
+<footer>
+        <small>Projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse werkgevers en zijn de concept &amp; design fases
+            reeds door overige partijen uitgevoerd.</small>
+</footer>

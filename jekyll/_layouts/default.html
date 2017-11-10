@@ -6,21 +6,23 @@
   <title>{{ page.title }}</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% if page.criticalcss != false %}
   <style>
-    {% capture styles %}
-    {% include critical.scss %}
-    {% endcapture %}
-    {{ styles | scssify }}
+    {% capture scss %}{% include base.scss %}{% endcapture %}
+    {{ scss | scssify }}
+    {% capture scss %}{% include page.scss %}{% endcapture %}
+    {{ scss | scssify }}
+    {% capture scss %}{% include card.scss %}{% endcapture %}
+    {{ scss | scssify }}
   </style>
-  {% endif %}
 </head>
 
 <body>
-  <bf-page inline-template>
-  {{ content }}
-  </bf-page>
-  <script src="common.bundle.js"></script>
-  <script src="bfanger.bundle.js"></script>
+  <bf-window>
+    <bf-page>{{ content }}</bf-page>
+  </bf-window>
+
+  <script async src="build/bfanger.bundle.js"></script>
+
 </body>
+
 </html>

@@ -1,34 +1,39 @@
 ---
 layout: default
 ---
-<a class="sans-serif" href="{{ "../portfolio.html" | relative_url }}">&lt; Terug naar portfolio</a><br>
-<br>
-<span class="sans-serif">Project:</span>
-<article>
-    <h1>{{page.title}}</h1>
-    <figure>
-        <img src="{{ 'thumbs/660w/' | append: page.image | relative_url }}" srcset="{{ 'thumbs/660w/' | append: page.image | relative_url }} 660w, {{ 'thumbs/1200w/' | append: page.image | relative_url }} 1200w">
-    </figure>
-    {{ content }}
-</article>
-<aside>
-    <h2>Details</h2>
-    <dl class="sans-serif">
-        <dt>Opgeleverd</dt><dd>{{page.released}}</dd>
-        <dt>Werkgever</dt><dd>{{page.employer}}</dd>
-    </dl>
-</aside>
-<nav>
-    {% if page.previous %}
-    <a class="sans-serif" href="{{page.previous.url}}">Vorige</a>
-    {% endif %}
 
-    {% if page.next %}
-    <a class="sans-serif" style="float:right" href="{{page.next.url}}">Volgende</a>
-    {% endif %}
-    <br clear="both">
-</nav>
-<br>
+<bf-card>
+    <a class="sans-serif" href="{{ "../portfolio.html" | relative_url }}">&lt; Terug naar portfolio</a><br>
+    <br>
+    <span class="sans-serif">Project:</span>
+    <article>
+        <h1>{{page.title}}</h1>
+        <figure>
+            <img src="{{ 'thumbs/660w/' | append: page.image | relative_url }}" srcset="{{ 'thumbs/660w/' | append: page.image | relative_url }} 660w, {{ 'thumbs/1200w/' | append: page.image | relative_url }} 1200w">
+        </figure>
+        {{ content }}
+    </article>
+    <aside>
+        <h2>Details</h2>
+        <dl class="sans-serif">
+            <dt>Opgeleverd</dt>
+            <dd>{{page.released}}</dd>
+            <dt>Werkgever</dt>
+            <dd>{{page.employer}}</dd>
+        </dl>
+    </aside>
+    <nav>
+        {% if page.previous %}
+        <a class="sans-serif" href="{{page.previous.url}}">Vorige</a>
+        {% endif %} {% if page.next %}
+        <a class="sans-serif" style="float:right" href="{{page.next.url}}">Volgende</a>
+        {% endif %}
+        <br clear="both">
+    </nav>
+    <br>
+    
+</bf-card>
 <footer>
-    <small>Projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse werkgevers en zijn de concept &amp; design fases reeds door overige partijen uitgevoerd.</small>
+    <small>Projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse werkgevers en zijn de concept &amp; design fases
+        reeds door overige partijen uitgevoerd.</small>
 </footer>

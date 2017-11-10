@@ -1,0 +1,143 @@
+$duration: 2s;
+$frameCount: (120 - 1);
+
+@function frame($frame) {
+  @return ($frame - 1) * (100% / $frameCount);
+}
+
+.intro {
+  position: absolute;
+  top: 50vh;
+  left: calc(50vw - 7.7em);
+  display: flex;
+  flex-direction: row;
+  transform: translateZ(0);
+  will-change: transform;
+  font-size: 20px;
+  svg {
+    height: 0.8em;
+  }
+  animation: intro $duration;
+  @media (min-width: 500px) {
+    font-size: 30px;
+  }
+}
+@keyframes intro {
+  #{frame(1)} {
+    transform: translateX(2.5em) translateY(-55vh);
+  }
+  #{frame(51)} {
+    transform: translateX(2.5em);
+  }
+  #{frame(61)} {
+    transform: translateX(2.5em);
+  }
+  #{frame(71)} {
+    transform: translateX(0);
+  }
+}
+.intro__clip-bob {
+  display: flex;
+  flex-direction: row;
+  padding-right: 0.8em;
+  padding-left: 1.6em;
+  overflow: hidden;
+}
+
+.intro__b {
+  transform: translateX(2.3em);
+  will-change: transform;
+  animation: intro__b $duration;
+}
+@keyframes intro__b {
+  #{frame(1)} {
+    transform: translateX(0);
+  }
+  #{frame(61)} {
+    transform: translateX(0);
+  }
+  #{frame(74)} {
+    transform: translateX(-0.8em);
+  }
+  #{frame(83)} {
+    transform: translateX(2.5em);
+  }
+  #{frame(85)} {
+    transform: translateX(2.3em);
+  }
+}
+.intro__ob {
+  transform: translateX(2.6em);
+  will-change: transform;
+  animation: intro__ob $duration;
+}
+@keyframes intro__ob {
+  #{frame(1)} {
+    transform: translateX(0);
+  }
+  #{frame(61)} {
+    transform: translateX(0);
+  }
+  #{frame(74)} {
+    transform: translateX(-0.8em);
+  }
+  #{frame(82)} {
+    transform: translateX(2.6em);
+  }
+}
+.intro__fanger {
+  transform: translateX(0);
+  will-change: transform;
+  animation: intro__fanger $duration ease-out;
+}
+@keyframes intro__fanger {
+  #{frame(1)} {
+    transform: translateX(-0.3em);
+  }
+  #{frame(79)} {
+    transform: translateX(-0.3em);
+  }
+  #{frame(88)} {
+    transform: translateX(0);
+  }
+}
+.intro__clip-nl {
+    display: flex;
+    overflow: hidden;
+    padding-right: 1em;
+}
+.intro__nl {
+  transform: translateZ(0);
+  will-change: transform;
+  animation: intro__nl $duration ease-out;
+}
+@keyframes intro__nl {
+  #{frame(1)} {
+    transform: translateX(-2.1em);
+  }
+  #{frame(83)} {
+    transform: translateX(-2.1em);
+  }
+  #{frame(92)} {
+    transform: translateX(0.2em);
+  }
+}
+bf-card {
+    animation: card #{$duration * 2};
+    opacity: 1;
+    transform: translateZ(0);
+}
+@keyframes card {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  75% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  85% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
