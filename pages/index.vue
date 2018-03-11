@@ -12,7 +12,7 @@
 
           <h2>Recente projecten</h2>
           <ul>
-            <li v-for="project in recentProjects" :key="project.slug"><nuxt-link :to="{name: 'projects-slug', params:{slug: project.slug}}">{{ project.title }}</nuxt-link></li>
+            <li v-for="project in recentProjects" :key="project.slug"><nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link></li>
           </ul>
           <nuxt-link to="/portfolio">Bekijk alle projecten</nuxt-link>
         </aside>

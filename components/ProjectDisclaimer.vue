@@ -9,5 +9,7 @@
 .project-disclaimer {
   font-size: smaller;
   color: white;
+  text-align: center;
+  padding: 0 20px 5px;
 }
 </style>

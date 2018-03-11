@@ -12,11 +12,16 @@ const readDir = promisify(fs.readdir);
 
 const projectsModule = async function(req, res, next) {
   try {
+    if (req.url.match(/.json$/) === null) {
+      throw new Error('Missing ".json" suffix');
+    }
     let json = null;
-    if (req.url === "/") {
+    if (req.url === "/.json") {
       json = await projectsModule.allProjects();
     } else {
-      json = await projectsModule.getProject(req.url.substr(1));
+      json = await projectsModule.getProject(
+        req.url.substr(1, req.url.length - 6)
+      );
     }
     res.setHeader("Content-Type", "application/json");
     res.end(JSON.stringify(json));

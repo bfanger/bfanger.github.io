@@ -1,4 +1,5 @@
 /* eslint-disable import/no-commonjs */
+const projectsModel = require("./api/projects");
 module.exports = {
   head: {
     title: "BFanger.nl",
@@ -16,6 +17,13 @@ module.exports = {
         test: /\.mp3$/,
         use: "url-loader"
       });
+    }
+  },
+  generate: {
+    subFolders: false,
+    async routes() {
+      const projects = await projectsModel.allProjects();
+      return projects.map(project => "/projects/" + project.slug);
     }
   }
 };

@@ -4,7 +4,7 @@ const http = require("http");
 const projects = require("./projects");
 const app = connect();
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 8000;
 
 app.use("/api/projects", projects);
 

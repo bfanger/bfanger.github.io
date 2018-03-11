@@ -7,7 +7,9 @@
       <div v-for="{year, projects} in projectsByYear" :key="year">
         <h3>{{ year }}</h3>
         <ul>
-          <li v-for="project in projects" :key="project.slug"><nuxt-link :to="{name:'projects-slug', params: {slug: project.slug}}">{{ project.title }}</nuxt-link></li>
+          <li v-for="project in projects" :key="project.slug">
+            <nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link>
+          </li>
         </ul>
       </div>
     </Card>
