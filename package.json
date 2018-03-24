@@ -17,8 +17,15 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "extends": ["recommended/esnext", "plugin:vue/recommended", "prettier"],
-    "plugins": ["vue", "only-warn"],
+    "extends": [
+      "recommended/esnext",
+      "plugin:vue/recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "vue",
+      "only-warn"
+    ],
     "rules": {
       "vue/max-attributes-per-line": "off",
       "import/no-extraneous-dependencies": "off"
@@ -28,6 +35,7 @@
     }
   },
   "devDependencies": {
+    "@nuxtjs/sitemap": "^0.0.3",
     "@std/esm": "^0.25.2",
     "ascii-progress": "^1.0.5",
     "babel-eslint": "^8.2.2",

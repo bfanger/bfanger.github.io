@@ -1,5 +1,9 @@
 /* eslint-disable import/no-commonjs */
-const projectsModel = require("./api/projects");
+async function routes() {
+  const projectsModel = require("./api/projects");
+  const projects = await projectsModel.allProjects();
+  return projects.map(project => "/projects/" + project.slug);
+}
 module.exports = {
   head: {
     title: "BFanger.nl",
@@ -19,11 +23,14 @@ module.exports = {
       });
     }
   },
+  modules: ["@nuxtjs/sitemap"],
+  sitemap: {
+    hostname: "https://bfanger.nl",
+    generate: true,
+    routes
+  },
   generate: {
     subFolders: false,
-    async routes() {
-      const projects = await projectsModel.allProjects();
-      return projects.map(project => "/projects/" + project.slug);
-    }
+    routes
   }
 };
