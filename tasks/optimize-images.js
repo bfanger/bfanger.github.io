@@ -10,6 +10,7 @@ const imageminJpegoptim = require("imagemin-jpegoptim");
 const imageminPngquant = require("imagemin-pngquant");
 
 const readDir = promisify(fs.readdir);
+const stat = promisify(fs.stat);
 const formats = [".png", ".jpg"];
 const outputDir = path.join(__dirname, "../static/build/img");
 
@@ -27,19 +28,37 @@ async function main() {
       filepath: dir + "/" + filename
     });
   }
-  const bar = new ProgressBar({
-    schema: " [:bar] :current/:total :percent :elapseds :etas :file",
-    total: images.length
-  });
-  await batchPromises(os.cpus().length * 2, images, async image => {
-    await imagemin([image.filepath], outputDir, {
-      plugins: [
-        imageminJpegoptim({ max: 85 }),
-        imageminPngquant({ quality: "65-85" })
-      ]
+  let bar;
+  if (process.stdin.isTTY) {
+    bar = new ProgressBar({
+      schema: " [:bar] :current/:total :percent :elapseds :etas :file",
+      total: images.length
     });
+  } else {
+    process.stderr.write("Optimizing " + images.length + " images\n");
+    bar = {
+      tick() {
+        process.stderr.write(".");
+      }
+    };
+  }
+  await batchPromises(os.cpus().length * 2, images, async image => {
+    const source = await stat(image.filepath);
+    const target = await stat(outputDir + "/" + image.filename).catch(() => ({
+      mtime: new Date(0)
+    }));
+    if (source.mtime > target.mtime) {
+      // Generated image is out-of-date or doesn't exist.
+      await imagemin([image.filepath], outputDir, {
+        plugins: [
+          imageminJpegoptim({ max: 85 }),
+          imageminPngquant({ quality: "65-85" })
+        ]
+      });
+    }
     bar.tick(1, { file: image.filename });
   });
+  process.stderr.write("\n");
 }
 
 main();

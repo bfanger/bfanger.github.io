@@ -23,7 +23,10 @@ export default {
   },
   head() {
     return {
-      title: this.project.title
+      title: this.project.title,
+      link: [
+        { rel: "cannonical", href: `https://bfanger.nl${this.$route.path}` }
+      ]
     };
   },
   async fetch({ params, store }) {

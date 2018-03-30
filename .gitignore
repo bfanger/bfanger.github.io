@@ -2,4 +2,5 @@
 /.nuxt
 /yarn.lock
 /static/build
+/static/sitemap.xml
 /dist

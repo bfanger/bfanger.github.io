@@ -24,8 +24,13 @@ import ProjectDisclaimer from "../components/ProjectDisclaimer.vue";
 
 export default {
   components: { Card, ProjectDisclaimer },
-  head: {
-    title: "Bob Fanger's portfolio"
+  head() {
+    return {
+      title: "Bob Fanger's portfolio",
+      link: [
+        { rel: "cannonical", href: `https://bfanger.nl${this.$route.path}` }
+      ]
+    };
   },
   computed: {
     ...mapGetters({

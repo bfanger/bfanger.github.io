@@ -6,7 +6,8 @@
     "dev": "HOST=0.0.0.0 PORT=8080 nuxt",
     "build": "nuxt generate",
     "lint": "eslint --ext .js,.vue --max-warnings 0 --ignore-path .gitignore .",
-    "optimize-images": "node ./tasks/optimize-images.js"
+    "optimize-images": "./tasks/optimize-images.js",
+    "deploy": "./tasks/deploy.js"
   },
   "eslintConfig": {
     "root": true,
@@ -17,15 +18,8 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "extends": [
-      "recommended/esnext",
-      "plugin:vue/recommended",
-      "prettier"
-    ],
-    "plugins": [
-      "vue",
-      "only-warn"
-    ],
+    "extends": ["recommended/esnext", "plugin:vue/recommended", "prettier"],
+    "plugins": ["vue", "only-warn"],
     "rules": {
       "vue/max-attributes-per-line": "off",
       "import/no-extraneous-dependencies": "off"
