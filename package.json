@@ -36,7 +36,6 @@
   },
   "devDependencies": {
     "@nuxtjs/sitemap": "^0.0.3",
-    "@std/esm": "^0.25.2",
     "ascii-progress": "^1.0.5",
     "babel-eslint": "^8.2.2",
     "batch-promises": "^0.0.3",
@@ -45,20 +44,20 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-recommended": "^2.0.0",
     "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-only-warn": "^1.0.1",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-vue": "^4.3.0",
     "imagemin": "^5.3.1",
     "imagemin-jpegoptim": "^5.2.0",
     "imagemin-pngquant": "^5.0.1",
+    "node-fetch": "^2.1.2",
     "node-sass": "^4.7.2",
     "nuxt": "^1.4.0",
     "prettier": "^1.11.1",
     "sass-loader": "^6.0.7"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "commonmark": "^0.28.1",
     "gray-matter": "^3.1.1",
     "lodash": "^4.17.5"
