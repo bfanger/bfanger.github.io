@@ -3,7 +3,9 @@
     <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
     <h1 class="h2">{{ project.title }}</h1>
     <figure class="project-card__image">
-      <img v-if="imageUrl" :src="imageUrl">
+      <img 
+        v-if="imageUrl" 
+        :src="imageUrl">
     </figure>
     <div v-html="project.description"/>
   </Card>

@@ -1,8 +1,12 @@
 <template>
   <div>
-    <Intro v-if="cardVisible === false" @completed="showCard" />
+    <Intro 
+      v-if="cardVisible === false" 
+      @completed="showCard" />
     <transition name="homepage__card">
-      <Card v-show="cardVisible" class="homepage__card">
+      <Card 
+        v-show="cardVisible" 
+        class="homepage__card">
         <h1>Hoi, ik ben Bob&nbsp;Fanger</h1>
         <p>
           Ik ben een webdeveloper bij <a href="http://www.noprotocol.nl/">NoProtocol</a>.<br > Daarnaast ben ik ook actief
@@ -12,7 +16,9 @@
 
           <h2>Recente projecten</h2>
           <ul>
-            <li v-for="project in recentProjects" :key="project.slug"><nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link></li>
+            <li 
+              v-for="project in recentProjects" 
+              :key="project.slug"><nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link></li>
           </ul>
           <nuxt-link to="/portfolio">Bekijk alle projecten</nuxt-link>
         </aside>

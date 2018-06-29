@@ -4,10 +4,14 @@
       <nuxt-link to="/">&lt; Terug naar home</nuxt-link>
       <h1>Portfolio van Bob Fanger</h1>
       <h2>Alle projecten</h2>
-      <div v-for="{year, projects} in projectsByYear" :key="year">
+      <div 
+        v-for="{year, projects} in projectsByYear" 
+        :key="year">
         <h3>{{ year }}</h3>
         <ul>
-          <li v-for="project in projects" :key="project.slug">
+          <li 
+            v-for="project in projects" 
+            :key="project.slug">
             <nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link>
           </li>
         </ul>
@@ -42,4 +46,3 @@ export default {
   }
 };
 </script>
-

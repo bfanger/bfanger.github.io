@@ -1,3 +1,4 @@
+/* global process */
 let endpoint = "/api/";
 
 let fetch;

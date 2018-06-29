@@ -19,32 +19,24 @@
       "parser": "babel-eslint"
     },
     "extends": [
-      "recommended/esnext",
+      "esnext",
       "plugin:vue/recommended",
-      "prettier"
+      "plugin:prettier/recommended"
     ],
     "plugins": [
       "vue",
       "only-warn"
-    ],
-    "rules": {
-      "vue/max-attributes-per-line": "off",
-      "import/no-extraneous-dependencies": "off"
-    },
-    "globals": {
-      "process": true
-    }
+    ]
   },
   "devDependencies": {
-    "@nuxtjs/sitemap": "^0.0.3",
+    "@nuxtjs/sitemap": "^0.1.1",
     "ascii-progress": "^1.0.5",
     "babel-eslint": "^8.2.2",
     "batch-promises": "^0.0.3",
-    "eslint": "^4.18.2",
-    "eslint-config-esnext": "^2.0.0",
+    "eslint": "^5.0.1",
+    "eslint-config-esnext": "^3.0.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-config-recommended": "^2.0.0",
-    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-only-warn": "^1.0.1",
     "eslint-plugin-prettier": "^2.6.0",
@@ -55,12 +47,16 @@
     "node-fetch": "^2.1.2",
     "node-sass": "^4.7.2",
     "nuxt": "^1.4.0",
-    "prettier": "^1.11.1",
-    "sass-loader": "^6.0.7"
+    "prettier": "^1.13.7",
+    "sass-loader": "^7.0.3"
   },
   "dependencies": {
     "commonmark": "^0.28.1",
-    "gray-matter": "^3.1.1",
+    "gray-matter": "^4.0.1",
     "lodash": "^4.17.5"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.13",
+    "vuex": "^3.0.1"
   }
 }
