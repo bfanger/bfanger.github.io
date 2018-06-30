@@ -11,6 +11,7 @@
   margin: 10px;
   min-width: 33%;
   max-width: 760px;
+  box-shadow: 6px 6px 60px rgba(black, 0.2);
   @media (min-width: 500px) {
     padding: 25px 30px;
   }

@@ -37,10 +37,10 @@ export default {
   margin-bottom: 1em;
   background: linear-gradient(
     to bottom,
-    #a0a0a0,
-    #565656 60%,
-    #565656 64%,
-    #666666
+    #c6c6c6,
+    #a4a4a4 60%,
+    #a4a4a4 64%,
+    #919191
   );
   img {
     margin: auto;
