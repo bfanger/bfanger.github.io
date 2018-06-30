@@ -27,7 +27,10 @@
     "plugins": [
       "vue",
       "only-warn"
-    ]
+    ],
+    "globals": {
+      "process": true
+    }
   },
   "devDependencies": {
     "@nuxtjs/sitemap": "^0.1.1",

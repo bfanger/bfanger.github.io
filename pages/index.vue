@@ -33,10 +33,13 @@ import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
 export default {
   components: { Intro, Card },
-  data: () => ({
-    cardVisible: false,
-    projects: []
-  }),
+  data() {
+    return {
+      cardVisible:
+        process.browser && typeof window.bf_intro_shown !== "undefined",
+      projects: []
+    };
+  },
   computed: mapGetters({
     recentProjects: "projects/recent"
   }),
@@ -45,6 +48,7 @@ export default {
   },
   methods: {
     showCard() {
+      window.bf_intro_shown = true;
       this.cardVisible = true;
     }
   }
