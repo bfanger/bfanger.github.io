@@ -2,10 +2,16 @@
   <Card>
     <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
     <h1 class="h2">{{ project.title }}</h1>
-    <figure class="project-card__image">
+    <figure 
+      ref="figure" 
+      class="project-card__image">
       <img 
-        v-if="imageUrl" 
-        :src="imageUrl">
+        v-if="project.image" 
+        :src="project.image.src"
+        :width="project.image.width"
+        :height="project.image.height"
+        :style="{width, height}"
+        @load="loaded">
     </figure>
     <div v-html="project.description"/>
   </Card>
@@ -13,17 +19,20 @@
 
 <script>
 import Card from "./Card.vue";
+
 export default {
   components: { Card },
   props: {
     project: { type: Object, required: true }
   },
-  computed: {
-    imageUrl() {
-      const { image } = this.project;
-      if (image) {
-        return "/build/img/" + image;
-      }
+  data: () => ({
+    width: null,
+    height: null
+  }),
+  methods: {
+    loaded() {
+      this.width = "auto";
+      this.height = "auto";
     }
   }
 };

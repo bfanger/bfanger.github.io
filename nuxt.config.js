@@ -14,6 +14,7 @@ module.exports = {
       }
     ]
   },
+  loading: false,
   serverMiddleware: [{ path: "/api/projects", handler: "~/api/projects.js" }],
   build: {
     extend(config) {

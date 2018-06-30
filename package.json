@@ -7,7 +7,8 @@
     "build": "nuxt generate",
     "lint": "eslint --ext .js,.vue --max-warnings 0 --ignore-path .gitignore .",
     "optimize-images": "./tasks/optimize-images.js",
-    "deploy": "./tasks/deploy.js"
+    "deploy": "./tasks/deploy.js",
+    "debug-api": "pm2-dev api/index.js"
   },
   "eslintConfig": {
     "root": true,
@@ -53,6 +54,7 @@
   "dependencies": {
     "commonmark": "^0.28.1",
     "gray-matter": "^4.0.1",
+    "image-size": "^0.6.3",
     "lodash": "^4.17.5"
   },
   "peerDependencies": {
