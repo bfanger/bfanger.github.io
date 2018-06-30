@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import "../main.scss";
-
 export default {
   data: () => ({
     opacity: 0
@@ -26,6 +24,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./main.scss";
+
 .page__background {
   position: fixed;
   top: 0;

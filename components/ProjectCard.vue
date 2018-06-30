@@ -10,7 +10,7 @@
         :src="project.image.src"
         :width="project.image.width"
         :height="project.image.height"
-        :style="{width, height}"
+        :style="{opacity, width, height}"
         @load="loaded">
     </figure>
     <div v-html="project.description"/>
@@ -26,11 +26,13 @@ export default {
     project: { type: Object, required: true }
   },
   data: () => ({
-    width: null,
-    height: null
+    opacity: 0,
+    width: "",
+    height: ""
   }),
   methods: {
     loaded() {
+      this.opacity = 1;
       this.width = "auto";
       this.height = "auto";
     }
@@ -56,6 +58,8 @@ export default {
     display: block;
     max-width: 100%;
     max-height: 50vh;
+    transition: 0.25s opacity;
+    will-change: opacity;
   }
 }
 </style>
