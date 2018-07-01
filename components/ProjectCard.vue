@@ -1,19 +1,21 @@
 <template>
   <Card>
     <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
-    <h1 class="h2">{{ project.title }}</h1>
-    <figure 
-      ref="figure" 
-      class="project-card__image">
+    <div 
+      ref="content"
+      class="project-card">
+      <h1 class="project-card__title">{{ project.title }}</h1>
       <img 
         v-if="project.image" 
-        :src="project.image.src"
+        
+        :src="project.image.src" 
         :width="project.image.width"
         :height="project.image.height"
-        :style="{opacity, width, height}"
+        :style="{opacity, height, transition: fade ? '0.3s opacity' : 'none'}"
+        class="project-card__image"
         @load="loaded">
-    </figure>
-    <div v-html="project.description"/>
+      <div v-html="project.description"/>
+    </div>
   </Card>
 </template>
 
@@ -26,14 +28,30 @@ export default {
     project: { type: Object, required: true }
   },
   data: () => ({
+    fade: true,
     opacity: 0,
-    width: "",
-    height: ""
+    height: "auto"
   }),
+  mounted() {
+    this.mountedAt = Date.now();
+    const { width, height } = this.project.image;
+    const autoHeight = Math.ceil(
+      this.$refs.content.getBoundingClientRect().width / (width / height)
+    );
+    const halfScreen = window.innerHeight / 2;
+    if (autoHeight < halfScreen) {
+      this.height = autoHeight + "px";
+    } else {
+      this.height = halfScreen + "px";
+    }
+  },
   methods: {
     loaded() {
       this.opacity = 1;
-      this.width = "auto";
+      const duration = Date.now() - this.mountedAt;
+      if (duration < 100) {
+        this.fade = false;
+      }
       this.height = "auto";
     }
   }
@@ -41,25 +59,18 @@ export default {
 </script>
 
 <style lang="scss">
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
 .project-card__image {
   display: block;
-  padding: 1px;
-  margin: 0;
-  margin-bottom: 1em;
-  background: linear-gradient(
-    to bottom,
-    #c6c6c6,
-    #a4a4a4 60%,
-    #a4a4a4 64%,
-    #919191
-  );
-  img {
-    margin: auto;
-    display: block;
-    max-width: 100%;
-    max-height: 50vh;
-    transition: 0.25s opacity;
-    will-change: opacity;
-  }
+  align-self: center;
+  max-width: 100%;
+  max-height: 50vh;
+  box-shadow: 3px 0px 15px rgba(#000, 0.05);
+  width: auto;
+  margin-bottom: 1.5em;
+  border-radius: 3px;
 }
 </style>

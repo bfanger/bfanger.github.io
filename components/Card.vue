@@ -5,7 +5,7 @@
 <style lang="scss">
 .card {
   display: block;
-  background: #fff;
+  background: rgba(#ffffff, 0.9);
   border-radius: 2px;
   padding: 10px 20px;
   margin: 10px;
