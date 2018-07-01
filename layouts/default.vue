@@ -5,6 +5,7 @@
       :style="{opacity}"
       class="page__background" 
       src="../assets/images/millennial-colors.jpg"
+      draggable="false"
       @load="loaded">
     <nuxt class="page__body"/>
   </div>

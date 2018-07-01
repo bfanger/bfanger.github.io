@@ -3,48 +3,41 @@
     <Intro 
       v-if="cardVisible === false" 
       @completed="showCard" />
+    
     <transition name="homepage__card">
       <Card 
         v-show="cardVisible" 
         class="homepage__card">
-        <h1>Hoi, ik ben Bob&nbsp;Fanger</h1>
+        <img 
+          src="../assets/images/avatar.jpg" 
+          class="homepage__avatar">
+        <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
         <p>
           Ik ben een webdeveloper bij <a href="http://www.noprotocol.nl/">NoProtocol</a>.<br > Daarnaast ben ik ook actief
           op <a href="https://github.com/bfanger/"><i class="icon-github"/> GitHub</a> en <a href="http://stackoverflow.com/users/19165/bob-fanger">StackOverflow</a>.
         </p>
-        <aside>
-
-          <h2>Recente projecten</h2>
-          <ul>
-            <li 
-              v-for="project in recentProjects" 
-              :key="project.slug"><nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link></li>
-          </ul>
-          <nuxt-link to="/portfolio">Bekijk alle projecten</nuxt-link>
-        </aside>
+        <aside/>
       </Card>
     </transition>
+    <NavButton 
+      v-if="cardVisible" 
+      type="next"
+      to="/portfolio">Portfolio</NavButton>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
+import NavButton from "../components/NavButton.vue";
+
 export default {
-  components: { Intro, Card },
+  components: { Intro, Card, NavButton },
   data() {
     return {
       cardVisible:
-        process.browser && typeof window.bf_intro_shown !== "undefined",
-      projects: []
+        process.browser && typeof window.bf_intro_shown !== "undefined"
     };
-  },
-  computed: mapGetters({
-    recentProjects: "projects/recent"
-  }),
-  async fetch({ store }) {
-    await store.dispatch("projects/fetchRecent");
   },
   methods: {
     showCard() {
@@ -56,6 +49,28 @@ export default {
 </script>
 
 <style lang="scss">
+.homepage__card {
+  position: relative;
+  border-radius: 50px !important;
+}
+.homepage__title {
+  font-size: 30px;
+}
+.homepage__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 4px 4px 40px rgba(black, 0.2);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -120px;
+  @media (max-width: 730px) {
+    top: auto;
+    bottom: calc(100% + 20px);
+    left: calc(50% - 60px);
+  }
+}
 .homepage__card-enter-active {
   transition: opacity 0.5s, transform 0.5s;
 }
