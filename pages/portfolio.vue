@@ -1,7 +1,10 @@
 <template>
   <div>
+    <NavButton 
+      to="/" 
+      type="previous"
+      class="portfolio__previous">Home</NavButton>
     <Card>
-      <nuxt-link to="/">&lt; Terug naar home</nuxt-link>
       <h1>Portfolio van Bob Fanger</h1>
       <div 
         v-for="{year, projects} in projectsByYear" 
@@ -24,9 +27,10 @@
 import { mapGetters } from "vuex";
 import Card from "../components/Card.vue";
 import ProjectDisclaimer from "../components/ProjectDisclaimer.vue";
+import NavButton from "../components/NavButton.vue";
 
 export default {
-  components: { Card, ProjectDisclaimer },
+  components: { Card, ProjectDisclaimer, NavButton },
   head() {
     return {
       title: "Bob Fanger's portfolio",
@@ -45,3 +49,21 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.portfolio__previous {
+  position: fixed;
+  bottom: calc(50% -35px);
+  left: calc(50vw - 550px);
+  transform: translateX(-50%);
+  @media (max-width: 1290px) {
+    left: 30px;
+    transform: none;
+  }
+  @media (max-width: 880px) {
+    bottom: 40px;
+    left: 40px;
+    // transform: translateX(-50%);
+  }
+}
+</style>

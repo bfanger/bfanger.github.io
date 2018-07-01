@@ -18,64 +18,81 @@ export default {
 
 <style lang="scss">
 .nav-button {
-  background: rgba(black, 0.7);
-  display: inline-block;
-  transition: 0.15s transform;
+  background: linear-gradient(
+    to bottom,
+    rgba(black, 0.8),
+    rgba(black, 0.7) 30%,
+    rgba(black, 0.7) 70%,
+    rgba(black, 0.8)
+  );
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 70px;
+  border-radius: 35px;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-shadow: 2px 2px 30px rgba(black, 0.2);
+  cursor: pointer;
+  user-select: none;
   &:hover {
-    transform: scale(1.05);
-    transition-duration: 0.25s;
-    opacity: 0.95;
+    opacity: 0.9;
+    text-decoration: none;
+  }
+  &:active {
+    opacity: 0.8;
   }
 }
 .nav-button__label {
+  font: 300 22px/70px Raleway, sans-serif;
+  // text-shadow: 0 0 10 rgba(black, 0.5);
   color: white;
-  text-shadow: 0 0 10 rgba(black, 0.5);
-  font-family: Raleway, sans-serif;
-  font-size: 16px;
 }
-.nav-button--next {
-  position: fixed;
-  top: 50%;
-  right: calc(50vw - 660px);
-  width: 80px;
-  height: 80px;
-  border-radius: 40px;
-  cursor: pointer;
-  &:hover {
-    text-decoration: none;
-  }
-  &:after {
-    content: "";
-    background: url("../assets/images/nav-button-next.svg") no-repeat;
-    position: absolute;
-    background-size: contain;
-    left: 28px;
-    top: 18px;
-    width: 32px;
-    height: 46px;
-  }
-  @media (max-width: 1360px) {
-    right: 30px;
-  }
-  @media (max-width: 730px) {
-    top: auto;
-    bottom: 30px;
-  }
+%nav-button--icon {
   .nav-button__label {
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    pointer-events: none;
-    transform: translateX(-50%) translateY(-25px) scale(0.8);
-    opacity: 0;
-    transition: 0.15s opacity, 0.15s transform;
+    max-width: 0;
+    overflow: hidden;
+    transition: 0.15s all;
   }
   &:hover .nav-button__label {
-    @media (min-width: 730px) {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0px) scale(1);
-      transition: 0.2s opacity, 0.4s transform;
-    }
+    max-width: 400px;
+    transition: 0.25s all;
+  }
+}
+.nav-button--next {
+  @extend %nav-button--icon;
+  padding-right: 20px;
+  padding-left: 22px;
+
+  &:after {
+    content: "";
+    background: url("../assets/images/nav-button-next.svg") no-repeat center
+      center;
+    display: inline-block;
+    background-size: contain;
+    width: 28px;
+    height: 40px;
+  }
+  &:hover .nav-button__label {
+    padding-right: 10px;
+  }
+}
+.nav-button--previous {
+  @extend %nav-button--icon;
+  padding-right: 23px;
+  padding-left: 19px;
+
+  &:before {
+    content: "";
+    background: url("../assets/images/nav-button-previous.svg") no-repeat center
+      center;
+    display: inline-block;
+    background-size: contain;
+    width: 28px;
+    height: 40px;
+  }
+  &:hover .nav-button__label {
+    padding-left: 10px;
   }
 }
 </style>

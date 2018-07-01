@@ -14,13 +14,14 @@
         <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
         <p>
           Ik ben een webdeveloper bij <a href="http://www.noprotocol.nl/">NoProtocol</a>.<br > Daarnaast ben ik ook actief
-          op <a href="https://github.com/bfanger/"><i class="icon-github"/> GitHub</a> en <a href="http://stackoverflow.com/users/19165/bob-fanger">StackOverflow</a>.
+          op:<br><a href="https://github.com/bfanger/"><i class="icon-github"/> GitHub</a> en <a href="http://stackoverflow.com/users/19165/bob-fanger">StackOverflow</a>.
         </p>
         <aside/>
       </Card>
     </transition>
     <NavButton 
       v-if="cardVisible" 
+      class="homepage__next"
       type="next"
       to="/portfolio">Portfolio</NavButton>
   </div>
@@ -63,7 +64,7 @@ export default {
   border: 4px solid white;
   box-shadow: 4px 4px 40px rgba(black, 0.2);
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% - 10px);
   left: -120px;
   @media (max-width: 730px) {
     top: auto;
@@ -77,5 +78,20 @@ export default {
 .homepage__card-enter {
   opacity: 0;
   transform: translateY(30px);
+}
+.homepage__next {
+  position: fixed;
+  bottom: calc(50% -35px);
+  right: calc(50vw - 550px);
+  transform: translateX(50%);
+  @media (max-width: 1290px) {
+    right: 30px;
+    transform: none;
+  }
+  @media (max-width: 880px) {
+    bottom: 40px;
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 </style>
