@@ -42,30 +42,15 @@
         </svg>
       </div>
     </div>
-    <div 
-      class="intro__audio" 
-      @animationend="animationend">
-      <audio 
-        ref="audio" 
-        :src="bloop"/>
-    </div>
   </div>
 </template>
 
 <script>
-import bloop from "../assets/audio/bloop.mp3";
-
 export default {
-  data: () => ({
-    bloop
-  }),
-  methods: {
-    animationend() {
-      setTimeout(() => {
-        this.$emit("completed");
-      }, 1000);
-      this.$refs.audio.play();
-    }
+  mounted() {
+    setTimeout(() => {
+      this.$emit("completed");
+    }, 2200);
   }
 };
 </script>
@@ -205,17 +190,6 @@ $frameCount: (120 - 1);
   }
   #{frame(95)} {
     transform: translateX(0);
-  }
-}
-.intro__audio {
-  animation: intro__audio 1.34s;
-}
-@keyframes intro__audio {
-  from {
-    transform: translateZ(1);
-  }
-  to {
-    transform: translateZ(0);
   }
 }
 </style>
