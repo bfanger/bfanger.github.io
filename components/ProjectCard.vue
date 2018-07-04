@@ -7,11 +7,11 @@
       <h1 class="project-card__title">{{ project.title }}</h1>
       <img 
         v-if="project.image" 
-        
+        ref="image"
         :src="project.image.src" 
         :width="project.image.width"
         :height="project.image.height"
-        :style="{opacity, height, transition: fade ? '0.3s opacity' : 'none'}"
+        :style="{ opacity, height, transition: fadeDuration + 's opacity' }"
         class="project-card__image"
         @load="loaded">
       <div v-html="project.description"/>
@@ -28,7 +28,7 @@ export default {
     project: { type: Object, required: true }
   },
   data: () => ({
-    fade: true,
+    fadeDuration: 0.5,
     opacity: 0,
     height: "auto"
   }),
@@ -44,13 +44,21 @@ export default {
     } else {
       this.height = halfScreen + "px";
     }
+    this.timeout = setTimeout(() => {
+      if (this.$refs.image.complete) {
+        this.opacity = 1;
+      }
+    }, 300);
+  },
+  beforeDestroy() {
+    clearTimeout(this.timeout);
   },
   methods: {
     loaded() {
       this.opacity = 1;
       const duration = Date.now() - this.mountedAt;
-      if (duration < 100) {
-        this.fade = false;
+      if (duration < 150) {
+        this.fadeDuration = 0.2;
       }
       this.height = "auto";
     }
@@ -72,5 +80,6 @@ export default {
   width: auto;
   margin-bottom: 1.5em;
   border-radius: 3px;
+  will-change: opacity;
 }
 </style>
