@@ -50,12 +50,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../util";
+
 .homepage__card {
   position: relative;
   border-radius: 50px !important;
 }
 .homepage__title {
-  font-size: 30px;
+  @include fluid-property(font-size, 22px, 32px);
 }
 .homepage__avatar {
   width: 120px;

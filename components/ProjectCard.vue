@@ -1,6 +1,5 @@
 <template>
   <Card>
-    <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
     <div 
       ref="content"
       class="project-card">

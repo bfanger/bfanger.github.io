@@ -1,5 +1,9 @@
 <template>
   <div>
+    <NavButton 
+      to="/portfolio" 
+      type="previous"
+      class="project-page__previous">Portfolio</NavButton>
     <ProjectCard :project="project"/>
     <ProjectDisclaimer />
   </div>
@@ -7,11 +11,12 @@
 
 <script>
 import { mapGetters } from "vuex";
+import NavButton from "../../components/NavButton.vue";
 import ProjectCard from "../../components/ProjectCard.vue";
 import ProjectDisclaimer from "../../components/ProjectDisclaimer.vue";
 
 export default {
-  components: { ProjectCard, ProjectDisclaimer },
+  components: { NavButton, ProjectCard, ProjectDisclaimer },
   computed: {
     ...mapGetters({ projectBySlug: "projects/bySlug" }),
     slug() {
@@ -39,3 +44,21 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.project-page__previous {
+  position: fixed;
+  z-index: 1;
+  bottom: calc(50% -35px);
+  left: calc(50vw - 550px);
+  transform: translateX(-50%);
+  @media (max-width: 1290px) {
+    left: 30px;
+    transform: none;
+  }
+  @media (max-width: 880px) {
+    bottom: 40px;
+    left: 40px;
+  }
+}
+</style>

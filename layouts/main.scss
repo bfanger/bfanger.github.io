@@ -1,3 +1,5 @@
+@import "../util";
+
 @font-face {
   font-family: "Raleway";
   src: local("Raleway Light"),
@@ -38,17 +40,11 @@ h3 {
 }
 h1,
 .h1 {
-  font-size: 40px;
-  @media (max-width: 800px) {
-    font-size: calc(10px + 3.75vw); // 22px@320w
-  }
+  @include fluid-property(font-size, 22px, 40px);
 }
 h2,
 .h2 {
-  font-size: 30px;
-  @media (max-width: 800px) {
-    font-size: calc(7px + 4.166666667vw); // 20px@320w
-  }
+  @include fluid-property(font-size, 20px, 30px);
 }
 h3,
 .h3 {

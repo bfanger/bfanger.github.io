@@ -1,8 +1,13 @@
 <template>
   <nuxt-link 
     :to="to" 
-    :class="'nav-button--' + type"
-    class="nav-button">
+    :class="['nav-button--' + type, {'nav-button--hover': hover}]"
+    class="nav-button"
+    @mouseenter.native="hover = true"
+    @mouseleave.native="hover = false"
+    @touchstart.native="touchstart"
+    @touchend.native="touchend"
+    @touchmove.native="touchmove">
     <div class="nav-button__label"><slot/></div>
   </nuxt-link>
 </template>
@@ -12,6 +17,37 @@ export default {
   props: {
     to: { type: [String, Object], required: true },
     type: { type: String, required: true }
+  },
+  data: () => ({
+    hover: false
+  }),
+  methods: {
+    touchstart(e) {
+      e.preventDefault();
+      this.hover = true;
+    },
+    touchend(e) {
+      e.preventDefault();
+      if (this.hover) {
+        this.$router.push(this.to);
+      } else {
+        this.hover = false;
+      }
+    },
+    touchmove(e) {
+      const bounds = this.$el.getBoundingClientRect();
+      const touch = e.touches[0];
+      if (
+        touch.clientX < bounds.left ||
+        touch.clientX > bounds.left + bounds.width ||
+        touch.clientY < bounds.top ||
+        touch.clientY > bounds.top + bounds.height
+      ) {
+        this.hover = false;
+      } else {
+        this.hover = true;
+      }
+    }
   }
 };
 </script>
@@ -35,17 +71,20 @@ export default {
   box-shadow: 2px 2px 30px rgba(black, 0.2);
   cursor: pointer;
   user-select: none;
+  // &:active {
+  //   opacity: 0.8;
+  // }
   &:hover {
-    opacity: 0.9;
     text-decoration: none;
   }
-  &:active {
-    opacity: 0.8;
-  }
 }
+.nav-button--hover {
+  // opacity: 0.9;
+}
+
 .nav-button__label {
   font: 300 22px/70px Raleway, sans-serif;
-  // text-shadow: 0 0 10 rgba(black, 0.5);
+  text-shadow: 0 0 10 rgba(black, 0.5);
   color: white;
 }
 %nav-button--icon {
@@ -54,7 +93,7 @@ export default {
     overflow: hidden;
     transition: 0.15s all;
   }
-  &:hover .nav-button__label {
+  &.nav-button--hover .nav-button__label {
     max-width: 400px;
     transition: 0.25s all;
   }
@@ -73,7 +112,7 @@ export default {
     width: 28px;
     height: 40px;
   }
-  &:hover .nav-button__label {
+  &.nav-button--hover .nav-button__label {
     padding-right: 10px;
   }
 }
@@ -91,7 +130,7 @@ export default {
     width: 28px;
     height: 40px;
   }
-  &:hover .nav-button__label {
+  &.nav-button--hover .nav-button__label {
     padding-left: 10px;
   }
 }

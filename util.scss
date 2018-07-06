@@ -1,0 +1,31 @@
+$titilliumWeb: "Titillium Web", sans-serif;
+$raleway: "Raleway", sans-serif;
+
+@function fluid($minScreenSize, $minFontSize, $maxScreenSize, $maxFontSize) {
+  $fontBase: #{$minFontSize -
+    (
+      $minScreenSize * ($maxFontSize - $minFontSize) /
+        ($maxScreenSize - $minScreenSize)
+    )};
+  $fontGrow: #{(
+      ($maxFontSize - $minFontSize) / ($maxScreenSize - $minScreenSize)
+    ) * 100vw};
+  @return calc(#{$fontBase} + #{$fontGrow});
+}
+
+$phoneDesignWidth: 320px;
+$desktopDesignWidth: 1200px;
+
+@function fluid-value($phone, $desktop) {
+  @return fluid($phoneDesignWidth, $phone, $desktopDesignWidth, $desktop);
+}
+
+@mixin fluid-property($property, $phone, $desktop) {
+  #{$property}: fluid-value($phone, $desktop);
+  @media (max-width: $phoneDesignWidth) {
+    #{$property}: $phone;
+  }
+  @media (min-width: $desktopDesignWidth) {
+    #{$property}: $desktop;
+  }
+}
