@@ -71,17 +71,10 @@ export default {
   box-shadow: 2px 2px 30px rgba(black, 0.2);
   cursor: pointer;
   user-select: none;
-  // &:active {
-  //   opacity: 0.8;
-  // }
   &:hover {
     text-decoration: none;
   }
 }
-.nav-button--hover {
-  // opacity: 0.9;
-}
-
 .nav-button__label {
   font: 300 22px/70px Raleway, sans-serif;
   text-shadow: 0 0 10 rgba(black, 0.5);
