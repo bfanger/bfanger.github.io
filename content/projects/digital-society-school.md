@@ -6,7 +6,7 @@ tags:
 - vue
 - animation
 image: digital-society-school.png
-released: "2018-06"
+released: "2018-07"
 ---
 
-Voor [Digital Society School](https://digitalsocietyschool.org/) heb ik even bijgesprongen, ik was met name verantwoordelijk voor de heftige achtergrond animatie op de homepage.
+Voor de [Digital Society School](https://digitalsocietyschool.org/) website heb ik de achtergrond & homepage animatie gemaakt.

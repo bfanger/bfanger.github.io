@@ -35,7 +35,11 @@ export default {
   computed: {
     ...mapGetters({ projectBySlug: "projects/bySlug" }),
     slug() {
-      return this.$route.params.slug;
+      const slug = this.$route.params.slug;
+      if (slug.endsWith(".html")) {
+        return slug.substr(0, slug.length - 5);
+      }
+      return slug;
     },
     project() {
       return this.projectBySlug(this.slug);
@@ -50,11 +54,6 @@ export default {
     };
   },
   async fetch({ params, store }) {
-    // if (params.slug.endsWith(".html")) {
-    //   const strippedSlug = params.slug.substr(0, params.slug.length - 5);
-    //   redirect(301, { name: "projects-slug", params: { slug: strippedSlug } });
-    //   return;
-    // }
     await store.dispatch("projects/cached", params.slug);
   },
   mounted() {

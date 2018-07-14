@@ -13,6 +13,5 @@ released: "2017-10"
 Voor [taxi2airport.com](https://taxi2airport.com/) hebben we een iOS & Android app ontworpen en gemaakt o.b.v. de bestaande website.
 
 Voor de app hebben we na problemen met cordova in het verleden besloten react-native te proberen.
-Al snel werd duidelijk dat er ook aan react-native zowel voor- als nadelen kleven.
-Maar omdat offline-maps voor cordova vrijwel niet bestaat (Voor het web is dat ook een rare feature) en een standaard feature is van de Mapbox react-native module, heeft react-native gewonnen.
-
+Al snel werd duidelijk dat er ook aan react-native veel nadelen kleven.
+Maar omdat offline-maps voor cordova vrijwel niet bestaat (Voor het web is dat ook een rare feature) en een standaard feature is van de Mapbox react-native module, hebben we dit project in react-native gebouwd.
