@@ -3,33 +3,40 @@ import { sortBy } from "lodash";
 import api from "../services/api";
 
 export const strict = true;
+const requests = {};
 
 export const state = () => ({
-  entities: {},
-  recent: []
+  entities: {}
 });
 export const actions = {
   async fetchAll({ commit }) {
-    const entities = await api.get("projects");
-    commit("fetched", entities);
+    const items = await api.get("projects");
+    commit("fetched", items);
   },
-  async fetchRecent({ commit }) {
-    const entities = await api.get("projects");
-    const projects = sortBy(entities, "released")
-      .reverse()
-      .slice(0, 5);
-    commit("fetched", projects);
+
+  async cached({ state, dispatch }, slug) {
+    if (state.entities[slug]) {
+      return state.entities[slug];
+    }
+    if (requests[slug]) {
+      return requests[slug];
+    }
+    return dispatch("fetch", slug);
   },
+
   async fetch({ commit }, slug) {
-    const entity = await api.get("projects/" + slug);
+    requests[slug] = api.get("projects/" + slug);
+    const entity = await requests[slug];
     commit("fetched", [entity]);
+    delete requests[slug];
+    return entity;
   }
 };
 
 export const mutations = {
-  fetched(state, entities) {
-    for (const entity of entities) {
-      Vue.set(state.entities, entity.slug, entity);
+  fetched(state, items) {
+    for (const item of items) {
+      Vue.set(state.entities, item.slug, item);
     }
   },
   recent(state, recent) {

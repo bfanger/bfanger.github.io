@@ -4,12 +4,14 @@ const fs = require("fs");
 const matter = require("gray-matter");
 const commonmark = require("commonmark");
 const sizeOf = require("image-size");
+const sortBy = require("lodash/sortBy");
 
 const reader = new commonmark.Parser();
 const writer = new commonmark.HtmlRenderer();
 
 const readFile = promisify(fs.readFile);
 const readDir = promisify(fs.readdir);
+let projectOrder = null;
 
 async function projects(req, res, next) {
   try {
@@ -32,13 +34,31 @@ async function projects(req, res, next) {
 async function allProjects() {
   const files = await readDir(path.resolve(__dirname, "../content/projects"));
   const projects = [];
+  projectOrder = {};
   for (const file of files) {
     if (file.endsWith(".md")) {
       const project = await getProject(file.substr(0, file.length - 3));
       projects.push(project);
     }
   }
-  return projects;
+  const sortedProjects = sortBy(
+    projects,
+    project => project.released
+  ).reverse();
+  for (const i in sortedProjects) {
+    const project = sortedProjects[i];
+    if (i === "0") {
+      delete sortedProjects[i].previous;
+      projectOrder[project.slug] = {};
+    } else {
+      const previous = sortedProjects[i - 1];
+      project.previous = previous.slug;
+      previous.next = project.slug;
+      projectOrder[previous.slug].next = project.slug;
+      projectOrder[project.slug] = { previous: previous.slug };
+    }
+  }
+  return sortedProjects;
 }
 
 async function getProject(slug) {
@@ -55,12 +75,17 @@ async function getProject(slug) {
     );
     image = { src: "/build/img/" + filename, width, height };
   }
-
+  if (projectOrder === null) {
+    await allProjects(); // determine the ordering
+  }
+  const { next, previous } = projectOrder[slug] || {};
   return {
     ...result.data,
     slug,
     image,
-    description: writer.render(parsed)
+    description: writer.render(parsed),
+    previous,
+    next
   };
 }
 

@@ -12,4 +12,7 @@ alt: KPN een
 released: "2013"
 ---
 
-Een [video](http://5028e2989c19aeb201f0-8c292da6f6272b1e464050c6d8c914ce.r30.cf3.rackcdn.com/kpn-een-generic.mp4) voor in een direct-mailing d.m.v. een 3D rendering met beelden van googlemaps & google streetview.
+We hebben duizenden persoonlijke video's gegenereerd voor in een direct-mailing.
+Op basis van persoongegevens viel de kpn dobbelsteen op de stoep van de ontvanger.
+
+Hiervoor gebruikten we beelden van googlemaps & google streetview die we met Three.js omzetten naar frames, die vervolgens met ffmpeg werd gecombineerd tot een video.

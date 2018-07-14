@@ -14,12 +14,31 @@
         class="project-card__image"
         @load="loaded">
       <div v-html="project.description"/>
+      <div class="project-card__footer">
+        <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
+        <span class="project-card__release-date">{{ releaseDate }}</span>
+      </div>
     </div>
   </Card>
 </template>
 
 <script>
 import Card from "./Card.vue";
+
+const months = [
+  "Januari",
+  "Februari",
+  "Maart",
+  "April",
+  "Mei",
+  "Juni",
+  "Juli",
+  "Augustus",
+  "September",
+  "Oktober",
+  "November",
+  "December"
+];
 
 export default {
   components: { Card },
@@ -31,6 +50,18 @@ export default {
     opacity: 0,
     height: "auto"
   }),
+  computed: {
+    releaseDate() {
+      const match = this.project.released.match(
+        /^([0-9]{4})(-([0-9]{2}))?(-([0-9]{2}))?$/
+      );
+      const [, year, , month, , day] = match;
+      if (month) {
+        return months[parseInt(month, 10) - 1] + " " + year;
+      }
+      return year;
+    }
+  },
   mounted() {
     this.mountedAt = Date.now();
     const { width, height } = this.project.image;
@@ -80,5 +111,12 @@ export default {
   margin-bottom: 1.5em;
   border-radius: 3px;
   will-change: opacity;
+}
+.project-card__footer {
+  display: flex;
+  justify-content: space-between;
+}
+.project-card__release-date {
+  color: #aaa;
 }
 </style>

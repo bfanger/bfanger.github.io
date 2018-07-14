@@ -11,7 +11,8 @@ module.exports = {
       {
         name: "viewport",
         content: "width=device-width,initial-scale=1"
-      }
+      },
+      { name: "theme-color", content: "#5c53e2" }
     ]
   },
   loading: false,
