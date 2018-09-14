@@ -16,6 +16,12 @@ export default {
   data: () => ({
     opacity: 0
   }),
+  mounted() {
+    const { background } = this.$refs;
+    if (background.complete) {
+      this.loaded();
+    }
+  },
   methods: {
     loaded() {
       this.opacity = 1;

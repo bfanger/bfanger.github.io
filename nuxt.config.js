@@ -8,11 +8,15 @@ async function routes() {
 module.exports = {
   head: {
     title: "BFanger.nl",
+    htmlAttrs: {
+      lang: "nl"
+    },
     meta: [
       {
         name: "viewport",
         content: "width=device-width,initial-scale=1"
       },
+      { charset: "utf-8" },
       { name: "theme-color", content: "#5c53e2" }
     ]
   },

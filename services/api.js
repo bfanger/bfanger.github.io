@@ -1,5 +1,3 @@
-import { find } from "../node_modules/rxjs/operator/find";
-
 /* global process */
 let endpoint = "/api/";
 

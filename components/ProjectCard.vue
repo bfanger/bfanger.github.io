@@ -47,15 +47,14 @@ export default {
   },
   data: () => ({
     fadeDuration: 0.5,
-    opacity: 0,
+    opacity: process.server ? 1 : 0,
     height: "auto"
   }),
   computed: {
     releaseDate() {
-      const match = this.project.released.match(
+      const [, year, , month] = this.project.released.match(
         /^([0-9]{4})(-([0-9]{2}))?(-([0-9]{2}))?$/
       );
-      const [, year, , month, , day] = match;
       if (month) {
         return months[parseInt(month, 10) - 1] + " " + year;
       }
