@@ -1,25 +1,29 @@
 <template>
   <div>
-    <NavButton 
+    <NavButton
       v-if="!project.previous"
-      to="/portfolio" 
+      to="/portfolio"
       type="previous"
-      class="project-page__previous">Portfolio</NavButton>
-    <NavButton 
+      class="project-page__previous"
+      >Portfolio</NavButton
+    >
+    <NavButton
       v-if="project.previous"
-      :to="{ name:'projects-slug', params: { slug: project.previous }}" 
+      :to="{ name: 'projects-slug', params: { slug: project.previous } }"
       type="previous"
-      class="project-page__previous">Vorige</NavButton>
+      class="project-page__previous"
+      >Vorige</NavButton
+    >
 
-    <ProjectCard 
-      :project="project" 
-      class="project-page__card"/>
+    <ProjectCard :project="project" class="project-page__card" />
 
-    <NavButton 
+    <NavButton
       v-if="project.next"
-      :to="{ name:'projects-slug', params: { slug: project.next }}" 
+      :to="{ name: 'projects-slug', params: { slug: project.next } }"
       type="next"
-      class="project-page__next">Volgende</NavButton>
+      class="project-page__next"
+      >Volgende</NavButton
+    >
     <ProjectDisclaimer />
   </div>
 </template>
@@ -89,7 +93,7 @@ export default {
 .project-page__previous {
   position: fixed;
   z-index: 1;
-  bottom: calc(50% -35px);
+  bottom: calc(50% - 35px);
   left: calc(50vw - 550px);
   transform: translateX(-50%);
   @media (max-width: 1290px) {
@@ -109,7 +113,7 @@ export default {
 .project-page__next {
   position: fixed;
   z-index: 1;
-  bottom: calc(50% -35px);
+  bottom: calc(50% - 35px);
   right: calc(50vw - 550px);
   transform: translateX(50%);
   @media (max-width: 1290px) {

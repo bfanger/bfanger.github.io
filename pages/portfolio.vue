@@ -1,25 +1,22 @@
 <template>
   <div>
-    <NavButton 
-      to="/" 
-      type="previous"
-      class="portfolio__previous">Home</NavButton>
+    <NavButton to="/" type="previous" class="portfolio__previous"
+      >Home</NavButton
+    >
     <Card>
       <h1>Portfolio van Bob Fanger</h1>
-      <div 
-        v-for="{year, projects} in projectsByYear" 
-        :key="year">
+      <div v-for="{ year, projects } in projectsByYear" :key="year">
         <h2>{{ year }}</h2>
         <ul>
-          <li 
-            v-for="project in projects" 
-            :key="project.slug">
-            <nuxt-link :to="'projects/' + project.slug">{{ project.title }}</nuxt-link>
+          <li v-for="project in projects" :key="project.slug">
+            <nuxt-link :to="'projects/' + project.slug">{{
+              project.title
+            }}</nuxt-link>
           </li>
         </ul>
       </div>
     </Card>
-    <ProjectDisclaimer/>
+    <ProjectDisclaimer />
   </div>
 </template>
 
@@ -53,7 +50,7 @@ export default {
 <style lang="scss">
 .portfolio__previous {
   position: fixed;
-  bottom: calc(50% -35px);
+  bottom: calc(50% - 35px);
   left: calc(50vw - 550px);
   transform: translateX(-50%);
   @media (max-width: 1290px) {

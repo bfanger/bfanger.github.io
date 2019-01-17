@@ -22,7 +22,7 @@
     "extends": [
       "esnext",
       "plugin:vue/recommended",
-      "plugin:prettier/recommended"
+      "@vue/prettier"
     ],
     "plugins": [
       "vue",
@@ -33,31 +33,32 @@
     }
   },
   "devDependencies": {
-    "@nuxtjs/sitemap": "^0.1.1",
+    "@nuxtjs/sitemap": "^0.2.0",
+    "@vue/eslint-config-prettier": "^4.0.1",
     "ascii-progress": "^1.0.5",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^10.0.1",
     "batch-promises": "^0.0.3",
     "eslint": "^5.1.0",
-    "eslint-config-esnext": "^3.0.0",
+    "eslint-config-esnext": "^4.0.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-only-warn": "^1.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-vue": "^4.7.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-vue": "^5.1.0",
     "imagemin": "^6.0.0",
-    "imagemin-jpegoptim": "^5.2.0",
-    "imagemin-pngquant": "^6.0.0",
+    "imagemin-jpegoptim": "^6.0.0",
+    "imagemin-pngquant": "^7.0.0",
     "node-fetch": "^2.1.2",
     "node-sass": "^4.9.2",
-    "nuxt": "^1.4.0",
+    "nuxt": "^2.3.4",
     "prettier": "^1.13.7",
     "sass-loader": "^7.0.3"
   },
   "dependencies": {
     "commonmark": "^0.28.1",
     "gray-matter": "^4.0.1",
-    "image-size": "^0.6.3",
+    "image-size": "^0.7.1",
     "lodash": "^4.17.5"
   },
   "peerDependencies": {

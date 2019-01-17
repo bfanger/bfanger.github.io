@@ -1,19 +1,19 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <Card>
-    <div 
-      ref="content"
-      class="project-card">
+    <div ref="content" class="project-card">
       <h1 class="project-card__title">{{ project.title }}</h1>
-      <img 
-        v-if="project.image" 
+      <img
+        v-if="project.image"
         ref="image"
-        :src="project.image.src" 
+        :src="project.image.src"
         :width="project.image.width"
         :height="project.image.height"
         :style="{ opacity, height, transition: fadeDuration + 's opacity' }"
         class="project-card__image"
-        @load="loaded">
-      <div v-html="project.description"/>
+        @load="loaded"
+      />
+      <div v-html="project.description" />
       <div class="project-card__footer">
         <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
         <span class="project-card__release-date">{{ releaseDate }}</span>

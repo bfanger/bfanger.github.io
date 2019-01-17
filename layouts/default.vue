@@ -1,13 +1,14 @@
 <template>
   <div>
-    <img 
+    <img
       ref="background"
-      :style="{opacity}"
-      class="page__background" 
+      :style="{ opacity }"
+      class="page__background"
       src="../assets/images/millennial-colors.jpg"
       draggable="false"
-      @load="loaded">
-    <nuxt class="page__body"/>
+      @load="loaded"
+    />
+    <nuxt class="page__body" />
   </div>
 </template>
 

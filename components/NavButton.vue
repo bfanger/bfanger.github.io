@@ -1,14 +1,15 @@
 <template>
-  <nuxt-link 
-    :to="to" 
-    :class="['nav-button--' + type, {'nav-button--hover': hover}]"
+  <nuxt-link
+    :to="to"
+    :class="['nav-button--' + type, { 'nav-button--hover': hover }]"
     class="nav-button"
     @mouseenter.native="hover = true"
     @mouseleave.native="hover = false"
     @touchstart.native="touchstart"
     @touchend.native="touchend"
-    @touchmove.native="touchmove">
-    <div class="nav-button__label"><slot/></div>
+    @touchmove.native="touchmove"
+  >
+    <div class="nav-button__label"><slot /></div>
   </nuxt-link>
 </template>
 
