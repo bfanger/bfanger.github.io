@@ -5,23 +5,13 @@
       window.Promise ||
         document.write(
           "<" +
-            'script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></' +
+            'script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js"></' +
             "script>"
         );
     </script>
-    {{ HEAD }}
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-7098662-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "UA-7098662-1", { anonymize_ip: true });
-    </script>
+    {{
+      HEAD
+    }}
   </head>
 
   <body {{ BODY_ATTRS }}>

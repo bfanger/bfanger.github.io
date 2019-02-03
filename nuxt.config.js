@@ -20,6 +20,12 @@ module.exports = {
       { name: "theme-color", content: "#5c53e2" }
     ]
   },
+  "google-analytics": {
+    id: "UA-7098662-1",
+    beforeFirstHit() {
+      this.$vue.$ga.set("anonymizeIp", true);
+    }
+  },
   loading: false,
   serverMiddleware: [{ path: "/api/projects", handler: "~/api/projects.js" }],
   build: {
@@ -30,7 +36,7 @@ module.exports = {
       });
     }
   },
-  modules: ["@nuxtjs/sitemap"],
+  modules: ["@nuxtjs/sitemap", "@nuxtjs/google-analytics"],
   sitemap: {
     hostname: "https://bfanger.nl",
     generate: true,
