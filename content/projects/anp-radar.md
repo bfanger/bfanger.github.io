@@ -9,4 +9,5 @@ tags:
   - vuex
 ---
 
-Een tool waarmee bedrijven nieuws van diverse bronnen kunnen zoeken. Nieuwsbrieven kunnen samenstellen en analyses kunnen maken. Ik was bij het nieuwsbrief gedeelte betrokken.
+Een tool waarmee bedrijven nieuws van diverse bronnen kunnen zoeken. Nieuwsbrieven kunnen samenstellen en analyses kunnen maken.
+Ik was bij het nieuwsbrief gedeelte betrokken.

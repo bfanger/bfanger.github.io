@@ -3,9 +3,9 @@ title: Philips - Integrity challenge
 employer: noprotocol
 type: campagne website
 tags:
-- socialcast
-- angularjs
-- quiz
+  - socialcast
+  - angularjs
+  - quiz
 image: integrity-challenge.png
 released: 2014-06
 ---

@@ -2,8 +2,8 @@
 title: Alex - Mijn Beurswaarde
 employer: noprotocol
 tags:
-- linkedin
-- backend
+  - linkedin
+  - backend
 released: "2011"
 image: mijnbeurswaarde.png
 alt: Mijn Beurswaarde

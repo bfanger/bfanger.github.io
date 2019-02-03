@@ -2,9 +2,9 @@
 title: C1000 - Je weet nu!
 employer: noprotocol
 tags:
-- greensock
-- tweenmax
-- backbonejs
+  - greensock
+  - tweenmax
+  - backbonejs
 released: "2013"
 image: c1000-je-weet-nu.png
 alt: C1000 - je weet nu

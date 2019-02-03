@@ -2,9 +2,9 @@
 title: Taxi2Airport App
 employer: noprotocol
 tags:
-- react-native
-- redux
-- redux-saga
+  - react-native
+  - redux
+  - redux-saga
 image: taxi2airport.png
 alt: Taxi2Airport
 released: "2017-10"

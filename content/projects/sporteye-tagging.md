@@ -2,11 +2,11 @@
 title: Sporteye Tagging
 employer: noprotocol
 tags:
-- ffmpeg
-- hls
-- websockets
-- angular
-- rxjs
+  - ffmpeg
+  - hls
+  - websockets
+  - angular
+  - rxjs
 image: sporteye-tagging.png
 alt: Sporteye Interface
 released: "2017"

@@ -3,12 +3,12 @@ title: Sporteye.TV
 employer: noprotocol
 type: webapp
 tags:
-- angularjs
-- nodejs
-- dropbox
-- youtube
-- heroku
-- bootstrap
+  - angularjs
+  - nodejs
+  - dropbox
+  - youtube
+  - heroku
+  - bootstrap
 image: sporteye.png
 released: 2014-07
 ---

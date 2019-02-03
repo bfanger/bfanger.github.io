@@ -1,10 +1,10 @@
 ---
 title: DebugR
-opensource: true 
+opensource: true
 tags:
-- ajax
-- spa
-- debug
+  - ajax
+  - spa
+  - debug
 image: debugr.png
 alt: DebugR
 released: "2012"

@@ -3,8 +3,8 @@ title: Philips - Brand journey
 employer: noprotocol
 type: campagne website
 tags:
-- dasky timeline
-- kaltura
+  - dasky timeline
+  - kaltura
 image: philips-brand-journey.png
 released: 2014-11
 ---

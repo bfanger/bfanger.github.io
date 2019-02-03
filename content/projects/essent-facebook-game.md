@@ -2,9 +2,9 @@
 title: Essent - Facebook Game
 employer: noprotocol
 tags:
-- quiz
-- backbonejs
-- cakephp
+  - quiz
+  - backbonejs
+  - cakephp
 image: essent.png
 alt: Essent
 released: "2013"

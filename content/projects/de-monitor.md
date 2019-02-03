@@ -2,7 +2,7 @@
 title: KRO/NCRV - De Monitor
 employer: noprotocol
 tags:
-- vue
+  - vue
 image: de-monitor.png
 released: "2018-03"
 ---

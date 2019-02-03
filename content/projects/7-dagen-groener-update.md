@@ -1,13 +1,13 @@
 ---
 title: NPO 7 dagen groener - Update
 tags:
-- ionic
-- angular
-- rxjs
-- greensock
-- ios
-- android
-- cordova
+  - ionic
+  - angular
+  - rxjs
+  - greensock
+  - ios
+  - android
+  - cordova
 type: hybrid app
 employer: noprotocol
 released: 2016-09
@@ -17,6 +17,7 @@ image: 7-dagen-groener-update.png
 Een update aan de bestaande NPO 7 dagen groener [iOS](https://itunes.apple.com/nl/app/id987939197?mt=8) / [android](https://play.google.com/store/apps/details?id=nl.omroep.groen) app.
 
 Nieuwe features:
+
 - Challenges zijn ingedeeld in 3 moeilijkheidsgraden
 - Aantal categorien is teruggebracht van 6 naar 3
 - Challenges per week zijn beperkt tot 1 categorie

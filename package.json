@@ -38,11 +38,11 @@
     "ascii-progress": "^1.0.5",
     "babel-eslint": "^10.0.1",
     "batch-promises": "^0.0.3",
-    "eslint": "^5.1.0",
+    "eslint": "^5.13.0",
     "eslint-config-esnext": "^4.0.0",
-    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-only-warn": "^1.0.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-vue": "^5.1.0",
@@ -51,18 +51,19 @@
     "imagemin-pngquant": "^7.0.0",
     "node-fetch": "^2.1.2",
     "node-sass": "^4.9.2",
-    "nuxt": "^2.3.4",
-    "prettier": "^1.13.7",
-    "sass-loader": "^7.0.3"
-  },
-  "dependencies": {
+    "nuxt": "^2.4.2",
+    "prettier": "^1.16.3",
+    "sass-loader": "^7.0.3",
     "commonmark": "^0.28.1",
     "gray-matter": "^4.0.1",
     "image-size": "^0.7.1",
     "lodash": "^4.17.5"
   },
+  "resolutions": {
+    "terser": "3.14.1"
+  },
   "peerDependencies": {
-    "vue": "^2.5.13",
-    "vuex": "^3.0.1"
+    "vue": "^2.5.22",
+    "vuex": "^3.1.0"
   }
 }

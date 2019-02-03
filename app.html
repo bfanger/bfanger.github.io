@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
+  <head>
+    <script>
+      window.Promise ||
+        document.write(
+          "<" +
+            'script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></' +
+            "script>"
+        );
+    </script>
+    {{ HEAD }}
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-7098662-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-7098662-1", { anonymize_ip: true });
+    </script>
+  </head>
 
-<head>
-  <script>
-    window.Promise || document.write('<' + 'script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></' + 'script>');
-  </script> {{ HEAD }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7098662-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'UA-7098662-1', { 'anonymize_ip': true });
-  </script>
-
-</head>
-
-<body {{ BODY_ATTRS }}>
-  {{ APP }}
-</body>
-
+  <body {{ BODY_ATTRS }}>
+    {{ APP }}
+  </body>
 </html>

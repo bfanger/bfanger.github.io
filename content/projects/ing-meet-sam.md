@@ -2,8 +2,8 @@
 title: ING - Meet Sam
 employer: noprotocol
 tags:
-- angularjs
-- videojs
+  - angularjs
+  - videojs
 image: ing-meet-sam.png
 alt: ING - Meet SAM
 released: "2013"

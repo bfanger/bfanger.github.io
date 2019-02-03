@@ -1,9 +1,9 @@
 ---
 employer: noprotocol
 tags:
-- backbonejs
-- sass
-- rwd
+  - backbonejs
+  - sass
+  - rwd
 title: Grand'italia.nl
 image: granditalia-rwd.png
 alt: Granditalia

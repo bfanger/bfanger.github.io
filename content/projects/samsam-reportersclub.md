@@ -4,12 +4,12 @@ title: Samsam ReportersClub
 employer: noprotocol
 type: hybrid app
 tags:
-- ionic
-- angular
-- greensock
-- ios
-- android
-- cordova
+  - ionic
+  - angular
+  - greensock
+  - ios
+  - android
+  - cordova
 image: samsam-reportersclub.jpg
 ---
 

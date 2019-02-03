@@ -2,9 +2,9 @@
 title: Opscode Chef
 employer: noprotocol
 tags:
-- linux
-- cloud
-- ruby
+  - linux
+  - cloud
+  - ruby
 image: chef.png
 alt: Chef
 released: "2012"

@@ -2,9 +2,9 @@
 title: "Albert Hein - Moestuintje App"
 employer: noprotocol
 tags:
-- angular2
-- ionic2
-- cordova
+  - angular2
+  - ionic2
+  - cordova
 released: 2017-04
 image: ah-moestuintje.jpg
 alt: AH Moestuintje

@@ -4,10 +4,10 @@ employer: noprotocol
 released: 2016-01
 type: wifi welkoms pagina
 tags:
-- threejs
-- blender
-- 3d
-- webgl
+  - threejs
+  - blender
+  - 3d
+  - webgl
 image: coca-cola-wifi.png
 ---
 

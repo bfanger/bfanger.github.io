@@ -1,12 +1,12 @@
 ---
 title: NPO 7 dagen groener
 tags:
-- ionic
-- angular
-- greensock
-- ios
-- android
-- cordova
+  - ionic
+  - angular
+  - greensock
+  - ios
+  - android
+  - cordova
 type: hybrid app
 employer: noprotocol
 released: 2015-04

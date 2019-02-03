@@ -4,10 +4,10 @@ employer: noprotocol
 released: 2016-10
 type: website
 tags:
-- webgl
-- panorama
-- gear360
-- krpano
+  - webgl
+  - panorama
+  - gear360
+  - krpano
 image: brandpunt360.png
 ---
 

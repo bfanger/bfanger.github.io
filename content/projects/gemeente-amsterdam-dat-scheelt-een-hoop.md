@@ -3,9 +3,9 @@ title: Gemeente Amsterdam - Dat scheelt een hoop
 employer: noprotocol
 type: campagne website
 tags:
-- angularjs
-- svg
-- animatie
+  - angularjs
+  - svg
+  - animatie
 image: dat-scheelt-een-hoop.png
 released: 2014-08
 ---

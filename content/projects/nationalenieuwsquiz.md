@@ -4,10 +4,10 @@ employer: noprotocol
 released: 2017-01
 type: quiz
 tags:
-- vue
-- responsive
-- facebook
-- quiz
+  - vue
+  - responsive
+  - facebook
+  - quiz
 image: nationalenieuwsquiz.png
 ---
 

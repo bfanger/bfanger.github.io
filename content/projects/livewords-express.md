@@ -9,4 +9,5 @@ tags:
   - vuex
 ---
 
-Vlak na de livegang van de nieuwe design, was de xpresstool aan de beurt, naast een verbeterde flow zijn er met name werkzaamheden verricht "onder de motorkap". Hierdoor is het nu duidelijk inzichtelijk of het problemen bij het NoProtocol gedeelte liggen of bij het gedeelte van de andere technische partij.
+Vlak na de livegang van de nieuwe design, was de xpresstool aan de beurt, naast een verbeterde flow zijn er met name werkzaamheden verricht onder de motorkap.
+Hierdoor is het nu duidelijk inzichtelijk of het problemen bij het NoProtocol gedeelte (frontend) liggen of bij het gedeelte van de andere technische partij (backend).

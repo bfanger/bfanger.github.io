@@ -4,10 +4,10 @@ released: "2018-02-18"
 employer: noprotocol
 image: ah-moestuintje.jpg
 tags:
-- ionic
-- typescript
-- angular
-- cordova
+  - ionic
+  - typescript
+  - angular
+  - cordova
 ---
 
 De app is aangepast voor het nieuwe seizoen en bijgewerkt naar de nieuwe ionic versie, waardoor de iPhone X nu ook ondersteund word.

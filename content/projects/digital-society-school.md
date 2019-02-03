@@ -2,9 +2,9 @@
 title: Digital Society School
 employer: noprotocol
 tags:
-- wordpress
-- vue
-- animation
+  - wordpress
+  - vue
+  - animation
 image: digital-society-school.png
 released: "2018-07"
 ---
