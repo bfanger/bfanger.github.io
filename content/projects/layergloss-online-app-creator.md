@@ -12,4 +12,4 @@ alt: Layergloss - Online App Creator
 ---
 
 De [Online App Creator](http://www.layergloss.com/app/) is een webapp waarmee je gezamelijk een iPad applicatie kunt bouwen op basis van voorgedefineerde templates.
-Voor dit project heb ik o.a. [Backbone.js](http://backbonejs.com/) gebruikt.
+Voor dit project heb ik o.a. [Backbone.js](http://backbonejs.org/) gebruikt.

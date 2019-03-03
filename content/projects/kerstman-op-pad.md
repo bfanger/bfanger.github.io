@@ -9,4 +9,4 @@ alt: Kerstman op pad
 released: "2011"
 ---
 
-Ik ben aan het [Kerstmanoppad.nl](http://www.kerstmanoppad.nl/) toegevoegd om een aantal pagina's te stylen en client-side validatie toe te voegen.
+Ik heb voor het Kerstmanoppad project client-side validatie toegevoegd aan het meedoen formulier en heb een aantal pagina's van styling voorzien.

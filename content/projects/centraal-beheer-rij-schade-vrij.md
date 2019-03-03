@@ -9,4 +9,4 @@ alt: Rij schadevrij
 released: "2013"
 ---
 
-[centraalbeheer.nl/schadevrijrijden](http://centraalbeheer.nl/schadevrijrijden) is een speelse variatie op een enquette formulier
+De minisite schadevrijrijden op centraalbeheer.nl is een speelse variatie op een enquette formulier.
