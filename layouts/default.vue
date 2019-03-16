@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="default-layout">
     <img
       ref="background"
       :style="{ opacity }"
-      class="page__background"
+      class="default-layout__background"
       src="../assets/images/millennial-colors.jpg"
       draggable="false"
       @load="loaded"
     />
-    <nuxt class="page__body" />
+    <nuxt class="default-layout__body" />
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
 <style lang="scss">
 @import "./main.scss";
 
-.page__background {
+.default-layout__background {
   position: fixed;
   top: 0;
   left: 50%;
@@ -51,7 +51,7 @@ export default {
     width: 200%;
   }
 }
-.page__body {
+.default-layout__body {
   position: relative;
 }
 </style>

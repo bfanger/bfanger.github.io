@@ -33,13 +33,13 @@
     }
   },
   "devDependencies": {
-    "@nuxtjs/sitemap": "^0.2.0",
+    "@nuxtjs/sitemap": "^0.2.2",
     "@vue/eslint-config-prettier": "^4.0.1",
     "ascii-progress": "^1.0.5",
     "babel-eslint": "^10.0.1",
     "batch-promises": "^0.0.3",
     "commonmark": "^0.28.1",
-    "eslint": "^5.15.0",
+    "eslint": "^5.15.2",
     "eslint-config-esnext": "^4.0.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-babel": "^5.1.0",
@@ -59,15 +59,13 @@
     "prettier": "^1.16.4",
     "sass-loader": "^7.0.3"
   },
-  "resolutions": {
-    "terser": "3.14.1"
-  },
   "peerDependencies": {
     "vue": "^2.5.22",
     "vuex": "^3.1.0"
   },
   "dependencies": {
-    "@nuxtjs/google-analytics": "^2.1.0",
-    "terser": "3.16.1"
+    "@nuxtjs/google-analytics": "^2.2.0",
+    "async-mqtt": "^2.2.0",
+    "mapbox-gl": "^0.53.1"
   }
 }

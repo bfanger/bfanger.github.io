@@ -42,23 +42,27 @@ async function main() {
       }
     };
   }
-  await batchPromises(os.cpus().length * 2, images, async image => {
-    const source = await stat(image.filepath);
-    const target = await stat(outputDir + "/" + image.filename).catch(() => ({
-      mtime: new Date(0)
-    }));
-    if (source.mtime > target.mtime) {
-      // Generated image is out-of-date or doesn't exist.
-      await imagemin([image.filepath], outputDir, {
-        plugins: [
-          imageminJpegoptim({ max: 85 }),
-          imageminPngquant({ quality: "65-85" })
-        ]
-      });
-    }
-    bar.tick(1, { file: image.filename });
-  });
-  process.stderr.write("\n");
+  try {
+    await batchPromises(os.cpus().length * 2, images, async image => {
+      const source = await stat(image.filepath);
+      const target = await stat(outputDir + "/" + image.filename).catch(() => ({
+        mtime: new Date(0)
+      }));
+      if (source.mtime > target.mtime) {
+        // Generated image is out-of-date or doesn't exist.
+        await imagemin([image.filepath], outputDir, {
+          plugins: [
+            imageminJpegoptim({ max: 85 }),
+            imageminPngquant({ quality: [0.65, 0.85] })
+          ]
+        });
+      }
+      bar.tick(1, { file: image.filename });
+    });
+    process.stderr.write("\n");
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 main();
