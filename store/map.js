@@ -1,9 +1,11 @@
+import Vue from "vue";
 import mqtt from "../services/mqtt";
 
 export function state() {
   return {
     mapbox_token: "",
-    locations: []
+    locations: [],
+    persons: {}
   };
 }
 export const actions = {
@@ -34,6 +36,7 @@ export const actions = {
     const listener = buffer => {
       const latlng = JSON.parse(buffer.toString());
       commit("locations", [latlng]);
+      commit("person", { id: "charlie", ...latlng });
     };
     await mqtt.subscribe("sensors/gps/charlie", listener);
     return async function unsubscribe() {
@@ -48,5 +51,14 @@ export const mutations = {
   },
   locations(state, locations) {
     state.locations.unshift(...locations);
+  },
+  person(state, person) {
+    const ago = Math.abs(
+      new Date().getTime() - new Date(person.time).getTime()
+    );
+    console.log(ago);
+    if (ago < 600000) {
+      Vue.set(state.persons, person.id, person);
+    }
   }
 };

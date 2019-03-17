@@ -4,6 +4,7 @@
 
 <script>
 import { mapState } from "vuex";
+import markerCharlie from "../assets/images/marker-charlie.png";
 
 function injectCss() {
   if (!injectCss.promise) {
@@ -24,12 +25,17 @@ export default {
   },
   computed: {
     ...mapState({
-      locations: state => state.map.locations
+      locations: state => state.map.locations,
+      persons: state => state.map.persons
     })
   },
   watch: {
     locations: {
       handler: "updateLine",
+      deep: true
+    },
+    persons: {
+      handler: "updateMarkers",
       deep: true
     }
   },
@@ -53,7 +59,9 @@ export default {
       center: last,
       zoom: 13.5
     });
-    this.geojson = {
+    this.map = map;
+    this.markers = {};
+    this.lines = {
       type: "FeatureCollection",
       features: [
         {
@@ -65,6 +73,7 @@ export default {
         }
       ]
     };
+
     map.on("load", () => {
       map.addLayer({
         id: "lines",
@@ -79,12 +88,12 @@ export default {
         },
         source: {
           type: "geojson",
-          data: this.geojson
+          data: this.lines
         }
       });
-      this.ready = true;
+      this.ready = mapboxgl;
+      this.updateMarkers(this.persons);
     });
-    this.map = map;
     this.$store.dispatch("map/updates");
   },
   methods: {
@@ -96,11 +105,32 @@ export default {
       if (!source) {
         return;
       }
-      this.geojson.features[0].geometry.coordinates = locations.map(l => [
+      this.lines.features[0].geometry.coordinates = locations.map(l => [
         l.lng,
         l.lat
       ]);
-      this.map.getSource("lines").setData(this.geojson);
+      this.map.getSource("lines").setData(this.lines);
+    },
+    updateMarkers(persons) {
+      if (!this.ready) {
+        return;
+      }
+      const { Marker } = this.ready;
+      for (const person of Object.values(persons)) {
+        if (this.markers[person.id]) {
+          this.markers[person.id].setLngLat([person.lng, person.lat]);
+        } else {
+          const icon = document.createElement("img");
+          icon.src = markerCharlie;
+          icon.className = "gps-map__marker";
+          const marker = new Marker({ element: icon, anchor: "bottom" });
+          marker.setLngLat([person.lng, person.lat]);
+          marker.addTo(this.map);
+          this.markers[person.id] = marker;
+        }
+        console.log(this.markers[person.id]);
+      }
+      console.log();
     }
   }
 };
@@ -115,5 +145,8 @@ export default {
   height: 100%;
   z-index: 1;
   background: #e6e4e0;
+}
+.gps-map__marker {
+  width: 37px;
 }
 </style>
