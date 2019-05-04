@@ -3,7 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const { promisify } = require("util");
-const ProgressBar = require("ascii-progress");
+const ProgressBar = require("progress");
 const batchPromises = require("batch-promises");
 const imagemin = require("imagemin");
 const imageminJpegoptim = require("imagemin-jpegoptim");
@@ -30,10 +30,12 @@ async function main() {
   }
   let bar;
   if (process.stdin.isTTY) {
-    bar = new ProgressBar({
-      schema: " [:bar] :current/:total :percent :elapseds :etas :file",
-      total: images.length
-    });
+    bar = new ProgressBar(
+      " [:bar] :current/:total :percent :elapseds :etas :file",
+      {
+        total: images.length
+      }
+    );
   } else {
     process.stderr.write("Optimizing " + images.length + " images\n");
     bar = {

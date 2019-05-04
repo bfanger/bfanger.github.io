@@ -39,7 +39,6 @@ module.exports = {
   modules: ["@nuxtjs/sitemap", "@nuxtjs/google-analytics"],
   sitemap: {
     hostname: "https://bfanger.nl",
-    generate: true,
     routes
   },
   generate: {

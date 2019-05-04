@@ -56,7 +56,6 @@ export const mutations = {
     const ago = Math.abs(
       new Date().getTime() - new Date(person.time).getTime()
     );
-    console.log(ago);
     if (ago < 600000) {
       Vue.set(state.persons, person.id, person);
     }
