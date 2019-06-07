@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-const connect = require("connect");
 const http = require("http");
+const connect = require("connect");
 const projects = require("./projects");
 const app = connect();
 

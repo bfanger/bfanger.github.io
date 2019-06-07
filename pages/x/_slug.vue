@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable vue/no-v-html -->
   <div class="project">
     <h4 class="project__date"></h4>
     <h1 class="project__title">{{ project.title }}</h1>

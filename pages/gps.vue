@@ -1,5 +1,5 @@
 <template>
-  <GpsMap v-if="mapbox_token" :token="mapbox_token" />
+  <GpsMap v-if="mapboxToken" :token="mapboxToken" />
   <form v-else @submit.prevent="login">
     <input v-model="username" type="text" />
     <input v-model="password" type="password" />
@@ -19,7 +19,7 @@ export default {
   }),
   computed: {
     ...mapState({
-      mapbox_token: state => state.map.mapbox_token
+      mapboxToken: state => state.map.mapboxToken
     })
   },
   async mounted() {

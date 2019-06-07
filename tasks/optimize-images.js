@@ -63,7 +63,7 @@ async function main() {
     });
     process.stderr.write("\n");
   } catch (err) {
-    console.error(err);
+    console.error(err); // eslint-disable-line no-console
   }
 }
 

@@ -8,7 +8,7 @@ const outputDir = path.join(__dirname, "../dist/api/");
 
 const writeFile = promisify(fs.writeFile);
 
-async function main() {
+function main() {
   const info = fs.existsSync(outputDir);
   if (info === false) {
     fs.mkdirSync(outputDir);

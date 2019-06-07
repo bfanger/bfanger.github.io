@@ -1,11 +1,10 @@
-/* eslint-disable import/no-commonjs */
 async function routes() {
   const projectsModel = require("./api/projects");
   const projects = await projectsModel.allProjects();
   global.__bfanger_projects = projects;
   return projects.map(project => "/projects/" + project.slug);
 }
-module.exports = {
+export default {
   head: {
     title: "BFanger.nl",
     htmlAttrs: {

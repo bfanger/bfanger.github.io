@@ -3,7 +3,7 @@ import mqtt from "../services/mqtt";
 
 export function state() {
   return {
-    mapbox_token: "",
+    mapboxToken: "",
     locations: [],
     persons: {}
   };
@@ -18,8 +18,8 @@ export const actions = {
       password
     });
 
-    const mapbox_token = await mqtt.rpc("mapbox_token");
-    commit("authenticated", mapbox_token.toString());
+    const mapboxToken = await mqtt.rpc("mapbox_token");
+    commit("authenticated", mapboxToken.toString());
   },
 
   async history({ commit }, last = "8h") {
@@ -46,8 +46,8 @@ export const actions = {
 };
 
 export const mutations = {
-  authenticated(state, mapbox_token) {
-    state.mapbox_token = mapbox_token;
+  authenticated(state, mapboxToken) {
+    state.mapboxToken = mapboxToken;
   },
   locations(state, locations) {
     state.locations.unshift(...locations);

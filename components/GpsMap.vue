@@ -42,10 +42,9 @@ export default {
   async mounted() {
     const cssPromise = injectCss();
     const historyPromise = this.$store.dispatch("map/history");
-    const {
-      Map,
-      default: mapboxgl
-    } = await import("mapbox-gl/dist/mapbox-gl.js");
+    const { Map, default: mapboxgl } = await import(
+      "mapbox-gl/dist/mapbox-gl.js"
+    );
     mapboxgl.accessToken = this.token;
     await historyPromise;
     let last = this.locations[0];
@@ -128,9 +127,7 @@ export default {
           marker.addTo(this.map);
           this.markers[person.id] = marker;
         }
-        console.log(this.markers[person.id]);
       }
-      console.log();
     }
   }
 };

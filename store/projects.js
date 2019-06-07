@@ -14,7 +14,7 @@ export const actions = {
     commit("fetched", items);
   },
 
-  async cached({ state, dispatch }, slug) {
+  cached({ state, dispatch }, slug) {
     if (state.entities[slug]) {
       return state.entities[slug];
     }

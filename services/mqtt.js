@@ -8,14 +8,19 @@
  */
 
 const debug = false;
-let ready = Promise.reject(new Error("not connected"));
-ready.catch(() => {});
+let connectPromise;
+function ready() {
+  if (connectPromise) {
+    return connectPromise;
+  }
+  return Promise.reject(new Error("not connected"));
+}
 
 export default {
   listeners: {},
   async connect(options) {
     const { connect } = await import("async-mqtt");
-    ready = new Promise((resolve, reject) => {
+    connectPromise = new Promise((resolve, reject) => {
       const client = connect(options);
       let connected = false;
       client.on("connect", () => {
@@ -47,11 +52,11 @@ export default {
         }
       });
     });
-    return await ready;
+    return connectPromise;
   },
 
   async subscribe(topic, callback) {
-    const mqtt = await ready;
+    const mqtt = await ready();
     this.listeners[topic] = this.listeners[topic] || [];
     this.listeners[topic].push(callback);
     if (this.listeners[topic].length === 1) {
@@ -72,13 +77,13 @@ export default {
       }
     }
     if (last) {
-      const mqtt = await ready;
+      const mqtt = await ready();
       mqtt.unsubscribe(topic);
     }
   },
 
   async publish(topic, payload) {
-    const mqtt = await ready;
+    const mqtt = await ready();
     return mqtt.publish(topic, payload);
   },
 
@@ -98,8 +103,8 @@ export default {
 
 function guid() {
   return "xxxxxxxxxxxxxxxx".replace(/[xy]/g, function(c) {
-    var r = (Math.random() * 16) | 0,
-      v = c == "x" ? r : (r & 0x3) | 0x8;
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
