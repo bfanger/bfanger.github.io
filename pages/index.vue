@@ -5,6 +5,7 @@
     <transition name="homepage__card">
       <Card v-show="cardVisible" class="homepage__card">
         <img src="../assets/images/avatar.jpg" class="homepage__avatar" />
+        <Avatar class="homepage__avatar" />
         <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
         <p>
           Ik ben een webdeveloper bij
@@ -26,8 +27,9 @@
       class="homepage__next"
       type="next"
       to="/portfolio"
-      >Portfolio</NavButton
     >
+      Portfolio
+    </NavButton>
   </div>
 </template>
 
@@ -35,9 +37,10 @@
 import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
 import NavButton from "../components/NavButton.vue";
+const Avatar = () => import("../components/Avatar.vue");
 
 export default {
-  components: { Intro, Card, NavButton },
+  components: { Intro, Card, NavButton, Avatar },
   data() {
     return {
       cardVisible:
@@ -64,18 +67,18 @@ export default {
   @include fluid-property(font-size, 22px, 32px);
 }
 .homepage__avatar {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   border: 4px solid white;
   box-shadow: 4px 4px 40px rgba(black, 0.2);
   position: absolute;
   top: calc(100% - 10px);
-  left: -120px;
+  left: -140px;
   @media (max-width: 730px) {
     top: auto;
     bottom: calc(100% + 20px);
-    left: calc(50% - 60px);
+    left: calc(50% - 90px);
   }
 }
 .homepage__card-enter-active {

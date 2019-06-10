@@ -66,12 +66,15 @@
     "node-fetch": "^2.6.0",
     "node-sass": "4.12.0",
     "nuxt": "^2.8.1",
-    "prettier": "^1.18.0",
+    "prettier": "^1.18.2",
     "progress": "^2.0.3",
     "sass-loader": "^7.0.3"
   },
   "peerDependencies": {
     "vue": "^2.5.22",
     "vuex": "^3.1.0"
+  },
+  "dependencies": {
+    "three": "^0.105.2"
   }
 }

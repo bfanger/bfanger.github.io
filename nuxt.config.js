@@ -28,6 +28,7 @@ export default {
   loading: false,
   serverMiddleware: [{ path: "/api/projects", handler: "~/api/projects.js" }],
   build: {
+    transpile: ["three/examples/jsm/loaders/GLTFLoader"],
     extend(config) {
       config.module.rules.push({
         test: /\.mp3$/,
