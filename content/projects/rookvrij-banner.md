@@ -8,4 +8,4 @@ tags:
   - gsap
 ---
 
-Op de campagne site van rookvrij kun je nu ook een banner maken voor op de website van jouw school, sportclub of speelplaats.
+Op de campagne site van rookvrij kun je nu ook een banner maken voor op de website van jouw sportclub, school of speelplaats.

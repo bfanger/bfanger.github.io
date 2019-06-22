@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <Card>
+  <Card :slide="slideDirection">
     <div ref="content" class="project-card">
       <h1 class="project-card__title">{{ project.title }}</h1>
       <img
@@ -15,7 +15,9 @@
       />
       <div v-html="project.description" />
       <div class="project-card__footer">
-        <nuxt-link to="/portfolio">&lt; Terug naar portfolio</nuxt-link>
+        <nuxt-link to="/portfolio" @mousedown="slide('right')">
+          &lt; Terug naar portfolio
+        </nuxt-link>
         <span class="project-card__release-date">{{ releaseDate }}</span>
       </div>
     </div>
@@ -23,6 +25,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import Card from "./Card.vue";
 
 const months = [
@@ -51,6 +54,7 @@ export default {
     height: "auto"
   }),
   computed: {
+    ...mapState("transition", ["slideDirection"]),
     releaseDate() {
       const [, year, , month] = this.project.released.match(
         /^([0-9]{4})(-([0-9]{2}))?(-([0-9]{2}))?$/

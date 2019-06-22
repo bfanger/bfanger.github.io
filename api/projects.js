@@ -4,7 +4,7 @@ const fs = require("fs");
 const matter = require("gray-matter");
 const commonmark = require("commonmark");
 const sizeOf = require("image-size");
-const sortBy = require("lodash/sortBy");
+const orderBy = require("lodash/orderBy");
 
 const reader = new commonmark.Parser();
 const writer = new commonmark.HtmlRenderer();
@@ -41,10 +41,11 @@ async function allProjects() {
       projects.push(project);
     }
   }
-  const sortedProjects = sortBy(
+  const sortedProjects = orderBy(
     projects,
-    project => project.released
-  ).reverse();
+    ["released", "title"],
+    ["desc", "asc"]
+  );
   for (const i in sortedProjects) {
     const project = sortedProjects[i];
     if (i === "0") {

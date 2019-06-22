@@ -1,6 +1,6 @@
 <template>
   <footer class="project-disclaimer">
-    Projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+    Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
     werkgevers en zijn de concept &amp; design fases reeds door overige partijen
     uitgevoerd.
   </footer>
@@ -8,9 +8,15 @@
 
 <style lang="scss">
 .project-disclaimer {
-  font-size: smaller;
+  display: block;
+  padding-top: 15px;
+  font-size: 12px;
   color: white;
   text-align: center;
-  padding: 0 20px 5px;
+
+  @media (max-width: 880px) {
+    margin-top: auto;
+    font-size: 9px;
+  }
 }
 </style>

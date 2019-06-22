@@ -27,6 +27,7 @@
       class="homepage__next"
       type="next"
       to="/portfolio"
+      @mousedown="slide('left')"
     >
       Portfolio
     </NavButton>
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import Intro from "../components/Intro.vue";
 import Card from "../components/Card.vue";
 import NavButton from "../components/NavButton.vue";
@@ -48,6 +50,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions("transition", ["slide"]),
     showCard() {
       window.bf_intro_shown = true;
       this.cardVisible = true;
@@ -61,6 +64,7 @@ export default {
 
 .homepage__card {
   position: relative;
+  width: auto;
   border-radius: 50px !important;
 }
 .homepage__title {
@@ -71,7 +75,7 @@ export default {
   height: 180px;
   border-radius: 50%;
   border: 4px solid white;
-  box-shadow: 4px 4px 40px rgba(black, 0.2);
+  box-shadow: -2px 4px 20px rgba(black, 0.1);
   position: absolute;
   top: calc(100% - 10px);
   left: -140px;

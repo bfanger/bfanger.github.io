@@ -26,7 +26,7 @@ export default {
       this.avatar = gltf.scene.children[3];
       this.avatar.position.x += 0.2;
       this.avatar.position.y += 0;
-      this.avatar.material.anisotropy = this.renderer.getMaxAnisotropy();
+      this.avatar.material.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
       this.scene.add(this.avatar);
 
       this.camera.lookAt(new Vector3(0, 0, 0));

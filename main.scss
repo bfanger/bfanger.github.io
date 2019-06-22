@@ -1,34 +1,35 @@
-@import "../util";
+@import "./util.scss";
 
-@font-face {
-  font-family: "Raleway";
-  src: local("Raleway Light"),
-    url("../assets/fonts/raleway-light.woff2") format("woff2"),
-    url("../assets/fonts/raleway-light.woff") format("woff");
-  font-weight: 300;
-}
+// @font-face {
+//   font-family: "Raleway";
+//   src: local("Raleway Light"),
+//     url("./assets/fonts/raleway-light.woff2") format("woff2"),
+//     url("./assets/fonts/raleway-light.woff") format("woff");
+//   font-weight: 300;
+// }
 
 @font-face {
   font-family: "Titillium Web";
   src: local("Titillium Web24 Light"),
-    url("../assets/fonts/titillium-web-light.woff2") format("woff2"),
-    url("../assets/fonts/titillium-web-light.woff") format("woff");
+    url("./assets/fonts/titillium-web-light.woff2") format("woff2"),
+    url("./assets/fonts/titillium-web-light.woff") format("woff");
   font-weight: 300;
 }
 
 html {
   font: 300 10px/1.4 "Titillium Web", sans-serif;
+  height: 100%;
 }
 body {
   background: #5c6ae4;
   color: #333;
   margin: 0;
   font-size: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  min-height: 100%;
+}
+#__nuxt,
+#__layout {
+  display: inline;
 }
 h1,
 h2,

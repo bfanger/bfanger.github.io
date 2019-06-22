@@ -3,6 +3,7 @@
     :to="to"
     :class="['nav-button--' + type, { 'nav-button--hover': hover }]"
     class="nav-button"
+    @mousedown.native="$emit('mousedown', $event)"
     @mouseenter.native="hover = true"
     @mouseleave.native="hover = false"
     @touchstart.native="touchstart"

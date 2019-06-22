@@ -19,6 +19,7 @@ export default {
       { name: "theme-color", content: "#5c53e2" }
     ]
   },
+  css: ["main.scss"],
   "google-analytics": {
     id: "UA-7098662-1",
     beforeFirstHit() {

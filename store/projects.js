@@ -1,5 +1,5 @@
 import Vue from "vue";
-import { sortBy } from "lodash";
+import orderBy from "lodash/orderBy";
 import api from "../services/api";
 
 export const strict = true;
@@ -49,7 +49,11 @@ export const getters = {
   groupedByYear(state) {
     const byYear = [];
     const collected = {};
-    const sorted = sortBy(Object.values(state.entities), "released").reverse();
+    const sorted = orderBy(
+      Object.values(state.entities),
+      ["released", "title"],
+      ["desc", "asc"]
+    );
     for (const project of sorted) {
       if (!project.released) {
         console.warn("No release date", project); // eslint-disable-line no-console
@@ -65,10 +69,5 @@ export const getters = {
       }
     }
     return byYear;
-  },
-  recent(state) {
-    return sortBy(Object.values(state.entities), "released")
-      .reverse()
-      .slice(0, 5);
   }
 };
