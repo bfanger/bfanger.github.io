@@ -1,24 +1,15 @@
 <template>
-  <div ref="container" class="gps-map" />
+  <div class="gps-map">
+    <div ref="placeholder" class="gps-map__placeholder" />
+  </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import mapboxgl, { Map } from "mapbox-gl/dist/mapbox-gl.js";
+import "mapbox-gl/dist/mapbox-gl.css";
 import markerCharlie from "../assets/images/marker-charlie.png";
 
-function injectCss() {
-  if (!injectCss.promise) {
-    injectCss.promise = new Promise((resolve, reject) => {
-      const link = document.createElement("link");
-      link.href = "https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css";
-      link.rel = "stylesheet";
-      link.onload = resolve;
-      link.onerror = reject;
-      document.head.appendChild(link);
-    });
-  }
-  return injectCss.promise;
-}
 export default {
   props: {
     token: { type: String, required: true }
@@ -40,20 +31,15 @@ export default {
     }
   },
   async mounted() {
-    const cssPromise = injectCss();
     const historyPromise = this.$store.dispatch("map/history");
-    const { Map, default: mapboxgl } = await import(
-      "mapbox-gl/dist/mapbox-gl.js"
-    );
     mapboxgl.accessToken = this.token;
     await historyPromise;
     let last = this.locations[0];
     if (!last) {
       last = { lat: 52.490033, lng: 4.760233 };
     }
-    await cssPromise;
     const map = new Map({
-      container: this.$refs.container,
+      container: this.$refs.placeholder,
       style: "mapbox://styles/mapbox/streets-v11",
       center: last,
       zoom: 13.5
@@ -138,10 +124,15 @@ export default {
   position: fixed !important;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 1;
   background: #e6e4e0;
+  padding: 0;
+}
+.gps-map__placeholder {
+  width: 100vw;
+  height: 100vh;
 }
 .gps-map__marker {
   width: 37px;

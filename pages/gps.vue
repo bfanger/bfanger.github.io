@@ -9,10 +9,9 @@
 
 <script>
 import { mapState } from "vuex";
-import GpsMap from "../components/GpsMap.vue";
 
 export default {
-  components: { GpsMap },
+  components: { GpsMap: () => import("../components/GpsMap.vue") },
   data: () => ({
     username: "",
     password: ""

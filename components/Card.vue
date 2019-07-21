@@ -38,7 +38,7 @@ export default {
 .v-enter-active .card--slide-left,
 .v-leave-active .card--slide-right,
 .v-enter-active .card--slide-right {
-  transform: translateXX(0px);
+  transform: translateX(0px);
   opacity: 1;
 }
 .v-enter-active .card--slide-left,
