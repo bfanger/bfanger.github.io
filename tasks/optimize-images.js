@@ -12,14 +12,14 @@ const imageminPngquant = require("imagemin-pngquant");
 const readDir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 const formats = [".png", ".jpg"];
-const outputDir = path.join(__dirname, "../static/build/img");
+const destination = path.join(__dirname, "../static/build/img");
 
 async function main() {
   const images = [];
   const dir = path.resolve(__dirname, "../content/projects/screenshots");
   const files = await readDir(dir);
   for (const filename of files) {
-    if (formats.indexOf(path.extname(filename)) === -1) {
+    if (!formats.includes(path.extname(filename))) {
       console.warn("Invalid filetype:", filename); // eslint-disable-line
       continue;
     }
@@ -47,12 +47,15 @@ async function main() {
   try {
     await batchPromises(os.cpus().length * 2, images, async image => {
       const source = await stat(image.filepath);
-      const target = await stat(outputDir + "/" + image.filename).catch(() => ({
-        mtime: new Date(0)
-      }));
+      const target = await stat(destination + "/" + image.filename).catch(
+        () => ({
+          mtime: new Date(0)
+        })
+      );
       if (source.mtime > target.mtime) {
         // Generated image is out-of-date or doesn't exist.
-        await imagemin([image.filepath], outputDir, {
+        await imagemin([image.filepath], {
+          destination,
           plugins: [
             imageminJpegoptim({ max: 85 }),
             imageminPngquant({ quality: [0.65, 0.85] })

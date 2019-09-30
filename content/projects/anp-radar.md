@@ -3,7 +3,7 @@ title: ANP Radar
 employer: noprotocol
 released: 2018-07
 image: anp-radar.png
-alt: PiCompany quiz
+alt: ANP
 tags:
   - vue
   - vuex
