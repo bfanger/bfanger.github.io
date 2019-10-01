@@ -9,15 +9,15 @@
         <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
         <p>
           Ik ben een webdeveloper bij
-          <a href="https://www.noprotocol.nl/">NoProtocol</a>.<br />
+          <a href="https://www.wearetriple.com/">Triple</a>.<br />
           Daarnaast ben ik ook actief op:<br /><a
             href="https://github.com/bfanger/"
             ><i class="icon-github" /> GitHub</a
           >
           en
-          <a href="https://stackoverflow.com/users/19165/bob-fanger"
-            >StackOverflow</a
-          >.
+          <a href="https://stackoverflow.com/users/19165/bob-fanger">
+            StackOverflow
+          </a>
         </p>
         <aside />
       </Card>

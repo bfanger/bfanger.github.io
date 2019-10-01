@@ -15,4 +15,3 @@ Diverse uitbreidingen op het ANP nieuwsplatform, waaronder:
 - Eigen artikelen kunnen toevoegen
 - Onboarding schermen
 - Verbeterde nieuwsbrief lezer
-- Diverse
