@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "sapper dev --no-hot",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "build": "sapper build",
+    "export": "sapper export",
     "start": "node __sapper__/build"
   },
   "dependencies": {
@@ -13,15 +13,18 @@
     "sirv": "^0.4.0"
   },
   "devDependencies": {
-    "three": "^0.110.0",
-    "svelte-loader": "^2.13.6",
-    "webpack": "^4.41.2",
     "@babel/core": "^7.7.2",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.7.1",
     "@babel/runtime": "^7.7.2",
     "autoprefixer": "^9.7.1",
+    "commonmark": "^0.29.0",
+    "gray-matter": "^4.0.2",
+    "image-size": "^0.8.3",
+    "imagemin": "^7.0.0",
+    "imagemin-jpegoptim": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
     "install": "^0.13.0",
     "node-sass": "^4.13.0",
     "npm": "^6.13.0",
@@ -32,6 +35,9 @@
     "sapper": "^0.27.0",
     "sass": "^1.23.3",
     "svelte": "^3.0.0",
-    "svelte-preprocess": "^3.2.6"
+    "svelte-loader": "^2.13.6",
+    "svelte-preprocess": "^3.2.6",
+    "three": "^0.110.0",
+    "webpack": "^4.41.2"
   }
 }

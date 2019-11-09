@@ -11,6 +11,7 @@
 </script>
 
 <script>
+  let cardVisible = true; //server sided
   function introCompleted() {
     $introVisible = false;
   }
@@ -56,7 +57,11 @@
 </style>
 
 <svelte:head>
-  <title>BFanger.nl</title>
+  <title>BFanger.nl - Bob Fanger</title>
+  <meta
+    name="description"
+    content="Hoi, ik ben Bob Fanger, een webdeveloper bij Triple. Daarnaast ben
+    ik ook actief op GitHub en StackOverflow." />
 </svelte:head>
 <Page>
   {#if $introVisible}

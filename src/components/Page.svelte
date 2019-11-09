@@ -14,6 +14,7 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    padding: 15px;
   }
   .page--outro {
     position: absolute;
