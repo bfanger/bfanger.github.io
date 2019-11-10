@@ -109,14 +109,10 @@
   }
 </style>
 
-<!-- 
-    @mousedown.native="$emit('mousedown', $event)" @mouseenter.native="hover =
-  true" @mouseleave.native="hover = false" @touchstart.native="touchstart"
-  @touchend.native="touchend" @touchmove.native="touchmove" 'nav-button--hover'
-  hover -->
 <a
   bind:this={el}
   {href}
+  rel="prefetch"
   class="nav-button nav-button--{type}"
   class:nav-button--hover={hover}
   on:mousedown

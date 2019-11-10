@@ -15,6 +15,7 @@
     justify-content: center;
     flex-grow: 1;
     padding: 15px;
+    box-sizing: border-box;
   }
   .page--outro {
     position: absolute;

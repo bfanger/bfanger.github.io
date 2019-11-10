@@ -55,8 +55,9 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
   }
 </style>
 
-<canvas bind:this={el} class={'avatar'} />
+<canvas bind:this={el} class="avatar" />
 <svelte:window on:mousemove={mousemoved} />

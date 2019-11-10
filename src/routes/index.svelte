@@ -1,5 +1,5 @@
 <script context="module">
-  import { writable } from "svelte/store";
+  import { onMount, tick } from "svelte";
   import { fly, fade } from "svelte/transition";
   import Intro from "../components/Intro.svelte";
   import NavButton from "../components/NavButton.svelte";
@@ -7,14 +7,17 @@
   import Card from "../components/Card.svelte";
   import Async from "../components/Async.svelte";
   const Avatar = import("../components/Avatar.svelte");
-  const introVisible = writable(true);
+
+  let isServer = typeof window === "undefined";
 </script>
 
 <script>
-  let cardVisible = true; //server sided
-  function introCompleted() {
-    $introVisible = false;
-  }
+  let cardVisible = isServer;
+  onMount(async () => {
+    cardVisible = false;
+    await tick();
+    cardVisible = true;
+  });
 </script>
 
 <style lang="scss">
@@ -58,47 +61,50 @@
 
 <svelte:head>
   <title>BFanger.nl - Bob Fanger</title>
-  <meta
-    name="description"
-    content="Hoi, ik ben Bob Fanger, een webdeveloper bij Triple. Daarnaast ben
-    ik ook actief op GitHub en StackOverflow." />
 </svelte:head>
 <Page>
-  {#if $introVisible}
-    <Intro on:complete={introCompleted} />
-  {:else}
-    <Card
-      homepage
-      in={node => fly(node, { y: 50, duration: 500 })}
-      out={node => fly(node, { x: -100 })}>
-      <img src="images/avatar.jpg" class="homepage__avatar" alt="Bob Fanger" />
-      <div class="homepage__avatar">
-        <Async component={Avatar} />
-      </div>
-      <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
-      <p>
-        Ik ben een webdeveloper bij
-        <a href="https://www.wearetriple.com/">Triple</a>
-        .
-        <br />
-        Daarnaast ben ik ook actief op:
-        <br />
-        <a href="https://github.com/bfanger/">
-          <i class="icon-github" />
-          GitHub
-        </a>
-        en
-        <a href="https://stackoverflow.com/users/19165/bob-fanger">
-          StackOverflow
-        </a>
-      </p>
-      <aside />
-    </Card>
-    <div
-      class="homepage--porfolio"
-      in:fly={{ y: 50, delay: 100, duration: 600 }}
-      out:fade>
-      <NavButton type="next" href="/portfolio">Portfolio</NavButton>
-    </div>
+  {#if isServer}
+    <Intro />
   {/if}
+
+  <div hidden={isServer}>
+    {#if cardVisible}
+      <Card
+        homepage
+        in={[fly, { y: 50, duration: 500 }]}
+        out={[fly, { x: -100 }]}>
+        <img
+          src="images/avatar.jpg"
+          class="homepage__avatar"
+          alt="Bob Fanger" />
+        <div class="homepage__avatar">
+          <Async component={Avatar} />
+        </div>
+        <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
+        <p>
+          Ik ben een webdeveloper bij
+          <a href="https://www.wearetriple.com/">Triple</a>
+          .
+          <br />
+          Daarnaast ben ik ook actief op:
+          <br />
+          <a href="https://github.com/bfanger/">
+            <i class="icon-github" />
+            GitHub
+          </a>
+          en
+          <a href="https://stackoverflow.com/users/19165/bob-fanger">
+            StackOverflow
+          </a>
+        </p>
+        <aside />
+      </Card>
+      <div
+        class="homepage--porfolio"
+        in:fly={{ y: 50, delay: 100, duration: 600 }}
+        out:fade>
+        <NavButton type="next" href="/portfolio">Portfolio</NavButton>
+      </div>
+    {/if}
+  </div>
 </Page>

@@ -1,18 +1,22 @@
 <script>
   import { fade } from "svelte/transition";
-  import { onMount } from "svelte";
 
   export let appear = true;
-  let in_ = fade;
-  export { in_ as in };
+  let inTransition = fade;
+  export { inTransition as in };
   export let out = fade;
   export let homepage = false;
-
-  let visible = !appear;
-  if (appear) {
-    onMount(() => {
-      visible = true;
-    });
+  function animateIn(node) {
+    if (Array.isArray(inTransition)) {
+      return inTransition[0](node, inTransition[1]);
+    }
+    return inTransition(node, {});
+  }
+  function animateOut(node) {
+    if (Array.isArray(out)) {
+      return out[0](node, out[1]);
+    }
+    return out(node, {});
   }
 </script>
 
@@ -71,8 +75,6 @@
   //   }
 </style>
 
-{#if visible}
-  <div in:in_ out:out class="card" class:card--homepage={homepage}>
-    <slot />
-  </div>
-{/if}
+<div in:animateIn out:animateOut class="card" class:card--homepage={homepage}>
+  <slot />
+</div>

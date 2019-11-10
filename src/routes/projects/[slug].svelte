@@ -12,7 +12,21 @@
 </script>
 
 <script>
+  import { prefetch, goto } from "@sapper/app";
   export let project;
+  $: if (project.next && typeof window !== "undefined") {
+    prefetch("projects/" + project.next);
+  }
+  function keydown(e) {
+    if (e.altKey || e.shiftKey || e.metaKey) {
+      return;
+    }
+    if (e.key === "ArrowLeft" && project.previous) {
+      goto("projects/" + project.previous);
+    } else if (e.key === "ArrowRight" && project.next) {
+      goto("projects/" + project.next);
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -70,6 +84,7 @@
 <svelte:head>
   <title>{project.title}</title>
 </svelte:head>
+<svelte:window on:keydown={keydown} />
 <Page>
 
   <div class="project-page__previous">
@@ -81,6 +96,7 @@
       <NavButton href="portfolio" type="previous">Portfolio</NavButton>
     {/if}
   </div>
+
   <ProjectCard {project} />
 
   {#if project.next}

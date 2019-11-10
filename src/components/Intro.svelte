@@ -1,14 +1,3 @@
-<script>
-  import { onMount, createEventDispatcher } from "svelte";
-
-  const dispatch = createEventDispatcher();
-  onMount(() => {
-    setTimeout(() => {
-      dispatch("complete");
-    }, 2200);
-  });
-</script>
-
 <style lang="scss">
   $duration: 2s;
   $frameCount: (120 - 1);
@@ -212,6 +201,7 @@
     <div class="intro__clip-nl">
       <svg
         class="intro__nl"
+        onanimationend="introEnded()"
         viewBox="0 0 168 64"
         xmlns="http://www.w3.org/2000/svg">
         <path
