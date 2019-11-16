@@ -7,6 +7,7 @@
     "export": "sapper export",
     "start": "node __sapper__/build"
   },
+  "prettier": {},
   "dependencies": {
     "compression": "^1.7.1",
     "jpegoptim-bin": "^5.1.0",

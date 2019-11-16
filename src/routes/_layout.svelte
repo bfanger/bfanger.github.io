@@ -1,6 +1,10 @@
 <script>
-  import { onMount } from "svelte";
+  import { stores } from "@sapper/app";
+  import { onMount, tick } from "svelte";
   import Background from "../components/Background.svelte";
+  import gtm from "../services/gtm";
+
+  const { page } = stores();
   let el;
   let minHeight = null;
 
@@ -14,6 +18,16 @@
   });
   function unmount() {
     window.removeEventListener("resize", detectHeight);
+  }
+  if (typeof document !== "undefined") {
+    page.subscribe(async route => {
+      await tick();
+      gtm({
+        event: "VirtualPageview",
+        virtualPageUrl: route.path,
+        virtualPageTitle: document.title
+      });
+    });
   }
   function detectHeight() {
     minHeight = window.innerHeight + "px";

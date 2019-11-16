@@ -9,7 +9,7 @@
     padding: 3px 15px;
     text-align: center;
 
-    @media (max-width: 800px) {
+    @media screen and (max-width: 800px) {
       font-size: 9px;
     }
   }

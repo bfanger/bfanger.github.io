@@ -1,4 +1,5 @@
 import * as sapper from "@sapper/app";
+
 function start() {
   sapper.start({ target: document.querySelector("svelte-app") });
 }
@@ -12,3 +13,7 @@ if (location.pathname !== "/" || window.introEnded === true) {
     window.introEnded = true;
   };
 }
+if (process.env.NODE_ENV === 'production') {
+  require("./services/gtm");
+}
+require("./services/gtm");
