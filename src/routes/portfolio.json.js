@@ -9,8 +9,7 @@ export async function get(_, res) {
     title: project.title,
     released: project.released
   }));
-  const sorted = orderBy(info, ["released", "title"], ["desc", "asc"]);
-  const grouped = groupBy(sorted, project => {
+  const grouped = groupBy(info, project => {
     const match = project.released.toString().match(/^[0-9]+/);
     const year = parseInt(match[0], 10);
     return year;
