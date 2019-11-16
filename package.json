@@ -3,14 +3,11 @@
   "private": true,
   "scripts": {
     "dev": "sapper dev --no-hot",
-    "build": "sapper build",
-    "export": "sapper export",
-    "start": "node __sapper__/build"
+    "deploy": "./src/deploy.js"
   },
   "prettier": {},
   "dependencies": {
     "compression": "^1.7.1",
-    "jpegoptim-bin": "^5.1.0",
     "polka": "next",
     "sirv": "^0.4.0"
   },

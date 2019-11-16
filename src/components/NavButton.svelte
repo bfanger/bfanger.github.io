@@ -39,7 +39,7 @@
       overflow: hidden;
       transition: 0.15s all;
     }
-    .nav-button:hover .nav-button__label {
+    &:hover .nav-button__label {
       max-width: 400px;
       transition: 0.25s all;
     }
@@ -57,7 +57,7 @@
       width: 28px;
       height: 40px;
     }
-    &.nav-button--hover .nav-button__label {
+    &:hover .nav-button__label {
       padding-right: 10px;
     }
   }
@@ -74,7 +74,7 @@
       width: 28px;
       height: 40px;
     }
-    &.nav-button--hover .nav-button__label {
+    &:hover .nav-button__label {
       padding-left: 10px;
     }
   }
