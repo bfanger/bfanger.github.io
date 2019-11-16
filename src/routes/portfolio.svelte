@@ -1,7 +1,10 @@
 <script context="module">
+  import { fly } from "svelte/transition";
   import Page from "../components/Page.svelte";
   import Card from "../components/Card.svelte";
   import NavButton from "../components/NavButton.svelte";
+  import Disclaimer from "../components/Disclaimer.svelte";
+  import cardTransition from "../services/cardTransition";
 
   export async function preload() {
     const response = await this.fetch("/portfolio.json");
@@ -15,6 +18,12 @@
   const years = Object.keys(portfolio)
     .sort()
     .reverse();
+  function transitionOut(node) {
+    return $cardTransition.out(node);
+  }
+  function transitionIn(node) {
+    return $cardTransition.in(node);
+  }
 </script>
 
 <style lang="scss">
@@ -31,7 +40,6 @@
     @media (max-width: 880px) {
       bottom: 40px;
       left: 40px;
-      // transform: translateX(-50%);
     }
   }
 </style>
@@ -40,20 +48,34 @@
   <title>Bob Fanger's portfolio</title>
 </svelte:head>
 <Page>
-  <Card>
-    <h1>Portfolio van Bob Fanger</h1>
-    {#each years as year}
-      <h2>{year}</h2>
-      <ul>
-        {#each portfolio[year] as project}
-          <li>
-            <a href="projects/{project.slug}">{project.title}</a>
-          </li>
-        {/each}
-      </ul>
-    {/each}
-  </Card>
-  <div class="portfolio-page__previous">
-    <NavButton href="/" type="previous">Home</NavButton>
+
+  <div in:transitionIn out:transitionOut>
+    <Card>
+      <h1>Portfolio van Bob Fanger</h1>
+      {#each years as year}
+        <h2>{year}</h2>
+        <ul
+          on:mousedown={() => {
+            $cardTransition = 'left';
+          }}>
+          {#each portfolio[year] as project}
+            <li>
+              <a href="projects/{project.slug}">{project.title}</a>
+            </li>
+          {/each}
+        </ul>
+      {/each}
+    </Card>
   </div>
+  <div class="portfolio-page__previous">
+    <NavButton
+      href="/"
+      type="previous"
+      on:mousedown={() => {
+        $cardTransition = 'right';
+      }}>
+      Home
+    </NavButton>
+  </div>
+  <Disclaimer />
 </Page>

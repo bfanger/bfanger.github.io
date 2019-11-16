@@ -1,9 +1,13 @@
 <script>
   import { onMount, onDestroy } from "svelte";
 
-  let outro = false;
-  function out() {
-    outro = true;
+  function out(node) {
+    // node.classList.add("page--outro");
+    return {
+      tick(t) {
+        node.classList.toggle("page--outro", t !== 1);
+      }
+    };
   }
 </script>
 
@@ -17,7 +21,7 @@
     padding: 15px;
     box-sizing: border-box;
   }
-  .page--outro {
+  :global(.page--outro) {
     position: absolute;
     top: 0;
     left: 0;
@@ -27,6 +31,6 @@
   }
 </style>
 
-<div class="page" class:page--outro={outro} out:out>
+<div class="page" out:out>
   <slot />
 </div>

@@ -1,5 +1,4 @@
 import { allProjects } from "./_util";
-import orderBy from "lodash/orderBy";
 import groupBy from "lodash/groupBy";
 
 export async function get(_, res) {
