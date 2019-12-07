@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "sapper dev --no-hot",
-    "deploy": "./src/deploy.js"
+    "deploy": "sapper export --no-subfolders  && push-dir --dir __sapper__/export --branch=master"
   },
   "prettier": {},
   "dependencies": {
@@ -27,6 +27,7 @@
     "postcss": "^7.0.23",
     "postcss-load-config": "^2.1.0",
     "prettier": "^1.19.1",
+    "push-dir": "^0.4.1",
     "sapper": "git+https://git@github.com/bfanger/sapper.git#feature/no-subfolders",
     "svelte": "^3.16.0",
     "svelte-loader": "^2.13.6",
