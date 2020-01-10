@@ -1,37 +1,37 @@
-import path from "path";
-import child_process from 'child_process';
-import { promisify } from "util";
-import fs from "fs";
-import matter from "gray-matter";
-import commonmark from "commonmark";
-import sizeOf from "image-size";
-import orderBy from "lodash/orderBy";
+import path from "path"
+import child_process from "child_process"
+import { promisify } from "util"
+import fs from "fs"
+import matter from "gray-matter"
+import commonmark from "commonmark"
+import sizeOf from "image-size"
+import orderBy from "lodash/orderBy"
 
-const reader = new commonmark.Parser();
-const writer = new commonmark.HtmlRenderer();
+const reader = new commonmark.Parser()
+const writer = new commonmark.HtmlRenderer()
 
-const readFile = promisify(fs.readFile);
-const readDir = promisify(fs.readdir);
-const execFile = promisify(child_process.execFile);
+const readFile = promisify(fs.readFile)
+const readDir = promisify(fs.readdir)
+const execFile = promisify(child_process.execFile)
 
-let dir = path.resolve(process.cwd(), "content/projects");
+let dir = path.resolve(process.cwd(), "content/projects")
 
 export async function allProjects() {
-  const files = await readDir(dir);
-  const projects = [];
+  const files = await readDir(dir)
+  const projects = []
   for (const file of files) {
     if (file.endsWith(".md")) {
       const slug = file.substr(0, file.length - 3)
-      const project = await loadProject(slug);
-      projects.push(project);
+      const project = await loadProject(slug)
+      projects.push(project)
     }
   }
-  return orderBy(projects, ['released', 'title'], ['desc', 'asc']);
+  return orderBy(projects, ["released", "title"], ["desc", "asc"])
 }
 async function loadProject(slug) {
-  const file = await readFile(path.resolve(dir, slug + '.md'));
-  const result = matter(file);
-  const parsed = reader.parse(result.content);
+  const file = await readFile(path.resolve(dir, slug + ".md"))
+  const result = matter(file)
+  const parsed = reader.parse(result.content)
   return {
     ...result.data,
     slug,
@@ -39,46 +39,47 @@ async function loadProject(slug) {
   }
 }
 
-
-
-
-const destination = path.resolve(process.cwd(), "static/build/img") + '/';
+const destination = path.resolve(process.cwd(), "static/build/img") + "/"
 if (fs.existsSync(destination) === false) {
   const buildDir = path.resolve(process.cwd(), "static/build")
   if (fs.existsSync(buildDir) === false) {
-    fs.mkdirSync(buildDir);
+    fs.mkdirSync(buildDir)
   }
-  fs.mkdirSync(destination);
+  fs.mkdirSync(destination)
 }
 
 export async function processImage(filename) {
-  const source = path.resolve(dir, "screenshots", filename);
-  const dest = path.resolve(destination, filename);
+  const source = path.resolve(dir, "screenshots", filename)
+  const dest = path.resolve(destination, filename)
 
-  const sourceStat = fs.statSync(source);
-  let destStat;
+  const sourceStat = fs.statSync(source)
+  let destStat
   try {
-    destStat = fs.statSync(dest);
+    destStat = fs.statSync(dest)
   } catch (err) {
-    destStat = { mtime: new Date(0) };
+    destStat = { mtime: new Date(0) }
   }
   if (sourceStat.mtime > destStat.mtime) {
-    await execFile('convert', [
-      '-resize', '1000x>',
-      '-quality', '85',
+    await execFile("convert", [
+      "-resize",
+      "1000x>",
+      "-quality",
+      "85",
       source,
-      destination + filename,
+      destination + filename
     ])
-    if (filename.substr(filename.length - 4) === '.png') {
-      await execFile('pngquant', [
-        '--ext', '.png',
-        '--quality', '65-85',
-        '--force',
-        '--skip-if-larger',
-        destination + filename,
+    if (filename.substr(filename.length - 4) === ".png") {
+      await execFile("pngquant", [
+        "--ext",
+        ".png",
+        "--quality",
+        "65-85",
+        "--force",
+        "--skip-if-larger",
+        destination + filename
       ]).catch(err => console.warn(err))
     }
   }
-  const { width, height } = sizeOf(source);
-  return { src: "/build/img/" + filename, width, height };
+  const { width, height } = sizeOf(source)
+  return { src: "/build/img/" + filename, width, height }
 }

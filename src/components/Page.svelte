@@ -1,13 +1,11 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
-
   function out(node) {
-    node.classList.add("page--outro");
+    node.classList.add("page--outro")
     return {
       tick(t) {
-        node.classList.toggle("page--outro", t !== 1);
+        node.classList.toggle("page--outro", t !== 1)
       }
-    };
+    }
   }
 </script>
 

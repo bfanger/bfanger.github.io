@@ -1,52 +1,52 @@
 <script>
-  import { onMount, tick } from "svelte";
+  import { onMount, tick } from "svelte"
 
-  export let src;
-  export let width;
-  export let height;
-  export let alt = "Een screenshot van het project";
+  export let src
+  export let width
+  export let height
+  export let alt = "Een screenshot van het project"
 
-  let started;
-  let img;
+  let started
+  let img
 
   let css = {
     height: "auto",
     opacity: 1,
     duration: "0s"
-  };
-  $: loading(src);
-  $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`;
+  }
+  $: loading(src)
+  $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`
 
-  onMount(loading);
+  onMount(loading)
   async function loading(src) {
     if (!img) {
-      return;
+      return
     }
     const autoHeight = Math.ceil(
       img.parentElement.getBoundingClientRect().width / (width / height)
-    );
-    const halfScreen = window.innerHeight / 2;
+    )
+    const halfScreen = window.innerHeight / 2
     if (autoHeight < halfScreen) {
-      css.height = autoHeight + "px";
+      css.height = autoHeight + "px"
     } else {
-      css.height = halfScreen + "px";
+      css.height = halfScreen + "px"
     }
-    css.opacity = 0;
-    css.duration = "0s";
-    started = Date.now();
-    await tick();
+    css.opacity = 0
+    css.duration = "0s"
+    started = Date.now()
+    await tick()
     if (img.complete) {
-      loaded();
+      loaded()
     }
   }
   function loaded() {
     if (Date.now() - started < 150) {
-      css.duration = "0.2s";
+      css.duration = "0.2s"
     } else {
-      css.duration = "0.5s";
+      css.duration = "0.5s"
     }
-    css.opacity = 1;
-    css.height = "auto";
+    css.opacity = 1
+    css.height = "auto"
   }
 </script>
 

@@ -1,13 +1,15 @@
-import { allProjects, processImage } from "../_util";
+import { allProjects, processImage } from "../_util"
 
-export async function get(req, res, next) {
-  const projects = await allProjects();
+export async function get(req, res) {
+  const projects = await allProjects()
   const index = projects.findIndex(p => p.slug === req.params.project)
   if (index === -1) {
-    res.writeHead(404, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({
-      message: `Not found`
-    }));
+    res.writeHead(404, { "Content-Type": "application/json" })
+    res.end(
+      JSON.stringify({
+        message: `Not found`
+      })
+    )
     return
   }
   const meta = projects[index]
@@ -15,7 +17,7 @@ export async function get(req, res, next) {
     slug: meta.slug,
     title: meta.title,
     released: meta.released,
-    content: meta.content,
+    content: meta.content
   }
   if (index !== 0) {
     project.before = projects[index - 1].slug
@@ -26,6 +28,6 @@ export async function get(req, res, next) {
   if (meta.image) {
     project.image = await processImage(meta.image)
   }
-  res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify(project));
+  res.setHeader("Content-Type", "application/json")
+  res.end(JSON.stringify(project))
 }

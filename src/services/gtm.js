@@ -9,6 +9,6 @@ if (typeof window !== "undefined") {
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-M38LTD8');
 }
-export default function (data) {
-    window.dataLayer.push(data)
+export default function(data) {
+  window.dataLayer.push(data)
 }
