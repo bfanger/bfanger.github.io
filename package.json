@@ -64,13 +64,13 @@
     "or": "^0.2.0",
     "postcss": "^7.0.26",
     "postcss-load-config": "^2.1.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.5",
     "push-dir": "^0.4.1",
     "sapper": "git+https://git@github.com/bfanger/sapper.git#feature/no-subfolders",
     "svelte": "^3.16.7",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^3.3.0",
-    "three": "^0.112.1",
+    "three": "^0.116.1",
     "webpack": "^4.41.5"
   }
 }
