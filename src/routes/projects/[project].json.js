@@ -2,12 +2,12 @@ import { allProjects, processImage } from "../_util"
 
 export async function get(req, res) {
   const projects = await allProjects()
-  const index = projects.findIndex(p => p.slug === req.params.project)
+  const index = projects.findIndex((p) => p.slug === req.params.project)
   if (index === -1) {
     res.writeHead(404, { "Content-Type": "application/json" })
     res.end(
       JSON.stringify({
-        message: `Not found`
+        message: `Not found`,
       })
     )
     return
@@ -17,7 +17,7 @@ export async function get(req, res) {
     slug: meta.slug,
     title: meta.title,
     released: meta.released,
-    content: meta.content
+    content: meta.content,
   }
   if (index !== 0) {
     project.before = projects[index - 1].slug

@@ -3,13 +3,13 @@ import { writable } from "svelte/store"
 
 const transitions = {
   left: {
-    in: node => fly(node, { x: 100, delay: 50 }),
-    out: node => fly(node, { x: -100 })
+    in: (node) => fly(node, { x: 100, delay: 50 }),
+    out: (node) => fly(node, { x: -100 }),
   },
   right: {
-    in: node => fly(node, { x: -100, delay: 50 }),
-    out: node => fly(node, { x: 100 })
-  }
+    in: (node) => fly(node, { x: -100, delay: 50 }),
+    out: (node) => fly(node, { x: 100 }),
+  },
 }
 const { set, subscribe } = writable(transitions.left)
 export default {
@@ -19,5 +19,5 @@ export default {
       throw new Error("invalid direction")
     }
     set(transitions[direction])
-  }
+  },
 }

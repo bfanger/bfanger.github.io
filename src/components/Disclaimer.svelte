@@ -1,12 +1,12 @@
 <script>
-  import { fade } from "svelte/transition";
+  import { fade } from "svelte/transition"
 </script>
 
 <style lang="scss">
   .disclaimer {
     font-size: 12px;
     color: #fff;
-    padding: 3px 15px;
+    padding: 15px 15px 3px 15px;
     text-align: center;
 
     @media screen and (max-width: 800px) {

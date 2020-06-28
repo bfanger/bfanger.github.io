@@ -1,12 +1,18 @@
 <script context="module">
   import { onMount } from "svelte"
   import { spring } from "svelte/motion"
-  import { WebGLRenderer, PerspectiveCamera, Scene, Vector3 } from "three"
+  import {
+    WebGLRenderer,
+    PerspectiveCamera,
+    Scene,
+    Vector3,
+    sRGBEncoding,
+  } from "three"
   import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 
-  const avatarPromise = new Promise(resolve => {
+  const avatarPromise = new Promise((resolve) => {
     const loader = new GLTFLoader()
-    loader.load("/3d/avatar.gltf", gltf => {
+    loader.load("/3d/avatar.gltf", (gltf) => {
       const avatar = gltf.scene.children[3]
       avatar.position.x += 0.2
       avatar.position.y += 0
@@ -26,17 +32,15 @@
   onMount(() => {
     renderer = new WebGLRenderer({
       canvas: el,
-      alpha: true
+      alpha: true,
       // antialias: true
     })
-    renderer.gammaFactor = 2.2
-    renderer.gammaOutput = true
-
+    renderer.outputEncoding = sRGBEncoding
     camera = new PerspectiveCamera(25, 250 / 250, 0.25, 20)
     camera.position.set(2.3, 0, 0)
     scene = new Scene()
 
-    avatarPromise.then(_avatar => {
+    avatarPromise.then((_avatar) => {
       avatar = _avatar
       avatar.material.anisotropy = renderer.capabilities.getMaxAnisotropy()
       scene.add(avatar)
@@ -51,7 +55,7 @@
   function mousemoved(e) {
     $yz = {
       y: (e.clientX / window.innerWidth - 0.5) * 0.25 + 0.1,
-      z: (e.clientY / window.innerHeight - 0.5) * -0.23
+      z: (e.clientY / window.innerHeight - 0.5) * -0.23,
     }
   }
   function rotate({ y, z }) {

@@ -1,18 +1,19 @@
-const webpack = require("webpack");
-const path = require("path");
-const config = require("sapper/config/webpack.js");
-const pkg = require("./package.json");
-const svelteConfig = require("./svelte.config.js");
+const webpack = require("webpack")
+const path = require("path")
+const config = require("sapper/config/webpack.js")
+const pkg = require("./package.json")
+const svelteConfig = require("./svelte.config.js")
 
-const mode = process.env.NODE_ENV;
-const dev = mode === "development";
+const mode = process.env.NODE_ENV || "production"
+const dev = mode === "development"
 
-const alias = { svelte: path.resolve("node_modules", "svelte") };
-const extensions = [".mjs", ".js", ".json", ".svelte", ".html"];
-const mainFields = ["svelte", "module", "browser", "main"];
+const alias = { svelte: path.resolve("node_modules", "svelte") }
+const extensions = [".mjs", ".js", ".json", ".svelte", ".html"]
+const mainFields = ["svelte", "module", "browser", "main"]
 
 module.exports = {
   client: {
+    mode,
     entry: config.client.entry(),
     output: config.client.output(),
     resolve: { alias, extensions, mainFields },
@@ -26,25 +27,25 @@ module.exports = {
               ...svelteConfig,
               dev,
               hydratable: true,
-              hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
-            }
-          }
-        }
-      ]
+              hotReload: false, // pending https://github.com/sveltejs/svelte/issues/2377
+            },
+          },
+        },
+      ],
     },
-    mode,
     plugins: [
       // pending https://github.com/sveltejs/svelte/issues/2377
       // dev && new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode)
-      })
+        "process.env.NODE_ENV": JSON.stringify(mode),
+      }),
     ].filter(Boolean),
-    devtool: dev && "inline-source-map"
+    devtool: dev && "inline-source-map",
   },
 
   server: {
+    mode,
     entry: config.server.entry(),
     output: config.server.output(),
     target: "node",
@@ -60,15 +61,14 @@ module.exports = {
               ...svelteConfig,
               css: false,
               generate: "ssr",
-              dev
-            }
-          }
-        }
-      ]
+              dev,
+            },
+          },
+        },
+      ],
     },
-    mode: process.env.NODE_ENV,
     performance: {
-      hints: false // it doesn't matter if server.js is large
-    }
-  }
-};
+      hints: false, // it doesn't matter if server.js is large
+    },
+  },
+}

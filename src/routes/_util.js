@@ -35,7 +35,7 @@ async function loadProject(slug) {
   return {
     ...result.data,
     slug,
-    content: writer.render(parsed)
+    content: writer.render(parsed),
   }
 }
 
@@ -66,7 +66,7 @@ export async function processImage(filename) {
       "-quality",
       "85",
       source,
-      destination + filename
+      destination + filename,
     ])
     if (filename.substr(filename.length - 4) === ".png") {
       await execFile("pngquant", [
@@ -76,8 +76,8 @@ export async function processImage(filename) {
         "65-85",
         "--force",
         "--skip-if-larger",
-        destination + filename
-      ]).catch(err => console.warn(err))
+        destination + filename,
+      ]).catch((err) => console.warn(err))
     }
   }
   const { width, height } = sizeOf(source)

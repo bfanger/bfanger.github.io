@@ -1,3 +1,5 @@
+import "core-js"
+import "regenerator-runtime/runtime"
 import * as sapper from "@sapper/app"
 
 function start() {
@@ -6,7 +8,7 @@ function start() {
 if (location.pathname !== "/" || window.introEnded === true) {
   start()
 } else {
-  import("./components/Avatar.svelte")
+  import("./components/AsyncAvatar.ts")
   // Wait for intro to complete
   window.introEnded = () => {
     start()
@@ -16,4 +18,3 @@ if (location.pathname !== "/" || window.introEnded === true) {
 if (process.env.NODE_ENV === "production") {
   require("./services/gtm")
 }
-require("./services/gtm")

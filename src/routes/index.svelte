@@ -1,27 +1,24 @@
 <script context="module">
-  import { onMount, tick } from "svelte";
-  import { fly, fade } from "svelte/transition";
-  import Intro from "../components/Intro.svelte";
-  import NavButton from "../components/NavButton.svelte";
-  import Page from "../components/Page.svelte";
-  import Card from "../components/Card.svelte";
-  import Async from "../components/Async.svelte";
-  let Avatar = Promise.resolve(null);
-  if (typeof window !== "undefined") {
-    Avatar = import("../components/Avatar.svelte");
-  }
-  import cardTransition from "../services/cardTransition";
+  import { onMount, tick } from "svelte"
+  import { fly, fade } from "svelte/transition"
+  import Intro from "../components/Intro.svelte"
+  import NavButton from "../components/NavButton.svelte"
+  import Page from "../components/Page.svelte"
+  import Card from "../components/Card.svelte"
+  import cardTransition from "../services/cardTransition"
+  import Async from "../components/Async.svelte"
+  import Avatar from "../components/AsyncAvatar.ts"
 
-  let isServer = typeof window === "undefined";
+  let isServer = typeof window === "undefined"
 </script>
 
 <script>
-  let cardVisible = isServer;
+  let cardVisible = isServer
   onMount(async () => {
-    cardVisible = false;
-    await tick();
-    cardVisible = true;
-  });
+    cardVisible = false
+    await tick()
+    cardVisible = true
+  })
 </script>
 
 <style lang="scss">
@@ -110,7 +107,7 @@
           type="next"
           href="/portfolio"
           on:mousedown={() => {
-            $cardTransition = 'left';
+            $cardTransition = 'left'
           }}>
           Portfolio
         </NavButton>
