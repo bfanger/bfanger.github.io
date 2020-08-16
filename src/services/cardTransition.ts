@@ -1,5 +1,5 @@
 import { fly } from "svelte/transition"
-import { writable } from "svelte/store"
+import { writable, get } from "svelte/store"
 
 const transitions = {
   left: {
@@ -14,7 +14,7 @@ const transitions = {
 type Direction = keyof typeof transitions
 
 const { set, subscribe } = writable(transitions.left)
-export default {
+const cardTransition = {
   subscribe,
   set(direction: Direction) {
     if (!transitions[direction]) {
@@ -22,4 +22,11 @@ export default {
     }
     set(transitions[direction])
   },
+}
+export default cardTransition
+export function cardOut(node: Element, config: object) {
+  return get(cardTransition).out(node, config)
+}
+export function cardIn(node: Element, config: object) {
+  return get(cardTransition).in(node, config)
 }

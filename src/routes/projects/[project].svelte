@@ -3,7 +3,10 @@
   import ProjectCard from "../../components/ProjectCard.svelte"
   import NavButton from "../../components/NavButton.svelte"
   import Disclaimer from "../../components/Disclaimer.svelte"
-  import cardTransition from "../../services/cardTransition"
+  import cardTransition, {
+    cardIn,
+    cardOut,
+  } from "../../services/cardTransition"
   import type { Project } from "../types"
 
   export async function preload(this: Window, { params }: any) {
@@ -31,12 +34,6 @@
       cardTransition.set("left")
       goto("projects/" + project.after)
     }
-  }
-  function transitionOut(node: Element, config: object) {
-    return $cardTransition.out(node, config)
-  }
-  function transitionIn(node: Element, config: object) {
-    return $cardTransition.in(node, config)
   }
 </script>
 
@@ -86,7 +83,7 @@
 
 {#each [project] as p (p.slug)}
   <Page>
-    <div in:transitionIn out:transitionOut>
+    <div in:cardIn out:cardOut>
       <ProjectCard project={p} />
     </div>
   </Page>

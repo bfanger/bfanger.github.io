@@ -78,7 +78,12 @@ export async function processImage(filename: string) {
         "--force",
         "--skip-if-larger",
         destination + filename,
-      ]).catch((err) => console.warn(err))
+      ]).catch((err) => {
+        if (err.code === 98) {
+          return // conversion results in a file larger than the original
+        }
+        console.warn(err)
+      })
     }
   }
   const { width, height } = imageSize(source)

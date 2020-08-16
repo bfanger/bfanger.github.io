@@ -3,7 +3,7 @@
   import Card from "../components/Card.svelte"
   import NavButton from "../components/NavButton.svelte"
   import Disclaimer from "../components/Disclaimer.svelte"
-  import cardTransition from "../services/cardTransition"
+  import cardTransition, { cardIn, cardOut } from "../services/cardTransition"
   import type { Portfolio } from "./types"
 
   export async function preload(this: Window) {
@@ -16,12 +16,6 @@
 <script lang="ts">
   export let portfolio: Portfolio
   const years = Object.keys(portfolio).sort().reverse()
-  function transitionOut(node: Element, config: object) {
-    return $cardTransition.out(node, config)
-  }
-  function transitionIn(node: Element, config: object) {
-    return $cardTransition.in(node, config)
-  }
 </script>
 
 <style lang="scss">
@@ -47,7 +41,7 @@
 </svelte:head>
 <Page>
 
-  <div in:transitionIn out:transitionOut>
+  <div in:cardIn out:cardOut>
     <Card>
       <h1>Portfolio van Bob Fanger</h1>
       {#each years as year}

@@ -5,7 +5,7 @@
     "dev": "sapper dev --no-hot",
     "lint": "tsc --noEmit && svelte-check && eslint --max-warnings=0 src",
     "test": "npm run lint",
-    "deploy": "sapper export --no-subfolders  && push-dir --dir __sapper__/export --branch=master",
+    "deploy": "sapper export --no-subfolders --entry '/404' && push-dir --dir __sapper__/export --branch=master",
     "postinstall": "sed -i -e 's/interopNamespace(EventEmitter);/interopNamespace(EventEmitter).default;/' node_modules/sapper/dist/CheapWatch.es.js"
   },
   "prettier": {
