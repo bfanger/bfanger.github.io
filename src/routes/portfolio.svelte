@@ -1,28 +1,26 @@
-<script context="module">
-  import { fly } from "svelte/transition";
-  import Page from "../components/Page.svelte";
-  import Card from "../components/Card.svelte";
-  import NavButton from "../components/NavButton.svelte";
-  import Disclaimer from "../components/Disclaimer.svelte";
-  import cardTransition from "../services/cardTransition";
+<script context="module" lang="ts">
+  import Page from "../components/Page.svelte"
+  import Card from "../components/Card.svelte"
+  import NavButton from "../components/NavButton.svelte"
+  import Disclaimer from "../components/Disclaimer.svelte"
+  import cardTransition from "../services/cardTransition"
+  import type { Portfolio } from "./types"
 
-  export async function preload() {
-    const response = await this.fetch("/portfolio.json");
-    const portfolio = await response.json();
-    return { portfolio };
+  export async function preload(this: Window) {
+    const response = await this.fetch("/portfolio.json")
+    const portfolio = await response.json()
+    return { portfolio }
   }
 </script>
 
-<script>
-  export let portfolio;
-  const years = Object.keys(portfolio)
-    .sort()
-    .reverse();
-  function transitionOut(node) {
-    return $cardTransition.out(node);
+<script lang="ts">
+  export let portfolio: Portfolio
+  const years = Object.keys(portfolio).sort().reverse()
+  function transitionOut(node: Element, config: object) {
+    return $cardTransition.out(node, config)
   }
-  function transitionIn(node) {
-    return $cardTransition.in(node);
+  function transitionIn(node: Element, config: object) {
+    return $cardTransition.in(node, config)
   }
 </script>
 
@@ -56,7 +54,7 @@
         <h2>{year}</h2>
         <ul
           on:mousedown={() => {
-            $cardTransition = 'left';
+            $cardTransition = 'left'
           }}>
           {#each portfolio[year] as project}
             <li>
@@ -72,7 +70,7 @@
       href="/"
       type="previous"
       on:mousedown={() => {
-        $cardTransition = 'right';
+        $cardTransition = 'right'
       }}>
       Home
     </NavButton>

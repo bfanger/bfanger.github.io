@@ -1,36 +1,41 @@
-<script>
-  import { stores } from "@sapper/app";
-  import { onMount, tick } from "svelte";
-  import Background from "../components/Background.svelte";
-  import gtm from "../services/gtm";
+<script lang="ts">
+  import { stores } from "@sapper/app"
+  import { onMount, tick } from "svelte"
+  import Background from "../components/Background.svelte"
+  import gtm from "../services/gtm"
+  import noop from "lodash/noop"
 
-  const { page } = stores();
-  let el;
-  let minHeight = null;
+  export let segment: string
+
+  noop(segment)
+
+  const { page } = stores()
+  let el: HTMLElement
+  let minHeight: string = ""
 
   onMount(() => {
     if (el.clientHeight !== window.innerHeight) {
       // 100vh doesn't works in this browser (or the content doesn't fit)
-      window.addEventListener("resize", detectHeight);
-      detectHeight();
+      window.addEventListener("resize", detectHeight)
+      detectHeight()
     }
-    return unmount;
-  });
+    return unmount
+  })
   function unmount() {
-    window.removeEventListener("resize", detectHeight);
+    window.removeEventListener("resize", detectHeight)
   }
   if (typeof document !== "undefined") {
-    page.subscribe(async route => {
-      await tick();
+    page.subscribe(async (route: { path: string }) => {
+      await tick()
       gtm({
         event: "VirtualPageview",
         virtualPageUrl: route.path,
-        virtualPageTitle: document.title
-      });
-    });
+        virtualPageTitle: document.title,
+      })
+    })
   }
   function detectHeight() {
-    minHeight = window.innerHeight + "px";
+    minHeight = window.innerHeight + "px"
   }
 </script>
 

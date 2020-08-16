@@ -1,10 +1,13 @@
-<script>
-  function out(node) {
+<script lang="ts">
+  import noop from "lodash/noop"
+
+  function out(node: Element, config: object) {
+    noop(config)
     node.classList.add("page--outro")
     return {
-      tick(t) {
+      tick(t: number) {
         node.classList.toggle("page--outro", t !== 1)
-      }
+      },
     }
   }
 </script>

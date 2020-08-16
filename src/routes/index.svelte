@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   import { onMount, tick } from "svelte"
   import { fly, fade } from "svelte/transition"
   import Intro from "../components/Intro.svelte"
@@ -7,12 +7,12 @@
   import Card from "../components/Card.svelte"
   import cardTransition from "../services/cardTransition"
   import Async from "../components/Async.svelte"
-  import Avatar from "../components/AsyncAvatar.ts"
+  import Avatar from "../components/AsyncAvatar"
 
   let isServer = typeof window === "undefined"
 </script>
 
-<script>
+<script lang="ts">
   let cardVisible = isServer
   onMount(async () => {
     cardVisible = false

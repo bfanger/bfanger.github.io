@@ -1,8 +1,6 @@
-<script>
-  export let href;
-  export let type;
-
-  let el;
+<script lang="ts">
+  export let href: string
+  export let type: "next" | "previous"
 </script>
 
 <style lang="scss">
@@ -80,12 +78,7 @@
   }
 </style>
 
-<a
-  bind:this={el}
-  {href}
-  rel="prefetch"
-  class="nav-button nav-button--{type}"
-  on:mousedown>
+<a {href} rel="prefetch" class="nav-button nav-button--{type}" on:mousedown>
   <div class="nav-button__label">
     <slot />
   </div>

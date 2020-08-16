@@ -1,5 +1,5 @@
-<script>
-  export let homepage = false;
+<script lang="ts">
+  export let homepage: boolean = false
 </script>
 
 <style lang="scss">

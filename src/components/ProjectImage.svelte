@@ -1,29 +1,31 @@
-<script>
+<script lang="ts">
   import { onMount, tick } from "svelte"
+  import noop from "lodash/noop"
 
-  export let src
-  export let width
-  export let height
+  export let src: string
+  export let width: number
+  export let height: number
   export let alt = "Een screenshot van het project"
 
-  let started
-  let img
+  let started: number
+  let img: HTMLImageElement
 
   let css = {
     height: "auto",
     opacity: 1,
-    duration: "0s"
+    duration: "0s",
   }
   $: loading(src)
   $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`
 
   onMount(loading)
-  async function loading(src) {
+  async function loading(src: string) {
+    noop(src)
     if (!img) {
       return
     }
     const autoHeight = Math.ceil(
-      img.parentElement.getBoundingClientRect().width / (width / height)
+      img.parentElement!.getBoundingClientRect().width / (width / height)
     )
     const halfScreen = window.innerHeight / 2
     if (autoHeight < halfScreen) {

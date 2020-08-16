@@ -1,41 +1,42 @@
-<script context="module">
-  import Page from "../../components/Page.svelte";
-  import ProjectCard from "../../components/ProjectCard.svelte";
-  import NavButton from "../../components/NavButton.svelte";
-  import Disclaimer from "../../components/Disclaimer.svelte";
-  import cardTransition from "../../services/cardTransition";
+<script context="module" lang="ts">
+  import Page from "../../components/Page.svelte"
+  import ProjectCard from "../../components/ProjectCard.svelte"
+  import NavButton from "../../components/NavButton.svelte"
+  import Disclaimer from "../../components/Disclaimer.svelte"
+  import cardTransition from "../../services/cardTransition"
+  import type { Project } from "../types"
 
-  export async function preload({ params }) {
-    const response = await this.fetch(`projects/${params.project}.json`);
-    const project = await response.json();
+  export async function preload(this: Window, { params }: any) {
+    const response = await this.fetch(`projects/${params.project}.json`)
+    const project: Project = await response.json()
 
-    return { project };
+    return { project }
   }
 </script>
 
-<script>
-  import { prefetch, goto } from "@sapper/app";
-  export let project;
-  $: if (project.next && typeof window !== "undefined") {
-    prefetch("projects/" + project.next);
+<script lang="ts">
+  import { prefetch, goto } from "@sapper/app"
+  export let project: Project
+  $: if (project.before && typeof window !== "undefined") {
+    prefetch("projects/" + project.before)
   }
-  function keydown(e) {
+  function keydown(e: KeyboardEvent) {
     if (e.altKey || e.shiftKey || e.metaKey) {
-      return;
+      return
     }
     if (e.key === "ArrowLeft" && project.before) {
-      cardTransition.set("right");
-      goto("projects/" + project.before);
+      cardTransition.set("right")
+      goto("projects/" + project.before)
     } else if (e.key === "ArrowRight" && project.after) {
-      cardTransition.set("left");
-      goto("projects/" + project.after);
+      cardTransition.set("left")
+      goto("projects/" + project.after)
     }
   }
-  function transitionOut(node) {
-    return $cardTransition.out(node);
+  function transitionOut(node: Element, config: object) {
+    return $cardTransition.out(node, config)
   }
-  function transitionIn(node) {
-    return $cardTransition.in(node);
+  function transitionIn(node: Element, config: object) {
+    return $cardTransition.in(node, config)
   }
 </script>
 
@@ -88,14 +89,13 @@
     <div in:transitionIn out:transitionOut>
       <ProjectCard project={p} />
     </div>
-
   </Page>
 {/each}
 
 <div
   class="project-page__previous"
   on:mousedown={() => {
-    $cardTransition = 'right';
+    $cardTransition = 'right'
   }}>
   {#if project.before}
     <NavButton href="projects/{project.before}" type="previous">
@@ -110,7 +110,7 @@
   <div
     class="project-page__next"
     on:mousedown={() => {
-      $cardTransition = 'left';
+      $cardTransition = 'left'
     }}>
     <NavButton href="projects/{project.after}" type="next">Volgende</NavButton>
   </div>

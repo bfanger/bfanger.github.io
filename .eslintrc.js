@@ -10,20 +10,7 @@ module.exports = {
     node: true,
   },
   extends: "eslint:recommended",
-  plugins: ["svelte3", "prettier", "only-warn"],
-  overrides: [
-    {
-      files: ["**/*.svelte"],
-      processor: "svelte3/svelte3",
-      rules: {
-        "prettier/prettier": "off",
-        "no-unused-vars": "off",
-      },
-      settings: {
-        "svelte3/ignore-styles": () => true,
-      },
-    },
-  ],
+  plugins: ["prettier", "only-warn"],
   globals: {
     System: true,
   },

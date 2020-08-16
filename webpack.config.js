@@ -8,8 +8,14 @@ const mode = process.env.NODE_ENV || "production"
 const dev = mode === "development"
 
 const alias = { svelte: path.resolve("node_modules", "svelte") }
-const extensions = [".mjs", ".js", ".json", ".svelte", ".html"]
+const extensions = [".ts", ".mjs", ".js", ".json", ".svelte", ".html"]
 const mainFields = ["svelte", "module", "browser", "main"]
+const babelRule = {
+  test: /\.(ts|mjs|js)$/,
+  loader: "babel-loader",
+  include: [path.resolve(__dirname, "src")],
+  exclude: [/node_modules\/?!svelte/],
+}
 
 module.exports = {
   client: {
@@ -21,16 +27,20 @@ module.exports = {
       rules: [
         {
           test: /\.(svelte|html)$/,
-          use: {
-            loader: "svelte-loader",
-            options: {
-              ...svelteConfig,
-              dev,
-              hydratable: true,
-              hotReload: false, // pending https://github.com/sveltejs/svelte/issues/2377
+          use: [
+            "babel-loader",
+            {
+              loader: "svelte-loader",
+              options: {
+                ...svelteConfig,
+                dev,
+                hydratable: true,
+                hotReload: false, // pending https://github.com/sveltejs/svelte/issues/2377
+              },
             },
-          },
+          ],
         },
+        babelRule,
       ],
     },
     plugins: [
@@ -55,16 +65,20 @@ module.exports = {
       rules: [
         {
           test: /\.(svelte|html)$/,
-          use: {
-            loader: "svelte-loader",
-            options: {
-              ...svelteConfig,
-              css: false,
-              generate: "ssr",
-              dev,
+          use: [
+            "babel-loader",
+            {
+              loader: "svelte-loader",
+              options: {
+                ...svelteConfig,
+                css: false,
+                generate: "ssr",
+                dev,
+              },
             },
-          },
+          ],
         },
+        babelRule,
       ],
     },
     performance: {

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   /**
    * @var {Promise<SvelteComponent>} component
    */
-  export let component
-  export let props = {}
+  export let component: Promise<{ default: Function }>
+  export let props: object = {}
   $: promise =
     component && component.then
       ? component

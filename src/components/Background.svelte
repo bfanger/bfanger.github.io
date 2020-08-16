@@ -1,16 +1,16 @@
-<script>
-  import { onMount } from "svelte";
-  let image;
-  let opacity = 0;
+<script lang="ts">
+  import { onMount } from "svelte"
+  let image: HTMLImageElement
+  let opacity = 0
 
   onMount(() => {
     if (image.complete) {
-      loaded();
+      loaded()
     }
-  });
+  })
 
   function loaded() {
-    opacity = 1;
+    opacity = 1
   }
 </script>
 
@@ -39,6 +39,6 @@
   class="background"
   style="opacity: {opacity}"
   src="images/millennial-colors.jpg"
-  draggable="false"
+  draggable={false}
   alt=""
   on:load={loaded} />

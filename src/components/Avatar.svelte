@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module" lang="ts">
   import { onMount } from "svelte"
   import { spring } from "svelte/motion"
   import {
@@ -7,27 +7,32 @@
     Scene,
     Vector3,
     sRGBEncoding,
+    Camera,
+    Mesh,
+    Geometry,
+    MeshPhysicalMaterial,
   } from "three"
   import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-
-  const avatarPromise = new Promise((resolve) => {
+  type Avatar3D = Mesh<Geometry, MeshPhysicalMaterial>
+  const avatarPromise = new Promise<Avatar3D>((resolve) => {
     const loader = new GLTFLoader()
     loader.load("/3d/avatar.gltf", (gltf) => {
       const avatar = gltf.scene.children[3]
       avatar.position.x += 0.2
       avatar.position.y += 0
-      resolve(avatar)
+      resolve(avatar as Avatar3D)
     })
   })
 </script>
 
-<script>
-  let el
-  let renderer
-  let scene
-  let camera
-  let avatar
-  const yz = spring({ y: 0, z: 0 }, { stiffness: 0.1, damping: 0.4 })
+<script lang="ts">
+  let el: HTMLCanvasElement
+  let renderer: WebGLRenderer
+  let scene: Scene
+  let camera: Camera
+  let avatar: Avatar3D
+  type YZ = { y: number; z: number }
+  const yz = spring<YZ>({ y: 0, z: 0 }, { stiffness: 0.1, damping: 0.4 })
 
   onMount(() => {
     renderer = new WebGLRenderer({
@@ -42,7 +47,7 @@
 
     avatarPromise.then((_avatar) => {
       avatar = _avatar
-      avatar.material.anisotropy = renderer.capabilities.getMaxAnisotropy()
+      avatar.material.emissiveMap!.anisotropy = renderer.capabilities.getMaxAnisotropy()
       scene.add(avatar)
 
       camera.lookAt(new Vector3(0, 0, 0))
@@ -52,13 +57,13 @@
       renderer.dispose()
     }
   })
-  function mousemoved(e) {
+  function mousemoved(e: MouseEvent) {
     $yz = {
       y: (e.clientX / window.innerWidth - 0.5) * 0.25 + 0.1,
       z: (e.clientY / window.innerHeight - 0.5) * -0.23,
     }
   }
-  function rotate({ y, z }) {
+  function rotate({ y, z }: YZ) {
     if (!avatar) {
       return
     }
