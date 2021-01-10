@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, tick } from "svelte"
+  import { tick } from "svelte"
   import noop from "lodash/noop"
 
   export let src: string
@@ -18,7 +18,6 @@
   $: loading(src)
   $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`
 
-  onMount(loading)
   async function loading(src: string) {
     noop(src)
     if (!img) {

@@ -3,21 +3,21 @@ import child_process from "child_process"
 import { promisify } from "util"
 import fs from "fs"
 import matter from "gray-matter"
-import commonmark from "commonmark"
+import { Parser, HtmlRenderer } from "commonmark"
 import { imageSize } from "image-size"
 import orderBy from "lodash/orderBy"
 import type { Project } from "./types"
 
-const reader = new commonmark.Parser()
-const writer = new commonmark.HtmlRenderer()
+const reader = new Parser()
+const writer = new HtmlRenderer()
 
 const readFile = promisify(fs.readFile)
 const readDir = promisify(fs.readdir)
 const execFile = promisify(child_process.execFile)
 
-let dir = path.resolve(process.cwd(), "content/projects")
+const dir = path.resolve(process.cwd(), "content/projects")
 
-export async function allProjects() {
+export async function allProjects(): Promise<Project[]> {
   const files = await readDir(dir)
   const projects: Project[] = []
   for (const file of files) {
@@ -48,8 +48,12 @@ if (fs.existsSync(destination) === false) {
   }
   fs.mkdirSync(destination)
 }
-
-export async function processImage(filename: string) {
+type ProcessedImage = {
+  src: string
+  width?: number
+  height?: number
+}
+export async function processImage(filename: string): Promise<ProcessedImage> {
   const source = path.resolve(dir, "screenshots", filename)
   const dest = path.resolve(destination, filename)
 

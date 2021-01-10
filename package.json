@@ -5,8 +5,7 @@
     "dev": "sapper dev --no-hot",
     "lint": "tsc --noEmit && svelte-check && eslint --max-warnings=0 src",
     "test": "npm run lint",
-    "deploy": "sapper export --no-subfolders --entry '/404' && push-dir --dir __sapper__/export --branch=gh-pages",
-    "postinstall": "sed -i -e 's/interopNamespace(EventEmitter);/interopNamespace(EventEmitter).default;/' node_modules/sapper/dist/CheapWatch.es.js"
+    "deploy": "sapper export --no-subfolders --entry '/404' && push-dir --dir __sapper__/export --branch=gh-pages"
   },
   "prettier": {
     "semi": false
@@ -46,20 +45,21 @@
     "@types/express": "^4.17.7",
     "@types/lodash": "^4.14.159",
     "@types/node": "^14.0.27",
-    "autoprefixer": "^9.8.4",
-    "babel-eslint": "^10.1.0",
-    "commonmark": "^0.29.1",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "autoprefixer": "^10.2.1",
+    "commonmark": "^0.29.3",
     "core-js": "^3.6.5",
-    "eslint": "^7.3.1",
+    "eslint": "^7.17.0",
     "eslint-plugin-only-warn": "^1.0.2",
     "eslint-plugin-prettier": "^3.1.4",
+    "file-loader": "^6.2.0",
     "gray-matter": "^4.0.2",
-    "image-size": "^0.8.3",
+    "image-size": "^0.9.3",
     "install": "^0.13.0",
-    "node-sass": "^4.14.1",
     "or": "^0.2.0",
-    "postcss": "^7.0.32",
-    "postcss-load-config": "^2.1.0",
+    "postcss": "^8.2.4",
+    "postcss-load-config": "^3.0.0",
     "prettier": "^2.0.5",
     "push-dir": "^0.4.1",
     "sapper": "git+https://git@github.com/bfanger/sapper.git#feature/no-subfolders",
@@ -68,8 +68,9 @@
     "svelte-check": "^1.0.17",
     "svelte-loader": "^2.13.6",
     "svelte-preprocess": "^4.0.12",
-    "three": "^0.119.1",
-    "typescript": "^3.9.7",
-    "webpack": "^4.43.0"
+    "three": "^0.124.0",
+    "typescript": "^4.1.3",
+    "webpack": "4",
+    "webpack-modules": "^1.0.0"
   }
 }
