@@ -14,6 +14,16 @@
   }
 </script>
 
+<img
+  bind:this={image}
+  class="background"
+  style="opacity: {opacity}"
+  src="images/millennial-colors.jpg"
+  draggable={false}
+  alt=""
+  on:load={loaded}
+/>
+
 <style lang="scss">
   .background {
     position: fixed;
@@ -33,12 +43,3 @@
     }
   }
 </style>
-
-<img
-  bind:this={image}
-  class="background"
-  style="opacity: {opacity}"
-  src="images/millennial-colors.jpg"
-  draggable={false}
-  alt=""
-  on:load={loaded} />

@@ -3,6 +3,12 @@
   export let type: "next" | "previous"
 </script>
 
+<a {href} rel="prefetch" class="nav-button nav-button--{type}" on:mousedown>
+  <div class="nav-button__label">
+    <slot />
+  </div>
+</a>
+
 <style lang="scss">
   .nav-button {
     background: linear-gradient(
@@ -77,9 +83,3 @@
     }
   }
 </style>
-
-<a {href} rel="prefetch" class="nav-button nav-button--{type}" on:mousedown>
-  <div class="nav-button__label">
-    <slot />
-  </div>
-</a>

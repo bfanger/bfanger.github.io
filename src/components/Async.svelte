@@ -5,7 +5,7 @@
   export let component: Promise<{ default: Function }>
   export let props: object = {}
   $: promise =
-    component && component.then
+    component && typeof component.then === "function"
       ? component
       : Promise.reject(new Error("Missing component parameter"))
 </script>

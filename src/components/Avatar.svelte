@@ -9,11 +9,11 @@
     sRGBEncoding,
     Camera,
     Mesh,
-    Geometry,
+    BufferGeometry,
     MeshPhysicalMaterial,
   } from "three"
   import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-  type Avatar3D = Mesh<Geometry, MeshPhysicalMaterial>
+  type Avatar3D = Mesh<BufferGeometry, MeshPhysicalMaterial>
   const avatarPromise = new Promise<Avatar3D>((resolve) => {
     const loader = new GLTFLoader()
     loader.load("/3d/avatar.gltf", (gltf) => {
@@ -74,6 +74,9 @@
   $: rotate($yz)
 </script>
 
+<canvas bind:this={el} class="avatar" />
+<svelte:window on:mousemove={mousemoved} />
+
 <style>
   .avatar {
     position: absolute;
@@ -84,6 +87,3 @@
     border-radius: 50%;
   }
 </style>
-
-<canvas bind:this={el} class="avatar" />
-<svelte:window on:mousemove={mousemoved} />

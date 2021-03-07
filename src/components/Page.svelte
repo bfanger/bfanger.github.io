@@ -12,6 +12,10 @@
   }
 </script>
 
+<div class="page" out:out>
+  <slot />
+</div>
+
 <style lang="scss">
   .page {
     display: flex;
@@ -31,7 +35,3 @@
     overflow: hidden;
   }
 </style>
-
-<div class="page" out:out>
-  <slot />
-</div>

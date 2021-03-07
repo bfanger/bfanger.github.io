@@ -19,6 +19,5 @@
     {#if dev && error.stack}
       <pre>{error.stack}</pre>
     {/if}
-
   </Card>
 </Page>

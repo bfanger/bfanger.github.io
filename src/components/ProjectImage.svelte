@@ -51,6 +51,17 @@
   }
 </script>
 
+<img
+  bind:this={img}
+  class="project-image"
+  {style}
+  {src}
+  {width}
+  {height}
+  {alt}
+  on:load={loaded}
+/>
+
 <style lang="scss">
   .project-image {
     display: block;
@@ -66,13 +77,3 @@
     will-change: opacity;
   }
 </style>
-
-<img
-  bind:this={img}
-  class="project-image"
-  {style}
-  {src}
-  {width}
-  {height}
-  {alt}
-  on:load={loaded} />

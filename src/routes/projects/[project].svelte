@@ -37,6 +37,48 @@
   }
 </script>
 
+<svelte:head>
+  <title>{project.title}</title>
+</svelte:head>
+<svelte:window on:keydown={keydown} />
+
+{#each [project] as p (p.slug)}
+  <Page>
+    <div in:cardIn out:cardOut>
+      <ProjectCard project={p} />
+    </div>
+  </Page>
+{/each}
+
+<div
+  class="project-page__previous"
+  on:mousedown={() => {
+    cardTransition.set("right")
+  }}
+>
+  {#if project.before}
+    <NavButton href="projects/{project.before}" type="previous">
+      Vorige
+    </NavButton>
+  {:else}
+    <NavButton href="portfolio" type="previous">Portfolio</NavButton>
+  {/if}
+</div>
+
+{#if project.after}
+  <div
+    class="project-page__next"
+    on:mousedown={() => {
+      cardTransition.set("left")
+    }}
+  >
+    <NavButton href="projects/{project.after}" type="next">Volgende</NavButton>
+  </div>
+{/if}
+<div class="project-page__disclaimer">
+  <Disclaimer />
+</div>
+
 <style lang="scss">
   .project-page__disclaimer {
     position: absolute;
@@ -75,43 +117,3 @@
     }
   }
 </style>
-
-<svelte:head>
-  <title>{project.title}</title>
-</svelte:head>
-<svelte:window on:keydown={keydown} />
-
-{#each [project] as p (p.slug)}
-  <Page>
-    <div in:cardIn out:cardOut>
-      <ProjectCard project={p} />
-    </div>
-  </Page>
-{/each}
-
-<div
-  class="project-page__previous"
-  on:mousedown={() => {
-    $cardTransition = 'right'
-  }}>
-  {#if project.before}
-    <NavButton href="projects/{project.before}" type="previous">
-      Vorige
-    </NavButton>
-  {:else}
-    <NavButton href="portfolio" type="previous">Portfolio</NavButton>
-  {/if}
-</div>
-
-{#if project.after}
-  <div
-    class="project-page__next"
-    on:mousedown={() => {
-      $cardTransition = 'left'
-    }}>
-    <NavButton href="projects/{project.after}" type="next">Volgende</NavButton>
-  </div>
-{/if}
-<div class="project-page__disclaimer">
-  <Disclaimer />
-</div>

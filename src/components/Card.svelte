@@ -2,6 +2,10 @@
   export let homepage: boolean = false
 </script>
 
+<div class="card" class:card--homepage={homepage}>
+  <slot />
+</div>
+
 <style lang="scss">
   .card {
     display: block;
@@ -22,7 +26,3 @@
     border-radius: 50px !important;
   }
 </style>
-
-<div class="card" class:card--homepage={homepage}>
-  <slot />
-</div>

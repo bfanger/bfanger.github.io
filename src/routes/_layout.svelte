@@ -39,6 +39,15 @@
   }
 </script>
 
+<Background />
+<div
+  class="layout"
+  style={minHeight ? "min-height: " + minHeight : ""}
+  bind:this={el}
+>
+  <slot />
+</div>
+
 <style lang="scss">
   @import "../util.scss";
 
@@ -97,11 +106,3 @@
     flex-direction: column;
   }
 </style>
-
-<Background />
-<div
-  class="layout"
-  style={minHeight ? 'min-height: ' + minHeight : ''}
-  bind:this={el}>
-  <slot />
-</div>

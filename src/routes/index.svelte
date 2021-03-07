@@ -21,6 +21,65 @@
   })
 </script>
 
+<svelte:head>
+  <title>BFanger.nl - Bob Fanger</title>
+</svelte:head>
+<Page>
+  {#if isServer}
+    <Intro />
+  {/if}
+
+  <div hidden={isServer}>
+    {#if cardVisible}
+      <div in:fly={{ y: 50, duration: 500 }} out:fly={{ x: -100 }}>
+        <Card homepage>
+          <img
+            src="images/avatar.jpg"
+            class="homepage__avatar"
+            alt="Bob Fanger"
+          />
+          <div class="homepage__avatar">
+            <Async component={Avatar} />
+          </div>
+          <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
+          <p>
+            Ik ben een webdeveloper bij
+            <a href="https://www.wearetriple.com/">Triple</a>
+            .
+            <br />
+            Daarnaast ben ik ook actief op:
+            <br />
+            <a href="https://github.com/bfanger/">
+              <i class="icon-github" />
+              GitHub
+            </a>
+            en
+            <a href="https://stackoverflow.com/users/19165/bob-fanger">
+              StackOverflow
+            </a>
+          </p>
+          <aside />
+        </Card>
+      </div>
+      <div
+        class="homepage--porfolio"
+        in:fly={{ y: 50, delay: 100, duration: 600 }}
+        out:fade
+      >
+        <NavButton
+          type="next"
+          href="/portfolio"
+          on:mousedown={() => {
+            cardTransition.set("left")
+          }}
+        >
+          Portfolio
+        </NavButton>
+      </div>
+    {/if}
+  </div>
+</Page>
+
 <style lang="scss">
   @import "../util";
 
@@ -59,59 +118,3 @@
     }
   }
 </style>
-
-<svelte:head>
-  <title>BFanger.nl - Bob Fanger</title>
-</svelte:head>
-<Page>
-  {#if isServer}
-    <Intro />
-  {/if}
-
-  <div hidden={isServer}>
-    {#if cardVisible}
-      <div in:fly={{ y: 50, duration: 500 }} out:fly={{ x: -100 }}>
-        <Card homepage>
-          <img
-            src="images/avatar.jpg"
-            class="homepage__avatar"
-            alt="Bob Fanger" />
-          <div class="homepage__avatar">
-            <Async component={Avatar} />
-          </div>
-          <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
-          <p>
-            Ik ben een webdeveloper bij
-            <a href="https://www.wearetriple.com/">Triple</a>
-            .
-            <br />
-            Daarnaast ben ik ook actief op:
-            <br />
-            <a href="https://github.com/bfanger/">
-              <i class="icon-github" />
-              GitHub
-            </a>
-            en
-            <a href="https://stackoverflow.com/users/19165/bob-fanger">
-              StackOverflow
-            </a>
-          </p>
-          <aside />
-        </Card>
-      </div>
-      <div
-        class="homepage--porfolio"
-        in:fly={{ y: 50, delay: 100, duration: 600 }}
-        out:fade>
-        <NavButton
-          type="next"
-          href="/portfolio"
-          on:mousedown={() => {
-            $cardTransition = 'left'
-          }}>
-          Portfolio
-        </NavButton>
-      </div>
-    {/if}
-  </div>
-</Page>
