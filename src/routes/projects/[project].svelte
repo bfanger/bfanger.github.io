@@ -1,38 +1,40 @@
 <script context="module" lang="ts">
-  import Page from "../../components/Page.svelte"
-  import ProjectCard from "../../components/ProjectCard.svelte"
-  import NavButton from "../../components/NavButton.svelte"
-  import Disclaimer from "../../components/Disclaimer.svelte"
-  import cardTransition, {
-    cardIn,
-    cardOut,
-  } from "../../services/cardTransition"
-  import type { Project } from "../types"
+  import type { Project } from "../types";
 
-  export async function preload(this: Window, { params }: any) {
-    const response = await this.fetch(`projects/${params.project}.json`)
-    const project: Project = await response.json()
+  export const load: Load = async ({ page: { params }, fetch }) => {
+    const response = await fetch(`${params.project}.json`);
+    const project: Project = await response.json();
 
-    return { project }
-  }
+    return { props: { project } };
+  };
 </script>
 
 <script lang="ts">
-  import { prefetch, goto } from "@sapper/app"
-  export let project: Project
+  import Page from "../../components/Page.svelte";
+  import ProjectCard from "../../components/ProjectCard.svelte";
+  import NavButton from "../../components/NavButton.svelte";
+  import Disclaimer from "../../components/Disclaimer.svelte";
+  import cardTransition, {
+    cardIn,
+    cardOut,
+  } from "../../services/cardTransition";
+  import type { Load } from "@sveltejs/kit";
+  import { goto, prefetch, prefetchRoutes } from "$app/navigation";
+
+  export let project: Project;
   $: if (project.before && typeof window !== "undefined") {
-    prefetch("projects/" + project.before)
+    prefetch(project.before);
   }
   function keydown(e: KeyboardEvent) {
     if (e.altKey || e.shiftKey || e.metaKey) {
-      return
+      return;
     }
     if (e.key === "ArrowLeft" && project.before) {
-      cardTransition.set("right")
-      goto("projects/" + project.before)
+      cardTransition.set("right");
+      goto(project.before);
     } else if (e.key === "ArrowRight" && project.after) {
-      cardTransition.set("left")
-      goto("projects/" + project.after)
+      cardTransition.set("left");
+      goto(project.after);
     }
   }
 </script>
@@ -53,15 +55,13 @@
 <div
   class="project-page__previous"
   on:mousedown={() => {
-    cardTransition.set("right")
+    cardTransition.set("right");
   }}
 >
   {#if project.before}
-    <NavButton href="projects/{project.before}" type="previous">
-      Vorige
-    </NavButton>
+    <NavButton href={project.before} type="previous">Vorige</NavButton>
   {:else}
-    <NavButton href="portfolio" type="previous">Portfolio</NavButton>
+    <NavButton href="/portfolio" type="previous">Portfolio</NavButton>
   {/if}
 </div>
 
@@ -69,10 +69,10 @@
   <div
     class="project-page__next"
     on:mousedown={() => {
-      cardTransition.set("left")
+      cardTransition.set("left");
     }}
   >
-    <NavButton href="projects/{project.after}" type="next">Volgende</NavButton>
+    <NavButton href={project.after} type="next">Volgende</NavButton>
   </div>
 {/if}
 <div class="project-page__disclaimer">

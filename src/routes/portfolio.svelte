@@ -1,21 +1,23 @@
 <script context="module" lang="ts">
-  import Page from "../components/Page.svelte"
-  import Card from "../components/Card.svelte"
-  import NavButton from "../components/NavButton.svelte"
-  import Disclaimer from "../components/Disclaimer.svelte"
-  import cardTransition, { cardIn, cardOut } from "../services/cardTransition"
-  import type { Portfolio } from "./types"
+  import type { Load } from "@sveltejs/kit";
 
-  export async function preload(this: Window) {
-    const response = await this.fetch("/portfolio.json")
-    const portfolio = await response.json()
-    return { portfolio }
-  }
+  export const load: Load = async ({ page, fetch, session, context }) => {
+    const response = await fetch("./portfolio.json");
+    const portfolio = await response.json();
+    return { props: { portfolio } };
+  };
 </script>
 
 <script lang="ts">
-  export let portfolio: Portfolio
-  const years = Object.keys(portfolio).sort().reverse()
+  import Page from "../components/Page.svelte";
+  import Card from "../components/Card.svelte";
+  import NavButton from "../components/NavButton.svelte";
+  import Disclaimer from "../components/Disclaimer.svelte";
+  import cardTransition, { cardIn, cardOut } from "../services/cardTransition";
+  import type { Portfolio } from "./types";
+
+  export let portfolio: Portfolio;
+  const years = Object.keys(portfolio).sort().reverse();
 </script>
 
 <svelte:head>
@@ -29,7 +31,7 @@
         <h2>{year}</h2>
         <ul
           on:mousedown={() => {
-            cardTransition.set("left")
+            cardTransition.set("left");
           }}
         >
           {#each portfolio[year] as project}
@@ -46,7 +48,7 @@
       href="/"
       type="previous"
       on:mousedown={() => {
-        cardTransition.set("right")
+        cardTransition.set("right");
       }}
     >
       Home

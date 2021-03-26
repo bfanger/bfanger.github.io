@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let href: string
-  export let type: "next" | "previous"
+  export let href: string;
+  export let type: "next" | "previous";
 </script>
 
-<a {href} rel="prefetch" class="nav-button nav-button--{type}" on:mousedown>
+<a {href} sveltekit:prefetch class="nav-button nav-button--{type}" on:mousedown>
   <div class="nav-button__label">
     <slot />
   </div>
