@@ -1,15 +1,16 @@
+@use "sass:math";
+
 $titilliumWeb: "Titillium Web", sans-serif;
 $raleway: "Raleway", sans-serif;
 
 @function fluid($minScreenSize, $minFontSize, $maxScreenSize, $maxFontSize) {
   $fontBase: #{$minFontSize -
-    (
-      $minScreenSize * ($maxFontSize - $minFontSize) /
-        ($maxScreenSize - $minScreenSize)
-    )};
-  $fontGrow: #{(
-      ($maxFontSize - $minFontSize) / ($maxScreenSize - $minScreenSize)
-    ) * 100vw};
+    
+      math.div($minScreenSize * ($maxFontSize - $minFontSize), $maxScreenSize - $minScreenSize)
+    };
+  $fontGrow: #{
+      math.div($maxFontSize - $minFontSize, $maxScreenSize - $minScreenSize)
+     * 100vw};
   @return calc(#{$fontBase} + #{$fontGrow});
 }
 

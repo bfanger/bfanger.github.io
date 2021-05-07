@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
-  import { onMount } from "svelte"
-  import { spring } from "svelte/motion"
+  import { onMount } from "svelte";
+  import { spring } from "svelte/motion";
   import {
     WebGLRenderer,
     PerspectiveCamera,
@@ -11,67 +11,78 @@
     Mesh,
     BufferGeometry,
     MeshPhysicalMaterial,
-  } from "three"
-  import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-  type Avatar3D = Mesh<BufferGeometry, MeshPhysicalMaterial>
-  const avatarPromise = new Promise<Avatar3D>((resolve) => {
-    const loader = new GLTFLoader()
-    loader.load("/3d/avatar.gltf", (gltf) => {
-      const avatar = gltf.scene.children[3]
-      avatar.position.x += 0.2
-      avatar.position.y += 0
-      resolve(avatar as Avatar3D)
-    })
-  })
+  } from "three";
+  import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+
+  type Avatar3D = Mesh<BufferGeometry, MeshPhysicalMaterial>;
+  let avatarPromise: Promise<Avatar3D> | undefined;
+  export function loadAvatar(): Promise<Avatar3D> {
+    if (!avatarPromise) {
+      avatarPromise = new Promise<Avatar3D>((resolve) => {
+        const loader = new GLTFLoader();
+        loader.load("/3d/avatar.gltf", (gltf) => {
+          const avatar = gltf.scene.children[3];
+          avatar.position.x += 0.2;
+          avatar.position.y += 0;
+          resolve(avatar as Avatar3D);
+        });
+      });
+    }
+    return avatarPromise;
+  }
+  if (typeof window !== "undefined") {
+    loadAvatar(); // preload avatar
+  }
 </script>
 
 <script lang="ts">
-  let el: HTMLCanvasElement
-  let renderer: WebGLRenderer
-  let scene: Scene
-  let camera: Camera
-  let avatar: Avatar3D
-  type YZ = { y: number; z: number }
-  const yz = spring<YZ>({ y: 0, z: 0 }, { stiffness: 0.1, damping: 0.4 })
+  let el: HTMLCanvasElement;
+  let renderer: WebGLRenderer;
+  let scene: Scene;
+  let camera: Camera;
+  let avatar: Avatar3D;
+  type YZ = { y: number; z: number };
+  const yz = spring<YZ>({ y: 0, z: 0 }, { stiffness: 0.1, damping: 0.4 });
 
   onMount(() => {
     renderer = new WebGLRenderer({
       canvas: el,
       alpha: true,
       // antialias: true
-    })
-    renderer.outputEncoding = sRGBEncoding
-    camera = new PerspectiveCamera(25, 250 / 250, 0.25, 20)
-    camera.position.set(2.3, 0, 0)
-    scene = new Scene()
+    });
+    renderer.outputEncoding = sRGBEncoding;
+    camera = new PerspectiveCamera(25, 250 / 250, 0.25, 20);
+    camera.position.set(2.3, 0, 0);
+    scene = new Scene();
 
-    avatarPromise.then((_avatar) => {
-      avatar = _avatar
-      avatar.material.emissiveMap!.anisotropy = renderer.capabilities.getMaxAnisotropy()
-      scene.add(avatar)
+    loadAvatar().then((_avatar) => {
+      avatar = _avatar;
+      avatar.material.emissiveMap!.anisotropy =
+        renderer.capabilities.getMaxAnisotropy();
+      scene.add(avatar);
 
-      camera.lookAt(new Vector3(0, 0, 0))
-      rotate($yz)
-    })
+      camera.lookAt(new Vector3(0, 0, 0));
+      rotate($yz);
+    });
     return () => {
-      renderer.dispose()
-    }
-  })
+      renderer.dispose();
+    };
+  });
   function mousemoved(e: MouseEvent) {
     $yz = {
       y: (e.clientX / window.innerWidth - 0.5) * 0.25 + 0.1,
       z: (e.clientY / window.innerHeight - 0.5) * -0.23,
-    }
+    };
   }
   function rotate({ y, z }: YZ) {
     if (!avatar) {
-      return
+      return;
     }
-    avatar.rotation.y = y
-    avatar.rotation.z = z
-    renderer.render(scene, camera)
+    avatar.rotation.y = y;
+    avatar.rotation.z = z;
+    renderer.render(scene, camera);
   }
-  $: rotate($yz)
+  $: rotate($yz);
 </script>
 
 <canvas bind:this={el} class="avatar" />

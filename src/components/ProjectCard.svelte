@@ -1,36 +1,14 @@
 <script context="module" lang="ts">
-  import Card from "./Card.svelte"
-  import ProjectImage from "./ProjectImage.svelte"
-  import type { Project } from "../routes/types"
-
-  const months = [
-    "Januari",
-    "Februari",
-    "Maart",
-    "April",
-    "Mei",
-    "Juni",
-    "Juli",
-    "Augustus",
-    "September",
-    "Oktober",
-    "November",
-    "December",
-  ]
-  function formatReleaseDate(dateString: string) {
-    const [, year, , month] = dateString.match(
-      /^([0-9]{4})(-([0-9]{2}))?(-([0-9]{2}))?$/
-    )!
-    if (month) {
-      return months[parseInt(month, 10) - 1] + " " + year
-    }
-    return year
-  }
+  import Card from "./Card.svelte";
+  import ProjectImage from "./ProjectImage.svelte";
+  import type { Project } from "../routes/types";
 </script>
 
 <script lang="ts">
-  export let project: Project
-  $: image = project.image
+  import { formatReleaseDate } from "$lib/formatDate";
+
+  export let project: Project;
+  $: image = project.image;
 </script>
 
 <Card>
@@ -45,7 +23,7 @@
   {/if}
   {@html project.content}
   <div class="project-card__footer">
-    <a href="portfolio">&lt; Terug naar portfolio</a>
+    <a href="/portfolio">&lt; Terug naar portfolio</a>
     <span class="project-card__release-date">
       {formatReleaseDate(project.released)}
     </span>

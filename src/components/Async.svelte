@@ -1,13 +1,12 @@
 <script lang="ts">
-  /**
-   * @var {Promise<SvelteComponent>} component
-   */
-  export let component: Promise<{ default: Function }>
-  export let props: object = {}
+  import type { SvelteComponent } from "svelte";
+
+  export let component: Promise<{ default: typeof SvelteComponent } | null>;
+  export let props: object = {};
   $: promise =
     component && typeof component.then === "function"
       ? component
-      : Promise.reject(new Error("Missing component parameter"))
+      : Promise.reject(new Error("Missing component parameter"));
 </script>
 
 {#await promise then module}

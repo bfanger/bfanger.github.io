@@ -1,12 +1,11 @@
 <script context="module" lang="ts">
+  import simpleLoad from "$lib/simpleLoad";
   import type { Project } from "../types";
 
-  export const load: Load = async ({ page: { params }, fetch }) => {
-    const response = await fetch(`${params.project}.json`);
-    const project: Project = await response.json();
-
-    return { props: { project } };
-  };
+  export const load = simpleLoad(
+    `/projects/{project}.json`,
+    (project: Project) => ({ project })
+  );
 </script>
 
 <script lang="ts">
@@ -18,8 +17,7 @@
     cardIn,
     cardOut,
   } from "../../services/cardTransition";
-  import type { Load } from "@sveltejs/kit";
-  import { goto, prefetch, prefetchRoutes } from "$app/navigation";
+  import { goto, prefetch } from "$app/navigation";
 
   export let project: Project;
   $: if (project.before && typeof window !== "undefined") {
@@ -44,13 +42,14 @@
 </svelte:head>
 <svelte:window on:keydown={keydown} />
 
-{#each [project] as p (p.slug)}
+{#key project}
   <Page>
     <div in:cardIn out:cardOut>
-      <ProjectCard project={p} />
+      <ProjectCard {project} />
     </div>
+    <slot />
   </Page>
-{/each}
+{/key}
 
 <div
   class="project-page__previous"

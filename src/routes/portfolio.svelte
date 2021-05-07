@@ -1,8 +1,8 @@
 <script context="module" lang="ts">
   import type { Load } from "@sveltejs/kit";
 
-  export const load: Load = async ({ page, fetch, session, context }) => {
-    const response = await fetch("./portfolio.json");
+  export const load: Load = async ({ fetch }) => {
+    const response = await fetch("/portfolio.json");
     const portfolio = await response.json();
     return { props: { portfolio } };
   };
@@ -41,6 +41,7 @@
           {/each}
         </ul>
       {/each}
+      <slot />
     </Card>
   </div>
   <div class="portfolio-page__previous">

@@ -1,53 +1,53 @@
 <script lang="ts">
-  import { tick } from "svelte"
-  import noop from "lodash/noop"
+  import { tick } from "svelte";
+  import noop from "lodash-es/noop";
 
-  export let src: string
-  export let width: number
-  export let height: number
-  export let alt = "Een screenshot van het project"
+  export let src: string;
+  export let width: number;
+  export let height: number;
+  export let alt = "Een screenshot van het project";
 
-  let started: number
-  let img: HTMLImageElement
+  let started: number;
+  let img: HTMLImageElement;
 
   let css = {
     height: "auto",
     opacity: 1,
     duration: "0s",
-  }
-  $: loading(src)
-  $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`
+  };
+  $: loading(src);
+  $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`;
 
   async function loading(src: string) {
-    noop(src)
+    noop(src);
     if (!img) {
-      return
+      return;
     }
     const autoHeight = Math.ceil(
       img.parentElement!.getBoundingClientRect().width / (width / height)
-    )
-    const halfScreen = window.innerHeight / 2
+    );
+    const halfScreen = window.innerHeight / 2;
     if (autoHeight < halfScreen) {
-      css.height = autoHeight + "px"
+      css.height = autoHeight + "px";
     } else {
-      css.height = halfScreen + "px"
+      css.height = halfScreen + "px";
     }
-    css.opacity = 0
-    css.duration = "0s"
-    started = Date.now()
-    await tick()
+    css.opacity = 0;
+    css.duration = "0s";
+    started = Date.now();
+    await tick();
     if (img.complete) {
-      loaded()
+      loaded();
     }
   }
   function loaded() {
     if (Date.now() - started < 150) {
-      css.duration = "0.2s"
+      css.duration = "0.2s";
     } else {
-      css.duration = "0.5s"
+      css.duration = "0.5s";
     }
-    css.opacity = 1
-    css.height = "auto"
+    css.opacity = 1;
+    css.height = "auto";
   }
 </script>
 

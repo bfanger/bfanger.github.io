@@ -1,3 +1,7 @@
+<script lang="ts">
+  const onanimationend = "introEnded()" as any;
+</script>
+
 <div class="intro">
   <div class="intro__bob-fanger">
     <div class="intro__clip-bob">
@@ -66,12 +70,7 @@
       />
     </svg>
     <div class="intro__clip-nl">
-      <svg
-        class="intro__nl"
-        onanimationend="introEnded()"
-        viewBox="0 0 168 64"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg class="intro__nl" {onanimationend} viewBox="0 0 168 64">
         <path
           d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
@@ -93,11 +92,12 @@
 </div>
 
 <style lang="scss">
+  @use "sass:math";
   $duration: 2s;
   $frameCount: (120 - 1);
 
   @function frame($frame) {
-    @return ($frame - 1) * (100% / $frameCount);
+    @return ($frame - 1) * math.div(100%, $frameCount);
   }
 
   .intro {

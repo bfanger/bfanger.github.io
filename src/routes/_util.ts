@@ -1,11 +1,11 @@
 import path from "path";
-import child_process from "child_process";
+import childProcess from "child_process";
 import { promisify } from "util";
 import fs from "fs";
 import matter from "gray-matter";
 import { Parser, HtmlRenderer } from "commonmark";
 import { imageSize } from "image-size";
-import orderBy from "lodash/orderBy";
+import orderBy from "lodash-es/orderBy";
 import type { Project } from "./types";
 
 const reader = new Parser();
@@ -13,34 +13,37 @@ const writer = new HtmlRenderer();
 
 const readFile = promisify(fs.readFile);
 const readDir = promisify(fs.readdir);
-const execFile = promisify(child_process.execFile);
+const execFile = promisify(childProcess.execFile);
 
 const dir = path.resolve(process.cwd(), "content/projects");
+type RawProject = Project & { image: string };
 
-export async function allProjects(): Promise<Project[]> {
-  const files = await readDir(dir);
-  const projects: Project[] = [];
-  for (const file of files) {
-    if (file.endsWith(".md")) {
-      const slug = file.substr(0, file.length - 3);
-      const project = await loadProject(slug);
-      projects.push(project);
-    }
-  }
-  return orderBy(projects, ["released", "title"], ["desc", "asc"]);
-}
 async function loadProject(slug: string) {
-  const file = await readFile(path.resolve(dir, slug + ".md"));
+  const file = await readFile(path.resolve(dir, `${slug}.md`));
   const result = matter(file);
   const parsed = reader.parse(result.content);
   return {
     ...result.data,
     slug,
     content: writer.render(parsed),
-  } as Project;
+  } as RawProject;
 }
 
-const destination = path.resolve(process.cwd(), "static/build/img") + "/";
+export async function allProjects(): Promise<RawProject[]> {
+  const files = await readDir(dir);
+  const projectPromises = files
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => {
+      const slug = file.substr(0, file.length - 3);
+      return loadProject(slug);
+    });
+  return orderBy(
+    await Promise.all(projectPromises),
+    ["released", "title"],
+    ["desc", "asc"]
+  );
+}
+const destination = `${path.resolve(process.cwd(), "static/build/img")}/`;
 if (fs.existsSync(destination) === false) {
   const buildDir = path.resolve(process.cwd(), "static/build");
   if (fs.existsSync(buildDir) === false) {
@@ -48,10 +51,11 @@ if (fs.existsSync(destination) === false) {
   }
   fs.mkdirSync(destination);
 }
+
 type ProcessedImage = {
   src: string;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
 };
 export async function processImage(filename: string): Promise<ProcessedImage> {
   const source = path.resolve(dir, "screenshots", filename);
@@ -86,10 +90,10 @@ export async function processImage(filename: string): Promise<ProcessedImage> {
         if (err.code === 98) {
           return; // conversion results in a file larger than the original
         }
-        console.warn(err);
+        console.warn(err); // eslint-disable-line no-console
       });
     }
   }
   const { width, height } = imageSize(source);
-  return { src: "/build/img/" + filename, width, height };
+  return { src: `/build/img/${filename}`, width, height };
 }

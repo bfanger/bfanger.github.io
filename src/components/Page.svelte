@@ -1,14 +1,14 @@
 <script lang="ts">
-  import noop from "lodash/noop"
+  import noop from "lodash-es/noop";
 
   function out(node: Element, config: object) {
-    noop(config)
-    node.classList.add("page--outro")
+    noop(config);
+    node.classList.add("page--outro");
     return {
       tick(t: number) {
-        node.classList.toggle("page--outro", t !== 1)
+        node.classList.toggle("page--outro", t !== 1);
       },
-    }
+    };
   }
 </script>
 
@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     flex-grow: 1;
-    padding: 15px;
+    padding: 15px 15px 30px 15px;
     box-sizing: border-box;
   }
   :global(.page--outro) {

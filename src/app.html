@@ -5,8 +5,34 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     %svelte.head%
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
   </head>
   <body>
+    <img
+      id="background"
+      class="background"
+      style="opacity: 0"
+      src="/images/millennial-colors.jpg"
+      draggable="{false}"
+      alt=""
+      on:load="{loaded}"
+    />
+    <script>
+      const background = document.getElementById("background");
+      if (background.complete) {
+        background.style.opacity = "1";
+      }
+    </script>
     <svelte-app>%svelte.body%</svelte-app>
   </body>
 </html>

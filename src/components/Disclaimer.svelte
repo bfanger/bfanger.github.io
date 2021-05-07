@@ -1,8 +1,4 @@
-<script lang="ts">
-  import { fade } from "svelte/transition"
-</script>
-
-<footer class="disclaimer" transition:fade>
+<footer class="disclaimer">
   Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
   werkgevers en zijn de concept & design fases reeds door overige partijen
   uitgevoerd.

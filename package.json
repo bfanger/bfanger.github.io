@@ -1,10 +1,11 @@
 {
   "name": "svelte-project-template",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "start": "svelte-kit start",
+    "start": "svelte-kit preview",
     "lint": "prettier --check --loglevel=warn 'src/**/*.svelte' && tsc --noEmit && svelte-check --fail-on-warnings --fail-on-hints && eslint --max-warnings 0 src",
     "format": "prettier --write 'src/**/*.svelte'",
     "precommit": "lint-staged"
@@ -23,32 +24,38 @@
     ]
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.0-next.7",
-    "@sveltejs/kit": "^1.0.0-next.93",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "commonmark": "^0.29.3",
-    "eslint": "^7.25.0",
+    "@sveltejs/adapter-static": "next",
+    "@sveltejs/kit": "next",
+    "@types/lodash": "^4.14.170",
+    "@types/lodash-es": "^4.17.4",
+    "@types/three": "^0.129.1",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-only-warn": "^1.0.2",
     "eslint-plugin-prettier": "^3.4.0",
-    "gray-matter": "^4.0.3",
-    "image-size": "^1.0.0",
-    "lodash": "^4.17.21",
-    "prettier": "~2.2.1",
-    "prettier-plugin-svelte": "^2.2.0",
-    "sass": "^1.32.12",
-    "svelte": "^3.37.0",
-    "svelte-check": "^1.5.2",
+    "prettier": "~2.3.1",
+    "prettier-plugin-svelte": "^2.3.0",
+    "sass": "^1.35.1",
+    "svelte-check": "^2.1.0",
     "svelte-preprocess": "^4.7.2",
-    "three": "^0.128.0",
-    "tslib": "^2.2.0",
-    "typescript": "^4.2.4",
-    "vite": "^2.2.3"
+    "three": "^0.129.0",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.4",
+    "vite": "^2.3.7"
   },
   "engines": {
     "node": ">= 12.17.0"
+  },
+  "dependencies": {
+    "commonmark": "^0.29.3",
+    "gray-matter": "^4.0.3",
+    "image-size": "^1.0.0",
+    "lodash-es": "^4.17.21",
+    "svelte": "^3.38.2"
   }
 }

@@ -1,28 +1,41 @@
-<script context="module" lang="ts">
-  import { onMount, tick } from "svelte"
-  import { fly, fade } from "svelte/transition"
-  import Intro from "../components/Intro.svelte"
-  import NavButton from "../components/NavButton.svelte"
-  import Page from "../components/Page.svelte"
-  import Card from "../components/Card.svelte"
-  import cardTransition from "../services/cardTransition"
-  import Async from "../components/Async.svelte"
-  import Avatar from "../components/AsyncAvatar"
-
-  let isServer = typeof window === "undefined"
+<script lang="ts" context="module">
+  export async function load({}) {
+    const isServer = typeof window === "undefined";
+    if (!isServer) {
+      await window["introPromise"];
+    }
+    return {
+      props: {
+        introVisible: true,
+        isServer,
+      },
+    };
+  }
 </script>
 
 <script lang="ts">
-  let cardVisible = isServer
+  import { onMount } from "svelte";
+  import { fly } from "svelte/transition";
+  import Intro from "../components/Intro.svelte";
+  import NavButton from "../components/NavButton.svelte";
+  import Page from "../components/Page.svelte";
+  import Card from "../components/Card.svelte";
+  import cardTransition from "../services/cardTransition";
+  import Async from "../components/Async.svelte";
+  import Avatar from "../components/AsyncAvatar";
+
+  export let introVisible: boolean;
+  export let isServer: boolean;
+  let cardVisible = isServer;
+
   onMount(async () => {
-    cardVisible = false
-    await tick()
-    cardVisible = true
-  })
+    introVisible = false;
+    cardVisible = true;
+  });
 </script>
 
 <svelte:head>
-  <title>BFanger.nl - Bob Fanger</title>
+  <title>BFanger.nl - Bob Fanger{isServer}</title>
 </svelte:head>
 <Page>
   {#if isServer}
@@ -58,19 +71,18 @@
               StackOverflow
             </a>
           </p>
-          <aside />
+          <slot />
         </Card>
       </div>
       <div
         class="homepage--porfolio"
         in:fly={{ y: 50, delay: 100, duration: 600 }}
-        out:fade
       >
         <NavButton
           type="next"
           href="/portfolio"
           on:mousedown={() => {
-            cardTransition.set("left")
+            cardTransition.set("left");
           }}
         >
           Portfolio

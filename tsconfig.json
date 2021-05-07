@@ -1,19 +1,21 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "moduleResolution": "node",
-    "target": "es2018",
+    "module": "es2020",
+    "lib": ["es2020"],
+    "target": "es2019",
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "lib": ["ESNext"],
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "allowJs": true,
     "checkJs": true,
     "paths": {
-      "$app/*": [".svelte/dev/runtime/app/*", ".svelte/build/runtime/app/*"],
       "$lib/*": ["src/lib/*"]
     }
   },
