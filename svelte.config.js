@@ -11,6 +11,7 @@ const svelteConfig = {
     vite: {
       optimizeDeps: {
         include: [
+          "three",
           "lodash-es/noop",
           "lodash-es/groupBy",
           "lodash-es/orderBy",

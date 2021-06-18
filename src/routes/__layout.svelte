@@ -102,7 +102,6 @@
     height: 100%;
     transform: translateX(-50%);
     transition: 2.5s opacity 0.5s;
-    will-change: opacity;
     width: 100%;
     filter: blur(50px);
     @media (max-aspect-ratio: 1/1) {

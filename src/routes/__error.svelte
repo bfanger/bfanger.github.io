@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  export function load({ page, error, status }) {
+  export function load({ error, status }) {
     if (error.response && error.response.status) {
       status = error.response.status;
     }

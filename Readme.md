@@ -2,7 +2,7 @@
 
 [Bob Fanger's portfolio](https://bfanger.nl/) website.
 
-Build with [sapper](https://sapper.svelte.dev/) and hosted by github.
+Build with [SvelteKit](https://kit.svelte.dev/) and hosted by github.
 
 ## Setup (macOS)
 

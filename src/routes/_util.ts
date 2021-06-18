@@ -13,10 +13,15 @@ const writer = new HtmlRenderer();
 
 const readFile = promisify(fs.readFile);
 const readDir = promisify(fs.readdir);
+const copyFile = promisify(fs.copyFile);
 const execFile = promisify(childProcess.execFile);
 
+const hasPngquant = execFile("which pngquant")
+  .then(() => true)
+  .catch(() => false);
+
 const dir = path.resolve(process.cwd(), "content/projects");
-type RawProject = Project & { image: string };
+type RawProject = Project & { image: string; alt: string };
 
 async function loadProject(slug: string) {
   const file = await readFile(path.resolve(dir, `${slug}.md`));
@@ -54,10 +59,14 @@ if (fs.existsSync(destination) === false) {
 
 type ProcessedImage = {
   src: string;
+  alt?: string;
   width: number;
   height: number;
 };
-export async function processImage(filename: string): Promise<ProcessedImage> {
+export async function processImage(
+  filename: string,
+  alt?: string
+): Promise<ProcessedImage> {
   const source = path.resolve(dir, "screenshots", filename);
   const dest = path.resolve(destination, filename);
 
@@ -76,8 +85,16 @@ export async function processImage(filename: string): Promise<ProcessedImage> {
       "85",
       source,
       destination + filename,
-    ]);
-    if (filename.substr(filename.length - 4) === ".png") {
+    ]).catch((err) => {
+      // eslint-disable-next-line no-console
+      console.warn(err);
+      return copyFile(source, destination + filename);
+    });
+
+    if (
+      filename.substr(filename.length - 4) === ".png" &&
+      (await hasPngquant)
+    ) {
       await execFile("pngquant", [
         "--ext",
         ".png",
@@ -90,10 +107,10 @@ export async function processImage(filename: string): Promise<ProcessedImage> {
         if (err.code === 98) {
           return; // conversion results in a file larger than the original
         }
-        console.warn(err); // eslint-disable-line no-console
+        console.warn(err.message); // eslint-disable-line no-console
       });
     }
   }
   const { width, height } = imageSize(source);
-  return { src: `/build/img/${filename}`, width, height };
+  return { src: `/build/img/${filename}`, alt, width, height };
 }
