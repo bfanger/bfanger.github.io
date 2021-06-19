@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <title>Bob Fanger&#39;s portfolio</title>
+
+		
+
+		<link rel="modulepreload" href="/./_app/start-a0138d29.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-a21ed053.js">
+		<link rel="modulepreload" href="/./_app/chunks/preload-helper-9f12a5fd.js">
+		<link rel="modulepreload" href="/./_app/chunks/singletons-9c431dc7.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-6f8b1722.js">
+		<link rel="modulepreload" href="/./_app/pages/portfolio.svelte-5ee51298.js">
+		<link rel="modulepreload" href="/./_app/chunks/Card-171293df.js">
+		<link rel="modulepreload" href="/./_app/chunks/cardTransition-86444064.js">
+		<link rel="modulepreload" href="/./_app/chunks/Disclaimer-57b4f067.js">
+		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-b93e4d16.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/portfolio.svelte-6a97cb91.css">
+		<link rel="stylesheet" href="/./_app/assets/Card-41b0640c.css">
+		<link rel="stylesheet" href="/./_app/assets/cardTransition-8608e198.css">
+		<link rel="stylesheet" href="/./_app/assets/Disclaimer-40a8be08.css">
+
+		<script type="module">
+			import { start } from "/./_app/start-a0138d29.js";
+			start({
+				target: document.querySelector("svelte-app"),
+				paths: {"base":"","assets":"/."},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/./_app/pages/__layout.svelte-6f8b1722.js"),
+						import("/./_app/pages/portfolio.svelte-5ee51298.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/portfolio",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-z3kehx" style="">
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Portfolio van Bob Fanger</h1>
+      <h2>2021</h2>
+        <ul><li><a href="projects/nlziet">NLZIET</a>
+            </li><li><a href="projects/vtmgo">VTM GO</a>
+            </li><li><a href="projects/mauna-kea-3d">Mauna 3d</a>
+            </li><li><a href="projects/streamz">Streamz</a>
+            </li>
+        </ul><h2>2020</h2>
+        <ul><li><a href="projects/skillz">Skillz</a>
+            </li><li><a href="projects/focus-engine">Focus Engine</a>
+            </li><li><a href="projects/mauna">Mauna</a>
+            </li><li><a href="projects/pr-tool">PR Tool</a>
+            </li><li><a href="projects/omroep-brabant">Omroep Brabant</a>
+            </li>
+        </ul><h2>2019</h2>
+        <ul><li><a href="projects/triple-app">Triple App</a>
+            </li><li><a href="projects/affligem">Affligem</a>
+            </li><li><a href="projects/deondernemer">De Ondernemer website</a>
+            </li><li><a href="projects/anp360plus">ANP 360+</a>
+            </li><li><a href="projects/qmusic-de-uitverkorene">Qmusic - De Uitverkorene</a>
+            </li><li><a href="projects/rookvrij-banner">Rookvrij - Maak online banner</a>
+            </li><li><a href="projects/fitchannel-craft">Fitchannel - CraftCMS</a>
+            </li><li><a href="projects/mijnzwemcoach">KNZB - Mijn zwemcoach</a>
+            </li><li><a href="projects/fuzeteastorelocator">Fuzetea - Store locator</a>
+            </li>
+        </ul><h2>2018</h2>
+        <ul><li><a href="projects/livewords-express">Livewords - Xpress</a>
+            </li><li><a href="projects/livewords">Livewords - Redesign</a>
+            </li><li><a href="projects/rookvrije-generatie">Rookvrije Generatie</a>
+            </li><li><a href="projects/ajaxlife">Ajaxlife API</a>
+            </li><li><a href="projects/picompany">PiCompany Talentmanager</a>
+            </li><li><a href="projects/anp-radar">ANP Radar</a>
+            </li><li><a href="projects/digital-society-school">Digital Society School</a>
+            </li><li><a href="projects/livewords-retainer">Livewords - Retainer</a>
+            </li><li><a href="projects/riddle-room">Accor - Riddle Room</a>
+            </li><li><a href="projects/ing-circulaire-economie">ING - Circulaire Economie Case Trainer</a>
+            </li><li><a href="projects/lego-boost">Lego Boost</a>
+            </li><li><a href="projects/de-monitor">KRO/NCRV - De Monitor</a>
+            </li><li><a href="projects/karwei-moodboard-maker">Karwei Moodboard Maker</a>
+            </li><li><a href="projects/ah-moestuintje-app-update">Albert Hein - Moestuintje App update</a>
+            </li>
+        </ul><h2>2017</h2>
+        <ul><li><a href="projects/taxi2airport">Taxi2Airport App</a>
+            </li><li><a href="projects/fitchannel">Fitchannel</a>
+            </li><li><a href="projects/ah-moestuintjes-app">Albert Hein - Moestuintje App</a>
+            </li><li><a href="projects/nationalenieuwsquiz">Radio 1 - Nationale Nieuws Quiz</a>
+            </li><li><a href="projects/sporteye-tagging">Sporteye Tagging</a>
+            </li>
+        </ul><h2>2016</h2>
+        <ul><li><a href="projects/mora-ovenbingo">Mora Ovenbingo</a>
+            </li><li><a href="projects/brandpunt360">360° Brandpunt</a>
+            </li><li><a href="projects/7-dagen-groener-update">NPO 7 dagen groener - Update</a>
+            </li><li><a href="projects/zappmissie-360game">Zapp missie: 360° Game</a>
+            </li><li><a href="projects/topgear">Topgear</a>
+            </li><li><a href="projects/coca-cola-free-wifi">Coca cola - Free Wifi</a>
+            </li>
+        </ul><h2>2015</h2>
+        <ul><li><a href="projects/fbto-dokter-op-zak">FBTO - Dokter op Zak</a>
+            </li><li><a href="projects/samsam-reportersclub">Samsam ReportersClub</a>
+            </li><li><a href="projects/npo-7-dagen-groener">NPO 7 dagen groener</a>
+            </li><li><a href="projects/greenpeace-jouw-meter-zee">Greenpeace - Jouw meter zee</a>
+            </li><li><a href="projects/ing-30-dagen-meer-geld-overhouden-challenge">ING - 30 Dagen Meer Geld Overhouden Challenge</a>
+            </li>
+        </ul><h2>2014</h2>
+        <ul><li><a href="projects/philips-brand-journey">Philips - Brand journey</a>
+            </li><li><a href="projects/activia-redesign">Activia.nl - Redesign</a>
+            </li><li><a href="projects/angular-keyboard">angular-keyboard</a>
+            </li><li><a href="projects/gemeente-amsterdam-dat-scheelt-een-hoop">Gemeente Amsterdam - Dat scheelt een hoop</a>
+            </li><li><a href="projects/sporteye.tv">Sporteye.TV</a>
+            </li><li><a href="projects/philips-integrity-challenge">Philips - Integrity challenge</a>
+            </li><li><a href="projects/philips-brandcourse">Philips - Brandcourse</a>
+            </li><li><a href="projects/philips-employee-jam">Philips - Employee jam</a>
+            </li><li><a href="projects/socialcast-php-client">Socialcast PHP Client</a>
+            </li><li><a href="projects/vichy-idealia-ogencreme">Vichy - Idealia ogencreme</a>
+            </li><li><a href="projects/philips-social-media-diploma">Philips - Social Media Diploma</a>
+            </li><li><a href="projects/samsung-galaxy-tab-pro">Samsung - Galaxy Tab Pro</a>
+            </li>
+        </ul><h2>2013</h2>
+        <ul><li><a href="projects/puppet">Puppet configuratie</a>
+            </li><li><a href="projects/bfanger.nl-v3">BFanger.nl v3</a>
+            </li><li><a href="projects/bookit-gift2gether">BookIt - Gift2Gether</a>
+            </li><li><a href="projects/c1000-je-weet-nu">C1000 - Je weet nu!</a>
+            </li><li><a href="projects/centraal-beheer-rij-schade-vrij">Centraal Beheer - Rij Schade Vrij</a>
+            </li><li><a href="projects/essent-facebook-game">Essent - Facebook Game</a>
+            </li><li><a href="projects/hubly-sprint1">Hubly - Sprint1</a>
+            </li><li><a href="projects/ing-meet-sam">ING - Meet Sam</a>
+            </li><li><a href="projects/kpn-een">KPN - KPN één</a>
+            </li><li><a href="projects/pinch-appshop">PINCH - AppShop</a>
+            </li><li><a href="projects/philips-business-ethics">Philips Business Ethics</a>
+            </li><li><a href="projects/rode-kruis-spotlight">Rode kruis - Spotlight</a>
+            </li><li><a href="projects/swagger-php">Swagger-PHP</a>
+            </li>
+        </ul><h2>2012</h2>
+        <ul><li><a href="projects/debugr">DebugR</a>
+            </li><li><a href="projects/fcb-draft-kaarsjesblazen">FCB Draft - Kaarsjesblazen</a>
+            </li><li><a href="projects/granditalia.nl">Grand&#39;italia.nl</a>
+            </li><li><a href="projects/layergloss-online-app-creator">Layergloss - Online App Creator</a>
+            </li><li><a href="projects/opscode-chef">Opscode Chef</a>
+            </li>
+        </ul><h2>2011</h2>
+        <ul><li><a href="projects/alex-mijn-beurswaarde">Alex - Mijn Beurswaarde</a>
+            </li><li><a href="projects/fleurametz">FleuraMetz</a>
+            </li><li><a href="projects/granditalia-reizen">Grand&#39;Italia - Reizen</a>
+            </li><li><a href="projects/kerstman-op-pad">Kerstman op pad</a>
+            </li><li><a href="projects/remmert-dekker">Remmert Dekker</a>
+            </li>
+        </ul><h2>2010</h2>
+        <ul><li><a href="projects/zeesterren">Zeesterren</a>
+            </li><li><a href="projects/advanced-engineering">Advanced Engineering</a>
+            </li><li><a href="projects/beijerbouw">Beijerbouw</a>
+            </li><li><a href="projects/nassau-fondswerving">Nassau Fondswerving</a>
+            </li><li><a href="projects/q-plast">Q-Plast</a>
+            </li><li><a href="projects/bfanger.nl-v2">BFanger.nl v2</a>
+            </li><li><a href="projects/catwhisperer">Catwhisperer</a>
+            </li><li><a href="projects/episerver-intranet">EPiServer Intranet</a>
+            </li><li><a href="projects/olthof">Olthof</a>
+            </li><li><a href="projects/wms-micro">wms micro</a>
+            </li>
+        </ul><h2>2009</h2>
+        <ul><li><a href="projects/hotelspecials-v4">Hotelspecials v4</a>
+            </li>
+        </ul><h2>2008</h2>
+        <ul><li><a href="projects/buckaroo">Buckaroo</a>
+            </li>
+        </ul><h2>2007</h2>
+        <ul><li><a href="projects/hotelcadeau-v2">HotelCadeau v2</a>
+            </li>
+        </ul><h2>2006</h2>
+        <ul><li><a href="projects/hotelspecials-v3">Hotelspecials v3</a>
+            </li><li><a href="projects/hotelcadeau">HotelCadeau</a>
+            </li>
+        </ul>
+      
+</div></div>
+  <div class="portfolio-page__previous svelte-1jwhvx3"><a href="/" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Home
+    </div>
+</a></div>
+  <footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+
+	<script type="svelte-data" url="/portfolio.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"2006\":[{\"slug\":\"hotelspecials-v3\",\"title\":\"Hotelspecials v3\",\"released\":\"2006-06\"},{\"slug\":\"hotelcadeau\",\"title\":\"HotelCadeau\",\"released\":\"2006\"}],\"2007\":[{\"slug\":\"hotelcadeau-v2\",\"title\":\"HotelCadeau v2\",\"released\":\"2007-07\"}],\"2008\":[{\"slug\":\"buckaroo\",\"title\":\"Buckaroo\",\"released\":\"2008\"}],\"2009\":[{\"slug\":\"hotelspecials-v4\",\"title\":\"Hotelspecials v4\",\"released\":\"2009-08\"}],\"2010\":[{\"slug\":\"zeesterren\",\"title\":\"Zeesterren\",\"released\":\"2010-12\"},{\"slug\":\"advanced-engineering\",\"title\":\"Advanced Engineering\",\"released\":\"2010-03\"},{\"slug\":\"beijerbouw\",\"title\":\"Beijerbouw\",\"released\":\"2010-02\"},{\"slug\":\"nassau-fondswerving\",\"title\":\"Nassau Fondswerving\",\"released\":\"2010-02\"},{\"slug\":\"q-plast\",\"title\":\"Q-Plast\",\"released\":\"2010-02\"},{\"slug\":\"bfanger.nl-v2\",\"title\":\"BFanger.nl v2\",\"released\":\"2010\"},{\"slug\":\"catwhisperer\",\"title\":\"Catwhisperer\",\"released\":\"2010\"},{\"slug\":\"episerver-intranet\",\"title\":\"EPiServer Intranet\",\"released\":\"2010\"},{\"slug\":\"olthof\",\"title\":\"Olthof\",\"released\":\"2010\"},{\"slug\":\"wms-micro\",\"title\":\"wms micro\",\"released\":\"2010\"}],\"2011\":[{\"slug\":\"alex-mijn-beurswaarde\",\"title\":\"Alex - Mijn Beurswaarde\",\"released\":\"2011\"},{\"slug\":\"fleurametz\",\"title\":\"FleuraMetz\",\"released\":\"2011\"},{\"slug\":\"granditalia-reizen\",\"title\":\"Grand'Italia - Reizen\",\"released\":\"2011\"},{\"slug\":\"kerstman-op-pad\",\"title\":\"Kerstman op pad\",\"released\":\"2011\"},{\"slug\":\"remmert-dekker\",\"title\":\"Remmert Dekker\",\"released\":\"2011\"}],\"2012\":[{\"slug\":\"debugr\",\"title\":\"DebugR\",\"released\":\"2012\"},{\"slug\":\"fcb-draft-kaarsjesblazen\",\"title\":\"FCB Draft - Kaarsjesblazen\",\"released\":\"2012\"},{\"slug\":\"granditalia.nl\",\"title\":\"Grand'italia.nl\",\"released\":\"2012\"},{\"slug\":\"layergloss-online-app-creator\",\"title\":\"Layergloss - Online App Creator\",\"released\":\"2012\"},{\"slug\":\"opscode-chef\",\"title\":\"Opscode Chef\",\"released\":\"2012\"}],\"2013\":[{\"slug\":\"puppet\",\"title\":\"Puppet configuratie\",\"released\":\"2013-10\"},{\"slug\":\"bfanger.nl-v3\",\"title\":\"BFanger.nl v3\",\"released\":\"2013\"},{\"slug\":\"bookit-gift2gether\",\"title\":\"BookIt - Gift2Gether\",\"released\":\"2013\"},{\"slug\":\"c1000-je-weet-nu\",\"title\":\"C1000 - Je weet nu!\",\"released\":\"2013\"},{\"slug\":\"centraal-beheer-rij-schade-vrij\",\"title\":\"Centraal Beheer - Rij Schade Vrij\",\"released\":\"2013\"},{\"slug\":\"essent-facebook-game\",\"title\":\"Essent - Facebook Game\",\"released\":\"2013\"},{\"slug\":\"hubly-sprint1\",\"title\":\"Hubly - Sprint1\",\"released\":\"2013\"},{\"slug\":\"ing-meet-sam\",\"title\":\"ING - Meet Sam\",\"released\":\"2013\"},{\"slug\":\"kpn-een\",\"title\":\"KPN - KPN één\",\"released\":\"2013\"},{\"slug\":\"pinch-appshop\",\"title\":\"PINCH - AppShop\",\"released\":\"2013\"},{\"slug\":\"philips-business-ethics\",\"title\":\"Philips Business Ethics\",\"released\":\"2013\"},{\"slug\":\"rode-kruis-spotlight\",\"title\":\"Rode kruis - Spotlight\",\"released\":\"2013\"},{\"slug\":\"swagger-php\",\"title\":\"Swagger-PHP\",\"released\":\"2013\"}],\"2014\":[{\"slug\":\"philips-brand-journey\",\"title\":\"Philips - Brand journey\",\"released\":\"2014-11\"},{\"slug\":\"activia-redesign\",\"title\":\"Activia.nl - Redesign\",\"released\":\"2014-10\"},{\"slug\":\"angular-keyboard\",\"title\":\"angular-keyboard\",\"released\":\"2014-10\"},{\"slug\":\"gemeente-amsterdam-dat-scheelt-een-hoop\",\"title\":\"Gemeente Amsterdam - Dat scheelt een hoop\",\"released\":\"2014-08\"},{\"slug\":\"sporteye.tv\",\"title\":\"Sporteye.TV\",\"released\":\"2014-07\"},{\"slug\":\"philips-integrity-challenge\",\"title\":\"Philips - Integrity challenge\",\"released\":\"2014-06\"},{\"slug\":\"philips-brandcourse\",\"title\":\"Philips - Brandcourse\",\"released\":\"2014-05\"},{\"slug\":\"philips-employee-jam\",\"title\":\"Philips - Employee jam\",\"released\":\"2014-05\"},{\"slug\":\"socialcast-php-client\",\"title\":\"Socialcast PHP Client\",\"released\":\"2014-05\"},{\"slug\":\"vichy-idealia-ogencreme\",\"title\":\"Vichy - Idealia ogencreme\",\"released\":\"2014-04\"},{\"slug\":\"philips-social-media-diploma\",\"title\":\"Philips - Social Media Diploma\",\"released\":\"2014-01\"},{\"slug\":\"samsung-galaxy-tab-pro\",\"title\":\"Samsung - Galaxy Tab Pro\",\"released\":\"2014\"}],\"2015\":[{\"slug\":\"fbto-dokter-op-zak\",\"title\":\"FBTO - Dokter op Zak\",\"released\":\"2015-10\"},{\"slug\":\"samsam-reportersclub\",\"title\":\"Samsam ReportersClub\",\"released\":\"2015-05\"},{\"slug\":\"npo-7-dagen-groener\",\"title\":\"NPO 7 dagen groener\",\"released\":\"2015-04\"},{\"slug\":\"greenpeace-jouw-meter-zee\",\"title\":\"Greenpeace - Jouw meter zee\",\"released\":\"2015-03\"},{\"slug\":\"ing-30-dagen-meer-geld-overhouden-challenge\",\"title\":\"ING - 30 Dagen Meer Geld Overhouden Challenge\",\"released\":\"2015-01\"}],\"2016\":[{\"slug\":\"mora-ovenbingo\",\"title\":\"Mora Ovenbingo\",\"released\":\"2016-11\"},{\"slug\":\"brandpunt360\",\"title\":\"360° Brandpunt\",\"released\":\"2016-10\"},{\"slug\":\"7-dagen-groener-update\",\"title\":\"NPO 7 dagen groener - Update\",\"released\":\"2016-09\"},{\"slug\":\"zappmissie-360game\",\"title\":\"Zapp missie: 360° Game\",\"released\":\"2016-08\"},{\"slug\":\"topgear\",\"title\":\"Topgear\",\"released\":\"2016-05\"},{\"slug\":\"coca-cola-free-wifi\",\"title\":\"Coca cola - Free Wifi\",\"released\":\"2016-01\"}],\"2017\":[{\"slug\":\"taxi2airport\",\"title\":\"Taxi2Airport App\",\"released\":\"2017-10\"},{\"slug\":\"fitchannel\",\"title\":\"Fitchannel\",\"released\":\"2017-06\"},{\"slug\":\"ah-moestuintjes-app\",\"title\":\"Albert Hein - Moestuintje App\",\"released\":\"2017-04\"},{\"slug\":\"nationalenieuwsquiz\",\"title\":\"Radio 1 - Nationale Nieuws Quiz\",\"released\":\"2017-01\"},{\"slug\":\"sporteye-tagging\",\"title\":\"Sporteye Tagging\",\"released\":\"2017\"}],\"2018\":[{\"slug\":\"livewords-express\",\"title\":\"Livewords - Xpress\",\"released\":\"2018-12\"},{\"slug\":\"livewords\",\"title\":\"Livewords - Redesign\",\"released\":\"2018-11\"},{\"slug\":\"rookvrije-generatie\",\"title\":\"Rookvrije Generatie\",\"released\":\"2018-09\"},{\"slug\":\"ajaxlife\",\"title\":\"Ajaxlife API\",\"released\":\"2018-08\"},{\"slug\":\"picompany\",\"title\":\"PiCompany Talentmanager\",\"released\":\"2018-08\"},{\"slug\":\"anp-radar\",\"title\":\"ANP Radar\",\"released\":\"2018-07\"},{\"slug\":\"digital-society-school\",\"title\":\"Digital Society School\",\"released\":\"2018-07\"},{\"slug\":\"livewords-retainer\",\"title\":\"Livewords - Retainer\",\"released\":\"2018-07\"},{\"slug\":\"riddle-room\",\"title\":\"Accor - Riddle Room\",\"released\":\"2018-06-22\"},{\"slug\":\"ing-circulaire-economie\",\"title\":\"ING - Circulaire Economie Case Trainer\",\"released\":\"2018-05\"},{\"slug\":\"lego-boost\",\"title\":\"Lego Boost\",\"released\":\"2018-04\"},{\"slug\":\"de-monitor\",\"title\":\"KRO\u002FNCRV - De Monitor\",\"released\":\"2018-03\"},{\"slug\":\"karwei-moodboard-maker\",\"title\":\"Karwei Moodboard Maker\",\"released\":\"2018-02-21\"},{\"slug\":\"ah-moestuintje-app-update\",\"title\":\"Albert Hein - Moestuintje App update\",\"released\":\"2018-02-18\"}],\"2019\":[{\"slug\":\"triple-app\",\"title\":\"Triple App\",\"released\":\"2019-12\"},{\"slug\":\"affligem\",\"title\":\"Affligem\",\"released\":\"2019-11\"},{\"slug\":\"deondernemer\",\"title\":\"De Ondernemer website\",\"released\":\"2019-09\"},{\"slug\":\"anp360plus\",\"title\":\"ANP 360+\",\"released\":\"2019-07\"},{\"slug\":\"qmusic-de-uitverkorene\",\"title\":\"Qmusic - De Uitverkorene\",\"released\":\"2019-05\"},{\"slug\":\"rookvrij-banner\",\"title\":\"Rookvrij - Maak online banner\",\"released\":\"2019-05\"},{\"slug\":\"fitchannel-craft\",\"title\":\"Fitchannel - CraftCMS\",\"released\":\"2019-04\"},{\"slug\":\"mijnzwemcoach\",\"title\":\"KNZB - Mijn zwemcoach\",\"released\":\"2019-03\"},{\"slug\":\"fuzeteastorelocator\",\"title\":\"Fuzetea - Store locator\",\"released\":\"2019-02\"}],\"2020\":[{\"slug\":\"skillz\",\"title\":\"Skillz\",\"released\":\"2020-12\"},{\"slug\":\"focus-engine\",\"title\":\"Focus Engine\",\"released\":\"2020-10\"},{\"slug\":\"mauna\",\"title\":\"Mauna\",\"released\":\"2020-10\"},{\"slug\":\"pr-tool\",\"title\":\"PR Tool\",\"released\":\"2020-07\"},{\"slug\":\"omroep-brabant\",\"title\":\"Omroep Brabant\",\"released\":\"2020-05\"}],\"2021\":[{\"slug\":\"nlziet\",\"title\":\"NLZIET\",\"released\":\"2021-05\"},{\"slug\":\"vtmgo\",\"title\":\"VTM GO\",\"released\":\"2021-05\"},{\"slug\":\"mauna-kea-3d\",\"title\":\"Mauna 3d\",\"released\":\"2021-01\"},{\"slug\":\"streamz\",\"title\":\"Streamz\",\"released\":\"2021-01\"}]}"}</script>
+</svelte-app>
+  </body>
+</html>
