@@ -35,7 +35,7 @@
 </script>
 
 <svelte:head>
-  <title>BFanger.nl - Bob Fanger{isServer}</title>
+  <title>BFanger.nl - Bob Fanger</title>
 </svelte:head>
 <Page>
   {#if isServer}
