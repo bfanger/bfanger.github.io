@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <title>Ajaxlife API</title>
+
+		
+
+		<link rel="modulepreload" href="/./_app/start-4c0b2648.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-d7d6bc8e.js">
+		<link rel="modulepreload" href="/./_app/chunks/preload-helper-9f12a5fd.js">
+		<link rel="modulepreload" href="/./_app/chunks/singletons-9c431dc7.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-97fcf24e.js">
+		<link rel="modulepreload" href="/./_app/pages/projects/[project].svelte-5d3713db.js">
+		<link rel="modulepreload" href="/./_app/chunks/Card-86ab7964.js">
+		<link rel="modulepreload" href="/./_app/chunks/cardTransition-ab529235.js">
+		<link rel="modulepreload" href="/./_app/chunks/Disclaimer-ffcd10be.js">
+		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-81fde942.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/projects/[project].svelte-efccd724.css">
+		<link rel="stylesheet" href="/./_app/assets/Card-41b0640c.css">
+		<link rel="stylesheet" href="/./_app/assets/cardTransition-8608e198.css">
+		<link rel="stylesheet" href="/./_app/assets/Disclaimer-40a8be08.css">
+
+		<script type="module">
+			import { start } from "/./_app/start-4c0b2648.js";
+			start({
+				target: document.querySelector("svelte-app"),
+				paths: {"base":"","assets":"/."},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/./_app/pages/__layout.svelte-97fcf24e.js"),
+						import("/./_app/pages/projects/[project].svelte-5d3713db.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/projects/ajaxlife",
+						query: new URLSearchParams(""),
+						params: {"project":"ajaxlife"}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-10gozjv" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Ajaxlife API</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/ajaxlife.png" width="2650" height="1628" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>Mijn collega's hebben de nieuwe site van <a href="https://www.ajaxlife.nl/">ajaxlife.nl</a> gemaakt in wordpress.
+Ajaxlife heeft ook een <a href="https://itunes.apple.com/us/app/ajax-life/id1136157598?mt=8">iOS</a> en <a href="https://play.google.com/store/apps/details?id=nl.ajaxlife.android">Android</a> app die gebruik maken van een api op de site.</p>
+<p>Ik heb interface van de api van de vorige website nagemaakt, maar nu haalt deze zijn informatie uit de wordpress database.
+Ook heb ik dit project omgezet naar de vue-cli configuratie die ik eerder voor wordpress had geschreven.
+Dit was nodig omdat de op <a href="https://roots.io/sage/">sage</a> gebaseerde configuratie veel problemen gaf.</p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">Augustus 2018</span></div>
+</div></div>
+    
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="rookvrije-generatie" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="picompany" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+
+	<script type="svelte-data" url="/projects/ajaxlife.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"slug\":\"ajaxlife\",\"title\":\"Ajaxlife API\",\"released\":\"2018-08\",\"content\":\"\u003Cp\u003EMijn collega's hebben de nieuwe site van \u003Ca href=\\\"https:\u002F\u002Fwww.ajaxlife.nl\u002F\\\"\u003Eajaxlife.nl\u003C\u002Fa\u003E gemaakt in wordpress.\\nAjaxlife heeft ook een \u003Ca href=\\\"https:\u002F\u002Fitunes.apple.com\u002Fus\u002Fapp\u002Fajax-life\u002Fid1136157598?mt=8\\\"\u003EiOS\u003C\u002Fa\u003E en \u003Ca href=\\\"https:\u002F\u002Fplay.google.com\u002Fstore\u002Fapps\u002Fdetails?id=nl.ajaxlife.android\\\"\u003EAndroid\u003C\u002Fa\u003E app die gebruik maken van een api op de site.\u003C\u002Fp\u003E\\n\u003Cp\u003EIk heb interface van de api van de vorige website nagemaakt, maar nu haalt deze zijn informatie uit de wordpress database.\\nOok heb ik dit project omgezet naar de vue-cli configuratie die ik eerder voor wordpress had geschreven.\\nDit was nodig omdat de op \u003Ca href=\\\"https:\u002F\u002Froots.io\u002Fsage\u002F\\\"\u003Esage\u003C\u002Fa\u003E gebaseerde configuratie veel problemen gaf.\u003C\u002Fp\u003E\\n\",\"before\":\"rookvrije-generatie\",\"after\":\"picompany\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fajaxlife.png\",\"width\":2650,\"height\":1628}}"}</script>
+</svelte-app>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <title>Triple App</title>
+
+		
+
+		<link rel="modulepreload" href="/./_app/start-4c0b2648.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-d7d6bc8e.js">
+		<link rel="modulepreload" href="/./_app/chunks/preload-helper-9f12a5fd.js">
+		<link rel="modulepreload" href="/./_app/chunks/singletons-9c431dc7.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-97fcf24e.js">
+		<link rel="modulepreload" href="/./_app/pages/projects/[project].svelte-5d3713db.js">
+		<link rel="modulepreload" href="/./_app/chunks/Card-86ab7964.js">
+		<link rel="modulepreload" href="/./_app/chunks/cardTransition-ab529235.js">
+		<link rel="modulepreload" href="/./_app/chunks/Disclaimer-ffcd10be.js">
+		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-81fde942.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/projects/[project].svelte-efccd724.css">
+		<link rel="stylesheet" href="/./_app/assets/Card-41b0640c.css">
+		<link rel="stylesheet" href="/./_app/assets/cardTransition-8608e198.css">
+		<link rel="stylesheet" href="/./_app/assets/Disclaimer-40a8be08.css">
+
+		<script type="module">
+			import { start } from "/./_app/start-4c0b2648.js";
+			start({
+				target: document.querySelector("svelte-app"),
+				paths: {"base":"","assets":"/."},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/./_app/pages/__layout.svelte-97fcf24e.js"),
+						import("/./_app/pages/projects/[project].svelte-5d3713db.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/projects/triple-app",
+						query: new URLSearchParams(""),
+						params: {"project":"triple-app"}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-10gozjv" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Triple App</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/triple-app.png" width="2350" height="1334" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>In de week dat ik begon bij triple stopte de vorige beheerder van de triple app. Hierdoor kreeg ik de taak om deze app over te nemen en te beheren.</p>
+<p>Deze app was in javascript geschreven, maar omdat <a href="https://www.wearetriple.com">Triple</a> voornamelijk met typescript werkt heb ik deze app omgezet naar typescript, state management o.b.v. redux toegevoegd en nog diverse verbeteringen doorgevoerd.</p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">December 2019</span></div>
+</div></div>
+    
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="omroep-brabant" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="affligem" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+
+	<script type="svelte-data" url="/projects/triple-app.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"slug\":\"triple-app\",\"title\":\"Triple App\",\"released\":\"2019-12\",\"content\":\"\u003Cp\u003EIn de week dat ik begon bij triple stopte de vorige beheerder van de triple app. Hierdoor kreeg ik de taak om deze app over te nemen en te beheren.\u003C\u002Fp\u003E\\n\u003Cp\u003EDeze app was in javascript geschreven, maar omdat \u003Ca href=\\\"https:\u002F\u002Fwww.wearetriple.com\\\"\u003ETriple\u003C\u002Fa\u003E voornamelijk met typescript werkt heb ik deze app omgezet naar typescript, state management o.b.v. redux toegevoegd en nog diverse verbeteringen doorgevoerd.\u003C\u002Fp\u003E\\n\",\"before\":\"omroep-brabant\",\"after\":\"affligem\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Ftriple-app.png\",\"width\":2350,\"height\":1334}}"}</script>
+</svelte-app>
+  </body>
+</html>

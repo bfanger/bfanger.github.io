@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <title>NPO 7 dagen groener - Update</title>
+
+		
+
+		<link rel="modulepreload" href="/./_app/start-4c0b2648.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-d7d6bc8e.js">
+		<link rel="modulepreload" href="/./_app/chunks/preload-helper-9f12a5fd.js">
+		<link rel="modulepreload" href="/./_app/chunks/singletons-9c431dc7.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-97fcf24e.js">
+		<link rel="modulepreload" href="/./_app/pages/projects/[project].svelte-5d3713db.js">
+		<link rel="modulepreload" href="/./_app/chunks/Card-86ab7964.js">
+		<link rel="modulepreload" href="/./_app/chunks/cardTransition-ab529235.js">
+		<link rel="modulepreload" href="/./_app/chunks/Disclaimer-ffcd10be.js">
+		<link rel="stylesheet" href="/./_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-81fde942.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/projects/[project].svelte-efccd724.css">
+		<link rel="stylesheet" href="/./_app/assets/Card-41b0640c.css">
+		<link rel="stylesheet" href="/./_app/assets/cardTransition-8608e198.css">
+		<link rel="stylesheet" href="/./_app/assets/Disclaimer-40a8be08.css">
+
+		<script type="module">
+			import { start } from "/./_app/start-4c0b2648.js";
+			start({
+				target: document.querySelector("svelte-app"),
+				paths: {"base":"","assets":"/."},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/./_app/pages/__layout.svelte-97fcf24e.js"),
+						import("/./_app/pages/projects/[project].svelte-5d3713db.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/projects/7-dagen-groener-update",
+						query: new URLSearchParams(""),
+						params: {"project":"7-dagen-groener-update"}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-10gozjv" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>NPO 7 dagen groener - Update</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/7-dagen-groener-update.png" width="2261" height="1276" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>Een update aan de bestaande NPO 7 dagen groener <a href="https://itunes.apple.com/nl/app/id987939197?mt=8">iOS</a> / <a href="https://play.google.com/store/apps/details?id=nl.omroep.groen">android</a> app.</p>
+<p>Nieuwe features:</p>
+<ul>
+<li>Challenges zijn ingedeeld in 3 moeilijkheidsgraden</li>
+<li>Aantal categorien is teruggebracht van 6 naar 3</li>
+<li>Challenges per week zijn beperkt tot 1 categorie</li>
+<li>Je besparing wordt uitgedrukt in een tot-de-verbeelding-sprekende eenheid, x vuiliszakken afval, 1 zwembad water, enz</li>
+</ul>
+<p>Tijdens deze update heb ik diverse functonaleit herschreven naar <a href="http://reactivex.io">RxJS</a>.
+Hierdoor heb ik de data (die afhankelijk zijn van de voorgang van de week) kunnen modeleren als streams, waardoor het eenvoudiger werd om in de componenten om de juiste up-to-date waarde te tonen.</p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">September 2016</span></div>
+</div></div>
+    
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="brandpunt360" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="zappmissie-360game" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+
+	<script type="svelte-data" url="/projects/7-dagen-groener-update.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"slug\":\"7-dagen-groener-update\",\"title\":\"NPO 7 dagen groener - Update\",\"released\":\"2016-09\",\"content\":\"\u003Cp\u003EEen update aan de bestaande NPO 7 dagen groener \u003Ca href=\\\"https:\u002F\u002Fitunes.apple.com\u002Fnl\u002Fapp\u002Fid987939197?mt=8\\\"\u003EiOS\u003C\u002Fa\u003E \u002F \u003Ca href=\\\"https:\u002F\u002Fplay.google.com\u002Fstore\u002Fapps\u002Fdetails?id=nl.omroep.groen\\\"\u003Eandroid\u003C\u002Fa\u003E app.\u003C\u002Fp\u003E\\n\u003Cp\u003ENieuwe features:\u003C\u002Fp\u003E\\n\u003Cul\u003E\\n\u003Cli\u003EChallenges zijn ingedeeld in 3 moeilijkheidsgraden\u003C\u002Fli\u003E\\n\u003Cli\u003EAantal categorien is teruggebracht van 6 naar 3\u003C\u002Fli\u003E\\n\u003Cli\u003EChallenges per week zijn beperkt tot 1 categorie\u003C\u002Fli\u003E\\n\u003Cli\u003EJe besparing wordt uitgedrukt in een tot-de-verbeelding-sprekende eenheid, x vuiliszakken afval, 1 zwembad water, enz\u003C\u002Fli\u003E\\n\u003C\u002Ful\u003E\\n\u003Cp\u003ETijdens deze update heb ik diverse functonaleit herschreven naar \u003Ca href=\\\"http:\u002F\u002Freactivex.io\\\"\u003ERxJS\u003C\u002Fa\u003E.\\nHierdoor heb ik de data (die afhankelijk zijn van de voorgang van de week) kunnen modeleren als streams, waardoor het eenvoudiger werd om in de componenten om de juiste up-to-date waarde te tonen.\u003C\u002Fp\u003E\\n\",\"before\":\"brandpunt360\",\"after\":\"zappmissie-360game\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002F7-dagen-groener-update.png\",\"width\":2261,\"height\":1276}}"}</script>
+</svelte-app>
+  </body>
+</html>
