@@ -60,23 +60,27 @@
     font-weight: 300;
   }
 
-  :global(h1, h2, h3) {
+  :global(h1),
+  :global(h2),
+  :global(h3) {
     font-weight: 300;
     font-family: "Raleway", sans-serif;
     color: #4a4a4a;
     margin-top: 0;
     margin-bottom: 0.4em;
   }
-  :global(h1, .h1) {
+  :global(h1) {
     @include fluid-property(font-size, 22px, 40px);
   }
-  :global(h2, .h2) {
+  :global(h2) {
     @include fluid-property(font-size, 20px, 30px);
   }
-  :global(h3, .h3) {
+  :global(h3) {
     font-size: 22px;
   }
-  :global(p, ul, ol) {
+  :global(p),
+  :global(ul),
+  :global(ol) {
     margin-top: 0;
   }
   :global(a) {
