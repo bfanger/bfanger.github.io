@@ -13,4 +13,5 @@ tags:
   - shaka
 ---
 
-De SmartTV applicatie van [NLZIET](https://www.nlziet.nl/nl/) o.b.v. het Mauna Framework.
+De SmartTV applicatie van [NLZIET](https://www.nlziet.nl/) o.b.v. het Mauna Framework.
+NLZiet is een alternatief voor kabeltelevisie, maar naast live tv kijken bied deze ook met extra features zoals terugkijken of reclame vrij kijken.

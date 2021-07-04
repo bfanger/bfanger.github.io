@@ -11,7 +11,7 @@ tags:
 
 Diverse uitbreidingen op het ANP nieuwsplatform, waaronder:
 
-- Twitter intergratie
+- Twitter integratie
 - Eigen artikelen kunnen toevoegen
 - Onboarding schermen
 - Verbeterde nieuwsbrief lezer

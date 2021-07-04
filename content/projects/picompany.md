@@ -10,4 +10,4 @@ tags:
 ---
 
 De [talentmanager](https://talentmanager.picompany.nl) is een quiz met een 14 vragen waarmee een profiel bepaald wordt.
-Voor dit project heb ik vue-cli intergratie geschreven voor wordpress projecten.
+Voor dit project heb ik vue-cli integratie geschreven voor wordpress projecten.

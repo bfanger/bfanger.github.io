@@ -9,7 +9,7 @@ image: skillz.png
 alt: Skills
 ---
 
-Om de kennisdeling binnen [Triple](https://www.wearetriple.com/) te verbeteren is een een [tool](https://skills.wearetriple.com/) ontwikkeld waar je kan aangeven waarmee je ervaring hebt, zodat wanneer je hulp nodig hebt, je kunt opzoeken wie je daarmee kunt helpen.
+Om de kennisdeling binnen [Triple](https://www.wearetriple.com/) te verbeteren is een [tool](https://skills.wearetriple.com/) ontwikkeld waar je kan aangeven waarmee je ervaring hebt, zodat wanneer je hulp nodig hebt, je kunt opzoeken wie je daarmee kunt helpen.
 
 De interface die voor het invoeren van vaardigheden was opgezet d.m.v. diverse formulieren en voelde moeizaam aan.
 Ik had ideeën over hoe dat beter kon en heb deze als een [Svelte](https://svelte.dev/) dummy applicatie laten zien.
