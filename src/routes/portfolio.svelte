@@ -9,11 +9,14 @@
 </script>
 
 <script lang="ts">
-  import Page from "../components/Page.svelte";
-  import Card from "../components/Card.svelte";
-  import NavButton from "../components/NavButton.svelte";
-  import Disclaimer from "../components/Disclaimer.svelte";
-  import cardTransition, { cardIn, cardOut } from "../services/cardTransition";
+  import Page from "$lib/components/Page.svelte";
+  import Card from "$lib/components/Card.svelte";
+  import NavButton from "$lib/components/NavButton.svelte";
+  import Disclaimer from "$lib/components/Disclaimer.svelte";
+  import cardTransition, {
+    cardIn,
+    cardOut,
+  } from "$lib/services/cardTransition";
   import type { Portfolio } from "./types";
 
   export let portfolio: Portfolio;

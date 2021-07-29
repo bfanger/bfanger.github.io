@@ -10,8 +10,8 @@
 </script>
 
 <script lang="ts">
-  import Page from "../components/Page.svelte";
-  import Card from "../components/Card.svelte";
+  import Page from "$lib/components/Page.svelte";
+  import Card from "$lib/components/Card.svelte";
   export let status: number;
   export let error: Error;
 

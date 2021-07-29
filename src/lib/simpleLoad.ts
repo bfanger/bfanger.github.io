@@ -1,4 +1,5 @@
 import type { Load } from "@sveltejs/kit";
+import type { Rec } from "@sveltejs/kit/types/helper";
 
 function interpolate(path: string, params: Record<string, string>) {
   let url = path;
@@ -37,5 +38,5 @@ export default function simpleLoad<T, Props>(
       props: reponseToProps(json),
     };
   };
-  return load;
+  return load as Load<{ context?: Rec }, { props: Props }>;
 }

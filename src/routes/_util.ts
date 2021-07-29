@@ -25,7 +25,9 @@ type RawProject = Project & { image: string; alt: string };
 
 async function loadProject(slug: string) {
   const file = await readFile(path.resolve(dir, `${slug}.md`));
+
   const result = matter(file);
+
   const parsed = reader.parse(result.content);
   return {
     ...result.data,

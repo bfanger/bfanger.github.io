@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
   import Card from "./Card.svelte";
   import ProjectImage from "./ProjectImage.svelte";
-  import type { Project } from "../routes/types";
+  import type { Project } from "../../routes/types";
 </script>
 
 <script lang="ts">

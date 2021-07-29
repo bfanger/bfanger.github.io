@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import gtm from "../services/gtm";
+  import gtm from "$lib/services/gtm";
 
   let el: HTMLElement;
   let minHeight: string = "";

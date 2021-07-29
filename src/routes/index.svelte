@@ -16,13 +16,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
-  import Intro from "../components/Intro.svelte";
-  import NavButton from "../components/NavButton.svelte";
-  import Page from "../components/Page.svelte";
-  import Card from "../components/Card.svelte";
-  import cardTransition from "../services/cardTransition";
-  import Async from "../components/Async.svelte";
-  import Avatar from "../components/AsyncAvatar";
+  import Intro from "$lib/components/Intro.svelte";
+  import NavButton from "$lib/components/NavButton.svelte";
+  import Page from "$lib/components/Page.svelte";
+  import Card from "$lib/components/Card.svelte";
+  import cardTransition from "$lib/services/cardTransition";
+  import Async from "$lib/components/Async.svelte";
+  import Avatar from "$lib/components/AsyncAvatar";
 
   export let introVisible: boolean;
   export let isServer: boolean;
