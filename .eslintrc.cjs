@@ -1,38 +1,28 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    es2017: true,
-    node: true,
-  },
   parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: "./tsconfig.eslint.json",
+    extraFileExtensions: [".cjs"],
+  },
   extends: [
     "airbnb-base",
+    "eslint-config-airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
   ],
   plugins: ["only-warn"],
-  ignorePatterns: ["*.cjs"],
-  parserOptions: {
-    sourceType: "module",
-    ecmaVersion: 2019,
+  rules: {
+    "import/extensions": ["error", "ignorePackages", { ts: "never" }],
+    "no-restricted-syntax": "off",
   },
-  overrides: [
-    {
-      files: ["**/*.ts", "**/*.tsx"],
-      rules: {
-        "import/extensions": "off",
-      },
-    },
-  ],
   settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"],
+    },
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
       },
     },
-  },
-  rules: {
-    "@typescript-eslint/no-explicit-any": "off",
   },
 };

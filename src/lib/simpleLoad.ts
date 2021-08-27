@@ -12,7 +12,7 @@ function interpolate(path: string, params: Record<string, string>) {
 export default function simpleLoad<T, Props>(
   path: string,
   reponseToProps: (response: T) => Props
-): Load<{ context?: Record<string, any> }, { props: Props }> {
+): Load<{ context?: Record<string, unknown> }, { props: Props }> {
   const load: Load = async ({ page, fetch }) => {
     const url = interpolate(path, page.params);
     const response = await fetch(url);

@@ -27,9 +27,9 @@ const cardTransition = {
   },
 };
 export default cardTransition;
-export function cardOut(node: Element, config: Config): any {
+export function cardOut(node: Element, config: Config): unknown {
   return get(cardTransition).out(node, config);
 }
-export function cardIn(node: Element, config: Config): any {
+export function cardIn(node: Element, config: Config): unknown {
   return get(cardTransition).in(node, config);
 }
