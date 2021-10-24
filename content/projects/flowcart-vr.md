@@ -25,5 +25,5 @@ In de oorspronkelijk visie zou je in een mijnwagentje zitten en met een hendel b
 Voor de v1.0 heb ik gekozen om de ingebouwde teleportatie te gebruiken voor de navigatie door de grot.
 -->
 
-De webapp is maakt gebruik van [sveltekit](https://kit.svelte.dev/) en daardoor [vite](https://vitejs.dev/). Het
-component reloading mechanisme kon ik gebruiken om ook 3D componenten snel te ontwikkelen.
+De webapp is geschreven met [SvelteKit](https://kit.svelte.dev/) en maakt daardoor gebruik van [vite](https://vitejs.dev/).
+Het component reloading mechanisme kon ik gebruiken om ook de 3D componenten snel te ontwikkelen.
