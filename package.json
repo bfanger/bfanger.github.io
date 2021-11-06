@@ -7,8 +7,12 @@
     "build": "svelte-kit build",
     "deploy": "rimraf build && yarn build && ./githubify.js && git-directory-deploy --branch gh-pages --directory build/",
     "preview": "svelte-kit preview",
-    "lint": "prettier --check --loglevel=warn 'src/**/*.svelte' && tsc --noEmit && svelte-check --fail-on-warnings --fail-on-hints && eslint --max-warnings 0 src",
-    "format": "prettier --write 'src/**/*.svelte'",
+    "lint": "concurrently --kill-others-on-fail \"yarn:lint:*\"",
+    "lint:prettier": "prettier --check --loglevel=warn \"src/**/*.svelte\"",
+    "lint:svelte-check": "svelte-check --fail-on-warnings --fail-on-hints",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint --ext=js,ts,svelte --max-warnings=0 src",
+    "format": "prettier --write . && eslint --ext=js,ts,svelte --fix src",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -20,6 +24,7 @@
       "eslint --max-warnings 0 --ext js --no-ignore"
     ],
     "*.svelte": [
+      "eslint --max-warnings 0 --ext svelte --no-ignore",
       "svelte-check --fail-on-warnings --fail-on-hints",
       "prettier --check"
     ]
@@ -32,14 +37,16 @@
     "@types/three": "^0.133.1",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "concurrently": "^6.3.0",
     "eslint": "^8.1.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-config-airbnb-typescript": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-svelte3": "^3.2.1",
     "lint-staged": "^11.1.2",
     "prettier": "~2.4.1",
     "prettier-plugin-svelte": "^2.4.0",

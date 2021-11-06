@@ -5,12 +5,14 @@ $raleway: "Raleway", sans-serif;
 
 @function fluid($minScreenSize, $minFontSize, $maxScreenSize, $maxFontSize) {
   $fontBase: #{$minFontSize -
-    
-      math.div($minScreenSize * ($maxFontSize - $minFontSize), $maxScreenSize - $minScreenSize)
-    };
-  $fontGrow: #{
-      math.div($maxFontSize - $minFontSize, $maxScreenSize - $minScreenSize)
-     * 100vw};
+    math.div(
+      $minScreenSize * ($maxFontSize - $minFontSize),
+      $maxScreenSize - $minScreenSize
+    )};
+  $fontGrow: #{math.div(
+      $maxFontSize - $minFontSize,
+      $maxScreenSize - $minScreenSize
+    ) * 100vw};
   @return calc(#{$fontBase} + #{$fontGrow});
 }
 

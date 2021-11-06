@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let homepage: boolean = false;
+  export let homepage = false;
 </script>
 
 <div class="card" class:card--homepage={homepage}>

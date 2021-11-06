@@ -1,5 +1,4 @@
-import type { Load } from "@sveltejs/kit";
-import type { Rec } from "@sveltejs/kit/types/helper";
+import type { Load, LoadInput, LoadOutput } from "@sveltejs/kit";
 
 function interpolate(path: string, params: Record<string, string>) {
   let url = path;
@@ -12,8 +11,8 @@ function interpolate(path: string, params: Record<string, string>) {
 export default function simpleLoad<T, Props>(
   path: string,
   reponseToProps: (response: T) => Props
-): Load<{ context?: Record<string, unknown> }, { props: Props }> {
-  const load: Load = async ({ page, fetch }) => {
+): Load<LoadInput, LoadOutput<Props>> {
+  const load: Load = async ({ page, fetch }: LoadInput) => {
     const url = interpolate(path, page.params);
     const response = await fetch(url);
     if (!response.ok) {
@@ -26,7 +25,7 @@ export default function simpleLoad<T, Props>(
           message = json.message;
         }
       } catch {
-        //
+        // not a json response with an error field, keep the original message
       }
       return {
         status: response.status,
@@ -38,5 +37,5 @@ export default function simpleLoad<T, Props>(
       props: reponseToProps(json),
     };
   };
-  return load as Load<{ context?: Rec }, { props: Props }>;
+  return load as any as Load<LoadInput, LoadOutput<Props>>;
 }

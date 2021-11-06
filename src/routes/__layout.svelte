@@ -3,7 +3,7 @@
   import gtm from "$lib/services/gtm";
 
   let el: HTMLElement;
-  let minHeight: string = "";
+  let minHeight = "";
 
   onMount(() => {
     if (el.clientHeight !== window.innerHeight) {
@@ -19,19 +19,19 @@
   function onNavigation() {
     gtm({
       event: "VirtualPageview",
-      virtualPageUrl: location.pathname,
+      virtualPageUrl: window.location.pathname,
       virtualPageTitle: document.title,
     });
   }
   function detectHeight() {
-    minHeight = window.innerHeight + "px";
+    minHeight = `${window.innerHeight}px`;
   }
 </script>
 
 <svelte:window on:sveltekit:navigation-end={onNavigation} />
 <div
   class="layout"
-  style={minHeight ? "min-height: " + minHeight : ""}
+  style={minHeight ? `min-height: ${minHeight}` : ""}
   bind:this={el}
 >
   <slot />

@@ -57,8 +57,10 @@
 
     loadAvatar().then((_avatar) => {
       avatar = _avatar;
-      avatar.material.emissiveMap!.anisotropy =
-        renderer.capabilities.getMaxAnisotropy();
+      if (avatar.material.emissiveMap) {
+        avatar.material.emissiveMap.anisotropy =
+          renderer.capabilities.getMaxAnisotropy();
+      }
       scene.add(avatar);
 
       camera.lookAt(new Vector3(0, 0, 0));

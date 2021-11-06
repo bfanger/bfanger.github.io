@@ -1,8 +1,9 @@
 <script lang="ts" context="module">
-  export async function load({}) {
+  export async function load() {
     const isServer = typeof window === "undefined";
     if (!isServer) {
-      await window["introPromise"];
+      const win = window as any;
+      await win.introPromise;
     }
     return {
       props: {

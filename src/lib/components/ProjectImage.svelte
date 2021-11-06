@@ -10,7 +10,7 @@
   let started: number;
   let img: HTMLImageElement;
 
-  let css = {
+  const css = {
     height: "auto",
     opacity: 1,
     duration: "0s",
@@ -18,19 +18,22 @@
   $: loading(src);
   $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`;
 
-  async function loading(src: string) {
-    noop(src);
+  async function loading(url: string) {
+    noop(url);
     if (!img) {
       return;
     }
+    if (!img.parentElement) {
+      throw new Error("Unexpected");
+    }
     const autoHeight = Math.ceil(
-      img.parentElement!.getBoundingClientRect().width / (width / height)
+      img.parentElement.getBoundingClientRect().width / (width / height)
     );
     const halfScreen = window.innerHeight / 2;
     if (autoHeight < halfScreen) {
-      css.height = autoHeight + "px";
+      css.height = `${autoHeight}px`;
     } else {
-      css.height = halfScreen + "px";
+      css.height = `${halfScreen}px`;
     }
     css.opacity = 0;
     css.duration = "0s";
