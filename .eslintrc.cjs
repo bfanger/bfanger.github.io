@@ -36,6 +36,12 @@ module.exports = {
       },
     },
     {
+      files: ["src/routes/**/*.json.ts"],
+      rules: {
+        "import/prefer-default-export": "off",
+      },
+    },
+    {
       files: ["*.svelte"],
       processor: "svelte3/svelte3",
       rules: {

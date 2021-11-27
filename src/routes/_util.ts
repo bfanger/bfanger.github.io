@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import { Parser, HtmlRenderer } from "commonmark";
 import { imageSize } from "image-size";
 import orderBy from "lodash-es/orderBy";
-import type { Project } from "./types";
+import type { ProjectDto } from "$lib/services/api-types";
 
 const reader = new Parser();
 const writer = new HtmlRenderer();
@@ -21,7 +21,7 @@ const hasPngquant = execFile("which pngquant")
   .catch(() => false);
 
 const dir = path.resolve(process.cwd(), "content/projects");
-type RawProject = Project & { image: string; alt: string };
+type RawProject = ProjectDto & { image: string; alt: string };
 
 async function loadProject(slug: string) {
   const file = await readFile(path.resolve(dir, `${slug}.md`));

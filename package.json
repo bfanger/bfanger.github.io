@@ -13,6 +13,7 @@
     "lint:tsc": "tsc --noEmit",
     "lint:eslint": "eslint --ext=js,ts,svelte --max-warnings=0 src",
     "format": "prettier --write . && eslint --ext=js,ts,svelte --fix src",
+    "prepare": "husky install",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -65,6 +66,7 @@
     "commonmark": "^0.30.0",
     "git-directory-deploy": "^1.5.1",
     "gray-matter": "^4.0.3",
+    "husky": "^7.0.4",
     "image-size": "^1.0.0",
     "lodash-es": "^4.17.21",
     "svelte": "^3.43.0"

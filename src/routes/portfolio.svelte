@@ -1,11 +1,22 @@
 <script context="module" lang="ts">
   import type { Load } from "@sveltejs/kit";
+  import groupBy from "lodash-es/groupBy";
+  import api from "$lib/services/api";
+  import type { ProjectTeaserDto } from "$lib/services/api-types";
 
   export const load: Load = async ({ fetch }) => {
-    const response = await fetch("/portfolio.json");
-    const portfolio = await response.json();
-    return { props: { portfolio } };
+    const teasers = await api.get("portfolio.json", { fetch });
+    return { props: { teasers } };
   };
+
+  function extractYear(project: ProjectTeaserDto) {
+    const match = project.released.toString().match(/^[0-9]+/);
+    if (match === null) {
+      console.warn(`Project[${project.slug}].released is invalid`); // eslint-disable-line no-console
+      return 2000;
+    }
+    return parseInt(match[0], 10);
+  }
 </script>
 
 <script lang="ts">
@@ -17,10 +28,10 @@
     cardIn,
     cardOut,
   } from "$lib/services/cardTransition";
-  import type { Portfolio } from "./types";
 
-  export let portfolio: Portfolio;
-  const years = Object.keys(portfolio).sort().reverse();
+  export let teasers: ProjectTeaserDto[];
+  $: grouped = groupBy(teasers, extractYear);
+  $: years = Object.keys(grouped).sort().reverse();
 </script>
 
 <svelte:head>
@@ -37,7 +48,7 @@
             cardTransition.set("left");
           }}
         >
-          {#each portfolio[year] as project}
+          {#each grouped[year] as project}
             <li>
               <a href="projects/{project.slug}">{project.title}</a>
             </li>

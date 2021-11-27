@@ -1,4 +1,12 @@
-export type Project = {
+export type PortfolioDto = ProjectTeaserDto[];
+
+export type ProjectTeaserDto = {
+  slug: string;
+  title: string;
+  released: string;
+};
+
+export type ProjectDto = {
   slug: string;
   title: string;
   image: {
@@ -11,7 +19,4 @@ export type Project = {
   released: string;
   after?: string;
   before?: string;
-};
-export type Portfolio = {
-  [year: string]: Project[];
 };

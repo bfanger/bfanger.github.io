@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { RequestHandler } from "@sveltejs/kit";
-import type { Project } from "../types";
+import type { ProjectDto } from "$lib/services/api-types";
 import { allProjects, processImage } from "../_util";
 
 export const get: RequestHandler = async ({ params }) => {
@@ -13,7 +13,7 @@ export const get: RequestHandler = async ({ params }) => {
     };
   }
   const meta = projects[index];
-  const project: Partial<Project> = {
+  const project: Partial<ProjectDto> = {
     slug: meta.slug,
     title: meta.title,
     released: meta.released,

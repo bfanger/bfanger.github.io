@@ -1,11 +1,14 @@
 <script context="module" lang="ts">
-  import simpleLoad from "$lib/simpleLoad";
-  import type { Project } from "../types";
+  import type { Load } from "@sveltejs/kit";
+  import api from "$lib/services/api";
 
-  export const load = simpleLoad(
-    `/projects/{project}.json`,
-    (project: Project) => ({ project })
-  );
+  export const load: Load = async ({ page, fetch }) => {
+    const project = await api.get("projects/[project].json", {
+      params: { project: page.params.project },
+      fetch,
+    });
+    return { props: { project } };
+  };
 </script>
 
 <script lang="ts">
@@ -18,8 +21,9 @@
     cardOut,
   } from "$lib/services/cardTransition";
   import { goto, prefetch } from "$app/navigation";
+  import type { ProjectDto } from "$lib/services/api-types";
 
-  export let project: Project;
+  export let project: ProjectDto;
   $: if (project.before && typeof window !== "undefined") {
     prefetch(project.before);
   }

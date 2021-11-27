@@ -1,13 +1,13 @@
 <script context="module" lang="ts">
   import Card from "./Card.svelte";
   import ProjectImage from "./ProjectImage.svelte";
-  import type { Project } from "../../routes/types";
 </script>
 
 <script lang="ts">
   import { formatReleaseDate } from "$lib/formatDate";
+  import type { ProjectDto } from "$lib/services/api-types";
 
-  export let project: Project;
+  export let project: ProjectDto;
   $: image = project.image;
 </script>
 
