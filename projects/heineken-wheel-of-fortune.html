@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <title>Heineken - Wheel of Fortune</title>
+
+		
+
+		<link rel="modulepreload" href="/_app/start-d720ceb1.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-7e907ef5.js">
+		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+		<link rel="modulepreload" href="/_app/chunks/singletons-ff603286.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-4fab72a6.js">
+		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-de5c4d1f.js">
+		<link rel="modulepreload" href="/_app/chunks/Disclaimer-49141c8b.js">
+		<link rel="modulepreload" href="/_app/chunks/Card-ec64fba3.js">
+		<link rel="modulepreload" href="/_app/chunks/cardTransition-3d039428.js">
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
+		<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
+		<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
+		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
+		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+
+		<script type="module">
+			import { start } from "/_app/start-d720ceb1.js";
+			start({
+				target: document.querySelector("svelte-app"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/__layout.svelte-4fab72a6.js"),
+						import("/_app/pages/projects/_project_.svelte-de5c4d1f.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "\u002Fprojects\u002Fheineken-wheel-of-fortune",
+						query: new URLSearchParams(""),
+						params: {project:"heineken-wheel-of-fortune"}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-1k8wdr7" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Heineken - Wheel of Fortune</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/wheel-of-fortune.png" width="1138" height="1806" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>Een uitbreiding voor een bestaande oude widget. Het proces van dit pjoject verliep erg stroef en we liepen tegen veel beperkingen aan van het huidige systeem.</p>
+<p>Ook de korte doorlooptijd en verplichting aan andere projecten zorgde ervoor dat deze campagne er gezien de beperkingen er nog best leuk uit ziet, maar niet iets is waar ik trost op ben.</p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">December 2021</span></div>
+</div></div>
+    
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="/portfolio" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Portfolio</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="multiplayer-dice-game" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+
+			<script type="application/json" data-type="svelte-data" data-url="/projects/heineken-wheel-of-fortune.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"heineken-wheel-of-fortune\",\"title\":\"Heineken - Wheel of Fortune\",\"released\":\"2021-12-01\",\"content\":\"\u003Cp\u003EEen uitbreiding voor een bestaande oude widget. Het proces van dit pjoject verliep erg stroef en we liepen tegen veel beperkingen aan van het huidige systeem.\u003C\u002Fp\u003E\\n\u003Cp\u003EOok de korte doorlooptijd en verplichting aan andere projecten zorgde ervoor dat deze campagne er gezien de beperkingen er nog best leuk uit ziet, maar niet iets is waar ik trost op ben.\u003C\u002Fp\u003E\\n\",\"after\":\"multiplayer-dice-game\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fwheel-of-fortune.png\",\"width\":1138,\"height\":1806}}"}</script>
+		</svelte-app>
+  </body>
+</html>
