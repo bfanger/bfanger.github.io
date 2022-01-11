@@ -72,7 +72,6 @@
               StackOverflow
             </a>
           </p>
-          <slot />
         </Card>
       </div>
       <div

@@ -2,9 +2,9 @@
   import type { Load } from "@sveltejs/kit";
   import api from "$lib/services/api";
 
-  export const load: Load = async ({ page, fetch }) => {
+  export const load: Load = async ({ params, fetch }) => {
     const project = await api.get("projects/[project].json", {
-      params: { project: page.params.project },
+      params: { project: params.project },
       fetch,
     });
     return { props: { project } };
@@ -51,7 +51,6 @@
     <div in:cardIn out:cardOut>
       <ProjectCard {project} />
     </div>
-    <slot />
   </Page>
 {/key}
 
