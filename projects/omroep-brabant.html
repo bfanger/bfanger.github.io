@@ -19,29 +19,28 @@
 
 		
 
-		<link rel="modulepreload" href="/_app/start-d720ceb1.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-7e907ef5.js">
-		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-		<link rel="modulepreload" href="/_app/chunks/singletons-ff603286.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-4fab72a6.js">
-		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-de5c4d1f.js">
-		<link rel="modulepreload" href="/_app/chunks/Disclaimer-49141c8b.js">
-		<link rel="modulepreload" href="/_app/chunks/Card-ec64fba3.js">
-		<link rel="modulepreload" href="/_app/chunks/cardTransition-3d039428.js">
 		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
 		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
 		<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
 		<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
 		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
 		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+		<link rel="modulepreload" href="/_app/start-7af515e9.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-2bb50eba.js">
+		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+		<link rel="modulepreload" href="/_app/chunks/singletons-521d72fa.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d5bf7deb.js">
+		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-cfae428d.js">
+		<link rel="modulepreload" href="/_app/chunks/Disclaimer-1ac92f75.js">
+		<link rel="modulepreload" href="/_app/chunks/Card-6b92d0ad.js">
+		<link rel="modulepreload" href="/_app/chunks/cardTransition-c22edfa6.js">
 
 		<script type="module">
-			import { start } from "/_app/start-d720ceb1.js";
+			import { start } from "/_app/start-7af515e9.js";
 			start({
 				target: document.querySelector("svelte-app"),
 				paths: {"base":"","assets":""},
 				session: {},
-				host: location.host,
 				route: true,
 				spa: false,
 				trailing_slash: "never",
@@ -49,15 +48,11 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/_app/pages/__layout.svelte-4fab72a6.js"),
-						import("/_app/pages/projects/_project_.svelte-de5c4d1f.js")
+						import("/_app/pages/__layout.svelte-d5bf7deb.js"),
+						import("/_app/pages/projects/_project_.svelte-cfae428d.js")
 					],
-					page: {
-						host: location.host, // TODO this is redundant
-						path: "\u002Fprojects\u002Fomroep-brabant",
-						query: new URLSearchParams(""),
-						params: {project:"omroep-brabant"}
-					}
+					url: new URL("http://prerender/projects/omroep-brabant"),
+					params: {project:"omroep-brabant"}
 				}
 			});
 		</script>
@@ -100,7 +95,6 @@ Deze site is gemaakt in <a href="https://reactjs.org/">React</a> en maakt gebrui
   <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
     <span class="project-card__release-date svelte-1p9lkhc">Mei 2020</span></div>
 </div></div>
-    
 </div>
 
 <div class="project-page__previous svelte-ktylb9"><a href="pr-tool" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
@@ -115,9 +109,6 @@ Deze site is gemaakt in <a href="https://reactjs.org/">React</a> en maakt gebrui
 </div>
 </div>
 
-
-
-			<script type="application/json" data-type="svelte-data" data-url="/projects/omroep-brabant.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"omroep-brabant\",\"title\":\"Omroep Brabant\",\"released\":\"2020-05\",\"content\":\"\u003Cp\u003EWe hebben de website van \u003Ca href=\\\"https:\u002F\u002Fwww.omroepbrabant.nl\u002F\\\"\u003EOmroep Brabant\u003C\u002Fa\u003E vernieuwd.\\nDeze site is gemaakt in \u003Ca href=\\\"https:\u002F\u002Freactjs.org\u002F\\\"\u003EReact\u003C\u002Fa\u003E en maakt gebruik van het \u003Ca href=\\\"https:\u002F\u002Fnextjs.org\u002F\\\"\u003ENext.js Framework\u003C\u002Fa\u003E. Deze zorgt voor der Server Side Rendering (SSR) en bundle splitting, waardoor elke pagina snel laad en prima te cachen is door het CDN.\u003C\u002Fp\u003E\\n\u003Cp\u003EIk ben trots op het resultaat, het was ook leuk om met \u003Ca href=\\\"https:\u002F\u002Fwww.framer.com\u002Fmotion\u002F\\\"\u003EFramer Motion\u003C\u002Fa\u003E hier en daar wat fijne animaties toe te voegen.\u003C\u002Fp\u003E\\n\",\"before\":\"pr-tool\",\"after\":\"triple-app\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fomroep-brabant.png\",\"width\":2350,\"height\":1334}}"}</script>
-		</svelte-app>
+<script type="application/json" data-type="svelte-data" data-url="/projects/omroep-brabant.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"omroep-brabant\",\"title\":\"Omroep Brabant\",\"released\":\"2020-05\",\"content\":\"\u003Cp\u003EWe hebben de website van \u003Ca href=\\\"https:\u002F\u002Fwww.omroepbrabant.nl\u002F\\\"\u003EOmroep Brabant\u003C\u002Fa\u003E vernieuwd.\\nDeze site is gemaakt in \u003Ca href=\\\"https:\u002F\u002Freactjs.org\u002F\\\"\u003EReact\u003C\u002Fa\u003E en maakt gebruik van het \u003Ca href=\\\"https:\u002F\u002Fnextjs.org\u002F\\\"\u003ENext.js Framework\u003C\u002Fa\u003E. Deze zorgt voor der Server Side Rendering (SSR) en bundle splitting, waardoor elke pagina snel laad en prima te cachen is door het CDN.\u003C\u002Fp\u003E\\n\u003Cp\u003EIk ben trots op het resultaat, het was ook leuk om met \u003Ca href=\\\"https:\u002F\u002Fwww.framer.com\u002Fmotion\u002F\\\"\u003EFramer Motion\u003C\u002Fa\u003E hier en daar wat fijne animaties toe te voegen.\u003C\u002Fp\u003E\\n\",\"before\":\"pr-tool\",\"after\":\"triple-app\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fomroep-brabant.png\",\"width\":2350,\"height\":1334}}"}</script></svelte-app>
   </body>
 </html>

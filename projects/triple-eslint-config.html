@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <title>eslint-config-triple</title>
+
+		
+
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
+		<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
+		<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
+		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
+		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+		<link rel="modulepreload" href="/_app/start-7af515e9.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-2bb50eba.js">
+		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+		<link rel="modulepreload" href="/_app/chunks/singletons-521d72fa.js">
+		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d5bf7deb.js">
+		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-cfae428d.js">
+		<link rel="modulepreload" href="/_app/chunks/Disclaimer-1ac92f75.js">
+		<link rel="modulepreload" href="/_app/chunks/Card-6b92d0ad.js">
+		<link rel="modulepreload" href="/_app/chunks/cardTransition-c22edfa6.js">
+
+		<script type="module">
+			import { start } from "/_app/start-7af515e9.js";
+			start({
+				target: document.querySelector("svelte-app"),
+				paths: {"base":"","assets":""},
+				session: {},
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/pages/__layout.svelte-d5bf7deb.js"),
+						import("/_app/pages/projects/_project_.svelte-cfae428d.js")
+					],
+					url: new URL("http://prerender/projects/triple-eslint-config"),
+					params: {project:"triple-eslint-config"}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-1k8wdr7" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>eslint-config-triple</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/eslint-config-triple.png" width="894" height="410" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>In het <a href="https://www.npmjs.com/package/eslint-config-triple">eslint-config-triple</a> package worden de eslint voorkeuren van het <a href="https://wearetriple.com">Triple</a> webteam vastgelegd.</p>
+<p>Hierdoor is er stuk minder <a href="https://eslint.org/">ESLint</a> configuratie nodig binnen een project en kunnen we de instellingen waar we afwijken van <a href="https://prettier.io/">Prettier</a> en <a href="https://github.com/airbnb/javascript">airbnb</a> op een centrale plek doorvoeren.</p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">December 2021</span></div>
+</div></div>
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="heineken-wheel-of-fortune" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="multiplayer-dice-game" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+<script type="application/json" data-type="svelte-data" data-url="/projects/triple-eslint-config.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"triple-eslint-config\",\"title\":\"eslint-config-triple\",\"released\":\"2021-12\",\"content\":\"\u003Cp\u003EIn het \u003Ca href=\\\"https:\u002F\u002Fwww.npmjs.com\u002Fpackage\u002Feslint-config-triple\\\"\u003Eeslint-config-triple\u003C\u002Fa\u003E package worden de eslint voorkeuren van het \u003Ca href=\\\"https:\u002F\u002Fwearetriple.com\\\"\u003ETriple\u003C\u002Fa\u003E webteam vastgelegd.\u003C\u002Fp\u003E\\n\u003Cp\u003EHierdoor is er stuk minder \u003Ca href=\\\"https:\u002F\u002Feslint.org\u002F\\\"\u003EESLint\u003C\u002Fa\u003E configuratie nodig binnen een project en kunnen we de instellingen waar we afwijken van \u003Ca href=\\\"https:\u002F\u002Fprettier.io\u002F\\\"\u003EPrettier\u003C\u002Fa\u003E en \u003Ca href=\\\"https:\u002F\u002Fgithub.com\u002Fairbnb\u002Fjavascript\\\"\u003Eairbnb\u003C\u002Fa\u003E op een centrale plek doorvoeren.\u003C\u002Fp\u003E\\n\",\"before\":\"heineken-wheel-of-fortune\",\"after\":\"multiplayer-dice-game\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Feslint-config-triple.png\",\"width\":894,\"height\":410}}"}</script></svelte-app>
+  </body>
+</html>

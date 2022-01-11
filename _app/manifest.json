@@ -1,0 +1,162 @@
+{
+  ".svelte-kit/build/runtime/internal/start.js": {
+    "file": "start-7af515e9.js",
+    "src": ".svelte-kit/build/runtime/internal/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js",
+      "_preload-helper-ec9aa979.js",
+      "_singletons-521d72fa.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      "src/routes/__error.svelte",
+      "src/routes/index.svelte",
+      "src/routes/swagger-explained/index.svelte",
+      "src/routes/portfolio.svelte",
+      "src/routes/projects/[project].svelte",
+      "src/routes/404.svelte"
+    ],
+    "css": [
+      "assets/start-61d1577b.css"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-d5bf7deb.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-29b31942.css"
+    ]
+  },
+  "src/routes/__error.svelte": {
+    "file": "pages/__error.svelte-5c6dccdc.js",
+    "src": "src/routes/__error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js",
+      "_Card-6b92d0ad.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-9fb91c47.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js",
+      "_cardTransition-c22edfa6.js",
+      "_Card-6b92d0ad.js",
+      "_preload-helper-ec9aa979.js"
+    ],
+    "dynamicImports": [
+      "src/lib/components/Avatar.svelte"
+    ],
+    "css": [
+      "assets/pages/index.svelte-39dd6d84.css"
+    ]
+  },
+  "src/routes/swagger-explained/index.svelte": {
+    "file": "pages/swagger-explained/index.svelte-e9d284f2.js",
+    "src": "src/routes/swagger-explained/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js"
+    ]
+  },
+  "src/routes/portfolio.svelte": {
+    "file": "pages/portfolio.svelte-50d06537.js",
+    "src": "src/routes/portfolio.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js",
+      "_Disclaimer-1ac92f75.js",
+      "_Card-6b92d0ad.js",
+      "_cardTransition-c22edfa6.js"
+    ],
+    "css": [
+      "assets/pages/portfolio.svelte-5483e3fc.css"
+    ]
+  },
+  "src/routes/projects/[project].svelte": {
+    "file": "pages/projects/_project_.svelte-cfae428d.js",
+    "src": "src/routes/projects/[project].svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js",
+      "_Disclaimer-1ac92f75.js",
+      "_Card-6b92d0ad.js",
+      "_cardTransition-c22edfa6.js",
+      "_singletons-521d72fa.js"
+    ],
+    "css": [
+      "assets/pages/projects/_project_.svelte-2ca978b5.css"
+    ]
+  },
+  "src/routes/404.svelte": {
+    "file": "pages/404.svelte-cb60edee.js",
+    "src": "src/routes/404.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js",
+      "src/routes/__error.svelte",
+      "_Card-6b92d0ad.js"
+    ]
+  },
+  "_vendor-2bb50eba.js": {
+    "file": "chunks/vendor-2bb50eba.js"
+  },
+  "_singletons-521d72fa.js": {
+    "file": "chunks/singletons-521d72fa.js"
+  },
+  "_preload-helper-ec9aa979.js": {
+    "file": "chunks/preload-helper-ec9aa979.js"
+  },
+  "_Card-6b92d0ad.js": {
+    "file": "chunks/Card-6b92d0ad.js",
+    "imports": [
+      "_vendor-2bb50eba.js"
+    ],
+    "css": [
+      "assets/Card-5c0acd18.css"
+    ]
+  },
+  "_cardTransition-c22edfa6.js": {
+    "file": "chunks/cardTransition-c22edfa6.js",
+    "imports": [
+      "_vendor-2bb50eba.js"
+    ],
+    "css": [
+      "assets/cardTransition-cef6fcd5.css"
+    ]
+  },
+  "_Disclaimer-1ac92f75.js": {
+    "file": "chunks/Disclaimer-1ac92f75.js",
+    "imports": [
+      "_vendor-2bb50eba.js"
+    ],
+    "css": [
+      "assets/Disclaimer-1e6ace4d.css"
+    ]
+  },
+  "src/lib/components/Avatar.svelte": {
+    "file": "chunks/Avatar-6d223763.js",
+    "src": "src/lib/components/Avatar.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-2bb50eba.js"
+    ],
+    "css": [
+      "assets/Avatar-19d61f10.css"
+    ]
+  }
+}
