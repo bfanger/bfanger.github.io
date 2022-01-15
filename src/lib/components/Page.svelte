@@ -1,5 +1,5 @@
 <script lang="ts">
-  import noop from "lodash-es/noop";
+  import { noop } from "lodash-es";
 
   function out(node: Element, config: object) {
     noop(config);

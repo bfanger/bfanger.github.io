@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   import type { Load } from "@sveltejs/kit";
-  import groupBy from "lodash-es/groupBy";
+  import { groupBy } from "lodash-es";
   import api from "$lib/services/api";
   import type { ProjectTeaserDto } from "$lib/services/api-types";
 

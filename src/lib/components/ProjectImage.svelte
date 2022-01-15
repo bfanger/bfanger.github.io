@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tick } from "svelte";
-  import noop from "lodash-es/noop";
+  import { noop } from "lodash-es";
 
   export let src: string;
   export let width: number;

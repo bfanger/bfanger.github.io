@@ -10,13 +10,7 @@ const svelteConfig = {
     target: "svelte-app",
     vite: {
       optimizeDeps: {
-        include: [
-          "three",
-          "lodash-es/noop",
-          "lodash-es/groupBy",
-          "lodash-es/orderBy",
-          "three/examples/jsm/loaders/GLTFLoader.js",
-        ],
+        include: ["three", "three/examples/jsm/loaders/GLTFLoader.js"],
       },
     },
   },

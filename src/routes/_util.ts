@@ -3,13 +3,10 @@ import childProcess from "child_process";
 import { promisify } from "util";
 import fs from "fs";
 import matter from "gray-matter";
-import { Parser, HtmlRenderer } from "commonmark";
+import { marked } from "marked";
 import { imageSize } from "image-size";
-import orderBy from "lodash-es/orderBy";
+import { orderBy } from "lodash-es";
 import type { ProjectDto } from "$lib/services/api-types";
-
-const reader = new Parser();
-const writer = new HtmlRenderer();
 
 const readFile = promisify(fs.readFile);
 const readDir = promisify(fs.readdir);
@@ -28,11 +25,11 @@ async function loadProject(slug: string) {
 
   const result = matter(file);
 
-  const parsed = reader.parse(result.content);
+  const content = marked.parse(result.content);
   return {
     ...result.data,
     slug,
-    content: writer.render(parsed),
+    content,
   } as RawProject;
 }
 
