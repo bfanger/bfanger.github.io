@@ -8,6 +8,13 @@
       function introEnded() {
         introEnded.resolve(true);
       }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
       var introPromise = Promise.resolve(false);
       if (location.pathname === "/") {
         introPromise = new Promise((resolve) => {
@@ -16,44 +23,39 @@
       }
     </script>
     <title>BFanger.nl - Bob Fanger</title>
-
-		
-
-		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
-		<link rel="stylesheet" href="/_app/assets/pages/index.svelte-39dd6d84.css">
-		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
-		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
-		<link rel="modulepreload" href="/_app/start-7af515e9.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-2bb50eba.js">
-		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-		<link rel="modulepreload" href="/_app/chunks/singletons-521d72fa.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d5bf7deb.js">
-		<link rel="modulepreload" href="/_app/pages/index.svelte-9fb91c47.js">
-		<link rel="modulepreload" href="/_app/chunks/cardTransition-c22edfa6.js">
-		<link rel="modulepreload" href="/_app/chunks/Card-6b92d0ad.js">
-
-		<script type="module">
-			import { start } from "/_app/start-7af515e9.js";
-			start({
-				target: document.querySelector("svelte-app"),
-				paths: {"base":"","assets":""},
-				session: {},
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/__layout.svelte-d5bf7deb.js"),
-						import("/_app/pages/index.svelte-9fb91c47.js")
-					],
-					url: new URL("http://prerender/"),
-					params: {}
-				}
-			});
-		</script>
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
+	<link rel="stylesheet" href="/_app/assets/pages/index.svelte-4322e5c4.css">
+	<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+	<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
+	<link rel="modulepreload" href="/_app/start-32570876.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-f7287400.js">
+	<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+	<link rel="modulepreload" href="/_app/chunks/singletons-4fc5a6de.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-e135d1b8.js">
+	<link rel="modulepreload" href="/_app/pages/index.svelte-79e50728.js">
+	<link rel="modulepreload" href="/_app/chunks/cardTransition-4208b2ca.js">
+	<link rel="modulepreload" href="/_app/chunks/Card-6ffe458f.js">
+			<script type="module">
+				import { start } from "/_app/start-32570876.js";
+				start({
+					target: document.querySelector("svelte-app"),
+					paths: {"base":"","assets":""},
+					session: {},
+					route: true,
+					spa: false,
+					trailing_slash: "never",
+					hydrate: {
+						status: 200,
+						error: null,
+						nodes: [
+							import("/_app/pages/__layout.svelte-e135d1b8.js"),
+						import("/_app/pages/index.svelte-79e50728.js")
+						],
+						url: new URL("http://prerender/"),
+						params: {}
+					}
+				});
+			</script>
   </head>
   <body>
     <img
@@ -82,7 +84,7 @@
 
 
 <div class="layout svelte-1k8wdr7" style="">
-<div class="page svelte-l08k9a"><div class="intro svelte-1h11xq6"><div class="intro__bob-fanger svelte-1h11xq6"><div class="intro__clip-bob svelte-1h11xq6"><svg class="intro__b svelte-1h11xq6" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M0 56V0h48v8h8v16h-8v8h8v16h-8v8H0zm16-32h24V8H16v16zm0
+<div class="page svelte-l08k9a"><div class="intro svelte-12spzcv"><div class="intro__bob-fanger svelte-12spzcv"><div class="intro__clip-bob svelte-12spzcv"><svg class="intro__b svelte-12spzcv" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M0 56V0h48v8h8v16h-8v8h8v16h-8v8H0zm16-32h24V8H16v16zm0
           24h24V32H16v16zm56
           8v-8h-8V24h8v-8h40v8h8v24h-8v8H72zm8-8h24V24H80v24zm56
           8v-8h-8V0h16v16h32v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm112
@@ -93,7 +95,7 @@
           16v-8h-8V24h8v-8h40v8h8v16h-40v8h32v8h-40zm8-24h24v-8h-24v8zm72-8h8v8h-8v24h-16V16h16v8zm32-8v8h-24v-8h24zm24
           40V40h16v16h-16zm48 0V16h48v8h8v32h-16V24h-24v32h-16zm72
           0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd"></path></svg>
-      <svg class="intro__ob svelte-1h11xq6" viewBox="0 0 128 64" xmlns="http://www.w3.org/2000/svg"><path d="M-64 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
+      <svg class="intro__ob svelte-12spzcv" viewBox="0 0 128 64" xmlns="http://www.w3.org/2000/svg"><path d="M-64 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
           8v-8H0V24h8v-8h40v8h8v24h-8v8H8zm8-8h24V24H16v24zm56
           8v-8h-8V0h16v16h32v8h8v24h-8v8H72zm8-8h24V24H80v24zm112
@@ -104,7 +106,7 @@
           16v-8h-8V24h8v-8h40v8h8v16h-40v8h32v8h-40zm8-24h24v-8h-24v8zm72-8h8v8h-8v24h-16V16h16v8zm32-8v8h-24v-8h24zm24
           40V40h16v16h-16zm48 0V16h48v8h8v32h-16V24h-24v32h-16zm72
           0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd"></path></svg></div>
-    <svg class="intro__fanger svelte-1h11xq6" viewBox="0 0 384 64" xmlns="http://www.w3.org/2000/svg"><path d="M-256 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
+    <svg class="intro__fanger svelte-12spzcv" viewBox="0 0 384 64" xmlns="http://www.w3.org/2000/svg"><path d="M-256 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
         24h24V32h-24v16zm56
         8v-8h-8V24h8v-8h40v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm56
         8v-8h-8V0h16v16h32v8h8v24h-8v8h-40zm8-8h24V24h-24v24zM0
@@ -115,7 +117,7 @@
         16v-8h-8V24h8v-8h40v8h8v16h-40v8h32v8h-40zm8-24h24v-8h-24v8zm72-8h8v8h-8v24h-16V16h16v8zm32-8v8h-24v-8h24zm24
         40V40h16v16h-16zm48 0V16h48v8h8v32h-16V24h-24v32h-16zm72
         0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd"></path></svg>
-    <div class="intro__clip-nl svelte-1h11xq6"><svg class="intro__nl svelte-1h11xq6" onanimationend="introEnded()" viewBox="0 0 168 64"><path d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
+    <div class="intro__clip-nl svelte-12spzcv"><svg class="intro__nl svelte-12spzcv" onanimationend="introEnded()" viewBox="0 0 168 64"><path d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
           8v-8h-8V24h8v-8h40v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm56
           8v-8h-8V0h16v16h32v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm112
@@ -126,6 +128,7 @@
           16v-8h-8V24h8v-8h40v8h8v16h-40v8h32v8h-40zm8-24h24v-8h-24v8zm72-8h8v8h-8v24h-16V16h16v8zm32-8v8h-24v-8h24zM0
           56V40h16v16H0zm48 0V16h48v8h8v32H88V24H64v32H48zm72
           0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd"></path></svg></div></div>
+  <button class="skip svelte-12spzcv" onclick="introSkip(event)"><div class="skip-button svelte-12spzcv">Intro overslaan</div></button>
 </div>
 
   <div hidden><div><div class="card svelte-1x6c9vs card--homepage"><img src="images/avatar.jpg" class="homepage__avatar svelte-qknfb9" alt="Bob Fanger">

@@ -8,6 +8,13 @@
       function introEnded() {
         introEnded.resolve(true);
       }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
       var introPromise = Promise.resolve(false);
       if (location.pathname === "/") {
         introPromise = new Promise((resolve) => {
@@ -16,46 +23,41 @@
       }
     </script>
     <title>Ajaxlife API</title>
-
-		
-
-		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
-		<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
-		<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
-		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
-		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
-		<link rel="modulepreload" href="/_app/start-7af515e9.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-2bb50eba.js">
-		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-		<link rel="modulepreload" href="/_app/chunks/singletons-521d72fa.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d5bf7deb.js">
-		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-cfae428d.js">
-		<link rel="modulepreload" href="/_app/chunks/Disclaimer-1ac92f75.js">
-		<link rel="modulepreload" href="/_app/chunks/Card-6b92d0ad.js">
-		<link rel="modulepreload" href="/_app/chunks/cardTransition-c22edfa6.js">
-
-		<script type="module">
-			import { start } from "/_app/start-7af515e9.js";
-			start({
-				target: document.querySelector("svelte-app"),
-				paths: {"base":"","assets":""},
-				session: {},
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/__layout.svelte-d5bf7deb.js"),
-						import("/_app/pages/projects/_project_.svelte-cfae428d.js")
-					],
-					url: new URL("http://prerender/projects/ajaxlife"),
-					params: {project:"ajaxlife"}
-				}
-			});
-		</script>
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
+	<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
+	<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
+	<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
+	<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+	<link rel="modulepreload" href="/_app/start-32570876.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-f7287400.js">
+	<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+	<link rel="modulepreload" href="/_app/chunks/singletons-4fc5a6de.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-e135d1b8.js">
+	<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-9a424ffa.js">
+	<link rel="modulepreload" href="/_app/chunks/Disclaimer-3cae540e.js">
+	<link rel="modulepreload" href="/_app/chunks/Card-6ffe458f.js">
+	<link rel="modulepreload" href="/_app/chunks/cardTransition-4208b2ca.js">
+			<script type="module">
+				import { start } from "/_app/start-32570876.js";
+				start({
+					target: document.querySelector("svelte-app"),
+					paths: {"base":"","assets":""},
+					session: {},
+					route: true,
+					spa: false,
+					trailing_slash: "never",
+					hydrate: {
+						status: 200,
+						error: null,
+						nodes: [
+							import("/_app/pages/__layout.svelte-e135d1b8.js"),
+						import("/_app/pages/projects/_project_.svelte-9a424ffa.js")
+						],
+						url: new URL("http://prerender/projects/ajaxlife"),
+						params: {project:"ajaxlife"}
+					}
+				});
+			</script>
   </head>
   <body>
     <img
@@ -88,7 +90,7 @@
 
 <div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Ajaxlife API</h1>
   <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/ajaxlife.png" width="2650" height="1628" alt="Een screenshot van het project">
-  <!-- HTML_TAG_START --><p>Mijn collega's hebben de nieuwe site van <a href="https://www.ajaxlife.nl/">ajaxlife.nl</a> gemaakt in wordpress.
+  <!-- HTML_TAG_START --><p>Mijn collega&#39;s hebben de nieuwe site van <a href="https://www.ajaxlife.nl/">ajaxlife.nl</a> gemaakt in wordpress.
 Ajaxlife heeft ook een <a href="https://itunes.apple.com/us/app/ajax-life/id1136157598?mt=8">iOS</a> en <a href="https://play.google.com/store/apps/details?id=nl.ajaxlife.android">Android</a> app die gebruik maken van een api op de site.</p>
 <p>Ik heb interface van de api van de vorige website nagemaakt, maar nu haalt deze zijn informatie uit de wordpress database.
 Ook heb ik dit project omgezet naar de vue-cli configuratie die ik eerder voor wordpress had geschreven.
@@ -111,6 +113,6 @@ Dit was nodig omdat de op <a href="https://roots.io/sage/">sage</a> gebaseerde c
 </div>
 </div>
 
-<script type="application/json" data-type="svelte-data" data-url="/projects/ajaxlife.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"ajaxlife\",\"title\":\"Ajaxlife API\",\"released\":\"2018-08\",\"content\":\"\u003Cp\u003EMijn collega's hebben de nieuwe site van \u003Ca href=\\\"https:\u002F\u002Fwww.ajaxlife.nl\u002F\\\"\u003Eajaxlife.nl\u003C\u002Fa\u003E gemaakt in wordpress.\\nAjaxlife heeft ook een \u003Ca href=\\\"https:\u002F\u002Fitunes.apple.com\u002Fus\u002Fapp\u002Fajax-life\u002Fid1136157598?mt=8\\\"\u003EiOS\u003C\u002Fa\u003E en \u003Ca href=\\\"https:\u002F\u002Fplay.google.com\u002Fstore\u002Fapps\u002Fdetails?id=nl.ajaxlife.android\\\"\u003EAndroid\u003C\u002Fa\u003E app die gebruik maken van een api op de site.\u003C\u002Fp\u003E\\n\u003Cp\u003EIk heb interface van de api van de vorige website nagemaakt, maar nu haalt deze zijn informatie uit de wordpress database.\\nOok heb ik dit project omgezet naar de vue-cli configuratie die ik eerder voor wordpress had geschreven.\\nDit was nodig omdat de op \u003Ca href=\\\"https:\u002F\u002Froots.io\u002Fsage\u002F\\\"\u003Esage\u003C\u002Fa\u003E gebaseerde configuratie veel problemen gaf.\u003C\u002Fp\u003E\\n\",\"before\":\"rookvrije-generatie\",\"after\":\"picompany\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fajaxlife.png\",\"width\":2650,\"height\":1628}}"}</script></svelte-app>
+<script type="application/json" data-type="svelte-data" data-url="/projects/ajaxlife.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"ajaxlife\",\"title\":\"Ajaxlife API\",\"released\":\"2018-08\",\"content\":\"\u003Cp\u003EMijn collega&#39;s hebben de nieuwe site van \u003Ca href=\\\"https:\u002F\u002Fwww.ajaxlife.nl\u002F\\\"\u003Eajaxlife.nl\u003C\u002Fa\u003E gemaakt in wordpress.\\nAjaxlife heeft ook een \u003Ca href=\\\"https:\u002F\u002Fitunes.apple.com\u002Fus\u002Fapp\u002Fajax-life\u002Fid1136157598?mt=8\\\"\u003EiOS\u003C\u002Fa\u003E en \u003Ca href=\\\"https:\u002F\u002Fplay.google.com\u002Fstore\u002Fapps\u002Fdetails?id=nl.ajaxlife.android\\\"\u003EAndroid\u003C\u002Fa\u003E app die gebruik maken van een api op de site.\u003C\u002Fp\u003E\\n\u003Cp\u003EIk heb interface van de api van de vorige website nagemaakt, maar nu haalt deze zijn informatie uit de wordpress database.\\nOok heb ik dit project omgezet naar de vue-cli configuratie die ik eerder voor wordpress had geschreven.\\nDit was nodig omdat de op \u003Ca href=\\\"https:\u002F\u002Froots.io\u002Fsage\u002F\\\"\u003Esage\u003C\u002Fa\u003E gebaseerde configuratie veel problemen gaf.\u003C\u002Fp\u003E\\n\",\"before\":\"rookvrije-generatie\",\"after\":\"picompany\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fajaxlife.png\",\"width\":2650,\"height\":1628}}"}</script></svelte-app>
   </body>
 </html>

@@ -8,6 +8,13 @@
       function introEnded() {
         introEnded.resolve(true);
       }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
       var introPromise = Promise.resolve(false);
       if (location.pathname === "/") {
         introPromise = new Promise((resolve) => {
@@ -16,46 +23,41 @@
       }
     </script>
     <title>Activia.nl - Redesign</title>
-
-		
-
-		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
-		<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
-		<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
-		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
-		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
-		<link rel="modulepreload" href="/_app/start-7af515e9.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-2bb50eba.js">
-		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-		<link rel="modulepreload" href="/_app/chunks/singletons-521d72fa.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d5bf7deb.js">
-		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-cfae428d.js">
-		<link rel="modulepreload" href="/_app/chunks/Disclaimer-1ac92f75.js">
-		<link rel="modulepreload" href="/_app/chunks/Card-6b92d0ad.js">
-		<link rel="modulepreload" href="/_app/chunks/cardTransition-c22edfa6.js">
-
-		<script type="module">
-			import { start } from "/_app/start-7af515e9.js";
-			start({
-				target: document.querySelector("svelte-app"),
-				paths: {"base":"","assets":""},
-				session: {},
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/__layout.svelte-d5bf7deb.js"),
-						import("/_app/pages/projects/_project_.svelte-cfae428d.js")
-					],
-					url: new URL("http://prerender/projects/activia-redesign"),
-					params: {project:"activia-redesign"}
-				}
-			});
-		</script>
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
+	<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
+	<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
+	<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
+	<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+	<link rel="modulepreload" href="/_app/start-32570876.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-f7287400.js">
+	<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+	<link rel="modulepreload" href="/_app/chunks/singletons-4fc5a6de.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-e135d1b8.js">
+	<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-9a424ffa.js">
+	<link rel="modulepreload" href="/_app/chunks/Disclaimer-3cae540e.js">
+	<link rel="modulepreload" href="/_app/chunks/Card-6ffe458f.js">
+	<link rel="modulepreload" href="/_app/chunks/cardTransition-4208b2ca.js">
+			<script type="module">
+				import { start } from "/_app/start-32570876.js";
+				start({
+					target: document.querySelector("svelte-app"),
+					paths: {"base":"","assets":""},
+					session: {},
+					route: true,
+					spa: false,
+					trailing_slash: "never",
+					hydrate: {
+						status: 200,
+						error: null,
+						nodes: [
+							import("/_app/pages/__layout.svelte-e135d1b8.js"),
+						import("/_app/pages/projects/_project_.svelte-9a424ffa.js")
+						],
+						url: new URL("http://prerender/projects/activia-redesign"),
+						params: {project:"activia-redesign"}
+					}
+				});
+			</script>
   </head>
   <body>
     <img

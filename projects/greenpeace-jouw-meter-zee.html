@@ -8,6 +8,13 @@
       function introEnded() {
         introEnded.resolve(true);
       }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
       var introPromise = Promise.resolve(false);
       if (location.pathname === "/") {
         introPromise = new Promise((resolve) => {
@@ -16,46 +23,41 @@
       }
     </script>
     <title>Greenpeace - Jouw meter zee</title>
-
-		
-
-		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
-		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
-		<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
-		<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
-		<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
-		<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
-		<link rel="modulepreload" href="/_app/start-7af515e9.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-2bb50eba.js">
-		<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-		<link rel="modulepreload" href="/_app/chunks/singletons-521d72fa.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-d5bf7deb.js">
-		<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-cfae428d.js">
-		<link rel="modulepreload" href="/_app/chunks/Disclaimer-1ac92f75.js">
-		<link rel="modulepreload" href="/_app/chunks/Card-6b92d0ad.js">
-		<link rel="modulepreload" href="/_app/chunks/cardTransition-c22edfa6.js">
-
-		<script type="module">
-			import { start } from "/_app/start-7af515e9.js";
-			start({
-				target: document.querySelector("svelte-app"),
-				paths: {"base":"","assets":""},
-				session: {},
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/__layout.svelte-d5bf7deb.js"),
-						import("/_app/pages/projects/_project_.svelte-cfae428d.js")
-					],
-					url: new URL("http://prerender/projects/greenpeace-jouw-meter-zee"),
-					params: {project:"greenpeace-jouw-meter-zee"}
-				}
-			});
-		</script>
+	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-29b31942.css">
+	<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
+	<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
+	<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
+	<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
+	<link rel="modulepreload" href="/_app/start-32570876.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-f7287400.js">
+	<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
+	<link rel="modulepreload" href="/_app/chunks/singletons-4fc5a6de.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-e135d1b8.js">
+	<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-9a424ffa.js">
+	<link rel="modulepreload" href="/_app/chunks/Disclaimer-3cae540e.js">
+	<link rel="modulepreload" href="/_app/chunks/Card-6ffe458f.js">
+	<link rel="modulepreload" href="/_app/chunks/cardTransition-4208b2ca.js">
+			<script type="module">
+				import { start } from "/_app/start-32570876.js";
+				start({
+					target: document.querySelector("svelte-app"),
+					paths: {"base":"","assets":""},
+					session: {},
+					route: true,
+					spa: false,
+					trailing_slash: "never",
+					hydrate: {
+						status: 200,
+						error: null,
+						nodes: [
+							import("/_app/pages/__layout.svelte-e135d1b8.js"),
+						import("/_app/pages/projects/_project_.svelte-9a424ffa.js")
+						],
+						url: new URL("http://prerender/projects/greenpeace-jouw-meter-zee"),
+						params: {project:"greenpeace-jouw-meter-zee"}
+					}
+				});
+			</script>
   </head>
   <body>
     <img
@@ -89,7 +91,7 @@
 <div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Greenpeace - Jouw meter zee</h1>
   <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/greenpeace-jouw-meter-zee.png" width="2860" height="1678" alt="Een screenshot van het project">
   <!-- HTML_TAG_START --><p>Jouw Meter Zee is een campagne website die is opgedeeld in een aantal schermvullende hoofdstukken die d.m.v. van te scrollen een geanimeerde transitie maken van het ene naar het andere hoofdstuk.
-In elk hoofdstuk wordt er d.m.v. tekst ondersteund door animaties en geluid uitlegd wat er aan de hand is met 'jouw meter' van de noordzee.
+In elk hoofdstuk wordt er d.m.v. tekst ondersteund door animaties en geluid uitlegd wat er aan de hand is met &#39;jouw meter&#39; van de noordzee.
 In het laatste hoofdstuk wordt er gevraagd het manifest te tekenen of een op een andere manier steun te bieden.</p>
 <!-- HTML_TAG_END -->
   <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
@@ -109,6 +111,6 @@ In het laatste hoofdstuk wordt er gevraagd het manifest te tekenen of een op een
 </div>
 </div>
 
-<script type="application/json" data-type="svelte-data" data-url="/projects/greenpeace-jouw-meter-zee.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"greenpeace-jouw-meter-zee\",\"title\":\"Greenpeace - Jouw meter zee\",\"released\":\"2015-03\",\"content\":\"\u003Cp\u003EJouw Meter Zee is een campagne website die is opgedeeld in een aantal schermvullende hoofdstukken die d.m.v. van te scrollen een geanimeerde transitie maken van het ene naar het andere hoofdstuk.\\nIn elk hoofdstuk wordt er d.m.v. tekst ondersteund door animaties en geluid uitlegd wat er aan de hand is met 'jouw meter' van de noordzee.\\nIn het laatste hoofdstuk wordt er gevraagd het manifest te tekenen of een op een andere manier steun te bieden.\u003C\u002Fp\u003E\\n\",\"before\":\"npo-7-dagen-groener\",\"after\":\"ing-30-dagen-meer-geld-overhouden-challenge\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fgreenpeace-jouw-meter-zee.png\",\"width\":2860,\"height\":1678}}"}</script></svelte-app>
+<script type="application/json" data-type="svelte-data" data-url="/projects/greenpeace-jouw-meter-zee.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"greenpeace-jouw-meter-zee\",\"title\":\"Greenpeace - Jouw meter zee\",\"released\":\"2015-03\",\"content\":\"\u003Cp\u003EJouw Meter Zee is een campagne website die is opgedeeld in een aantal schermvullende hoofdstukken die d.m.v. van te scrollen een geanimeerde transitie maken van het ene naar het andere hoofdstuk.\\nIn elk hoofdstuk wordt er d.m.v. tekst ondersteund door animaties en geluid uitlegd wat er aan de hand is met &#39;jouw meter&#39; van de noordzee.\\nIn het laatste hoofdstuk wordt er gevraagd het manifest te tekenen of een op een andere manier steun te bieden.\u003C\u002Fp\u003E\\n\",\"before\":\"npo-7-dagen-groener\",\"after\":\"ing-30-dagen-meer-geld-overhouden-challenge\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fgreenpeace-jouw-meter-zee.png\",\"width\":2860,\"height\":1678}}"}</script></svelte-app>
   </body>
 </html>
