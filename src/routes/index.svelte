@@ -1,17 +1,21 @@
 <script lang="ts" context="module">
-  export async function load() {
+  import type { Load } from "@sveltejs/kit";
+
+  export const load: Load = async () => {
     const isServer = typeof window === "undefined";
+    let skipped = false;
     if (!isServer) {
       const win = window as any;
-      await win.introPromise;
+      skipped = (await win.introPromise) === "skip";
     }
     return {
       props: {
         introVisible: true,
         isServer,
+        skipped,
       },
     };
-  }
+  };
 </script>
 
 <script lang="ts">
@@ -27,6 +31,8 @@
 
   export let introVisible: boolean;
   export let isServer: boolean;
+  export let skipped: boolean;
+
   let cardVisible = isServer;
 
   onMount(async () => {
@@ -45,7 +51,10 @@
 
   <div hidden={isServer}>
     {#if cardVisible}
-      <div in:fly={{ y: 50, duration: 500 }} out:fly={{ x: -100 }}>
+      <div
+        in:fly={{ y: 50, duration: skipped ? 250 : 500 }}
+        out:fly={{ x: -100 }}
+      >
         <Card homepage>
           <img
             src="images/avatar.jpg"
@@ -76,7 +85,11 @@
       </div>
       <div
         class="homepage--porfolio"
-        in:fly={{ y: 50, delay: 100, duration: 600 }}
+        in:fly={{
+          y: 50,
+          delay: skipped ? 0 : 100,
+          duration: skipped ? 250 : 600,
+        }}
       >
         <NavButton
           type="next"

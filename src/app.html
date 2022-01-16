@@ -8,6 +8,13 @@
       function introEnded() {
         introEnded.resolve(true);
       }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
       var introPromise = Promise.resolve(false);
       if (location.pathname === "/") {
         introPromise = new Promise((resolve) => {

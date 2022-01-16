@@ -1,5 +1,6 @@
 <script lang="ts">
   const onanimationend = "introEnded()" as any;
+  const onskip = "introSkip(event)" as any;
 </script>
 
 <div class="intro">
@@ -89,6 +90,9 @@
       </svg>
     </div>
   </div>
+  <button class="skip" onclick={onskip}>
+    <div class="skip-button">Intro overslaan</div>
+  </button>
 </div>
 
 <style lang="scss">
@@ -227,6 +231,34 @@
     }
     #{frame(95)} {
       transform: translateX(0);
+    }
+  }
+  .skip {
+    border: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1.2rem 2rem;
+    font-size: 1.6rem;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .skip-button {
+    background: rgba(black, 0.3);
+    color: white;
+    padding: 1.2rem 2rem;
+    border: 1px solid white;
+    font-weight: bold;
+
+    &:hover {
+      background: white;
+      color: black;
     }
   }
 </style>
