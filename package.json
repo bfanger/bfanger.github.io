@@ -33,8 +33,8 @@
   "devDependencies": {
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
-    "@types/lodash": "^4.14.174",
     "@types/lodash-es": "^4.17.5",
+    "@types/marked": "^4.0.1",
     "@types/three": "^0.136.1",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
@@ -55,23 +55,20 @@
     "sass": "^1.42.1",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.9.5",
-    "tslib": "^2.3.1",
     "typescript": "^4.4.4",
     "vite": "^2.5.10"
   },
   "engines": {
-    "node": ">= 12.17.0"
+    "node": ">= 16"
   },
   "dependencies": {
-    "@types/marked": "^4.0.1",
     "git-directory-deploy": "^1.5.1",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
     "image-size": "^1.0.0",
     "lodash-es": "^4.17.21",
     "marked": "^4.0.10",
-    "matter": "^0.2.0",
-    "svelte": "^3.43.0",
+    "svelte": "^3.46.2",
     "three": "^0.136.0"
   }
 }
