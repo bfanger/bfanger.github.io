@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
-    "deploy": "rimraf build && yarn build && ./githubify.js && git-directory-deploy --branch gh-pages --directory build/",
+    "deploy": "rimraf build && yarn build && git-directory-deploy --branch gh-pages --directory build/",
     "preview": "svelte-kit preview",
     "lint": "concurrently --kill-others-on-fail \"yarn:lint:*\"",
     "lint:prettier": "prettier --check --loglevel=warn \"src/**/*.svelte\"",
