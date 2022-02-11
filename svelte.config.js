@@ -7,10 +7,6 @@ const svelteConfig = {
   preprocess: sveltePreprocess(),
   kit: {
     adapter: adapter(),
-    target: "svelte-app",
-    prerender: {
-      createIndexFiles: false,
-    },
     vite: {
       optimizeDeps: {
         include: ["three", "three/examples/jsm/loaders/GLTFLoader.js"],
