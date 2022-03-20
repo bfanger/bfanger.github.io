@@ -1,3 +1,4 @@
+// @ts-nocheck
 // prettier-ignore
 /* eslint-disable */
 if (typeof window !== "undefined") {

@@ -2,4 +2,4 @@
   import ErrorRoute from "./__error.svelte";
 </script>
 
-<ErrorRoute status={404} error={new Error("Pagina niet gevonden")} />
+<ErrorRoute title="404" message="Pagina niet gevonden" />

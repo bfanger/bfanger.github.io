@@ -26,14 +26,15 @@
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
   import cardTransition from "$lib/services/cardTransition";
-  import Async from "$lib/components/Async.svelte";
-  import Avatar from "$lib/components/AsyncAvatar";
 
   export let introVisible: boolean;
   export let isServer: boolean;
   export let skipped: boolean;
 
   let cardVisible = isServer;
+  const avatarPromise = import.meta.env.SSR
+    ? Promise.reject()
+    : import("$lib/components/Avatar.svelte");
 
   onMount(async () => {
     introVisible = false;
@@ -62,7 +63,9 @@
             alt="Bob Fanger"
           />
           <div class="homepage__avatar">
-            <Async component={Avatar} />
+            {#await avatarPromise then { default: Avatar }}
+              <Avatar />
+            {/await}
           </div>
           <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
           <p>

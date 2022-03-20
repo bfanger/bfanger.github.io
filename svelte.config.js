@@ -6,6 +6,9 @@ import adapter from "@sveltejs/adapter-static";
 const svelteConfig = {
   preprocess: sveltePreprocess(),
   kit: {
+    prerender: {
+      default: true,
+    },
     adapter: adapter(),
     vite: {
       optimizeDeps: {

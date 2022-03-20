@@ -1,36 +1,43 @@
 <script lang="ts" context="module">
-  export function load({ error, status }) {
-    if (error.response && error.response.status) {
+  import type { ErrorLoad } from "@sveltejs/kit";
+  import { getStatus } from "$lib/services/api";
+
+  export const load: ErrorLoad = ({ error, status }) => {
+    const responseStatus = getStatus(error) || 500;
+    if (responseStatus >= 400) {
       // eslint-disable-next-line no-param-reassign
-      status = error.response.status;
+      status = responseStatus;
     }
     return {
-      props: { error, status },
+      props: {
+        title: `${status}`,
+        message: error?.message ? error?.message : "Oops",
+        stack: import.meta.env.DEV ? error?.stack : undefined,
+      },
     };
-  }
+  };
 </script>
 
 <script lang="ts">
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
 
-  export let status: number;
-  export let error: Error;
-
-  const dev = process.env.NODE_ENV === "development";
+  export let title: string;
+  export let message: string;
+  export let stack: string | undefined = undefined;
 </script>
 
 <svelte:head>
-  <title>{status}</title>
+  <title>{title}</title>
 </svelte:head>
 <Page>
   <Card>
-    <h1>{status}</h1>
+    <h1>{title}</h1>
 
-    <p>{error && error.message}</p>
+    <p>{message}</p>
 
-    {#if dev && error && error.stack}
-      <pre>{error.stack}</pre>
+    {#if stack}
+      <pre>{stack}</pre>
     {/if}
     <slot />
   </Card>

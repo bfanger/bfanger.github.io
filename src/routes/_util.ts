@@ -111,5 +111,8 @@ export async function processImage(
     }
   }
   const { width, height } = imageSize(source);
+  if (!width || !height) {
+    throw new Error("imageSize failed");
+  }
   return { src: `/build/img/${filename}`, alt, width, height };
 }
