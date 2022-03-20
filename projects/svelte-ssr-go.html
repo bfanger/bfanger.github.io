@@ -25,18 +25,19 @@
     <meta http-equiv="content-security-policy" content=""><title>Svelte SSR go</title>
 	<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-9c2d95ae.css">
 	<link rel="stylesheet" href="/_app/assets/pages/projects/_project_.svelte-2ca978b5.css">
-	<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
 	<link rel="stylesheet" href="/_app/assets/Card-5c0acd18.css">
 	<link rel="stylesheet" href="/_app/assets/cardTransition-cef6fcd5.css">
-	<link rel="modulepreload" href="/_app/start-71714bd5.js">
-	<link rel="modulepreload" href="/_app/chunks/vendor-f7287400.js">
-	<link rel="modulepreload" href="/_app/chunks/preload-helper-ec9aa979.js">
-	<link rel="modulepreload" href="/_app/chunks/singletons-d19c42e4.js">
-	<link rel="modulepreload" href="/_app/pages/__layout.svelte-08e2a548.js">
-	<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-1c775448.js">
-	<link rel="modulepreload" href="/_app/chunks/Disclaimer-d08012e5.js">
-	<link rel="modulepreload" href="/_app/chunks/Card-a7a21914.js">
-	<link rel="modulepreload" href="/_app/chunks/cardTransition-43e4d1dc.js">
+	<link rel="stylesheet" href="/_app/assets/Disclaimer-1e6ace4d.css">
+	<link rel="modulepreload" href="/_app/start-460399f7.js">
+	<link rel="modulepreload" href="/_app/chunks/vendor-4b979763.js">
+	<link rel="modulepreload" href="/_app/chunks/preload-helper-e4860ae8.js">
+	<link rel="modulepreload" href="/_app/chunks/singletons-d1fb5791.js">
+	<link rel="modulepreload" href="/_app/pages/__layout.svelte-7e4e3f36.js">
+	<link rel="modulepreload" href="/_app/pages/projects/_project_.svelte-94a306d4.js">
+	<link rel="modulepreload" href="/_app/chunks/api-7af29cbb.js">
+	<link rel="modulepreload" href="/_app/chunks/Card-2f7fcda8.js">
+	<link rel="modulepreload" href="/_app/chunks/cardTransition-f8a0f766.js">
+	<link rel="modulepreload" href="/_app/chunks/Disclaimer-c3fa053a.js">
   </head>
   <body>
     <img
@@ -99,7 +100,7 @@ Met deze opzet kan je van svelte component bundelen naar een javascript en css b
 
 
 		<script type="module" data-hydrate="o1c82p">
-		import { start } from "/_app/start-71714bd5.js";
+		import { start } from "/_app/start-460399f7.js";
 		start({
 			target: document.querySelector('[data-hydrate="o1c82p"]').parentNode,
 			paths: {"base":"","assets":""},
@@ -111,13 +112,13 @@ Met deze opzet kan je van svelte component bundelen naar een javascript en css b
 				status: 200,
 				error: null,
 				nodes: [
-					import("/_app/pages/__layout.svelte-08e2a548.js"),
-						import("/_app/pages/projects/_project_.svelte-1c775448.js")
+					import("/_app/pages/__layout.svelte-7e4e3f36.js"),
+						import("/_app/pages/projects/_project_.svelte-94a306d4.js")
 				],
-				url: new URL("http://sveltekit-prerender/projects/svelte-ssr-go"),
-				params: {project:"svelte-ssr-go"}
+				params: {project:"svelte-ssr-go"},
+				routeId: "projects/[project]"
 			}
 		});
-	</script><script type="application/json" data-type="svelte-data" data-url="/projects/svelte-ssr-go.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"svelte-ssr-go\",\"title\":\"Svelte SSR go\",\"released\":\"2021-07-24\",\"content\":\"\u003Cp\u003E\u003Ca href=\\\"https:\u002F\u002Fgithub.com\u002Fbfanger\u002Fsvelte-ssr-go\\\"\u003ESvelte SSR Go\u003C\u002Fa\u003E is een proof-of-concept om \u003Ca href=\\\"https:\u002F\u002Fsvelte.dev\u002F\\\"\u003ESvelte\u003C\u002Fa\u003E componenten serverside te renderen (SSR) via een andere servertaal dan node of deno.\u003C\u002Fp\u003E\\n\u003C!-- De meeste programmeertalen (en zelfs [databases](https:\u002F\u002Fplv8.github.io\u002F)) hebben wel een manier om een javascript engine zoals [v8](https:\u002F\u002Fv8.dev\u002F) te gebruiken. --\u003E\\n\\n\u003Cp\u003EVoor het poc heb ik \u003Ca href=\\\"https:\u002F\u002Fgolang.org\u002F\\\"\u003EGo\u003C\u002Fa\u003E als servertaal gebruikt, deze heeft \u003Ca href=\\\"https:\u002F\u002Fgithub.com\u002Frogchap\u002Fv8go\\\"\u003Ev8go\u003C\u002Fa\u003E als embedded javascript runtime.\\nVoor het omzetten van de svelte bestanden wordt \u003Ca href=\\\"https:\u002F\u002Fesbuild.github.io\u002F\\\"\u003Eesbuild\u003C\u002Fa\u003E met de \u003Ca href=\\\"https:\u002F\u002Fgithub.com\u002FEMH333\u002Fesbuild-svelte\\\"\u003Eesbuild-svelte\u003C\u002Fa\u003E plugin gebruikt.\\nMet deze opzet kan je van svelte component bundelen naar een javascript en css bestand.\u003C\u002Fp\u003E\\n\u003Cp\u003EHet was een interessant en geslaagd experiment, maar zou adviseren waar mogelijk \u003Ca href=\\\"https:\u002F\u002Fkit.svelte.dev\u002F\\\"\u003ESvelteKit\u003C\u002Fa\u003E op een node server te draaien.\u003C\u002Fp\u003E\\n\u003C!-- Het werkt, inclusief livereload, maar maast dat je geen browers api's kunt gebruiken (window is undefined) heb je ook geen toegang tot [Node.js](https:\u002F\u002Fnodejs.org\u002Fen\u002F) api's. --\u003E\\n\\n\u003C!-- Gerelateerd project: [bfanger\u002Fenhanced-v8go](https:\u002F\u002Fgithub.com\u002Fbfanger\u002Fenhanced-v8go) --\u003E\\n\",\"before\":\"language-dx-benchmark\",\"after\":\"flowcart-vr\",\"image\":{\"src\":\"\u002Fbuild\u002Fimg\u002Fsvelte-ssr-go.png\",\"width\":721,\"height\":435}}"}</script>
+	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/svelte-ssr-go.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"svelte-ssr-go\",\"title\":\"Svelte SSR go\",\"released\":\"2021-07-24\",\"content\":\"\u003Cp>\u003Ca href=\\\"https://github.com/bfanger/svelte-ssr-go\\\">Svelte SSR Go\u003C/a> is een proof-of-concept om \u003Ca href=\\\"https://svelte.dev/\\\">Svelte\u003C/a> componenten serverside te renderen (SSR) via een andere servertaal dan node of deno.\u003C/p>\\n\u003C!-- De meeste programmeertalen (en zelfs [databases](https://plv8.github.io/)) hebben wel een manier om een javascript engine zoals [v8](https://v8.dev/) te gebruiken. -->\\n\\n\u003Cp>Voor het poc heb ik \u003Ca href=\\\"https://golang.org/\\\">Go\u003C/a> als servertaal gebruikt, deze heeft \u003Ca href=\\\"https://github.com/rogchap/v8go\\\">v8go\u003C/a> als embedded javascript runtime.\\nVoor het omzetten van de svelte bestanden wordt \u003Ca href=\\\"https://esbuild.github.io/\\\">esbuild\u003C/a> met de \u003Ca href=\\\"https://github.com/EMH333/esbuild-svelte\\\">esbuild-svelte\u003C/a> plugin gebruikt.\\nMet deze opzet kan je van svelte component bundelen naar een javascript en css bestand.\u003C/p>\\n\u003Cp>Het was een interessant en geslaagd experiment, maar zou adviseren waar mogelijk \u003Ca href=\\\"https://kit.svelte.dev/\\\">SvelteKit\u003C/a> op een node server te draaien.\u003C/p>\\n\u003C!-- Het werkt, inclusief livereload, maar maast dat je geen browers api's kunt gebruiken (window is undefined) heb je ook geen toegang tot [Node.js](https://nodejs.org/en/) api's. -->\\n\\n\u003C!-- Gerelateerd project: [bfanger/enhanced-v8go](https://github.com/bfanger/enhanced-v8go) -->\\n\",\"before\":\"language-dx-benchmark\",\"after\":\"flowcart-vr\",\"image\":{\"src\":\"/build/img/svelte-ssr-go.png\",\"width\":721,\"height\":435}}"}</script>
   </body>
 </html>

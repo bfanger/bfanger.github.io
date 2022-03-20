@@ -1,0 +1,1 @@
+import{S as t,i as s,s as a}from"../../chunks/vendor-4b979763.js";const l=()=>({status:301,redirect:"https://swagger-explained.bfanger.nl/"});class o extends t{constructor(e){super();s(this,e,null,null,a,{})}}export{o as default,l as load};
