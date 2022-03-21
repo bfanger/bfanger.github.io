@@ -115,4 +115,7 @@
       width: 200%;
     }
   }
+  :global(svelte-app) {
+    display: contents;
+  }
 </style>
