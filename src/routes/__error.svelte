@@ -1,8 +1,8 @@
 <script lang="ts" context="module">
-  import type { ErrorLoad } from "@sveltejs/kit";
+  import type { Load } from "@sveltejs/kit";
   import { getStatus } from "$lib/services/api";
 
-  export const load: ErrorLoad = ({ error, status }) => {
+  export const load: Load = ({ error, status }) => {
     const responseStatus = getStatus(error) || 500;
     if (responseStatus >= 400) {
       // eslint-disable-next-line no-param-reassign
