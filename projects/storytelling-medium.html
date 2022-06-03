@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <meta http-equiv="content-security-policy" content=""><title>Storytelling for Frontend Engineers</title>
+	<link rel="stylesheet" href="/_app/immutable/assets/pages/__layout.svelte-2e74a438.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/pages/projects/_project_.svelte-2ca978b5.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/Card-5c0acd18.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-cef6fcd5.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/Disclaimer-1e6ace4d.css">
+	<link rel="modulepreload" href="/_app/immutable/start-b4c99304.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-0a42796d.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-b94e16ec.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-60cab3ee.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-d1fb5791.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-608e18f3.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/projects/_project_.svelte-2798f15d.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/api-7af29cbb.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/Card-73211fd7.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-de3356ae.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/Disclaimer-b3a80b9b.js">
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-njjmi3" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>Storytelling for Frontend Engineers</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/medium-storytelling-for-frontend-engineers.png" width="1596" height="1358" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>Ik heb voor de &quot;Web Weekly&quot; een presentatie aan mijn collega&#39;s gegeven.<br>Daarna heb ik de achterliggende ideeën nog verder uitgewerkt en &quot;op papier&quot; gezet door een medium artikel te schrijven:
+<a href="https://bfanger.medium.com/storytelling-for-frontend-engineers-c6a34bca1941">Storytelling for Frontend Engineers</a></p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">September 2021</span></div>
+</div></div>
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="vrumona-bonustool" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="swagger-explained" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+		<script type="module" data-sveltekit-hydrate="cy6c3n">
+		import { start } from "/_app/immutable/start-b4c99304.js";
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="cy6c3n"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [0, 5],
+				params: {project:"storytelling-medium"},
+				routeId: "projects/[project]"
+			}
+		});
+	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/storytelling-medium.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"storytelling-medium\",\"title\":\"Storytelling for Frontend Engineers\",\"released\":\"2021-09-12\",\"content\":\"\u003Cp>Ik heb voor de &quot;Web Weekly&quot; een presentatie aan mijn collega&#39;s gegeven.\u003Cbr>Daarna heb ik de achterliggende ideeën nog verder uitgewerkt en &quot;op papier&quot; gezet door een medium artikel te schrijven:\\n\u003Ca href=\\\"https://bfanger.medium.com/storytelling-for-frontend-engineers-c6a34bca1941\\\">Storytelling for Frontend Engineers\u003C/a>\u003C/p>\\n\",\"before\":\"vrumona-bonustool\",\"after\":\"swagger-explained\",\"image\":{\"src\":\"/build/img/medium-storytelling-for-frontend-engineers.png\",\"width\":1596,\"height\":1358}}"}</script></svelte-app>
+  </body>
+</html>

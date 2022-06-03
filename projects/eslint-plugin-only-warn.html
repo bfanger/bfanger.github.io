@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <meta http-equiv="content-security-policy" content=""><title>eslint-plugin-only-warn</title>
+	<link rel="stylesheet" href="/_app/immutable/assets/pages/__layout.svelte-2e74a438.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/pages/projects/_project_.svelte-2ca978b5.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/Card-5c0acd18.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-cef6fcd5.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/Disclaimer-1e6ace4d.css">
+	<link rel="modulepreload" href="/_app/immutable/start-b4c99304.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-0a42796d.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-b94e16ec.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-60cab3ee.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-d1fb5791.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-608e18f3.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/projects/_project_.svelte-2798f15d.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/api-7af29cbb.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/Card-73211fd7.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-de3356ae.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/Disclaimer-b3a80b9b.js">
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-njjmi3" style="">
+
+
+<div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>eslint-plugin-only-warn</h1>
+  <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/eslint.png" width="1400" height="700" alt="Een screenshot van het project">
+  <!-- HTML_TAG_START --><p>In mijn optiek zet je <a href="https://eslint.org/">ESLint</a> regels aan (en dan een houd je je eraan) of je zet de regel uit.<br>(En soms ben je het eens met de regel in het algemeen, maar heb je een uitzonderlijke situatie en dan plaats je een ignore comment)</p>
+<p>Daarom zie ik het nut niet in om voor elke regel te bepalen of het een errors of een warning is.<br>De <a href="https://www.npmjs.com/package/eslint-plugin-only-warn">eslint-plugin-only-warn</a> is een plugin voor die alle linting errors omgezet naar warnings.</p>
+<p>ESLint &quot;fouten&quot; zijn over het algemeen schoonheidsfoutjes en door deze plugin kun je een bestaande eslint config gebruiken, maar zijn de kringeljes in vscode de &quot;juiste&quot; kleur en is rood voorbehouden voor de code die echt stuk is.</p>
+<!-- HTML_TAG_END -->
+  <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
+    <span class="project-card__release-date svelte-1p9lkhc">Oktober 2016</span></div>
+</div></div>
+</div>
+
+<div class="project-page__previous svelte-ktylb9"><a href="brandpunt360" sveltekit:prefetch class="nav-button nav-button--previous svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Vorige</div>
+</a></div>
+
+<div class="project-page__next svelte-ktylb9"><a href="7-dagen-groener-update" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Volgende</div>
+</a></div>
+<div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer>
+</div>
+</div>
+
+
+		<script type="module" data-sveltekit-hydrate="15lon7m">
+		import { start } from "/_app/immutable/start-b4c99304.js";
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="15lon7m"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [0, 5],
+				params: {project:"eslint-plugin-only-warn"},
+				routeId: "projects/[project]"
+			}
+		});
+	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/eslint-plugin-only-warn.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"eslint-plugin-only-warn\",\"title\":\"eslint-plugin-only-warn\",\"released\":\"2016-10\",\"content\":\"\u003Cp>In mijn optiek zet je \u003Ca href=\\\"https://eslint.org/\\\">ESLint\u003C/a> regels aan (en dan een houd je je eraan) of je zet de regel uit.\u003Cbr>(En soms ben je het eens met de regel in het algemeen, maar heb je een uitzonderlijke situatie en dan plaats je een ignore comment)\u003C/p>\\n\u003Cp>Daarom zie ik het nut niet in om voor elke regel te bepalen of het een errors of een warning is.\u003Cbr>De \u003Ca href=\\\"https://www.npmjs.com/package/eslint-plugin-only-warn\\\">eslint-plugin-only-warn\u003C/a> is een plugin voor die alle linting errors omgezet naar warnings.\u003C/p>\\n\u003Cp>ESLint &quot;fouten&quot; zijn over het algemeen schoonheidsfoutjes en door deze plugin kun je een bestaande eslint config gebruiken, maar zijn de kringeljes in vscode de &quot;juiste&quot; kleur en is rood voorbehouden voor de code die echt stuk is.\u003C/p>\\n\",\"before\":\"brandpunt360\",\"after\":\"7-dagen-groener-update\",\"image\":{\"src\":\"/build/img/eslint.png\",\"width\":1400,\"height\":700}}"}</script></svelte-app>
+  </body>
+</html>
