@@ -44,7 +44,7 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-triple": "^0.5.1",
-    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-import-resolver-typescript": "^3.2.1",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-prettier": "^4.0.0",
@@ -69,6 +69,6 @@
     "lodash-es": "^4.17.21",
     "marked": "^4.0.10",
     "svelte": "^3.46.2",
-    "three": "0.141.0"
+    "three": "^0.142.0"
   }
 }

@@ -8,7 +8,7 @@ tags:
   - react
 ---
 
-Een uitbreiding aan een oude widget, er is nu een optie bijgekomen waarbij je een er Rad van Fortuin kunt toevoegen aan de embeddable widget.
+Een uitbreiding aan een bestaande embeddable widget, er is nu een optie om een Rad van Fortuin toe te voegen.
 
 Het proces van dit project verliep erg stroef en we liepen tegen veel beperkingen aan van het huidige systeem.  
-Ook de korte doorlooptijd en verplichting aan andere projecten zorgde ervoor dat deze campagne er gezien de beperkingen er nog best leuk uit ziet, maar niet iets is waar ik trots op ben.
+Ook de korte doorlooptijd en verplichting aan andere projecten zorgde ervoor dat deze campagne er best leuk uit ziet gezien de beperkingen, maar niet iets is waar ik trots op ben.
