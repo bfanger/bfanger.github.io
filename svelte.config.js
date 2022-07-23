@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import sveltePreprocess from "svelte-preprocess";
 import adapter from "@sveltejs/adapter-static";
 
@@ -10,11 +9,6 @@ const svelteConfig = {
       default: true,
     },
     adapter: adapter(),
-    vite: {
-      optimizeDeps: {
-        include: ["three", "three/examples/jsm/loaders/GLTFLoader.js"],
-      },
-    },
   },
 };
 

@@ -8,6 +8,7 @@
     // Additional extensions for eslint
     "**/*.cjs",
     ".*.cjs",
-    "**/*.js"
+    "**/*.js",
+    "*.ts"
   ]
 }

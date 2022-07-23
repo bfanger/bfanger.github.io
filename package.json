@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "dev": "vite dev",
+    "build": "vite build",
     "deploy": "rimraf build && yarn build && git-directory-deploy --branch gh-pages --directory build/",
-    "preview": "svelte-kit preview",
+    "preview": "vite preview",
     "lint": "concurrently --kill-others-on-fail \"yarn:lint:*\"",
     "lint:prettier": "prettier --check --loglevel=warn \"src/**/*.svelte\"",
     "lint:svelte-check": "svelte-check --fail-on-warnings --fail-on-hints",
@@ -35,7 +35,7 @@
     "@sveltejs/kit": "next",
     "@types/lodash-es": "^4.17.5",
     "@types/marked": "^4.0.1",
-    "@types/three": "^0.141.0",
+    "@types/three": "^0.142.0",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
     "concurrently": "^7.0.0",
@@ -56,7 +56,7 @@
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.9.5",
     "typescript": "^4.4.4",
-    "vite": "^2.5.10"
+    "vite": "^3.0.2"
   },
   "engines": {
     "node": ">= 16"

@@ -3,7 +3,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 import type { ProjectDto } from "$lib/services/api-types";
 import { allProjects, processImage } from "../_util";
 
-export const get: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params }) => {
   const projects = await allProjects();
   const index = projects.findIndex((p) => p.slug === params.project);
   if (index === -1) {

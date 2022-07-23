@@ -2,7 +2,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 import type { PortfolioDto } from "$lib/services/api-types";
 import { allProjects } from "./_util";
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
   const teasers = (await allProjects()).map((project) => ({
     slug: project.slug,
     title: project.title,
