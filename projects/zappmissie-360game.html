@@ -23,22 +23,22 @@
       }
     </script>
     <meta http-equiv="content-security-policy" content=""><title>Zapp missie: 360° Game</title>
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-e6c6eb29.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/[project]-cdaf9eea.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Card-b0ea7183.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-a11c3fa8.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Disclaimer-91eb396c.css">
-	<link rel="modulepreload" href="/_app/immutable/start-b9130f5c.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-0e9f797d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-826ee533.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-c28b9807.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-a84acaeb.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/projects/_project_.svelte-954030de.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/api-aa2aec57.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Card-529c8d01.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-3140a0e5.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Disclaimer-82e55230.js">
+	<link href="../_app/immutable/assets/+layout-5b737363.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/+page-cdaf9eea.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Card-b0ea7183.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/cardTransition-ed62ce7f.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Disclaimer-91eb396c.css" rel="stylesheet">
+	<link rel="modulepreload" href="../_app/immutable/start-acdf8067.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-01eae1af.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-e31a1c54.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-297b380d.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-58dec958.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-ff09d018.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Card-30ca7bfc.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-a07f5d22.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-65724645.js">
   </head>
   <body>
     <img
@@ -94,22 +94,25 @@ Voor de UI elementen worden dynamisch svg afbeeldingen gegeneerd met behulp van 
 
 
 		<script type="module" data-sveltekit-hydrate="129jrcz">
-		import { start } from "/_app/immutable/start-b9130f5c.js";
+		import { set_public_env, start } from "../_app/immutable/start-acdf8067.js";
+
+		set_public_env({});
+
 		start({
 			target: document.querySelector('[data-sveltekit-hydrate="129jrcz"]').parentNode,
 			paths: {"base":"","assets":""},
-			session: {},
 			route: true,
 			spa: false,
 			trailing_slash: "never",
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 5],
+				node_ids: [0, 5],
 				params: {project:"zappmissie-360game"},
 				routeId: "projects/[project]"
 			}
 		});
-	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/zappmissie-360game.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"zappmissie-360game\",\"title\":\"Zapp missie: 360° Game\",\"released\":\"2016-08\",\"content\":\"\u003Cp>Zapp missie: 360° Game is een spel van \u003Ca href=\\\"http://zapp.nl\\\">zapp.nl\u003C/a> waarin je in een kamer naar objecten moet zoeken, dit is een panorama/vr ervaring waarbij je behulp telefoon om je heen kunt kijken in de andere kamer. De panorama afbeelding wordt met webgl op een bol geprojecteerd en de camera wordt aangestuurd door de gyroscoop.\\nOm te afbeeldingen vanuit de \u003Ca href=\\\"https://360fly.com/\\\">360fly\u003C/a> camera om te zetten in equirectangular formaat, recht te zetten en de blinde hoek op te vullen maakten we gebruik van de \u003Ca href=\\\"http://hugin.sourceforge.net/\\\">Hugin - Panorama photo stitcher\u003C/a>.\\nVoor de UI elementen worden dynamisch svg afbeeldingen gegeneerd met behulp van ReactJS, het was nog een hele uitdaging was om alle lijnen mooi strak binnen hele pixels te houden.\u003C/p>\\n\",\"before\":\"7-dagen-groener-update\",\"after\":\"topgear\",\"image\":{\"src\":\"/build/img/zappmissie-360-game.png\",\"width\":1480,\"height\":988}}"}</script></svelte-app>
+	</script>
+	<script type="application/json" sveltekit:data-type="server_data">[null,{"slug":"zappmissie-360game","title":"Zapp missie: 360° Game","released":"2016-08","content":"\u003Cp>Zapp missie: 360° Game is een spel van \u003Ca href=\"http://zapp.nl\">zapp.nl\u003C/a> waarin je in een kamer naar objecten moet zoeken, dit is een panorama/vr ervaring waarbij je behulp telefoon om je heen kunt kijken in de andere kamer. De panorama afbeelding wordt met webgl op een bol geprojecteerd en de camera wordt aangestuurd door de gyroscoop.\nOm te afbeeldingen vanuit de \u003Ca href=\"https://360fly.com/\">360fly\u003C/a> camera om te zetten in equirectangular formaat, recht te zetten en de blinde hoek op te vullen maakten we gebruik van de \u003Ca href=\"http://hugin.sourceforge.net/\">Hugin - Panorama photo stitcher\u003C/a>.\nVoor de UI elementen worden dynamisch svg afbeeldingen gegeneerd met behulp van ReactJS, het was nog een hele uitdaging was om alle lijnen mooi strak binnen hele pixels te houden.\u003C/p>\n","before":"7-dagen-groener-update","after":"topgear","image":{"src":"/build/img/zappmissie-360-game.png","width":1480,"height":988}}]</script></svelte-app>
   </body>
 </html>

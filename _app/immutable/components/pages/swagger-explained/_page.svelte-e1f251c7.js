@@ -1,0 +1,1 @@
+import{S as t,i as s,s as a}from"../../../chunks/index-01eae1af.js";import{r}from"../../../chunks/index-297b380d.js";const i=()=>{throw r(301,"https://swagger-explained.bfanger.nl/")};class p extends t{constructor(e){super(),s(this,e,null,null,a,{})}}export{p as default,i as load};

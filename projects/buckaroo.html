@@ -23,22 +23,22 @@
       }
     </script>
     <meta http-equiv="content-security-policy" content=""><title>Buckaroo</title>
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-e6c6eb29.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/[project]-cdaf9eea.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Card-b0ea7183.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-a11c3fa8.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Disclaimer-91eb396c.css">
-	<link rel="modulepreload" href="/_app/immutable/start-b9130f5c.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-0e9f797d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-826ee533.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-c28b9807.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-a84acaeb.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/projects/_project_.svelte-954030de.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/api-aa2aec57.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Card-529c8d01.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-3140a0e5.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Disclaimer-82e55230.js">
+	<link href="../_app/immutable/assets/+layout-5b737363.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/+page-cdaf9eea.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Card-b0ea7183.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/cardTransition-ed62ce7f.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Disclaimer-91eb396c.css" rel="stylesheet">
+	<link rel="modulepreload" href="../_app/immutable/start-acdf8067.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-01eae1af.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-e31a1c54.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-297b380d.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-58dec958.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-ff09d018.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Card-30ca7bfc.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-a07f5d22.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-65724645.js">
   </head>
   <body>
     <img
@@ -96,22 +96,25 @@ Zodra de betaling succesvol blijkt, wordt de de bestelling afgerond en volgt de 
 
 
 		<script type="module" data-sveltekit-hydrate="rxv382">
-		import { start } from "/_app/immutable/start-b9130f5c.js";
+		import { set_public_env, start } from "../_app/immutable/start-acdf8067.js";
+
+		set_public_env({});
+
 		start({
 			target: document.querySelector('[data-sveltekit-hydrate="rxv382"]').parentNode,
 			paths: {"base":"","assets":""},
-			session: {},
 			route: true,
 			spa: false,
 			trailing_slash: "never",
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 5],
+				node_ids: [0, 5],
 				params: {project:"buckaroo"},
 				routeId: "projects/[project]"
 			}
 		});
-	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/buckaroo.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"buckaroo\",\"title\":\"Buckaroo\",\"released\":\"2008\",\"content\":\"\u003Cp>\u003Ca href=\\\"http://www.hotelcadeau.nl/\\\">HotelCadeau\u003C/a> uitgebreidt met online betalingsmogelijkheden, waaronder iDEAL.\\nMet name iDEAL is &quot;vervelend&quot; omdat op het moment van bestellen de betaalstatus onbekend is.\\nZodra de bezoeker naar de de website van de bank gaat, krijgt hij na betaling het volgende scherm te zien: &quot;Betaling voltooid, Ga terug naar de webpagina&quot; Als de bezoeker dan het venster sluit, wordt de success_url nooit bezocht. Daarom hebben we besloten de bestelling in de &quot;half af&quot; toestand op te slaan in de database vóór het betalen.\\nVervolgens wordt periodiek betaalstatus opgevraagd aan de payment provider.\\nZodra de betaling succesvol blijkt, wordt de de bestelling afgerond en volgt de normale afhandeling.\u003C/p>\\n\",\"before\":\"hotelspecials-v4\",\"after\":\"hotelcadeau-v2\",\"image\":{\"src\":\"/build/img/buckaroo.png\",\"width\":320,\"height\":240}}"}</script></svelte-app>
+	</script>
+	<script type="application/json" sveltekit:data-type="server_data">[null,{"slug":"buckaroo","title":"Buckaroo","released":"2008","content":"\u003Cp>\u003Ca href=\"http://www.hotelcadeau.nl/\">HotelCadeau\u003C/a> uitgebreidt met online betalingsmogelijkheden, waaronder iDEAL.\nMet name iDEAL is &quot;vervelend&quot; omdat op het moment van bestellen de betaalstatus onbekend is.\nZodra de bezoeker naar de de website van de bank gaat, krijgt hij na betaling het volgende scherm te zien: &quot;Betaling voltooid, Ga terug naar de webpagina&quot; Als de bezoeker dan het venster sluit, wordt de success_url nooit bezocht. Daarom hebben we besloten de bestelling in de &quot;half af&quot; toestand op te slaan in de database vóór het betalen.\nVervolgens wordt periodiek betaalstatus opgevraagd aan de payment provider.\nZodra de betaling succesvol blijkt, wordt de de bestelling afgerond en volgt de normale afhandeling.\u003C/p>\n","before":"hotelspecials-v4","after":"hotelcadeau-v2","image":{"src":"/build/img/buckaroo.png","width":320,"height":240}}]</script></svelte-app>
   </body>
 </html>

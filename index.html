@@ -23,20 +23,23 @@
       }
     </script>
     <meta http-equiv="content-security-policy" content=""><title>BFanger.nl - Bob Fanger</title>
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-e6c6eb29.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/index-083dc6da.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-a11c3fa8.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Card-b0ea7183.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Avatar-aebcf1ca.css">
-	<link rel="modulepreload" href="/_app/immutable/start-b9130f5c.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-0e9f797d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-826ee533.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-c28b9807.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-a84acaeb.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/index.svelte-ad260e5d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-3140a0e5.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Card-529c8d01.js">
+	<link href="./_app/immutable/assets/+layout-5b737363.css" rel="stylesheet">
+	<link href="./_app/immutable/assets/+page-083dc6da.css" rel="stylesheet">
+	<link href="./_app/immutable/assets/cardTransition-ed62ce7f.css" rel="stylesheet">
+	<link href="./_app/immutable/assets/Card-b0ea7183.css" rel="stylesheet">
+	<link href="./_app/immutable/assets/Avatar-aebcf1ca.css" rel="stylesheet">
+	<link rel="modulepreload" href="./_app/immutable/start-acdf8067.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/index-01eae1af.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/index-e31a1c54.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/index-297b380d.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-58dec958.js">
+	<link rel="modulepreload" href="./_app/immutable/components/pages/_page.svelte-8a8aa79a.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/cardTransition-a07f5d22.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/Card-30ca7bfc.js">
+	<link rel="modulepreload" href="./_app/immutable/modules/pages/_page.ts-ccff5abf.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/_page-b5754fb5.js">
   </head>
   <body>
     <img
@@ -112,46 +115,31 @@
   <button class="skip svelte-12spzcv" onclick="introSkip(event)"><div class="skip-button svelte-12spzcv">Intro overslaan</div></button>
 </div>
 
-  <div hidden><div><div class="card svelte-1x6c9vs card--homepage"><img src="images/avatar.jpg" class="homepage__avatar svelte-qknfb9" alt="Bob Fanger">
-          <div class="homepage__avatar svelte-qknfb9"></div>
-          <h1 class="homepage__title svelte-qknfb9">Hoi, ik ben Bob Fanger</h1>
-          <p>Ik ben een webdeveloper bij
-            <a href="https://www.wearetriple.com/">Triple</a>
-            .
-            <br>
-            Daarnaast ben ik ook actief op:
-            <br>
-            <a href="https://github.com/bfanger/"><i class="icon-github"></i>
-              GitHub
-            </a>
-            en
-            <a href="https://stackoverflow.com/users/19165/bob-fanger">StackOverflow
-            </a></p>
-</div></div>
-      <div class="homepage--porfolio svelte-qknfb9"><a href="/portfolio" sveltekit:prefetch class="nav-button nav-button--next svelte-dgjjnn"><div class="nav-button__label svelte-dgjjnn">Portfolio
-        </div>
-</a></div></div>
+  <div hidden></div>
 </div>
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1ei5s61">
-		import { start } from "/_app/immutable/start-b9130f5c.js";
+		<script type="module" data-sveltekit-hydrate="tqt26m">
+		import { set_public_env, start } from "./_app/immutable/start-acdf8067.js";
+
+		set_public_env({});
+
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1ei5s61"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="tqt26m"]').parentNode,
 			paths: {"base":"","assets":""},
-			session: {},
 			route: true,
 			spa: false,
 			trailing_slash: "never",
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 3],
+				node_ids: [0, 2],
 				params: {},
 				routeId: ""
 			}
 		});
-	</script></svelte-app>
+	</script>
+	</svelte-app>
   </body>
 </html>

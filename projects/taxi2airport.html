@@ -23,22 +23,22 @@
       }
     </script>
     <meta http-equiv="content-security-policy" content=""><title>Taxi2Airport App</title>
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-e6c6eb29.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/[project]-cdaf9eea.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Card-b0ea7183.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-a11c3fa8.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Disclaimer-91eb396c.css">
-	<link rel="modulepreload" href="/_app/immutable/start-b9130f5c.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-0e9f797d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-826ee533.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-c28b9807.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-a84acaeb.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/projects/_project_.svelte-954030de.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/api-aa2aec57.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Card-529c8d01.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-3140a0e5.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Disclaimer-82e55230.js">
+	<link href="../_app/immutable/assets/+layout-5b737363.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/+page-cdaf9eea.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Card-b0ea7183.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/cardTransition-ed62ce7f.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Disclaimer-91eb396c.css" rel="stylesheet">
+	<link rel="modulepreload" href="../_app/immutable/start-acdf8067.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-01eae1af.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-e31a1c54.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-297b380d.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-58dec958.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-ff09d018.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Card-30ca7bfc.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-a07f5d22.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-65724645.js">
   </head>
   <body>
     <img
@@ -95,22 +95,25 @@ Maar omdat offline-maps voor cordova vrijwel niet bestaat (Voor het web is dat o
 
 
 		<script type="module" data-sveltekit-hydrate="1307ley">
-		import { start } from "/_app/immutable/start-b9130f5c.js";
+		import { set_public_env, start } from "../_app/immutable/start-acdf8067.js";
+
+		set_public_env({});
+
 		start({
 			target: document.querySelector('[data-sveltekit-hydrate="1307ley"]').parentNode,
 			paths: {"base":"","assets":""},
-			session: {},
 			route: true,
 			spa: false,
 			trailing_slash: "never",
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 5],
+				node_ids: [0, 5],
 				params: {project:"taxi2airport"},
 				routeId: "projects/[project]"
 			}
 		});
-	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/taxi2airport.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"taxi2airport\",\"title\":\"Taxi2Airport App\",\"released\":\"2017-10\",\"content\":\"\u003Cp>Voor \u003Ca href=\\\"https://taxi2airport.com/\\\">taxi2airport.com\u003C/a> hebben we een iOS &amp; Android app ontworpen en gemaakt o.b.v. de bestaande website.\u003C/p>\\n\u003Cp>Voor de app hebben we na problemen met cordova in het verleden besloten react-native te proberen.\\nAl snel werd duidelijk dat er ook aan react-native veel nadelen kleven.\\nMaar omdat offline-maps voor cordova vrijwel niet bestaat (Voor het web is dat ook een rare feature) en een standaard feature is van de Mapbox react-native module, hebben we dit project in react-native gebouwd.\u003C/p>\\n\",\"before\":\"ah-moestuintje-app-update\",\"after\":\"fitchannel\",\"image\":{\"src\":\"/build/img/taxi2airport.png\",\"width\":2000,\"height\":1200}}"}</script></svelte-app>
+	</script>
+	<script type="application/json" sveltekit:data-type="server_data">[null,{"slug":"taxi2airport","title":"Taxi2Airport App","released":"2017-10","content":"\u003Cp>Voor \u003Ca href=\"https://taxi2airport.com/\">taxi2airport.com\u003C/a> hebben we een iOS &amp; Android app ontworpen en gemaakt o.b.v. de bestaande website.\u003C/p>\n\u003Cp>Voor de app hebben we na problemen met cordova in het verleden besloten react-native te proberen.\nAl snel werd duidelijk dat er ook aan react-native veel nadelen kleven.\nMaar omdat offline-maps voor cordova vrijwel niet bestaat (Voor het web is dat ook een rare feature) en een standaard feature is van de Mapbox react-native module, hebben we dit project in react-native gebouwd.\u003C/p>\n","before":"ah-moestuintje-app-update","after":"fitchannel","image":{"src":"/build/img/taxi2airport.png","width":2000,"height":1200}}]</script></svelte-app>
   </body>
 </html>

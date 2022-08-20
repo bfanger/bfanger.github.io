@@ -23,22 +23,22 @@
       }
     </script>
     <meta http-equiv="content-security-policy" content=""><title>svelte-project-template</title>
-	<link rel="stylesheet" href="/_app/immutable/assets/__layout-e6c6eb29.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/[project]-cdaf9eea.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Card-b0ea7183.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/cardTransition-a11c3fa8.css">
-	<link rel="stylesheet" href="/_app/immutable/assets/Disclaimer-91eb396c.css">
-	<link rel="modulepreload" href="/_app/immutable/start-b9130f5c.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-0e9f797d.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/index-826ee533.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-c28b9807.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-eca981c1.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-a84acaeb.js">
-	<link rel="modulepreload" href="/_app/immutable/pages/projects/_project_.svelte-954030de.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/api-aa2aec57.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Card-529c8d01.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/cardTransition-3140a0e5.js">
-	<link rel="modulepreload" href="/_app/immutable/chunks/Disclaimer-82e55230.js">
+	<link href="../_app/immutable/assets/+layout-5b737363.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/+page-cdaf9eea.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Card-b0ea7183.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/cardTransition-ed62ce7f.css" rel="stylesheet">
+	<link href="../_app/immutable/assets/Disclaimer-91eb396c.css" rel="stylesheet">
+	<link rel="modulepreload" href="../_app/immutable/start-acdf8067.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-01eae1af.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-e31a1c54.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/index-297b380d.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-58dec958.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-ff09d018.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Card-30ca7bfc.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-a07f5d22.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-65724645.js">
   </head>
   <body>
     <img
@@ -71,8 +71,9 @@
 
 <div class="page svelte-l08k9a"><div><div class="card svelte-1x6c9vs"><h1>svelte-project-template</h1>
   <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/svelte-project-template.png" width="2676" height="1514" alt="Een screenshot van het project">
-  <!-- HTML_TAG_START --><p>Ik merkte dat ik steeds dezelfde aanpassingen maakte aan de officiële <a href="https://kit.svelte.dev/">SvelteKit</a> skeleton starter.
-De <a href="https://github.com/bfanger/svelte-project-template">svelte-project-template</a> is een repository waarmee je <a href="https://svelte.dev/">Svelte</a> project kunt opzetten, met waarin typescript, sass, lint-staged en meer al voorgeconfigureerd.</p>
+  <!-- HTML_TAG_START --><p>Na veelvuldig gebruik gemaakt te hebben van de officiële <a href="https://kit.svelte.dev/">SvelteKit</a> starters, merkte ik dat
+Ik steeds dezelfde aanpassingen nodig had.
+<a href="https://github.com/bfanger/svelte-project-template">svelte-project-template</a> is een repository waarmee je <a href="https://svelte.dev/">Svelte</a> project kunt opzetten, met daarin TypeScript, Sass, ESLint, etc al voorgeconfigureerd.</p>
 <p>Hierdoor heb je binnen een minuut een nieuwe omgeving om mee te experimenteren.</p>
 <!-- HTML_TAG_END -->
   <div class="project-card__footer svelte-1p9lkhc"><a href="/portfolio">&lt; Terug naar portfolio</a>
@@ -93,23 +94,26 @@ De <a href="https://github.com/bfanger/svelte-project-template">svelte-project-t
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="hs3alu">
-		import { start } from "/_app/immutable/start-b9130f5c.js";
+		<script type="module" data-sveltekit-hydrate="1ymopw1">
+		import { set_public_env, start } from "../_app/immutable/start-acdf8067.js";
+
+		set_public_env({});
+
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="hs3alu"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1ymopw1"]').parentNode,
 			paths: {"base":"","assets":""},
-			session: {},
 			route: true,
 			spa: false,
 			trailing_slash: "never",
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 5],
+				node_ids: [0, 5],
 				params: {project:"svelte-project-template"},
 				routeId: "projects/[project]"
 			}
 		});
-	</script><script type="application/json" sveltekit:data-type="data" sveltekit:data-url="/projects/svelte-project-template.json">{"status":200,"statusText":"","headers":{"content-type":"application/json; charset=utf-8"},"body":"{\"slug\":\"svelte-project-template\",\"title\":\"svelte-project-template\",\"released\":\"2021-02\",\"content\":\"\u003Cp>Ik merkte dat ik steeds dezelfde aanpassingen maakte aan de officiële \u003Ca href=\\\"https://kit.svelte.dev/\\\">SvelteKit\u003C/a> skeleton starter.\\nDe \u003Ca href=\\\"https://github.com/bfanger/svelte-project-template\\\">svelte-project-template\u003C/a> is een repository waarmee je \u003Ca href=\\\"https://svelte.dev/\\\">Svelte\u003C/a> project kunt opzetten, met waarin typescript, sass, lint-staged en meer al voorgeconfigureerd.\u003C/p>\\n\u003Cp>Hierdoor heb je binnen een minuut een nieuwe omgeving om mee te experimenteren.\u003C/p>\\n\",\"before\":\"vtmgo\",\"after\":\"mauna-kea-3d\",\"image\":{\"src\":\"/build/img/svelte-project-template.png\",\"width\":2676,\"height\":1514}}"}</script></svelte-app>
+	</script>
+	<script type="application/json" sveltekit:data-type="server_data">[null,{"slug":"svelte-project-template","title":"svelte-project-template","released":"2021-02","content":"\u003Cp>Na veelvuldig gebruik gemaakt te hebben van de officiële \u003Ca href=\"https://kit.svelte.dev/\">SvelteKit\u003C/a> starters, merkte ik dat\nIk steeds dezelfde aanpassingen nodig had.\n\u003Ca href=\"https://github.com/bfanger/svelte-project-template\">svelte-project-template\u003C/a> is een repository waarmee je \u003Ca href=\"https://svelte.dev/\">Svelte\u003C/a> project kunt opzetten, met daarin TypeScript, Sass, ESLint, etc al voorgeconfigureerd.\u003C/p>\n\u003Cp>Hierdoor heb je binnen een minuut een nieuwe omgeving om mee te experimenteren.\u003C/p>\n","before":"vtmgo","after":"mauna-kea-3d","image":{"src":"/build/img/svelte-project-template.png","width":2676,"height":1514}}]</script></svelte-app>
   </body>
 </html>

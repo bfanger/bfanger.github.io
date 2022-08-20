@@ -1,1 +1,88 @@
-<meta http-equiv="refresh" content="0;url=https://swagger-explained.bfanger.nl/">
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    <meta http-equiv="content-security-policy" content="">
+	<link href="./_app/immutable/assets/+layout-5b737363.css" rel="stylesheet">
+	<link rel="modulepreload" href="./_app/immutable/start-acdf8067.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/index-01eae1af.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/index-e31a1c54.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/index-297b380d.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-aa6bc0ce.js">
+	<link rel="modulepreload" href="./_app/immutable/chunks/singletons-e5e57fbd.js">
+	<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-58dec958.js">
+	<link rel="modulepreload" href="./_app/immutable/components/pages/swagger-explained/_page.svelte-e1f251c7.js">
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>
+
+
+
+<div class="layout svelte-njjmi3" style="">
+</div>
+
+
+		<script type="module" data-sveltekit-hydrate="exl8q">
+		import { set_public_env, start } from "./_app/immutable/start-acdf8067.js";
+
+		set_public_env({});
+
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="exl8q"]').parentNode,
+			paths: {"base":"","assets":""},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				node_ids: [0, 6],
+				params: {},
+				routeId: "swagger-explained"
+			}
+		});
+	</script>
+	</svelte-app>
+  </body>
+</html>
