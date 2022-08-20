@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
-import type { RequestHandler } from "@sveltejs/kit";
-import type { ProjectDto } from "$lib/services/api-types";
-import { allProjects, processImage } from "../_util";
+import type { Project } from "$lib/Project";
+import { allProjects, processImage } from "../../_util";
+import type { PageServerLoad } from "./$types";
 
-export const GET: RequestHandler = async ({ params }) => {
+export const load: PageServerLoad = async ({ params }) => {
   const projects = await allProjects();
   const index = projects.findIndex((p) => p.slug === params.project);
   if (index === -1) {
@@ -13,7 +13,7 @@ export const GET: RequestHandler = async ({ params }) => {
     };
   }
   const meta = projects[index];
-  const project: Partial<ProjectDto> = {
+  const project: Project = {
     slug: meta.slug,
     title: meta.title,
     released: meta.released,
@@ -28,5 +28,5 @@ export const GET: RequestHandler = async ({ params }) => {
   if (meta.image) {
     project.image = await processImage(meta.image);
   }
-  return { body: project };
+  return project;
 };

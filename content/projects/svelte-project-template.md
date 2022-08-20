@@ -11,7 +11,8 @@ tags:
   - eslint
 ---
 
-Ik merkte dat ik steeds dezelfde aanpassingen maakte aan de officiële [SvelteKit](https://kit.svelte.dev/) skeleton starter.
-De [svelte-project-template](https://github.com/bfanger/svelte-project-template) is een repository waarmee je [Svelte](https://svelte.dev/) project kunt opzetten, met waarin typescript, sass, lint-staged en meer al voorgeconfigureerd.
+Na veelvuldig gebruik gemaakt te hebben van de officiële [SvelteKit](https://kit.svelte.dev/) starters, merkte ik dat
+Ik steeds dezelfde aanpassingen nodig had.
+[svelte-project-template](https://github.com/bfanger/svelte-project-template) is een repository waarmee je [Svelte](https://svelte.dev/) project kunt opzetten, met daarin TypeScript, Sass, ESLint, etc al voorgeconfigureerd.
 
 Hierdoor heb je binnen een minuut een nieuwe omgeving om mee te experimenteren.

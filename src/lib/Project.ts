@@ -1,15 +1,7 @@
-export type PortfolioDto = ProjectTeaserDto[];
-
-export type ProjectTeaserDto = {
+export type Project = {
   slug: string;
   title: string;
-  released: string;
-};
-
-export type ProjectDto = {
-  slug: string;
-  title: string;
-  image: {
+  image?: {
     src: string;
     width: number;
     height: number;

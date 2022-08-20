@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<!-- <script lang="ts" context="module">
   import type { Load } from "@sveltejs/kit";
   import { getStatus } from "$lib/services/api";
 
@@ -16,29 +16,14 @@
       },
     };
   };
-</script>
-
+</script> -->
 <script lang="ts">
-  import Page from "$lib/components/Page.svelte";
-  import Card from "$lib/components/Card.svelte";
+  import { page } from "$app/stores";
+  import ErrorPage from "$lib/components/ErrorPage.svelte";
 
-  export let title: string;
-  export let message: string;
-  export let stack: string | undefined = undefined;
+  $: title = $page.status >= 400 ? $page.status : "Error";
+  $: message = $page.error.message || "Oops";
+  $: stack = import.meta.env.DEV ? $page.error.stack : undefined;
 </script>
 
-<svelte:head>
-  <title>{title}</title>
-</svelte:head>
-<Page>
-  <Card>
-    <h1>{title}</h1>
-
-    <p>{message}</p>
-
-    {#if stack}
-      <pre>{stack}</pre>
-    {/if}
-    <slot />
-  </Card>
-</Page>
+<ErrorPage {title} {message} {stack} />

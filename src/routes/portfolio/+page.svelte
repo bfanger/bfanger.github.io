@@ -1,24 +1,3 @@
-<script context="module" lang="ts">
-  import type { Load } from "@sveltejs/kit";
-  import { groupBy } from "lodash-es";
-  import api from "$lib/services/api";
-  import type { ProjectTeaserDto } from "$lib/services/api-types";
-
-  export const load: Load = async ({ fetch }) => {
-    const teasers = await api.get("portfolio.json", { fetch });
-    return { props: { teasers } };
-  };
-
-  function extractYear(project: ProjectTeaserDto) {
-    const match = project.released.toString().match(/^[0-9]+/);
-    if (match === null) {
-      console.warn(`Project[${project.slug}].released is invalid`); // eslint-disable-line no-console
-      return 2000;
-    }
-    return parseInt(match[0], 10);
-  }
-</script>
-
 <script lang="ts">
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
@@ -28,10 +7,23 @@
     cardIn,
     cardOut,
   } from "$lib/services/cardTransition";
+  import { groupBy } from "lodash-es";
+  import type { PageData } from "./$types";
+  import type { Project } from "$lib/Project";
 
-  export let teasers: ProjectTeaserDto[];
-  $: grouped = groupBy(teasers, extractYear);
+  export let data: PageData;
+
+  $: grouped = groupBy(data, extractYear) as Record<string, Project[]>;
   $: years = Object.keys(grouped).sort().reverse();
+
+  function extractYear(project: Project) {
+    const match = project.released.toString().match(/^[0-9]+/);
+    if (match === null) {
+      console.warn(`Project[${project.slug}].released is invalid`); // eslint-disable-line no-console
+      return 2000;
+    }
+    return parseInt(match[0], 10);
+  }
 </script>
 
 <svelte:head>

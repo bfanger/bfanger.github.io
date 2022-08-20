@@ -6,7 +6,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import { imageSize } from "image-size";
 import { orderBy } from "lodash-es";
-import type { ProjectDto } from "$lib/services/api-types";
+import type { Project } from "$lib/Project";
 
 const readFile = promisify(fs.readFile);
 const readDir = promisify(fs.readdir);
@@ -18,7 +18,7 @@ const hasPngquant = execFile("which pngquant")
   .catch(() => false);
 
 const dir = path.resolve(process.cwd(), "content/projects");
-type RawProject = ProjectDto & { image: string; alt: string };
+type RawProject = Project & { image: string; alt: string };
 
 async function loadProject(slug: string) {
   const file = await readFile(path.resolve(dir, `${slug}.md`));

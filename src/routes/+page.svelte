@@ -1,23 +1,3 @@
-<script lang="ts" context="module">
-  import type { Load } from "@sveltejs/kit";
-
-  export const load: Load = async () => {
-    const isServer = typeof window === "undefined";
-    let skipped = false;
-    if (!isServer) {
-      const win = window as any;
-      skipped = (await win.introPromise) === "skip";
-    }
-    return {
-      props: {
-        introVisible: true,
-        isServer,
-        skipped,
-      },
-    };
-  };
-</script>
-
 <script lang="ts">
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
@@ -26,19 +6,26 @@
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
   import cardTransition from "$lib/services/cardTransition";
+  import type { PageData } from "./$types";
 
-  export let introVisible: boolean;
-  export let isServer: boolean;
-  export let skipped: boolean;
+  export let data: PageData;
 
-  let cardVisible = isServer;
-  const avatarPromise = import.meta.env.SSR
-    ? Promise.reject()
-    : import("$lib/components/Avatar.svelte");
+  const introVisible = data.withIntro;
+  let cardVisible = false;
+  $: skipped = data.skipped;
+  let Avatar: any | undefined = undefined;
+  const isServer = typeof window === "undefined";
+
+  if (!import.meta.env.SSR) {
+    import("$lib/components/Avatar.svelte").then((m) => {
+      Avatar = m.default;
+    });
+  }
 
   onMount(async () => {
-    introVisible = false;
-    cardVisible = true;
+    (window as any).introPromise.then(() => {
+      cardVisible = true;
+    });
   });
 </script>
 
@@ -46,7 +33,7 @@
   <title>BFanger.nl - Bob Fanger</title>
 </svelte:head>
 <Page>
-  {#if isServer}
+  {#if introVisible}
     <Intro />
   {/if}
 
@@ -63,9 +50,9 @@
             alt="Bob Fanger"
           />
           <div class="homepage__avatar">
-            {#await avatarPromise then { default: Avatar }}
-              <Avatar />
-            {/await}
+            {#if Avatar}
+              <svelte:component this={Avatar} />
+            {/if}
           </div>
           <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
           <p>

@@ -5,9 +5,9 @@
 
 <script lang="ts">
   import { formatReleaseDate } from "$lib/formatDate";
-  import type { ProjectDto } from "$lib/services/api-types";
+  import type { Project } from "$lib/Project";
 
-  export let project: ProjectDto;
+  export let project: Project;
   $: image = project.image;
 </script>
 

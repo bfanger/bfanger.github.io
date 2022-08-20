@@ -7,7 +7,7 @@
     "build": "vite build",
     "deploy": "rimraf build && yarn build && git-directory-deploy --branch gh-pages --directory build/",
     "preview": "vite preview",
-    "lint": "concurrently --kill-others-on-fail \"yarn:lint:*\"",
+    "lint": "svelte-kit sync && concurrently --kill-others-on-fail \"yarn:lint:*\"",
     "lint:prettier": "prettier --check --loglevel=warn \"src/**/*.svelte\"",
     "lint:svelte-check": "svelte-check --fail-on-warnings --fail-on-hints",
     "lint:tsc": "tsc --noEmit",

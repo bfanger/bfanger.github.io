@@ -1,17 +1,5 @@
-<script context="module" lang="ts">
-  import type { Load } from "@sveltejs/kit";
-  import api from "$lib/services/api";
-
-  export const load: Load = async ({ params, fetch }) => {
-    const project = await api.get("projects/[project].json", {
-      params: { project: params.project },
-      fetch,
-    });
-    return { props: { project } };
-  };
-</script>
-
 <script lang="ts">
+  import type { PageData } from "./$types";
   import Page from "$lib/components/Page.svelte";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
@@ -21,9 +9,10 @@
     cardOut,
   } from "$lib/services/cardTransition";
   import { goto, prefetch } from "$app/navigation";
-  import type { ProjectDto } from "$lib/services/api-types";
+  import type { Project } from "$lib/Project";
 
-  export let project: ProjectDto;
+  export let data: PageData;
+  $: project = data as Project;
   $: if (project.before && typeof window !== "undefined") {
     prefetch(project.before);
   }
