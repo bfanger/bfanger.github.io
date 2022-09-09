@@ -28,16 +28,16 @@
 	<link href="../_app/immutable/assets/Card-98eaa8c0.css" rel="stylesheet">
 	<link href="../_app/immutable/assets/cardTransition-acee327b.css" rel="stylesheet">
 	<link href="../_app/immutable/assets/Disclaimer-91eb396c.css" rel="stylesheet">
-	<link rel="modulepreload" href="../_app/immutable/start-a6f021de.js">
+	<link rel="modulepreload" href="../_app/immutable/start-e1c17d11.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-aa6bc0ce.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/index-a9f286ba.js">
-	<link rel="modulepreload" href="../_app/immutable/chunks/singletons-0282e1fa.js">
+	<link rel="modulepreload" href="../_app/immutable/chunks/singletons-6d5c3892.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/index-07c37430.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/control-a6874251.js">
 	<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-0ef845c4.js">
 	<link rel="modulepreload" href="../_app/immutable/modules/pages/_layout.ts-b8ee4d7c.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/_layout-1daba58d.js">
-	<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-98ea3b25.js">
+	<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-9b4f5049.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/Card-76f6fa3c.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-3d02fffc.js">
 	<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-dbbb2eb9.js">
@@ -75,7 +75,7 @@
   <img class="project-image svelte-ovcjtx" style="max-width: 100%; height: auto; opacity: 1; transition-duration: 0s;" src="/build/img/flowcart-vr.png" width="2560" height="1440" alt="Een screenshot van het project">
   <!-- HTML_TAG_START --><p>Omdat ik en andere <a href="https://www.wearetriple.com/">Triple</a> medewerkers nu beschikken over de <a href="https://www.oculus.com/quest-2/">Oculus Quest 2</a> kreeg ik inspiratie voor dit VR experiment.</p>
 <p><a href="https://flowcart.bfanger.nl/">FlowCart</a> is een grot met deuren waarin je een Flowchart letterlijk doorloopt in VR.
-De kamer(s) waaruit deze grot bestaan zijn gemaakt in <a href="http://blender.org/">Blender</a> en worden vervolgens ingeladen in de <a href="https://www.babylonjs.com/">babylon.js</a>
+De kamer(s) waaruit deze grot bestaan zijn gemaakt in <a href="https://blender.org/">Blender</a> en worden vervolgens ingeladen in de <a href="https://www.babylonjs.com/">babylon.js</a>
 webapp.</p>
 <p>O.b.v. een diagram in JSON worden de kamers gegenereerd, pas zodra je een antwoord kiest wordt de volgende kamer gegenereerd, toegevoegd aan de scene en gaat de deur open.</p>
 <!--
@@ -104,8 +104,8 @@ Het component reloading mechanisme kon ik gebruiken om ook de 3D componenten sne
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1w2ww66">
-		import { start } from "../_app/immutable/start-a6f021de.js";
+		<script type="module" data-sveltekit-hydrate="1hlinil">
+		import { start } from "../_app/immutable/start-e1c17d11.js";
 
 		start({
 			env: {},
@@ -115,11 +115,11 @@ Het component reloading mechanisme kon ik gebruiken om ook de 3D componenten sne
 				node_ids: [0, 5],
 				params: {project:"flowcart-vr"},
 				routeId: "projects/[project]",
-				data: (function(a){return [null,{type:"data",data:{slug:"flowcart-vr",title:"FlowCart VR",released:"2021-07-03",content:"\u003Cp\u003EOmdat ik en andere \u003Ca href=\"https:\u002F\u002Fwww.wearetriple.com\u002F\"\u003ETriple\u003C\u002Fa\u003E medewerkers nu beschikken over de \u003Ca href=\"https:\u002F\u002Fwww.oculus.com\u002Fquest-2\u002F\"\u003EOculus Quest 2\u003C\u002Fa\u003E kreeg ik inspiratie voor dit VR experiment.\u003C\u002Fp\u003E\n\u003Cp\u003E\u003Ca href=\"https:\u002F\u002Fflowcart.bfanger.nl\u002F\"\u003EFlowCart\u003C\u002Fa\u003E is een grot met deuren waarin je een Flowchart letterlijk doorloopt in VR.\nDe kamer(s) waaruit deze grot bestaan zijn gemaakt in \u003Ca href=\"http:\u002F\u002Fblender.org\u002F\"\u003EBlender\u003C\u002Fa\u003E en worden vervolgens ingeladen in de \u003Ca href=\"https:\u002F\u002Fwww.babylonjs.com\u002F\"\u003Ebabylon.js\u003C\u002Fa\u003E\nwebapp.\u003C\u002Fp\u003E\n\u003Cp\u003EO.b.v. een diagram in JSON worden de kamers gegenereerd, pas zodra je een antwoord kiest wordt de volgende kamer gegenereerd, toegevoegd aan de scene en gaat de deur open.\u003C\u002Fp\u003E\n\u003C!--\nIn de oorspronkelijk visie zou je in een mijnwagentje zitten en met een hendel bepalen of je links of rechts zou gaan.\nVoor de v1.0 heb ik gekozen om de ingebouwde teleportatie te gebruiken voor de navigatie door de grot.\n--\u003E\n\n\u003Cp\u003EDe webapp is geschreven met \u003Ca href=\"https:\u002F\u002Fkit.svelte.dev\u002F\"\u003ESvelteKit\u003C\u002Fa\u003E en maakt daardoor gebruik van \u003Ca href=\"https:\u002F\u002Fvitejs.dev\u002F\"\u003Evite\u003C\u002Fa\u003E.\nHet component reloading mechanisme kon ik gebruiken om ook de 3D componenten snel te ontwikkelen.\u003C\u002Fp\u003E\n",before:"svelte-ssr-go",after:"nlziet",image:{src:"\u002Fbuild\u002Fimg\u002Fflowcart-vr.png",alt:a,width:2560,height:1440}},uses:{dependencies:a,params:["project"],parent:a,url:a}}]}(void 0)),
+				data: (function(a){return [null,{type:"data",data:{slug:"flowcart-vr",title:"FlowCart VR",released:"2021-07-03",content:"\u003Cp\u003EOmdat ik en andere \u003Ca href=\"https:\u002F\u002Fwww.wearetriple.com\u002F\"\u003ETriple\u003C\u002Fa\u003E medewerkers nu beschikken over de \u003Ca href=\"https:\u002F\u002Fwww.oculus.com\u002Fquest-2\u002F\"\u003EOculus Quest 2\u003C\u002Fa\u003E kreeg ik inspiratie voor dit VR experiment.\u003C\u002Fp\u003E\n\u003Cp\u003E\u003Ca href=\"https:\u002F\u002Fflowcart.bfanger.nl\u002F\"\u003EFlowCart\u003C\u002Fa\u003E is een grot met deuren waarin je een Flowchart letterlijk doorloopt in VR.\nDe kamer(s) waaruit deze grot bestaan zijn gemaakt in \u003Ca href=\"https:\u002F\u002Fblender.org\u002F\"\u003EBlender\u003C\u002Fa\u003E en worden vervolgens ingeladen in de \u003Ca href=\"https:\u002F\u002Fwww.babylonjs.com\u002F\"\u003Ebabylon.js\u003C\u002Fa\u003E\nwebapp.\u003C\u002Fp\u003E\n\u003Cp\u003EO.b.v. een diagram in JSON worden de kamers gegenereerd, pas zodra je een antwoord kiest wordt de volgende kamer gegenereerd, toegevoegd aan de scene en gaat de deur open.\u003C\u002Fp\u003E\n\u003C!--\nIn de oorspronkelijk visie zou je in een mijnwagentje zitten en met een hendel bepalen of je links of rechts zou gaan.\nVoor de v1.0 heb ik gekozen om de ingebouwde teleportatie te gebruiken voor de navigatie door de grot.\n--\u003E\n\n\u003Cp\u003EDe webapp is geschreven met \u003Ca href=\"https:\u002F\u002Fkit.svelte.dev\u002F\"\u003ESvelteKit\u003C\u002Fa\u003E en maakt daardoor gebruik van \u003Ca href=\"https:\u002F\u002Fvitejs.dev\u002F\"\u003Evite\u003C\u002Fa\u003E.\nHet component reloading mechanisme kon ik gebruiken om ook de 3D componenten snel te ontwikkelen.\u003C\u002Fp\u003E\n",before:"svelte-ssr-go",after:"nlziet",image:{src:"\u002Fbuild\u002Fimg\u002Fflowcart-vr.png",alt:a,width:2560,height:1440}},uses:{dependencies:a,params:["project"],parent:a,url:a}}]}(void 0)),
 				form: null
 			},
 			paths: {"base":"","assets":""},
-			target: document.querySelector('[data-sveltekit-hydrate="1w2ww66"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1hlinil"]').parentNode,
 			trailing_slash: "never"
 		});
 	</script>
