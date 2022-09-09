@@ -8,5 +8,5 @@ tags:
 released: "2013"
 ---
 
-[bfanger.nl](http://bfanger.nl) De versie van mijn website had bellen op de achtergrond die langzaam omhoog gingen.
+[bfanger.nl](https://bfanger.nl) De versie van mijn website had bellen op de achtergrond die langzaam omhoog gingen.
 Deze bellen werden aangestuurd door [Box2dweb](https://github.com/hecht-software/box2dweb) en gingen met de stroom mee als je je muis erover bewoog.

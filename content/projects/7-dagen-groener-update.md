@@ -14,7 +14,7 @@ released: 2016-09
 image: 7-dagen-groener-update.png
 ---
 
-Een update aan de bestaande NPO 7 dagen groener [iOS](https://itunes.apple.com/nl/app/id987939197?mt=8) / [android](https://play.google.com/store/apps/details?id=nl.omroep.groen) app.
+Een update aan de bestaande NPO 7 dagen groener iOS & Android app.
 
 Nieuwe features:
 
@@ -23,5 +23,5 @@ Nieuwe features:
 - Challenges per week zijn beperkt tot 1 categorie
 - Je besparing wordt uitgedrukt in een tot-de-verbeelding-sprekende eenheid, x vuiliszakken afval, 1 zwembad water, enz
 
-Tijdens deze update heb ik diverse functonaleit herschreven naar [RxJS](http://reactivex.io).
+Tijdens deze update heb ik diverse functionaleit herschreven naar [RxJS](https://reactivex.io/).
 Hierdoor heb ik de data (die afhankelijk zijn van de voorgang van de week) kunnen modeleren als streams, waardoor het eenvoudiger werd om in de componenten om de juiste up-to-date waarde te tonen.

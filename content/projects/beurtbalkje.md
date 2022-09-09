@@ -15,6 +15,6 @@ Om deze foutmelding te voorkomen heb ik [beurtbalkje](https://www.npmjs.com/pack
 
 De proxy geeft al het verkeer door, maar zodra de server wegvalt komen nieuwe verbindingen in een wachtrij \*1, en zodra de doelserver weer reageert worden deze verbindingen doorgelust.
 
-Deze proxy heb ik ook nog gebruikt om vanuit een virtual machine guest een proxy op te zetten naar de host, hierdoor werkt de http://localhost:8080 ook in de VM.
+Deze proxy heb ik ook nog gebruikt om vanuit een virtual machine guest een proxy op te zetten naar de host, hierdoor werkt localhost:8080 ook in de VM.
 
 \*1: Door "Wachtrij" moest ik denken aan de lopende band bij de supermarkt en daar komt de naam vandaan.

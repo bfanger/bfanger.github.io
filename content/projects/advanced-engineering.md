@@ -6,7 +6,7 @@ image: advanced_engineering.png
 alt: Advanced Engineering
 ---
 
-Het redesign van [AdvancedEngineering.nl](http://www.advancedengineering.nl/) was geinspireerd is door de (reeds vernieuwde) [allsecure.nl](http://www.allsecure.nl) website.
+Het redesign van [AdvancedEngineering.nl](http://www.advancedengineering.nl/) was geinspireerd is door de (reeds vernieuwde) allsecure.nl website.
 Het ontwerp bevat diverse animaties voor de overgangen tussen de "pagina's", dit is met behulp van [jQuery](http://jquery.com/) gerealiseerd.
 Helaas werken niet alle browsers hetzelfde en kwam er een hoop testen bij kijken.
 Met name WebKit (Google Chrome & Safari) gaf problemen.

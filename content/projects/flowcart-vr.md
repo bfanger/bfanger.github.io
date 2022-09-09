@@ -15,7 +15,7 @@ released: "2021-07-03"
 Omdat ik en andere [Triple](https://www.wearetriple.com/) medewerkers nu beschikken over de [Oculus Quest 2](https://www.oculus.com/quest-2/) kreeg ik inspiratie voor dit VR experiment.
 
 [FlowCart](https://flowcart.bfanger.nl/) is een grot met deuren waarin je een Flowchart letterlijk doorloopt in VR.
-De kamer(s) waaruit deze grot bestaan zijn gemaakt in [Blender](http://blender.org/) en worden vervolgens ingeladen in de [babylon.js](https://www.babylonjs.com/)
+De kamer(s) waaruit deze grot bestaan zijn gemaakt in [Blender](https://blender.org/) en worden vervolgens ingeladen in de [babylon.js](https://www.babylonjs.com/)
 webapp.
 
 O.b.v. een diagram in JSON worden de kamers gegenereerd, pas zodra je een antwoord kiest wordt de volgende kamer gegenereerd, toegevoegd aan de scene en gaat de deur open.

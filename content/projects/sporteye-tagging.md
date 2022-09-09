@@ -12,6 +12,6 @@ alt: Sporteye Interface
 released: "2017"
 ---
 
-De [Sporteye](http://sporteye.tv/) Portal is uitgebreid met "tagging".
+De Sporteye Portal is uitgebreid met "tagging".
 Dit is het samenstellen van clips op basis van van video-fragmenten van 5sec.
 Nadat je de fragmententen hebt geselecteerd kun je deze clips exporteren als een mp4.

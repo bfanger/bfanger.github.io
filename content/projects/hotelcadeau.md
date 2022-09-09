@@ -6,7 +6,7 @@ image: hotelcadeau_v1.png
 alt: HotelCadeau website versie 1
 ---
 
-HotelCadeau is een site waar je een voucher (tegoedbon) kunt bestellen voor een hotel overnachting.
+HotelCadeau was een site waar je een voucher (tegoedbon) kunt bestellen voor een hotel overnachting.
 De frontend website is vrij eenvoudig en was snel gemaakt.
 De bulk van het werkt zat in het automatisering van de backend.
 Op de bonnen moest namelijk een validatie code en een verloopdatum geprint worden.

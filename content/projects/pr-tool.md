@@ -13,7 +13,7 @@ image: pr-tool.png
 alt: PR Tool
 ---
 
-Met de [PR tool](https://azure-prs.herokuapp.com/) kun je pull-requests van [Azure DevOps](http://dev.azure.com/), [Bitbucket](http://bitbucket.org/) & [Gitlab](https://about.gitlab.com) op één plaats terugzien.
+Met de [PR tool](https://azure-prs.herokuapp.com/) kun je pull-requests van [Azure DevOps](https://dev.azure.com/), [Bitbucket](https://bitbucket.org/) & [Gitlab](https://about.gitlab.com) op één plaats terugzien.
 Deze app toont het aantal PR's dat aandacht nodig heeft direct in de macOS menubalk als actieve reminder.
 
 Voor deze (macOS) tool heb ik het concept, design & de implementatie uitgevoerd.
