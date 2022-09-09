@@ -11,7 +11,7 @@ alt: Game
 released: "2021-10-02"
 ---
 
-[Multiplayer Dice Game](https://multiplayer-dice-game.herokuapp.com) ([github](https://github.com/bfanger/multiplayer-dice-game)) is een online multiplayer dobbel spel.
+[Multiplayer Dice Game](https://github.com/bfanger/multiplayer-dice-game) is een online multiplayer dobbel spel.
 
 Voor het realtime multiplayer aspect van de game wordt [socket.io](https://socket.io/) gebruikt, om de livereload workflow te kunnen behouden worden de gespeelde spellen in [redis](https://redis.io/) opgeslagen en worden de zetten via pub/sub verstuurd naar de andere spelers.
 

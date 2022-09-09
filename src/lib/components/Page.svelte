@@ -3,16 +3,16 @@
 
   function out(node: Element, config: object) {
     noop(config);
-    node.classList.add("page--outro");
+    node.classList.add("outro");
     return {
       tick(t: number) {
-        node.classList.toggle("page--outro", t !== 1);
+        node.classList.toggle("outro", t !== 1);
       },
     };
   }
 </script>
 
-<div class="page" out:out>
+<div class="page" class:outro={false} out:out>
   <slot />
 </div>
 
@@ -26,7 +26,7 @@
     padding: 15px 15px 30px 15px;
     box-sizing: border-box;
   }
-  :global(.page--outro) {
+  .outro {
     position: absolute;
     top: 0;
     left: 0;

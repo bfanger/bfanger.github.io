@@ -22,20 +22,20 @@
     />
   {/if}
   {@html project.content}
-  <div class="project-card__footer">
+  <div class="footer">
     <a href="/portfolio">&lt; Terug naar portfolio</a>
-    <span class="project-card__release-date">
+    <span class="release-date">
       {formatReleaseDate(project.released)}
     </span>
   </div>
 </Card>
 
 <style lang="scss">
-  .project-card__footer {
+  .footer {
     display: flex;
     justify-content: space-between;
   }
-  .project-card__release-date {
+  .release-date {
     color: #aaa;
   }
 </style>

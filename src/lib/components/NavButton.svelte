@@ -3,8 +3,15 @@
   export let type: "next" | "previous";
 </script>
 
-<a {href} sveltekit:prefetch class="nav-button nav-button--{type}" on:mousedown>
-  <div class="nav-button__label">
+<a
+  {href}
+  data-sveltekit:prefetch
+  class="nav-button"
+  class:next={type === "next"}
+  class:previous={type === "previous"}
+  on:mousedown
+>
+  <div class="label">
     <slot />
   </div>
 </a>
@@ -32,24 +39,24 @@
       text-decoration: none;
     }
   }
-  .nav-button__label {
+  .label {
     font: 300 22px/70px Raleway, sans-serif;
     text-shadow: 0 0 10 rgba(black, 0.5);
     color: white;
   }
-  %nav-button--icon {
-    .nav-button__label {
+  .previous,
+  .next {
+    .label {
       max-width: 0;
       overflow: hidden;
       transition: 0.15s all;
     }
-    &:hover .nav-button__label {
+    &:hover .label {
       max-width: 400px;
       transition: 0.25s all;
     }
   }
-  .nav-button--next {
-    @extend %nav-button--icon;
+  .next {
     padding-right: 20px;
     padding-left: 22px;
 
@@ -61,12 +68,11 @@
       width: 28px;
       height: 40px;
     }
-    &:hover .nav-button__label {
+    &:hover .label {
       padding-right: 10px;
     }
   }
-  .nav-button--previous {
-    @extend %nav-button--icon;
+  .previous {
     padding-right: 23px;
     padding-left: 19px;
 
@@ -78,7 +84,7 @@
       width: 28px;
       height: 40px;
     }
-    &:hover .nav-button__label {
+    &:hover .label {
       padding-left: 10px;
     }
   }

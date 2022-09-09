@@ -2,7 +2,7 @@
   export let homepage = false;
 </script>
 
-<div class="card" class:card--homepage={homepage}>
+<div class="card" class:homepage>
   <slot />
 </div>
 
@@ -20,7 +20,7 @@
       padding: 25px 30px;
     }
   }
-  .card--homepage {
+  .homepage {
     position: relative;
     width: auto;
     border-radius: 50px !important;

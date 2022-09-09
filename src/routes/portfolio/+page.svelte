@@ -13,7 +13,7 @@
 
   export let data: PageData;
 
-  $: grouped = groupBy(data, extractYear) as Record<string, Project[]>;
+  $: grouped = groupBy(data.teasers, extractYear) as Record<string, Project[]>;
   $: years = Object.keys(grouped).sort().reverse();
 
   function extractYear(project: Project) {
@@ -50,7 +50,7 @@
       <slot />
     </Card>
   </div>
-  <div class="portfolio-page__previous">
+  <div class="previous">
     <NavButton
       href="/"
       type="previous"
@@ -65,7 +65,7 @@
 </Page>
 
 <style lang="scss">
-  .portfolio-page__previous {
+  .previous {
     position: fixed;
 
     bottom: calc(50% - 35px);

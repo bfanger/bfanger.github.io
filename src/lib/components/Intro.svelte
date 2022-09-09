@@ -4,13 +4,9 @@
 </script>
 
 <div class="intro">
-  <div class="intro__bob-fanger">
-    <div class="intro__clip-bob">
-      <svg
-        class="intro__b"
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+  <div class="bob-fanger">
+    <div class="clip-bob">
+      <svg class="b" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M0 56V0h48v8h8v16h-8v8h8v16h-8v8H0zm16-32h24V8H16v16zm0
           24h24V32H16v16zm56
@@ -27,11 +23,7 @@
           fill-rule="evenodd"
         />
       </svg>
-      <svg
-        class="intro__ob"
-        viewBox="0 0 128 64"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg class="ob" viewBox="0 0 128 64" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M-64 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
@@ -49,11 +41,7 @@
         />
       </svg>
     </div>
-    <svg
-      class="intro__fanger"
-      viewBox="0 0 384 64"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg class="fanger" viewBox="0 0 384 64" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M-256 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
         24h24V32h-24v16zm56
@@ -70,8 +58,8 @@
         fill-rule="evenodd"
       />
     </svg>
-    <div class="intro__clip-nl">
-      <svg class="intro__nl" {onanimationend} viewBox="0 0 168 64">
+    <div class="clip-nl">
+      <svg class="nl" {onanimationend} viewBox="0 0 168 64">
         <path
           d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
@@ -113,7 +101,7 @@
 
     font-size: 20px;
   }
-  .intro__bob-fanger {
+  .bob-fanger {
     position: absolute;
     top: calc(50% - 0.8em);
     left: calc(50% - 7.7em);
@@ -125,12 +113,12 @@
     svg {
       height: 0.8em;
     }
-    animation: intro__bob-fanger $duration;
+    animation: bob-fanger $duration;
     @media (min-width: 500px) {
       font-size: 30px;
     }
   }
-  @keyframes intro__bob-fanger {
+  @keyframes bob-fanger {
     #{frame(1)} {
       transform: translateX(2.5em) translateY(-55vh);
     }
@@ -144,7 +132,7 @@
       transform: translateX(0);
     }
   }
-  .intro__clip-bob {
+  .clip-bob {
     display: flex;
     flex-direction: row;
     padding-right: 0.8em;
@@ -152,12 +140,12 @@
     overflow: hidden;
   }
 
-  .intro__b {
+  .b {
     transform: translateX(2.3em);
     will-change: transform;
-    animation: intro__b $duration;
+    animation: b $duration;
   }
-  @keyframes intro__b {
+  @keyframes b {
     #{frame(1)} {
       transform: translateX(0);
     }
@@ -174,12 +162,12 @@
       transform: translateX(2.3em);
     }
   }
-  .intro__ob {
+  .ob {
     transform: translateX(2.6em);
     will-change: transform;
-    animation: intro__ob $duration;
+    animation: ob $duration;
   }
-  @keyframes intro__ob {
+  @keyframes ob {
     #{frame(1)} {
       transform: translateX(0);
     }
@@ -193,12 +181,12 @@
       transform: translateX(2.6em);
     }
   }
-  .intro__fanger {
+  .fanger {
     transform: translateX(0);
     will-change: transform;
-    animation: intro__fanger $duration ease-out;
+    animation: fanger $duration ease-out;
   }
-  @keyframes intro__fanger {
+  @keyframes fanger {
     #{frame(1)} {
       transform: translateX(-0.3em);
     }
@@ -209,17 +197,17 @@
       transform: translateX(0);
     }
   }
-  .intro__clip-nl {
+  .clip-nl {
     display: flex;
     overflow: hidden;
     padding-right: 1em;
   }
-  .intro__nl {
+  .nl {
     transform: translateZ(0);
     will-change: transform;
-    animation: intro__nl $duration ease-out;
+    animation: nl $duration ease-out;
   }
-  @keyframes intro__nl {
+  @keyframes nl {
     #{frame(1)} {
       transform: translateX(-2.1em);
     }

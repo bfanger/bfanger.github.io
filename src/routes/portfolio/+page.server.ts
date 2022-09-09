@@ -8,5 +8,5 @@ export const load: PageServerLoad = async () => {
     title: project.title,
     released: project.released,
   }));
-  return teasers;
+  return { teasers };
 };
