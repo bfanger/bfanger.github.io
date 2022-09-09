@@ -11,7 +11,7 @@
   export let data: PageData;
 
   const introVisible = data.withIntro;
-  let cardVisible = false;
+  let cardVisible = data.withCard;
   $: skipped = data.skipped;
   let Avatar: any | undefined = undefined;
   const isServer = typeof window === "undefined";
