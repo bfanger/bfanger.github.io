@@ -1,1 +1,0 @@
-const t=async()=>{if(typeof window>"u")return{withIntro:!0,skipped:!1};const e=await window.introPromise;return{withIntro:!1,skipped:e==="skip"}},o=Object.freeze(Object.defineProperty({__proto__:null,load:t},Symbol.toStringTag,{value:"Module"}));export{o as _,t as l};
