@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { error } from "@sveltejs/kit";
 import { allProjects, processImage } from "../../_util";
 import type { PageServerLoad } from "./$types";
