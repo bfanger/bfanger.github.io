@@ -1,37 +1,91 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import { page } from "$app/stores";
+  import { browser } from "$app/environment";
   import Scroller from "$lib/components/Scroller.svelte";
+  import ProjectCard from "$lib/components/ProjectCard.svelte";
+  import type { Project } from "$lib/Project";
   import type { LayoutData } from "./$types";
+
+  type Teaser = LayoutData["teasers"][number];
 
   export let data: LayoutData;
 
-  const initial = data.teasers.findIndex(
-    (t) => t.slug === $page.params.project
+  const initial = findIndex($page.params.project);
+  const cached: Record<number, Promise<Project>> = {};
+
+  let scrollIndex = initial;
+  $: currentIndex = Math.round(scrollIndex);
+  $: previous = data.teasers[currentIndex - 1]?.slug;
+  $: current = data.teasers[currentIndex]?.slug;
+  $: next = data.teasers[currentIndex + 1]?.slug;
+  $: browser && previous && loadProject(previous);
+  $: browser && current && loadProject(current);
+  $: browser && next && loadProject(next);
+
+  $: virtual = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
+    (index) => index >= 0 && index < data.teasers.length && index !== initial
   );
 
-  let value = initial;
-  function top(slug: string, y: number) {
-    const index = data.teasers.findIndex((t) => t.slug === slug);
-    const offset = y - index;
-    if (offset < -0.5) {
-      goto(`/scrollytelling/${data.teasers[index + Math.floor(offset)].slug}`, {
-        noscroll: true,
-      });
-    } else if (offset > 0.5) {
-      goto(`/scrollytelling/${data.teasers[index + Math.ceil(offset)].slug}`, {
-        noscroll: true,
-      });
+  function findIndex(slug: string) {
+    return data.teasers.findIndex((t) => t.slug === slug);
+  }
+
+  function loadProject(slug: string) {
+    const projectIndex = findIndex(slug);
+    if (!cached[projectIndex]) {
+      cached[projectIndex] = fetch(`/projects/${slug}.json`).then((r) =>
+        r.json()
+      );
     }
-    return `${offset * -100}vh`;
+    return cached[projectIndex];
+  }
+  $: browser && updateUrl(currentIndex);
+
+  function updateUrl(index: number) {
+    const { slug } = data.teasers[index];
+    const url = `/scrollytelling/${slug}`;
+    if (window.location.pathname === url) {
+      return;
+    }
+    window.history.pushState({ scroll: index }, "", `/scrollytelling/${slug}`);
+  }
+
+  function placeholder(teaser: Teaser): Project {
+    return {
+      content: "",
+      released: teaser.released,
+      slug: teaser.slug,
+      title: teaser.title,
+    };
   }
 </script>
 
-<Scroller max={data.teasers.length} bind:value />
+<Scroller max={data.teasers.length - 1} bind:value={scrollIndex} />
 <div class="viewport">
-  <div class="current" style:top={top($page.params.project, value)}>
-    <slot />
-  </div>
+  {#each virtual as index (index)}
+    <div
+      class="item"
+      style:transform="translateY({(scrollIndex - index) * -100}vh)"
+    >
+      {#await cached[index]}
+        <ProjectCard project={placeholder(data.teasers[index])} />
+      {:then project}
+        {#if project}
+          <ProjectCard {project} />
+        {:else}
+          <ProjectCard project={placeholder(data.teasers[index])} />
+        {/if}
+      {/await}
+    </div>
+  {/each}
+  {#if initial > currentIndex - 2 && initial < currentIndex + 2}
+    <div
+      class="item"
+      style:transform="translateY({(scrollIndex - initial) * -100}vh)"
+    >
+      <slot />
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -39,7 +93,13 @@
     position: fixed;
     inset: 0;
   }
-  .current {
+  .item {
     position: absolute;
+    display: flex;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
   }
 </style>

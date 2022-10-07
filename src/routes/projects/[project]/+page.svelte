@@ -9,10 +9,9 @@
     cardOut,
   } from "$lib/services/cardTransition";
   import { goto, prefetch } from "$app/navigation";
-  import type { Project } from "$lib/Project";
 
   export let data: PageData;
-  $: project = data as Project;
+  $: project = data.project;
   $: if (project.before && typeof window !== "undefined") {
     prefetch(project.before);
   }

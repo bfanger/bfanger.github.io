@@ -5,4 +5,4 @@
   export let data: PageData;
 </script>
 
-<ProjectCard project={data} />
+<ProjectCard project={data.project} />

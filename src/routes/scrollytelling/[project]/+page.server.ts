@@ -25,5 +25,5 @@ export const load: PageServerLoad = async ({ params }) => {
   if (data.image) {
     project.image = await processImage(data.image);
   }
-  return project;
+  return { project };
 };
