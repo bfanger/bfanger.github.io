@@ -56,6 +56,7 @@ export default function inView(el: Element, options?: InViewOptions) {
     update(options: InViewOptions) {
       skipOne = true;
       intersecting = extractStore(options);
+      detach();
       attach(extractInit(options));
     },
     destroy() {
