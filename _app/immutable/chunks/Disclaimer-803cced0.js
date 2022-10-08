@@ -1,4 +1,4 @@
-import{S as o,i as d,s as l,k as c,q as p,l as m,m as j,r as v,h as n,n as _,b as g,K as h,A as r}from"./index-2bd1a8eb.js";function f(a){let e,i;return{c(){e=c("footer"),i=p(`Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+import{S as o,i as d,s as l,k as c,q as p,l as m,m as j,r as v,h as n,n as _,b as g,K as h,A as r}from"./index-78cda96d.js";function f(a){let e,i;return{c(){e=c("footer"),i=p(`Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
   werkgevers en zijn de concept & design fases reeds door overige partijen
   uitgevoerd.`),this.h()},l(s){e=m(s,"FOOTER",{class:!0});var t=j(e);i=v(t,`Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
   werkgevers en zijn de concept & design fases reeds door overige partijen
