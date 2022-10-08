@@ -7,16 +7,13 @@
   export let height: number;
   export let alt = "Een screenshot van het project";
 
-  let started: number;
   let img: HTMLImageElement;
 
   const css = {
     height: "auto",
-    opacity: 1,
-    duration: "0s",
   };
   $: loading(src);
-  $: style = `max-width: 100%; height: ${css.height}; opacity: ${css.opacity}; transition-duration: ${css.duration};`;
+  $: style = `max-width: 100%; height: ${css.height};`;
 
   async function loading(url: string) {
     noop(url);
@@ -35,21 +32,12 @@
     } else {
       css.height = `${halfScreen}px`;
     }
-    css.opacity = 0;
-    css.duration = "0s";
-    started = Date.now();
     await tick();
     if (img.complete) {
       loaded();
     }
   }
   function loaded() {
-    if (Date.now() - started < 150) {
-      css.duration = "0.2s";
-    } else {
-      css.duration = "0.5s";
-    }
-    css.opacity = 1;
     css.height = "auto";
   }
 </script>
@@ -76,7 +64,5 @@
     margin-right: auto;
     margin-bottom: 1.5em;
     border-radius: 3px;
-    transition-property: opacity;
-    will-change: opacity;
   }
 </style>
