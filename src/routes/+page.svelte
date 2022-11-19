@@ -45,7 +45,7 @@
       >
         <Card homepage>
           <img
-            src="images/avatar.jpg"
+            src="images/avatar.webp"
             class="homepage__avatar"
             alt="Bob Fanger"
           />

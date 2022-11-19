@@ -21,9 +21,7 @@
       avatarPromise = new Promise<Avatar3D>((resolve) => {
         const loader = new GLTFLoader();
         loader.load("/3d/avatar.gltf", (gltf) => {
-          const avatar = gltf.scene.children[3];
-          avatar.position.x += 0.2;
-          avatar.position.y += 0;
+          const avatar = gltf.scene.children[0];
           resolve(avatar as Avatar3D);
         });
       });
@@ -41,8 +39,8 @@
   let scene: Scene;
   let camera: Camera;
   let avatar: Avatar3D;
-  type YZ = { y: number; z: number };
-  const yz = spring<YZ>({ y: 0, z: 0 }, { stiffness: 0.1, damping: 0.4 });
+  type XZ = { x: number; z: number };
+  const xz = spring<XZ>({ x: 0, z: 0 }, { stiffness: 0.1, damping: 0.4 });
 
   onMount(() => {
     renderer = new WebGLRenderer({
@@ -52,7 +50,7 @@
     });
     renderer.outputEncoding = sRGBEncoding;
     camera = new PerspectiveCamera(25, 250 / 250, 0.25, 20);
-    camera.position.set(2.3, 0, 0);
+    camera.position.set(0, 11, 0);
     scene = new Scene();
 
     loadAvatar().then((_avatar) => {
@@ -64,27 +62,27 @@
       scene.add(avatar);
 
       camera.lookAt(new Vector3(0, 0, 0));
-      rotate($yz);
+      rotate($xz);
     });
     return () => {
       renderer.dispose();
     };
   });
   function mousemoved(e: MouseEvent) {
-    $yz = {
-      y: (e.clientX / window.innerWidth - 0.5) * 0.25 + 0.1,
-      z: (e.clientY / window.innerHeight - 0.5) * -0.23,
+    $xz = {
+      z: (e.clientX / window.innerWidth - 0.5) * -0.25,
+      x: (e.clientY / window.innerHeight - 0.5) * 0.4,
     };
   }
-  function rotate({ y, z }: YZ) {
+  function rotate({ x, z }: XZ) {
     if (!avatar) {
       return;
     }
-    avatar.rotation.y = y;
+    avatar.rotation.x = x;
     avatar.rotation.z = z;
     renderer.render(scene, camera);
   }
-  $: rotate($yz);
+  $: rotate($xz);
 </script>
 
 <canvas bind:this={el} class="avatar" />
