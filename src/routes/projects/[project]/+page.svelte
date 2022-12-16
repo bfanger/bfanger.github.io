@@ -8,12 +8,12 @@
     cardIn,
     cardOut,
   } from "$lib/services/cardTransition";
-  import { goto, prefetch } from "$app/navigation";
+  import { goto, preloadData } from "$app/navigation";
 
   export let data: PageData;
   $: project = data.project;
   $: if (project.before && typeof window !== "undefined") {
-    prefetch(project.before);
+    preloadData(project.before);
   }
   function keydown(e: KeyboardEvent) {
     if (e.altKey || e.shiftKey || e.metaKey) {
