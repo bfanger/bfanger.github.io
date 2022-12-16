@@ -30,23 +30,23 @@
 		<link href="../_app/immutable/assets/Card-24101e0e.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/cardTransition-ffb7e569.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Disclaimer-91eb396c.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-ef0ffd5c.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-3582f15f.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-c0de987a.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-e20bdab0.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-b21cceae.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/control-03134885.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-f2bf547b.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/_layout.ts-b8ee4d7c.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-1daba58d.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-0a6cf84a.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Page-d3ad6f38.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/ProjectCard-477ab776.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Card-0f04ea9b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-ddcee555.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-0dd591a1.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/projects/_project_/_page.ts-05ee2739.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_page-c599ae5e.js"><title>Svelte SSR go</title><!-- HEAD_svelte-1cx8lxk_START --><!-- HEAD_svelte-1cx8lxk_END -->
+		<link rel="modulepreload" href="../_app/immutable/start-1d1f44e5.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index-c4e5a69d.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-5e117fcd.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index-e4f970b9.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/control-f5b05b5f.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/_layout.svelte-59529b33.js">
+		<link rel="modulepreload" href="../_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="../_app/immutable/components/pages/projects/_project_/_page.svelte-f7959b2c.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Page-a89e8483.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/ProjectCard-5b88bdc0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Card-21f43b3b.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition-0a19d8ec.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer-0449439a.js">
+		<link rel="modulepreload" href="../_app/immutable/modules/pages/projects/_project_/_page.ts-ab92c176.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_page-26f985aa.js"><title>Svelte SSR go</title><!-- HEAD_svelte-1cx8lxk_START --><!-- HEAD_svelte-1cx8lxk_END -->
   </head>
   <body>
     <img
@@ -109,22 +109,18 @@ Met deze opzet kan je van svelte component bundelen naar een javascript en css b
 
 
 		<script type="module" data-sveltekit-hydrate="wwo7xg">
-			import { start } from "../_app/immutable/start-ef0ffd5c.js";
+			import { start } from "../_app/immutable/start-1d1f44e5.js";
 
 			start({
 				env: {},
-				hydrate: {
-					status: 200,
-					error: null,
-					node_ids: [0, 6],
-					params: {project:"svelte-ssr-go"},
-					route: {"id":"/projects/[project]"},
-					data: [null,null],
-					form: null
-				},
 				paths: {"base":"","assets":""},
 				target: document.querySelector('[data-sveltekit-hydrate="wwo7xg"]').parentNode,
-				trailing_slash: "never"
+				version: "1671204525558",
+				hydrate: {
+					node_ids: [0, 6],
+					data: [null,null],
+					form: null
+				}
 			});
 		</script>
 	<script type="application/json" data-sveltekit-fetched data-url="/projects/svelte-ssr-go.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"svelte-ssr-go\",\"title\":\"Svelte SSR go\",\"released\":\"2021-07-24\",\"content\":\"\u003Cp>\u003Ca href=\\\"https://github.com/bfanger/svelte-ssr-go\\\">Svelte SSR Go\u003C/a> is een proof-of-concept om \u003Ca href=\\\"https://svelte.dev/\\\">Svelte\u003C/a> componenten serverside te renderen (SSR) via een andere servertaal dan node of deno.\u003C/p>\\n\u003C!-- De meeste programmeertalen (en zelfs [databases](https://plv8.github.io/)) hebben wel een manier om een javascript engine zoals [v8](https://v8.dev/) te gebruiken. -->\\n\\n\u003Cp>Voor het poc heb ik \u003Ca href=\\\"https://golang.org/\\\">Go\u003C/a> als servertaal gebruikt, deze heeft \u003Ca href=\\\"https://github.com/rogchap/v8go\\\">v8go\u003C/a> als embedded javascript runtime.\\nVoor het omzetten van de svelte bestanden wordt \u003Ca href=\\\"https://esbuild.github.io/\\\">esbuild\u003C/a> met de \u003Ca href=\\\"https://github.com/EMH333/esbuild-svelte\\\">esbuild-svelte\u003C/a> plugin gebruikt.\\nMet deze opzet kan je van svelte component bundelen naar een javascript en css bestand.\u003C/p>\\n\u003Cp>Het was een interessant en geslaagd experiment, maar zou adviseren waar mogelijk \u003Ca href=\\\"https://kit.svelte.dev/\\\">SvelteKit\u003C/a> op een node server te draaien.\u003C/p>\\n\u003C!-- Het werkt, inclusief livereload, maar maast dat je geen browers api's kunt gebruiken (window is undefined) heb je ook geen toegang tot [Node.js](https://nodejs.org/en/) api's. -->\\n\\n\u003C!-- Gerelateerd project: [bfanger/enhanced-v8go](https://github.com/bfanger/enhanced-v8go) -->\\n\",\"before\":\"language-dx-benchmark\",\"after\":\"flowcart-vr\",\"image\":{\"src\":\"/build/img/svelte-ssr-go.png\",\"width\":721,\"height\":435}}"}</script></svelte-app>
