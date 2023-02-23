@@ -1,1 +1,0 @@
-import{R as r}from"./control-f5b05b5f.js";function o(e,t){return new r(e,t)}const n=()=>{throw o(301,"https://swagger-explained.bfanger.nl/")},l=Object.freeze(Object.defineProperty({__proto__:null,load:n},Symbol.toStringTag,{value:"Module"}));export{l as _,n as l};

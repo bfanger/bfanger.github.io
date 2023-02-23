@@ -23,22 +23,23 @@
       }
     </script>
     <meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout-5b737363.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/Page-713238de.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/Card-24101e0e.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/start-1d1f44e5.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index-c4e5a69d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-5e117fcd.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index-e4f970b9.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/control-f5b05b5f.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-59529b33.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/404/_page.svelte-3da08b8c.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/ErrorPage-15313821.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Page-a89e8483.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Card-21f43b3b.js"><title>404</title><!-- HEAD_svelte-1258swp_START --><!-- HEAD_svelte-1258swp_END -->
+		<link href="./_app/immutable/assets/_layout.702cf9ca.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/Page.713238de.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/Card.24101e0e.css" rel="stylesheet">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.492f87d8.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.6879f64f.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.abea71c1.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.ae1453d7.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/control.e7f5239e.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.2a1fdf2b.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/preload-helper.41c905a7.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.4780a5ea.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.ts.fb1865a6.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/404-page.svelte.00bf3b89.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/ErrorPage.cb30781c.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/Page.f5760c3b.mjs">
+		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/Card.fd1b3d21.mjs"><title>404</title><!-- HEAD_svelte-1258swp_START --><!-- HEAD_svelte-1258swp_END -->
   </head>
   <body>
     <img
@@ -77,21 +78,30 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1lpzgm8">
-			import { start } from "./_app/immutable/start-1d1f44e5.js";
+			
+			<script>
+				{
+					__sveltekit_1v0p50y = {
+						env: {},
+						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
+						element: document.currentScript.parentElement
+					};
 
-			start({
-				env: {},
-				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1lpzgm8"]').parentNode,
-				version: "1671204525558",
-				hydrate: {
-					node_ids: [0, 4],
-					data: [null,null],
-					form: null
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.492f87d8.mjs"),
+						import("./_app/immutable/entry/app.2a1fdf2b.mjs")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_1v0p50y.element, {
+							node_ids: [0, 4],
+							data,
+							form: null,
+							error: null
+						});
+					});
 				}
-			});
-		</script>
-	</svelte-app>
+			</script>
+		</svelte-app>
   </body>
 </html>
