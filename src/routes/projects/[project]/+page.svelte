@@ -36,12 +36,13 @@
 
 {#key project}
   <Page>
-    <div in:cardIn out:cardOut>
+    <div in:cardIn|global out:cardOut|global>
       <ProjectCard {project} />
     </div>
   </Page>
 {/key}
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
   class="project-page__previous"
   on:mousedown={() => {
@@ -56,6 +57,7 @@
 </div>
 
 {#if project.after}
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     class="project-page__next"
     on:mousedown={() => {

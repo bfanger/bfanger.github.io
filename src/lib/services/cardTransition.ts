@@ -1,5 +1,6 @@
-import { fly } from "svelte/transition";
+/* eslint-disable import/no-duplicates */
 import { writable, get } from "svelte/store";
+import { fly  } from "svelte/transition";
 
 type Config = Record<string, unknown>;
 const transitions = {
@@ -27,9 +28,9 @@ const cardTransition = {
   },
 };
 export default cardTransition;
-export function cardOut(node: Element, config: Config) {
-  return get(cardTransition).out(node, config);
+export function cardOut(node: Element, config?: Config) {
+  return get(cardTransition).out(node, config??{});
 }
-export function cardIn(node: Element, config: Config) {
-  return get(cardTransition).in(node, config);
+export function cardIn(node: Element, config?: Config) {
+  return get(cardTransition).in(node, config??{});
 }

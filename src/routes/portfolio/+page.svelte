@@ -31,11 +31,12 @@
   <title>Bob Fanger's portfolio</title>
 </svelte:head>
 <Page>
-  <div in:cardIn={{}} out:cardOut={{}}>
+  <div in:cardIn|global={{}} out:cardOut|global={{}}>
     <Card>
       <h1>Portfolio van Bob Fanger</h1>
       {#each years as year}
         <h2>{year}</h2>
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <ul
           on:mousedown={() => {
             cardTransition.set("left");

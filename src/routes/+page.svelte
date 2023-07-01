@@ -40,8 +40,8 @@
   <div hidden={isServer}>
     {#if cardVisible}
       <div
-        in:fly={{ y: 50, duration: skipped ? 250 : 500 }}
-        out:fly={{ x: -100 }}
+        in:fly|global={{ y: 50, duration: skipped ? 250 : 500 }}
+        out:fly|global={{ x: -100 }}
       >
         <Card homepage>
           <img
@@ -75,7 +75,7 @@
       </div>
       <div
         class="homepage--porfolio"
-        in:fly={{
+        in:fly|global={{
           y: 50,
           delay: skipped ? 0 : 100,
           duration: skipped ? 250 : 600,

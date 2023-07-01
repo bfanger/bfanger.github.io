@@ -5,7 +5,7 @@
 
 <a
   {href}
-  data-sveltekit:prefetch
+  data-sveltekit-preload-data
   class="nav-button"
   class:next={type === "next"}
   class:previous={type === "previous"}

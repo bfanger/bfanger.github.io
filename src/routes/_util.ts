@@ -25,7 +25,10 @@ async function loadProject(slug: string) {
 
   const result = matter(file);
 
-  const content = marked.parse(result.content);
+  const content = marked.parse(result.content, {
+    mangle: false,
+    headerIds: false,
+  });
   return {
     ...result.data,
     slug,
@@ -84,7 +87,7 @@ export async function processImage(
       "85",
       source,
       destination + filename,
-    ]).catch((err) => {
+    ]).catch((err:any) => {
       // eslint-disable-next-line no-console
       console.warn(err);
       return copyFile(source, destination + filename);
@@ -102,7 +105,7 @@ export async function processImage(
         "--force",
         "--skip-if-larger",
         destination + filename,
-      ]).catch((err) => {
+      ]).catch((err:any) => {
         if (err.code === 98) {
           return; // conversion results in a file larger than the original
         }

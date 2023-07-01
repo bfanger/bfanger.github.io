@@ -1,8 +1,5 @@
 <script lang="ts">
-  import { noop } from "lodash-es";
-
-  function out(node: Element, config: object) {
-    noop(config);
+  function out(node: Element) {
     node.classList.add("outro");
     return {
       tick(t: number) {
@@ -12,7 +9,7 @@
   }
 </script>
 
-<div class="page" class:outro={false} out:out>
+<div class="page" class:outro={false} out:out|global>
   <slot />
 </div>
 
