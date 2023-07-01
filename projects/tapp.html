@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    
+		<link href="../_app/immutable/assets/0.702cf9ca.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/6.85243463.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Page.713238de.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/ProjectCard.9932a370.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Card.24101e0e.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cardTransition.6cd4d2c2.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Disclaimer.91eb396c.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.aa53a088.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.ca2a2e1b.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.8626bf89.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.03dc27fb.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.47f04896.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.338fa73d.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.15d5b428.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/globals.7f7f1b26.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/6.63ce34dd.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Page.0176369f.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/ProjectCard.1e7b1c8e.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Card.e1e2fbd6.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition.09ce0d40.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer.49315dd2.js"><title>TAPP.</title><!-- HEAD_svelte-1cx8lxk_START --><!-- HEAD_svelte-1cx8lxk_END -->
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>   <div class="layout svelte-njjmi3" style="">  <div class="page svelte-1bt78wr"><div><div class="card svelte-vrket8"><h1>TAPP.</h1> <img class="project-image svelte-frg6k1" style="max-width: 100%; height: auto;" src="/build/img/tapp.png" width="3840" height="1281" alt="Een screenshot van het project"> <!-- HTML_TAG_START --><p><a href="https://tapp.cafe/">TAPP</a> bied o.a. een webapp waarmee je als horeca eigenaar inzicht krijgt in hoe je presteert ten opzichte van andere ondernemingen.</p>
+<p>Tapp is een leuke energieke partij om mee samen te werken en heeft hele lekkere koffie op hun kantoor.</p>
+<p>De site is opgezet in <a href="https://nextjs.org/">Next.js</a> en maakt gebruik van <a href="https://apexcharts.com/">ApexCharts</a> voor de grafieken. Voor een betere mobiele ervaring zijn een aantal grafieken custom gemaakt met behulp van <a href="https://d3js.org/">D3js</a>.</p>
+<!-- HTML_TAG_END --> <div class="footer svelte-1dkbrsg"><a href="/portfolio" data-svelte-h="svelte-1txbc2h">&lt; Terug naar portfolio</a> <span class="release-date svelte-1dkbrsg">Mei 2023</span></div> </div></div> </div>  <div class="project-page__previous svelte-ktylb9"><a href="/portfolio" data-sveltekit-preload-data class="nav-button svelte-17yqtex  previous"><div class="label svelte-17yqtex">Portfolio</div> </a></div>  <div class="project-page__next svelte-ktylb9"><a href="tvkit" data-sveltekit-preload-data class="nav-button svelte-17yqtex next"><div class="label svelte-17yqtex">Volgende</div> </a></div> <div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d" data-svelte-h="svelte-11klknc">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer> </div> </div> 
+			<script type="application/json" data-sveltekit-fetched data-url="/projects/tapp.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"tapp\",\"title\":\"TAPP.\",\"released\":\"2023-05\",\"content\":\"\u003Cp>\u003Ca href=\\\"https://tapp.cafe/\\\">TAPP\u003C/a> bied o.a. een webapp waarmee je als horeca eigenaar inzicht krijgt in hoe je presteert ten opzichte van andere ondernemingen.\u003C/p>\\n\u003Cp>Tapp is een leuke energieke partij om mee samen te werken en heeft hele lekkere koffie op hun kantoor.\u003C/p>\\n\u003Cp>De site is opgezet in \u003Ca href=\\\"https://nextjs.org/\\\">Next.js\u003C/a> en maakt gebruik van \u003Ca href=\\\"https://apexcharts.com/\\\">ApexCharts\u003C/a> voor de grafieken. Voor een betere mobiele ervaring zijn een aantal grafieken custom gemaakt met behulp van \u003Ca href=\\\"https://d3js.org/\\\">D3js\u003C/a>.\u003C/p>\\n\",\"after\":\"tvkit\",\"image\":{\"src\":\"/build/img/tapp.png\",\"width\":3840,\"height\":1281}}"}</script>
+			<script>
+				{
+					__sveltekit_1qyn5hz = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.aa53a088.js"),
+						import("../_app/immutable/entry/app.47f04896.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</svelte-app>
+  </body>
+</html>

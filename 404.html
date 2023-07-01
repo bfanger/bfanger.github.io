@@ -22,24 +22,24 @@
         });
       }
     </script>
-    <meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.702cf9ca.css" rel="stylesheet">
+    
+		<link href="./_app/immutable/assets/0.702cf9ca.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Page.713238de.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Card.24101e0e.css" rel="stylesheet">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/start.492f87d8.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.6879f64f.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/singletons.abea71c1.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/index.ae1453d7.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/control.e7f5239e.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/app.2a1fdf2b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/preload-helper.41c905a7.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.svelte.4780a5ea.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/_layout.ts.fb1865a6.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/_layout.da46b06b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/entry/404-page.svelte.00bf3b89.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/ErrorPage.cb30781c.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/Page.f5760c3b.mjs">
-		<link rel="preload" as="script" crossorigin="anonymous" href="./_app/immutable/chunks/Card.fd1b3d21.mjs"><title>404</title><!-- HEAD_svelte-1258swp_START --><!-- HEAD_svelte-1258swp_END -->
+		<link rel="modulepreload" href="./_app/immutable/entry/start.aa53a088.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.ca2a2e1b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.8626bf89.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.03dc27fb.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/control.f5b05b5f.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.47f04896.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.338fa73d.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.15d5b428.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/globals.7f7f1b26.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/4.3fe319e5.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/ErrorPage.48a58b66.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Page.0176369f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Card.e1e2fbd6.js"><title>404</title><!-- HEAD_svelte-1258swp_START --><!-- HEAD_svelte-1258swp_END -->
   </head>
   <body>
     <img
@@ -63,37 +63,24 @@
         bg.style.willChange = "";
       });
     </script>
-    <svelte-app>
-
-
-
-<div class="layout svelte-njjmi3" style="">
-
-<div class="page svelte-1bt78wr"><div class="card svelte-vrket8"><h1>404</h1>
-    <p>Pagina niet gevonden</p>
-
-    
-</div>
-</div>
-</div>
-
-
+    <svelte-app>   <div class="layout svelte-njjmi3" style=""> <div class="page svelte-1bt78wr"><div class="card svelte-vrket8"><h1>404</h1> <p>Pagina niet gevonden</p>  </div> </div> </div> 
 			
 			<script>
 				{
-					__sveltekit_1v0p50y = {
-						env: {},
-						assets: new URL(".", location.href).pathname.replace(/^\/$/, ''),
-						element: document.currentScript.parentElement
+					__sveltekit_1qyn5hz = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
 					};
+
+					const element = document.currentScript.parentElement;
 
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.492f87d8.mjs"),
-						import("./_app/immutable/entry/app.2a1fdf2b.mjs")
+						import("./_app/immutable/entry/start.aa53a088.js"),
+						import("./_app/immutable/entry/app.47f04896.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1v0p50y.element, {
+						kit.start(app, element, {
 							node_ids: [0, 4],
 							data,
 							form: null,

@@ -1,0 +1,1 @@
+import{R as t}from"../chunks/control.f5b05b5f.js";function n(e,r){return new t(e,r)}new TextEncoder;const o=()=>{throw n(301,"https://swagger-explained.bfanger.nl/")},l=Object.freeze(Object.defineProperty({__proto__:null,load:o},Symbol.toStringTag,{value:"Module"}));export{l as universal};
