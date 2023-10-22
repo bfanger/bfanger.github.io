@@ -1,8 +1,8 @@
 <script lang="ts">
+  import ScrollytellingItem from "./ScrollytellingItem.svelte";
   import { page } from "$app/stores";
   import { browser } from "$app/environment";
   import Scroller from "$lib/components/Scroller.svelte";
-  import ScrollytellingItem from "./ScrollytellingItem.svelte";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import type { Project } from "$lib/Project";
 
@@ -23,12 +23,18 @@
   $: current = teasers[currentIndex]?.slug;
   $: next = teasers[currentIndex + 1]?.slug;
   // @todo Debounce
-  $: browser && previous && loadProject(previous);
-  $: browser && current && loadProject(current);
-  $: browser && next && loadProject(next);
+  $: if (browser && previous) {
+    loadProject(previous);
+  }
+  $: if (browser && current) {
+    loadProject(current);
+  }
+  $: if (browser && next) {
+    loadProject(next);
+  }
 
   $: virtual = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
-    (index) => index >= 0 && index < teasers.length && index !== initial
+    (index) => index >= 0 && index < teasers.length && index !== initial,
   );
 
   function findIndex(slug: string) {
@@ -39,12 +45,14 @@
     const projectIndex = findIndex(slug);
     if (!cached[projectIndex]) {
       cached[projectIndex] = fetch(`/projects/${slug}.json`).then((r) =>
-        r.json()
+        r.json(),
       );
     }
     return cached[projectIndex];
   }
-  $: browser && updateUrl(currentIndex);
+  $: if (browser) {
+    updateUrl(currentIndex);
+  }
 
   function updateUrl(index: number) {
     const { slug } = teasers[index];

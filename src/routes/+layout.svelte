@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import gtm from "$lib/services/gtm";
+  import gtm from "../services/gtm";
 
   let el: HTMLElement;
   let minHeight = "";
@@ -41,7 +41,9 @@
   @import "../util.scss";
 
   :global(html) {
-    font: 300 62.5%/ 1.4 "Titillium Web", sans-serif;
+    font:
+      300 62.5%/ 1.4 "Titillium Web",
+      sans-serif;
     height: 100%;
     background: #5c6ae4;
   }
@@ -54,7 +56,8 @@
   }
   @font-face {
     font-family: "Titillium Web";
-    src: local("Titillium Web24 Light"),
+    src:
+      local("Titillium Web24 Light"),
       url("/fonts/titillium-web-light.woff2") format("woff2"),
       url("/fonts/titillium-web-light.woff") format("woff");
     font-weight: 300;

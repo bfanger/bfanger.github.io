@@ -8,7 +8,7 @@
     "deploy": "rimraf build && yarn build && git-directory-deploy --branch gh-pages --directory build/",
     "preview": "vite preview",
     "lint": "svelte-kit sync && concurrently --kill-others-on-fail \"yarn:lint:*\"",
-    "lint:prettier": "prettier --check --loglevel=warn \"src/**/*.svelte\"",
+    "lint:prettier": "prettier --check \"src/**/*.svelte\"",
     "lint:svelte-check": "svelte-check --fail-on-warnings",
     "lint:eslint": "eslint --ext=js,ts,svelte --max-warnings=0 src",
     "format": "prettier --write . && eslint --ext=js,ts,svelte --fix src",
@@ -17,49 +17,44 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.ts?(x)": [
-      "eslint --max-warnings 0 --ext ts,tsx --no-ignore",
-      "sh -c 'tsc -p tsconfig.json --noEmit'"
+    "*.{ts,svelte}": [
+      "svelte-check --fail-on-warnings"
     ],
-    "*.js": [
-      "eslint --max-warnings 0 --ext js --no-ignore"
+    "*.{ts,svelte,js,cjs,mjs}": [
+      "eslint --max-warnings 0 --no-ignore"
     ],
-    "*.svelte": [
-      "eslint --max-warnings 0 --ext svelte --no-ignore",
-      "svelte-check --fail-on-warnings",
+    "*.{ts,js,svelte,css,scss,json,html}": [
       "prettier --check"
     ]
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.21.0",
-    "@types/lodash-es": "^4.17.7",
-    "@types/marked": "^5.0.0",
-    "@types/node": "^20.3.3",
-    "@types/three": "^0.152.1",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
-    "concurrently": "^8.2.0",
-    "eslint": "^8.44.0",
+    "@sveltejs/adapter-static": "^2.0.3",
+    "@sveltejs/kit": "^1.26.0",
+    "@types/lodash-es": "^4.17.10",
+    "@types/node": "^20.8.7",
+    "@types/three": "^0.157.2",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.52.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-triple": "^1.0.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
-    "eslint-plugin-import": "^2.27.5",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-triple": "^1.1.3",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-only-warn": "^1.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "lint-staged": "^13.2.3",
-    "postcss": "^8.4.24",
-    "prettier": "^2.8.8",
-    "prettier-plugin-svelte": "^2.10.1",
-    "rimraf": "^5.0.1",
-    "sass": "^1.63.6",
-    "svelte-check": "^3.4.4",
-    "svelte-preprocess": "^5.0.4",
-    "typescript": "^5.1.6",
-    "vite": "^4.3.9"
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-svelte": "^2.34.0",
+    "lint-staged": "^15.0.2",
+    "postcss": "^8.4.31",
+    "prettier": "^3.0.3",
+    "prettier-plugin-svelte": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "sass": "^1.69.4",
+    "svelte-check": "^3.5.2",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   },
   "engines": {
     "node": ">= 16"
@@ -70,9 +65,9 @@
     "husky": "^8.0.3",
     "image-size": "^1.0.2",
     "lodash-es": "^4.17.21",
-    "marked": "^5.1.0",
-    "postcss-preset-env": "^8.5.1",
-    "svelte": "^4.0.1",
-    "three": "^0.154.0"
+    "marked": "^9.1.2",
+    "postcss-preset-env": "^9.2.0",
+    "svelte": "^4.2.2",
+    "three": "^0.157.0"
   }
 }

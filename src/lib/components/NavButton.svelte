@@ -40,7 +40,9 @@
     }
   }
   .label {
-    font: 300 22px/70px Raleway, sans-serif;
+    font:
+      300 22px/70px Raleway,
+      sans-serif;
     text-shadow: 0 0 10 rgba(black, 0.5);
     color: white;
   }

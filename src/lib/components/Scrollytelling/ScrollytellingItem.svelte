@@ -1,6 +1,6 @@
 <script lang="ts">
-  import observeSize from "$lib/services/observeSize";
   import { writable } from "svelte/store";
+  import observeSize from "../../../services/observeSize";
 
   export let scroll: number;
 

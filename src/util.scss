@@ -4,8 +4,7 @@ $titilliumWeb: "Titillium Web", sans-serif;
 $raleway: "Raleway", sans-serif;
 
 @function fluid($minScreenSize, $minFontSize, $maxScreenSize, $maxFontSize) {
-  $fontBase: #{$minFontSize -
-    math.div(
+  $fontBase: #{$minFontSize - math.div(
       $minScreenSize * ($maxFontSize - $minFontSize),
       $maxScreenSize - $minScreenSize
     )};

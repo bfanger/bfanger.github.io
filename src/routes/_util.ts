@@ -25,10 +25,7 @@ async function loadProject(slug: string) {
 
   const result = matter(file);
 
-  const content = marked.parse(result.content, {
-    mangle: false,
-    headerIds: false,
-  });
+  const content = marked.parse(result.content, { async: false, gfm: true });
   return {
     ...result.data,
     slug,
@@ -47,7 +44,7 @@ export async function allProjects(): Promise<RawProject[]> {
   return orderBy(
     await Promise.all(projectPromises),
     ["released", "title"],
-    ["desc", "asc"]
+    ["desc", "asc"],
   );
 }
 const destination = `${path.resolve(process.cwd(), "static/build/img")}/`;
@@ -67,7 +64,7 @@ type ProcessedImage = {
 };
 export async function processImage(
   filename: string,
-  alt?: string
+  alt?: string,
 ): Promise<ProcessedImage> {
   const source = path.resolve(dir, "screenshots", filename);
   const dest = path.resolve(destination, filename);
@@ -80,14 +77,15 @@ export async function processImage(
     destStat = { mtime: new Date(0) };
   }
   if (sourceStat.mtime > destStat.mtime) {
-    await execFile("convert", [
+    await execFile("magick", [
+      "convert",
       "-resize",
       "1000x>",
       "-quality",
       "85",
       source,
       destination + filename,
-    ]).catch((err:any) => {
+    ]).catch((err: any) => {
       // eslint-disable-next-line no-console
       console.warn(err);
       return copyFile(source, destination + filename);
@@ -105,7 +103,7 @@ export async function processImage(
         "--force",
         "--skip-if-larger",
         destination + filename,
-      ]).catch((err:any) => {
+      ]).catch((err: any) => {
         if (err.code === 98) {
           return; // conversion results in a file larger than the original
         }

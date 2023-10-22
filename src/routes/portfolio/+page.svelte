@@ -1,14 +1,14 @@
 <script lang="ts">
+  import { groupBy } from "lodash-es";
+  import cardTransition, {
+    cardIn,
+    cardOut,
+  } from "../../services/cardTransition";
+  import type { PageData } from "./$types";
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
   import Disclaimer from "$lib/components/Disclaimer.svelte";
-  import cardTransition, {
-    cardIn,
-    cardOut,
-  } from "$lib/services/cardTransition";
-  import { groupBy } from "lodash-es";
-  import type { PageData } from "./$types";
 
   export let data: PageData;
 

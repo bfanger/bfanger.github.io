@@ -67,7 +67,7 @@ export default function observeSize(el: Element, options?: ResizedOptions) {
 }
 
 function extractStore(
-  options: ResizedOptions | undefined
+  options: ResizedOptions | undefined,
 ): Writable<ResizeObserverSize> {
   if (typeof options === "object") {
     if ((options as any).subscribe) {
@@ -81,7 +81,7 @@ function extractStore(
 }
 
 function extractResizeOptions(
-  options: ResizedOptions | undefined
+  options: ResizedOptions | undefined,
 ): ResizeObserverOptions {
   if (typeof options === "undefined" || (options as any).subscribe) {
     return {};

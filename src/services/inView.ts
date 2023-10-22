@@ -31,7 +31,7 @@ export default function inView(el: Element, options?: InViewOptions) {
       },
       {
         rootMargin: init.rootMargin,
-      }
+      },
     );
     observer.observe(el);
     unsubscribe = intersecting.subscribe(($intersecting) => {
@@ -39,7 +39,7 @@ export default function inView(el: Element, options?: InViewOptions) {
         return;
       }
       el.dispatchEvent(
-        new CustomEvent($intersecting ? "inview-enter" : "inview-leave")
+        new CustomEvent($intersecting ? "inview-enter" : "inview-leave"),
       );
     });
   }
@@ -78,7 +78,7 @@ function extractStore(options: InViewOptions | undefined): Writable<boolean> {
 }
 
 function extractInit(
-  options: InViewOptions | undefined
+  options: InViewOptions | undefined,
 ): IntersectionObserverInit {
   if (typeof options === "undefined" || (options as any).subscribe) {
     return {};

@@ -21,6 +21,7 @@
       alt={image.alt}
     />
   {/if}
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   {@html project.content}
   <div class="footer">
     <a href="/portfolio">&lt; Terug naar portfolio</a>

@@ -24,7 +24,7 @@
       throw new Error("Unexpected");
     }
     const autoHeight = Math.ceil(
-      img.parentElement.getBoundingClientRect().width / (width / height)
+      img.parentElement.getBoundingClientRect().width / (width / height),
     );
     const halfScreen = window.innerHeight / 2;
     if (autoHeight < halfScreen) {
