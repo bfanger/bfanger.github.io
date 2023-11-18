@@ -6,7 +6,6 @@
     PerspectiveCamera,
     Scene,
     Vector3,
-    sRGBEncoding,
     Camera,
     Mesh,
     BufferGeometry,
@@ -48,7 +47,7 @@
       alpha: true,
       // antialias: true
     });
-    renderer.outputEncoding = sRGBEncoding;
+
     camera = new PerspectiveCamera(25, 250 / 250, 0.25, 20);
     camera.position.set(0, 11, 0);
     scene = new Scene();
