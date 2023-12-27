@@ -7,7 +7,7 @@ export const GET: RequestHandler = async ({ params }) => {
   const projects = await allProjects();
   const index = projects.findIndex((p) => p.slug === params.project);
   if (index === -1) {
-    throw error(404, `Geen project gevonden voor "${params.project}"`);
+    error(404, `Geen project gevonden voor "${params.project}"`);
   }
   const data = projects[index];
   const project: Project = {
