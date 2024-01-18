@@ -1,3 +1,0 @@
-import{s as a,n as s}from"./scheduler.6qIGuNQq.js";import{S as o,i as l,g as d,h as c,B as m,k as f,a as p,f as h}from"./index.SKX3nl_2.js";function u(i){let e,n=`Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
-  werkgevers en zijn de concept & design fases reeds door overige partijen
-  uitgevoerd.`;return{c(){e=d("footer"),e.textContent=n,this.h()},l(t){e=c(t,"FOOTER",{class:!0,"data-svelte-h":!0}),m(e)!=="svelte-11klknc"&&(e.textContent=n),this.h()},h(){f(e,"class","disclaimer svelte-11ike7d")},m(t,r){p(t,e,r)},p:s,i:s,o:s,d(t){t&&h(e)}}}class j extends o{constructor(e){super(),l(this,e,null,u,a,{})}}export{j as D};
