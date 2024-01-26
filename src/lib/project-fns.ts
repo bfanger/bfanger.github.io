@@ -1,12 +1,26 @@
-import path from "path";
-import childProcess from "child_process";
-import { promisify } from "util";
-import fs from "fs";
+import path from "node:path";
+import childProcess from "node:child_process";
+import { promisify } from "node:util";
+import fs from "node:fs";
 import matter from "gray-matter";
 import { marked } from "marked";
 import { imageSize } from "image-size";
 import { orderBy } from "lodash-es";
-import type { Project } from "$lib/Project";
+
+export type Project = {
+  slug: string;
+  title: string;
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+    alt?: string;
+  };
+  content: string;
+  released: string;
+  after?: string;
+  before?: string;
+};
 
 const readFile = promisify(fs.readFile);
 const readDir = promisify(fs.readdir);

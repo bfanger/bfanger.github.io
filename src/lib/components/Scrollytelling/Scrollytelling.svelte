@@ -4,7 +4,7 @@
   import { browser } from "$app/environment";
   import Scroller from "$lib/components/Scroller.svelte";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
-  import type { Project } from "$lib/Project";
+  import type { Project } from "$lib/project-fns";
 
   type Teaser = {
     slug: string;

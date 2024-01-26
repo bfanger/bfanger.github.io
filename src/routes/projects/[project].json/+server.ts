@@ -1,6 +1,6 @@
 import { error, json } from "@sveltejs/kit";
-import { allProjects, processImage } from "../../_util";
-import type { Project } from "$lib/Project";
+import { allProjects, processImage } from "$lib/project-fns";
+import type { Project } from "$lib/project-fns";
 
 export async function GET({ params }) {
   const projects = await allProjects();
