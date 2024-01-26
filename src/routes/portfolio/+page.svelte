@@ -4,15 +4,14 @@
     cardIn,
     cardOut,
   } from "../../services/cardTransition";
-  import type { PageData } from "./$types";
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
   import Disclaimer from "$lib/components/Disclaimer.svelte";
 
-  export let data: PageData;
+  export let data;
 
-  type Teaser = PageData["teasers"][number];
+  type Teaser = (typeof data)["teasers"][number];
 
   $: grouped = groupBy(data.teasers, extractYear) as Record<string, Teaser[]>;
   $: years = Object.keys(grouped).sort().reverse();

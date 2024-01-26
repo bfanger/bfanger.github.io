@@ -1,9 +1,8 @@
 import { error, json } from "@sveltejs/kit";
 import { allProjects, processImage } from "../../_util";
-import type { RequestHandler } from "./$types";
 import type { Project } from "$lib/Project";
 
-export const GET: RequestHandler = async ({ params }) => {
+export async function GET({ params }) {
   const projects = await allProjects();
   const index = projects.findIndex((p) => p.slug === params.project);
   if (index === -1) {
@@ -26,4 +25,4 @@ export const GET: RequestHandler = async ({ params }) => {
     project.image = await processImage(data.image);
   }
   return json(project);
-};
+}

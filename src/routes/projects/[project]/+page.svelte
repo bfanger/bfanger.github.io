@@ -3,14 +3,13 @@
     cardIn,
     cardOut,
   } from "../../../services/cardTransition";
-  import type { PageData } from "./$types";
   import Page from "$lib/components/Page.svelte";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
   import Disclaimer from "$lib/components/Disclaimer.svelte";
   import { goto, preloadData } from "$app/navigation";
 
-  export let data: PageData;
+  export let data;
   $: project = data.project;
   $: if (project.before && typeof window !== "undefined") {
     preloadData(project.before);

@@ -2,13 +2,12 @@
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
   import cardTransition from "../services/cardTransition";
-  import type { PageData } from "./$types";
   import Intro from "$lib/components/Intro.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
   import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
 
-  export let data: PageData;
+  export let data;
 
   const introVisible = data.withIntro;
   let cardVisible = data.withCard;

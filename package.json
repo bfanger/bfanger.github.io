@@ -29,10 +29,10 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
-    "@sveltejs/kit": "^2.4.3",
+    "@sveltejs/kit": "^2.5.0",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20.11.6",
+    "@types/node": "^20.11.7",
     "@types/three": "^0.160.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
@@ -63,7 +63,7 @@
   "dependencies": {
     "git-directory-deploy": "^1.5.1",
     "gray-matter": "^4.0.3",
-    "husky": "^8.0.3",
+    "husky": "^9.0.6",
     "image-size": "^1.1.1",
     "lodash-es": "^4.17.21",
     "marked": "^11.1.1",

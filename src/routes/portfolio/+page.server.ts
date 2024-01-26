@@ -1,7 +1,6 @@
 import { allProjects } from "../_util";
-import type { PageServerLoad } from "./$types";
 
-export const load: PageServerLoad = async () => {
+export async function load() {
   const projects = await allProjects();
   const teasers = projects.map((project) => ({
     slug: project.slug,
@@ -9,4 +8,4 @@ export const load: PageServerLoad = async () => {
     released: project.released,
   }));
   return { teasers };
-};
+}

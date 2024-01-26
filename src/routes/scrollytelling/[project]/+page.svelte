@@ -1,9 +1,8 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
   import { browser } from "$app/environment";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
 
-  export let data: PageData;
+  export let data;
 </script>
 
 <svelte:head>
