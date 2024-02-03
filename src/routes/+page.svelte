@@ -56,7 +56,12 @@
           <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
           <p>
             Ik ben een webdeveloper bij
-            <a href="https://www.wearetriple.com/">Triple</a>
+            <a
+              href="https://www.thisisdevelopment.nl/"
+              title="This is Development"
+            >
+              Th[is] Development
+            </a>
             .
             <br />
             Daarnaast ben ik ook actief op:
