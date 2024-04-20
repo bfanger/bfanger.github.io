@@ -1,11 +1,16 @@
 {
   "parserOptions": {
     "project": "./tsconfig.eslint.json",
-    "extraFileExtensions": [".cjs", ".svelte"]
+    "extraFileExtensions": [".cjs", ".svelte"],
   },
   "env": { "browser": true },
   "extends": ["triple/svelte"],
   "rules": {
-    "import/extensions": "off"
-  }
+    "import/extensions": "off",
+    // needed for floating promises
+    "no-void": "off",
+    // Allow checking if index is undefined
+    // Needed because tsconfig noUncheckedIndexedAccess is not enabled
+    "@typescript-eslint/no-unnecessary-condition": "off",
+  },
 }

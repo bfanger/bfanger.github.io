@@ -12,7 +12,7 @@
   const css = {
     height: "auto",
   };
-  $: loading(src);
+  $: void loading(src);
   $: style = `max-width: 100%; height: ${css.height};`;
 
   async function loading(url: string) {

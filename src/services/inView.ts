@@ -71,7 +71,7 @@ function extractStore(options: InViewOptions | undefined): Writable<boolean> {
       return options as Writable<boolean>;
     }
     if ((options as any).store) {
-      return (options as any).store;
+      return (options as any).store as Writable<boolean>;
     }
   }
   return writable(false);
@@ -84,5 +84,5 @@ function extractInit(
     return {};
   }
   const { store, ...init } = options as any;
-  return init;
+  return init as IntersectionObserverInit;
 }

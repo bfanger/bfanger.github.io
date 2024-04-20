@@ -74,7 +74,7 @@ function extractStore(
       return options as Writable<ResizeObserverSize>;
     }
     if ((options as any).store) {
-      return (options as any).store;
+      return (options as any).store as Writable<ResizeObserverSize>;
     }
   }
   return writable({ inlineSize: 0, blockSize: 0 });
@@ -87,5 +87,5 @@ function extractResizeOptions(
     return {};
   }
   const { store, ...init } = options as any;
-  return init;
+  return init as ResizeObserverOptions;
 }

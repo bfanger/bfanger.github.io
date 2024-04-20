@@ -12,18 +12,18 @@
   export let data;
   $: project = data.project;
   $: if (project.before && typeof window !== "undefined") {
-    preloadData(project.before);
+    void preloadData(project.before);
   }
-  function keydown(e: KeyboardEvent) {
+  async function keydown(e: KeyboardEvent) {
     if (e.altKey || e.shiftKey || e.metaKey) {
       return;
     }
     if (e.key === "ArrowLeft" && project.before) {
       cardTransition.set("right");
-      goto(project.before);
+      await goto(project.before);
     } else if (e.key === "ArrowRight" && project.after) {
       cardTransition.set("left");
-      goto(project.after);
+      await goto(project.after);
     }
   }
 </script>

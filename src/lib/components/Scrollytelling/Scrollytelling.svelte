@@ -24,13 +24,13 @@
   $: next = teasers[currentIndex + 1]?.slug;
   // @todo Debounce
   $: if (browser && previous) {
-    loadProject(previous);
+    void loadProject(previous);
   }
   $: if (browser && current) {
-    loadProject(current);
+    void loadProject(current);
   }
   $: if (browser && next) {
-    loadProject(next);
+    void loadProject(next);
   }
 
   $: virtual = [currentIndex - 1, currentIndex, currentIndex + 1].filter(

@@ -12,11 +12,11 @@
   const introVisible = data.withIntro;
   let cardVisible = data.withCard;
   $: skipped = data.skipped;
-  let Avatar: any | undefined = undefined;
+  let Avatar: any = undefined;
   const isServer = typeof window === "undefined";
 
   if (!import.meta.env.SSR) {
-    import("$lib/components/Avatar.svelte").then((m) => {
+    void import("$lib/components/Avatar.svelte").then((m) => {
       Avatar = m.default;
     });
   }

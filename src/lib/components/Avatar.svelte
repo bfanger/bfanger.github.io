@@ -28,7 +28,7 @@
     return avatarPromise;
   }
   if (typeof window !== "undefined") {
-    loadAvatar(); // preload avatar
+    void loadAvatar(); // preload avatar
   }
 </script>
 
@@ -52,7 +52,7 @@
     camera.position.set(0, 11, 0);
     scene = new Scene();
 
-    loadAvatar().then((_avatar) => {
+    void loadAvatar().then((_avatar) => {
       avatar = _avatar;
       if (avatar.material.emissiveMap) {
         avatar.material.emissiveMap.anisotropy =
