@@ -22,6 +22,6 @@
   }
 </script>
 
-<div class="scroller" style:height="{range * 100}vh" />
+<div class="scroller" style:height="{range * 100}vh"></div>
 
 <svelte:window on:scroll={onScroll} />

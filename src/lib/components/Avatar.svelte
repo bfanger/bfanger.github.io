@@ -84,7 +84,7 @@
   $: rotate($xz);
 </script>
 
-<canvas bind:this={el} class="avatar" />
+<canvas bind:this={el} class="avatar"></canvas>
 <svelte:window on:mousemove={mousemoved} />
 
 <style>
