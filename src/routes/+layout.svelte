@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import gtm from "../services/gtm";
 
   let el: HTMLElement;
   let minHeight = "";
@@ -16,19 +15,12 @@
   function unmount() {
     window.removeEventListener("resize", detectHeight);
   }
-  function onNavigation() {
-    gtm({
-      event: "VirtualPageview",
-      virtualPageUrl: window.location.pathname,
-      virtualPageTitle: document.title,
-    });
-  }
   function detectHeight() {
     minHeight = `${window.innerHeight}px`;
   }
 </script>
 
-<svelte:window on:sveltekit:navigation-end={onNavigation} />
+<svelte:window />
 <div
   class="layout"
   style={minHeight ? `min-height: ${minHeight}` : ""}
