@@ -1,3 +1,3 @@
-import{s as a,n as s}from"./scheduler.173kFitQ.js";import{S as o,i as l,j as d,l as c,r as m,u as p,g as f,e as u}from"./index.vzDccf9I.js";function h(r){let e,n=`Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+import{s as a,n as s}from"./scheduler.2uS4j9ov.js";import{S as o,i as l,j as d,l as c,r as m,u as p,g as f,e as u}from"./index.DFcc2ndm.js";function h(r){let e,n=`Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
   werkgevers en zijn de concept & design fases reeds door overige partijen
   uitgevoerd.`;return{c(){e=d("footer"),e.textContent=n,this.h()},l(t){e=c(t,"FOOTER",{class:!0,"data-svelte-h":!0}),m(e)!=="svelte-11klknc"&&(e.textContent=n),this.h()},h(){p(e,"class","disclaimer svelte-11ike7d")},m(t,i){f(t,e,i)},p:s,i:s,o:s,d(t){t&&u(e)}}}class j extends o{constructor(e){super(),l(this,e,null,h,a,{})}}export{j as D};

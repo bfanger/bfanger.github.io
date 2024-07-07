@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    
+		<link href="../_app/immutable/assets/0.CfuLkybp.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/6.BMRp-CYj.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Disclaimer.BbvUZPjW.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cardTransition.B6x03McQ.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Page.CHTXAqVE.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/ProjectCard.ZrbnZBq3.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Card.BVAbBgui.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.CDUFSf5p.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.CNWl05vZ.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.2uS4j9ov.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.COfnfqyK.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/control.CYgJF_JY.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.DCzjnVjv.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/7.-LS5Hydt.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.DFcc2ndm.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.YjzQVYD7.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/6.CThPeIBz.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/globals.D0QH3NT1.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer.xqBJhMec.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition.CtB7mao0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Page.D09rshDm.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/ProjectCard.D7vgeVMS.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Card.CGTKrk51.js"><title>T-Mobile IoT Creators</title><!-- HEAD_svelte-1cx8lxk_START --><!-- HEAD_svelte-1cx8lxk_END -->
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>   <div class="layout svelte-axelk7" style="">  <div class="page svelte-1bt78wr"><div><div class="card svelte-vrket8"><h1>T-Mobile IoT Creators</h1> <img class="project-image svelte-frg6k1" style="max-width: 100%; height: auto;" src="/build/img/iot-creators.png" width="1632" height="1021" alt="Een screenshot van het project">  <!-- HTML_TAG_START --><p>De <a href="https://iotcreators.com/">T-Mobile - IoT Creators</a> portal voor het beheren van IoT devices kreeg een reskin, hiervoor is gebruik gemaakt van <a href="https://mui.com/">Material UI</a>. D</p>
+<p>De rewrite was al ver gevorderd toen bij het project kwam, ik heb voornamelijk gewerkt aan het het oplossen van bugs en heb <a href="https://playwright.dev/">Playwright E2E</a> ingezet zodat de bugs ook wegblijven.</p>
+<!-- HTML_TAG_END --> <div class="footer svelte-1dkbrsg"><a href="/portfolio" data-svelte-h="svelte-1txbc2h">&lt; Terug naar portfolio</a> <span class="release-date svelte-1dkbrsg">April 2024</span></div> </div></div> </div>  <div class="project-page__previous svelte-ktylb9"><a href="/portfolio" data-sveltekit-preload-data class="nav-button svelte-1fvdgcs  previous"><div class="label svelte-1fvdgcs">Portfolio</div> </a></div>  <div class="project-page__next svelte-ktylb9"><a href="radioveronia" data-sveltekit-preload-data class="nav-button svelte-1fvdgcs next"><div class="label svelte-1fvdgcs">Volgende</div> </a></div> <div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d" data-svelte-h="svelte-11klknc">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer> </div> </div> 
+			<script type="application/json" data-sveltekit-fetched data-url="/projects/iot-creators.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"iot-creators\",\"title\":\"T-Mobile IoT Creators\",\"released\":\"2024-04\",\"content\":\"\u003Cp>De \u003Ca href=\\\"https://iotcreators.com/\\\">T-Mobile - IoT Creators\u003C/a> portal voor het beheren van IoT devices kreeg een reskin, hiervoor is gebruik gemaakt van \u003Ca href=\\\"https://mui.com/\\\">Material UI\u003C/a>. D\u003C/p>\\n\u003Cp>De rewrite was al ver gevorderd toen bij het project kwam, ik heb voornamelijk gewerkt aan het het oplossen van bugs en heb \u003Ca href=\\\"https://playwright.dev/\\\">Playwright E2E\u003C/a> ingezet zodat de bugs ook wegblijven.\u003C/p>\\n\",\"after\":\"radioveronia\",\"image\":{\"src\":\"/build/img/iot-creators.png\",\"width\":1632,\"height\":1021}}"}</script>
+			<script>
+				{
+					__sveltekit_hdw98d = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.CDUFSf5p.js"),
+						import("../_app/immutable/entry/app.DCzjnVjv.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</svelte-app>
+  </body>
+</html>
