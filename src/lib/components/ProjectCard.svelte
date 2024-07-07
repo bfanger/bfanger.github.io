@@ -4,8 +4,8 @@
 </script>
 
 <script lang="ts">
-  import { formatReleaseDate } from "$lib/formatDate";
   import type { Project } from "$lib/project-fns";
+  import { formatReleaseDate } from "$lib/formatDate";
 
   export let project: Project;
   $: image = project.image;

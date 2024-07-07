@@ -1,10 +1,10 @@
 <script lang="ts">
-  import ScrollytellingItem from "./ScrollytellingItem.svelte";
-  import { page } from "$app/stores";
-  import { browser } from "$app/environment";
-  import Scroller from "$lib/components/Scroller.svelte";
-  import ProjectCard from "$lib/components/ProjectCard.svelte";
   import type { Project } from "$lib/project-fns";
+  import { browser } from "$app/environment";
+  import { page } from "$app/stores";
+  import ProjectCard from "$lib/components/ProjectCard.svelte";
+  import Scroller from "$lib/components/Scroller.svelte";
+  import ScrollytellingItem from "./ScrollytellingItem.svelte";
 
   type Teaser = {
     slug: string;

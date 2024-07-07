@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Page from "$lib/components/Page.svelte";
   import Card from "$lib/components/Card.svelte";
+  import Page from "$lib/components/Page.svelte";
 
   export let title: string | number;
   export let message: string;

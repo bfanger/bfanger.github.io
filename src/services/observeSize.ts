@@ -1,5 +1,5 @@
-import { writable } from "svelte/store";
 import type { Writable } from "svelte/store";
+import { writable } from "svelte/store";
 
 type ResizedOptions =
   | Writable<ResizeObserverSize>
@@ -25,7 +25,7 @@ export default function observeSize(el: Element, options?: ResizedOptions) {
 
   function attach({ box }: ResizeObserverOptions) {
     observer = new ResizeObserver(([entry]) => {
-      let sizes: ResizeObserverSize | ReadonlyArray<ResizeObserverSize>;
+      let sizes: ResizeObserverSize | readonly ResizeObserverSize[];
       if (box === "border-box") {
         sizes = entry.borderBoxSize;
       } else if (box === "device-pixel-content-box") {

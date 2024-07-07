@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
-  import cardTransition from "../services/cardTransition";
+  import Card from "$lib/components/Card.svelte";
   import Intro from "$lib/components/Intro.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
   import Page from "$lib/components/Page.svelte";
-  import Card from "$lib/components/Card.svelte";
+  import cardTransition from "../services/cardTransition";
 
   export let data;
 

@@ -1,16 +1,13 @@
 <script context="module" lang="ts">
-  import { onMount } from "svelte";
-  import { spring } from "svelte/motion";
-  import {
-    WebGLRenderer,
-    PerspectiveCamera,
-    Scene,
-    Vector3,
+  import type {
+    BufferGeometry,
     Camera,
     Mesh,
-    BufferGeometry,
     MeshPhysicalMaterial,
   } from "three";
+  import { onMount } from "svelte";
+  import { spring } from "svelte/motion";
+  import { PerspectiveCamera, Scene, Vector3, WebGLRenderer } from "three";
   import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
   type Avatar3D = Mesh<BufferGeometry, MeshPhysicalMaterial>;

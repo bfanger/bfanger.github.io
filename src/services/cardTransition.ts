@@ -1,5 +1,5 @@
 /* eslint-disable import/no-duplicates */
-import { writable, get } from "svelte/store";
+import { get, writable } from "svelte/store";
 import { fly } from "svelte/transition";
 
 type Config = Record<string, unknown>;

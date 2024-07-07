@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { goto, preloadData } from "$app/navigation";
+  import Disclaimer from "$lib/components/Disclaimer.svelte";
+  import NavButton from "$lib/components/NavButton.svelte";
+  import Page from "$lib/components/Page.svelte";
+  import ProjectCard from "$lib/components/ProjectCard.svelte";
   import cardTransition, {
     cardIn,
     cardOut,
   } from "../../../services/cardTransition";
-  import Page from "$lib/components/Page.svelte";
-  import ProjectCard from "$lib/components/ProjectCard.svelte";
-  import NavButton from "$lib/components/NavButton.svelte";
-  import Disclaimer from "$lib/components/Disclaimer.svelte";
-  import { goto, preloadData } from "$app/navigation";
 
   export let data;
   $: project = data.project;
