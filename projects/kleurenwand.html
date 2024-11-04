@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    
+		<link href="../_app/immutable/assets/0.CfuLkybp.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/6.BMRp-CYj.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Disclaimer.BbvUZPjW.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cardTransition.B6x03McQ.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Page.CHTXAqVE.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/ProjectCard.ZrbnZBq3.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Card.BVAbBgui.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.Ci0DyuX8.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.DPcN8OSS.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.2uS4j9ov.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.COfnfqyK.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/control.CYgJF_JY.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.snaCKOlx.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/7.-LS5Hydt.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.DFcc2ndm.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.YjzQVYD7.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/6.CwgcoS5m.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/globals.D0QH3NT1.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Disclaimer.xqBJhMec.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/cardTransition.CtB7mao0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Page.D09rshDm.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/ProjectCard.D7vgeVMS.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Card.CGTKrk51.js"><title>Kleurenwand iframe</title><!-- HEAD_svelte-1cx8lxk_START --><!-- HEAD_svelte-1cx8lxk_END -->
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app>   <div class="layout svelte-axelk7" style="">  <div class="page svelte-1bt78wr"><div><div class="card svelte-vrket8"><h1>Kleurenwand iframe</h1> <img class="project-image svelte-frg6k1" style="max-width: 100%; height: auto;" src="/build/img/kleurenwand.png" width="3194" height="1908" alt="Een screenshot van het project">  <!-- HTML_TAG_START --><p>Voor Brico en Praxis is een bestaande <a href="https://levisletscolour.be/">&quot;Levis let&#39;s colour&quot; minisite</a> omgebouwd naar een embeddable variant.</p>
+<p>Deze variant is herbouwd in Svelte en is een stuk lichter (en sneller) dan de originele versie.</p>
+<p>Het was een klein kleurrijk project dat leuk was om te maken.</p>
+<!-- Met name de popup binnen het iframe is lastig -->
+<!-- HTML_TAG_END --> <div class="footer svelte-1dkbrsg"><a href="/portfolio" data-svelte-h="svelte-1txbc2h">&lt; Terug naar portfolio</a> <span class="release-date svelte-1dkbrsg">Oktober 2024</span></div> </div></div> </div>  <div class="project-page__previous svelte-ktylb9"><a href="/portfolio" data-sveltekit-preload-data class="nav-button svelte-1fvdgcs  previous"><div class="label svelte-1fvdgcs">Portfolio</div> </a></div>  <div class="project-page__next svelte-ktylb9"><a href="iot-creators" data-sveltekit-preload-data class="nav-button svelte-1fvdgcs next"><div class="label svelte-1fvdgcs">Volgende</div> </a></div> <div class="project-page__disclaimer svelte-ktylb9"><footer class="disclaimer svelte-11ike7d" data-svelte-h="svelte-11klknc">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.
+</footer> </div> </div> 
+			<script type="application/json" data-sveltekit-fetched data-url="/projects/kleurenwand.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"kleurenwand\",\"title\":\"Kleurenwand iframe\",\"released\":\"2024-10\",\"content\":\"\u003Cp>Voor Brico en Praxis is een bestaande \u003Ca href=\\\"https://levisletscolour.be/\\\">&quot;Levis let&#39;s colour&quot; minisite\u003C/a> omgebouwd naar een embeddable variant.\u003C/p>\\n\u003Cp>Deze variant is herbouwd in Svelte en is een stuk lichter (en sneller) dan de originele versie.\u003C/p>\\n\u003Cp>Het was een klein kleurrijk project dat leuk was om te maken.\u003C/p>\\n\u003C!-- Met name de popup binnen het iframe is lastig -->\\n\",\"after\":\"iot-creators\",\"image\":{\"src\":\"/build/img/kleurenwand.png\",\"width\":3194,\"height\":1908}}"}</script>
+			<script>
+				{
+					__sveltekit_7z5egk = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("../_app/immutable/entry/start.Ci0DyuX8.js"),
+						import("../_app/immutable/entry/app.snaCKOlx.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</svelte-app>
+  </body>
+</html>
