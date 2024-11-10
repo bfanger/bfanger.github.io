@@ -1,14 +1,15 @@
-<script context="module" lang="ts">
+<script lang="ts">
   import Card from "./Card.svelte";
   import ProjectImage from "./ProjectImage.svelte";
-</script>
-
-<script lang="ts">
   import type { Project } from "$lib/project-fns";
   import { formatReleaseDate } from "$lib/formatDate";
 
-  export let project: Project;
-  $: image = project.image;
+  type Props = {
+    project: Project;
+  };
+
+  let { project }: Props = $props();
+  let image = $derived(project.image);
 </script>
 
 <Card>

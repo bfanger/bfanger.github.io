@@ -1,19 +1,28 @@
 <script lang="ts">
+  import { run } from "svelte/legacy";
+
   import { noop } from "lodash-es";
   import { tick } from "svelte";
 
-  export let src: string;
-  export let width: number;
-  export let height: number;
-  export let alt = "Een screenshot van het project";
-
-  let img: HTMLImageElement;
-
-  const css = {
-    height: "auto",
+  type Props = {
+    src: string;
+    width: number;
+    height: number;
+    alt?: string;
   };
-  $: void loading(src);
-  $: style = `max-width: 100%; height: ${css.height};`;
+
+  let {
+    src,
+    width,
+    height,
+    alt = "Een screenshot van het project",
+  }: Props = $props();
+
+  let img: HTMLImageElement | undefined = $state();
+
+  const css = $state({
+    height: "auto",
+  });
 
   async function loading(url: string) {
     noop(url);
@@ -40,6 +49,10 @@
   function loaded() {
     css.height = "auto";
   }
+  run(() => {
+    void loading(src);
+  });
+  let style = $derived(`max-width: 100%; height: ${css.height};`);
 </script>
 
 <img
@@ -50,7 +63,7 @@
   {width}
   {height}
   {alt}
-  on:load={loaded}
+  onload={loaded}
 />
 
 <style>

@@ -1,9 +1,15 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
   import Page from "$lib/components/Page.svelte";
+  import type { Snippet } from "svelte";
 
-  export let title: string | number;
-  export let message: string;
+  type Props = {
+    title: string | number;
+    message: string;
+    children?: Snippet;
+  };
+
+  let { title, message, children }: Props = $props();
 </script>
 
 <svelte:head>
@@ -15,6 +21,6 @@
     <h1>{title}</h1>
     <p>{message}</p>
 
-    <slot />
+    {@render children?.()}
   </Card>
 </Page>

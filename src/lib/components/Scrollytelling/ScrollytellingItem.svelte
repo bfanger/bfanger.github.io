@@ -1,8 +1,14 @@
 <script lang="ts">
   import { writable } from "svelte/store";
   import observeSize from "../../../services/observeSize";
+  import type { Snippet } from "svelte";
 
-  export let scroll: number;
+  type Props = {
+    scroll: number;
+    children?: Snippet;
+  };
+
+  let { scroll, children }: Props = $props();
 
   const padding = 16;
 
@@ -56,7 +62,7 @@
   style:transform={transform(scroll, $size.blockSize)}
   use:observeSize={size}
 >
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

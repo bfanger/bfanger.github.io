@@ -9,12 +9,9 @@
     cardOut,
   } from "../../services/cardTransition";
 
-  export let data;
+  let { data } = $props();
 
   type Teaser = (typeof data)["teasers"][number];
-
-  $: grouped = groupBy(data.teasers, extractYear) as Record<string, Teaser[]>;
-  $: years = Object.keys(grouped).sort().reverse();
 
   function extractYear(project: Teaser) {
     const match = project.released.toString().match(/^[0-9]+/);
@@ -24,6 +21,10 @@
     }
     return parseInt(match[0], 10);
   }
+  let grouped = $derived(
+    groupBy(data.teasers, extractYear) as Record<string, Teaser[]>,
+  );
+  let years = $derived(Object.keys(grouped).sort().reverse());
 </script>
 
 <svelte:head>
@@ -35,9 +36,9 @@
       <h1>Portfolio van Bob Fanger</h1>
       {#each years as year}
         <h2>{year}</h2>
-        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
         <ul
-          on:mousedown={() => {
+          onmousedown={() => {
             cardTransition.set("left");
           }}
         >
@@ -48,14 +49,13 @@
           {/each}
         </ul>
       {/each}
-      <slot />
     </Card>
   </div>
   <div class="previous">
     <NavButton
       href="/"
       type="previous"
-      on:mousedown={() => {
+      onmousedown={() => {
         cardTransition.set("right");
       }}
     >

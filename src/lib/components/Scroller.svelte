@@ -1,13 +1,17 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  /**
-   * Usage is like using an <input type="range" />
-   */
-  export let max: number;
-  export let value: number;
+  type Props = {
+    /**
+     * Usage is like using an <input type="range" />
+     */
+    max: number;
+    value: number;
+  };
 
-  $: range = max;
+  let { max, value = $bindable() }: Props = $props();
+
+  let range = $derived(max);
 
   if (value !== 0) {
     onMount(() => {
@@ -24,4 +28,4 @@
 
 <div class="scroller" style:height="{range * 100}vh"></div>
 
-<svelte:window on:scroll={onScroll} />
+<svelte:window onscroll={onScroll} />

@@ -1,24 +1,29 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, type Snippet } from "svelte";
   import "../app.css";
 
-  let el: HTMLElement;
-  let minHeight = "";
+  type Props = {
+    children?: Snippet;
+  };
+  let { children }: Props = $props();
+
+  let el: HTMLElement | undefined = $state();
+  let minHeight = $state("");
 
   onMount(() => {
-    if (el.clientHeight !== window.innerHeight) {
-      // 100vh doesn't works in this browser (or the content doesn't fit)
-      window.addEventListener("resize", detectHeight);
-      detectHeight();
+    if (el?.clientHeight === window.innerHeight) {
+      return;
     }
-    return unmount;
+    // 100vh doesn't works in this browser (or the content doesn't fit)
+    function detectHeight() {
+      minHeight = `${window.innerHeight}px`;
+    }
+    window.addEventListener("resize", detectHeight);
+    detectHeight();
+    return () => {
+      window.removeEventListener("resize", detectHeight);
+    };
   });
-  function unmount() {
-    window.removeEventListener("resize", detectHeight);
-  }
-  function detectHeight() {
-    minHeight = `${window.innerHeight}px`;
-  }
 </script>
 
 <svelte:window />
@@ -27,7 +32,7 @@
   style={minHeight ? `min-height: ${minHeight}` : ""}
   bind:this={el}
 >
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

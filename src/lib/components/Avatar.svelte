@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   import type {
     BufferGeometry,
     Camera,
@@ -30,7 +30,9 @@
 </script>
 
 <script lang="ts">
-  let el: HTMLCanvasElement;
+  import { run } from "svelte/legacy";
+
+  let el: HTMLCanvasElement | undefined = $state();
   let renderer: WebGLRenderer;
   let scene: Scene;
   let camera: Camera;
@@ -78,11 +80,13 @@
     avatar.rotation.z = z;
     renderer.render(scene, camera);
   }
-  $: rotate($xz);
+  run(() => {
+    rotate($xz);
+  });
 </script>
 
 <canvas bind:this={el} class="avatar"></canvas>
-<svelte:window on:mousemove={mousemoved} />
+<svelte:window onmousemove={mousemoved} />
 
 <style>
   .avatar {

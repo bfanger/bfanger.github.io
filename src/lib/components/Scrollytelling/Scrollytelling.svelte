@@ -1,10 +1,13 @@
 <script lang="ts">
+  import { run } from "svelte/legacy";
+
   import type { Project } from "$lib/project-fns";
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import Scroller from "$lib/components/Scroller.svelte";
   import ScrollytellingItem from "./ScrollytellingItem.svelte";
+  import type { Snippet } from "svelte";
 
   type Teaser = {
     slug: string;
@@ -12,30 +15,17 @@
     released: string;
   };
 
-  export let teasers: Teaser[];
+  type Props = {
+    teasers: Teaser[];
+    children?: Snippet;
+  };
+
+  let { teasers, children }: Props = $props();
 
   const initial = findIndex($page.params.project);
-  const cached: Record<number, Promise<Project>> = {}; // @todo Prime cache with server project data
+  const cached: Record<number, Promise<Project>> = $state({}); // @todo Prime cache with server project data
 
-  let scrollIndex = initial;
-  $: currentIndex = Math.round(scrollIndex);
-  $: previous = teasers[currentIndex - 1]?.slug;
-  $: current = teasers[currentIndex]?.slug;
-  $: next = teasers[currentIndex + 1]?.slug;
-  // @todo Debounce
-  $: if (browser && previous) {
-    void loadProject(previous);
-  }
-  $: if (browser && current) {
-    void loadProject(current);
-  }
-  $: if (browser && next) {
-    void loadProject(next);
-  }
-
-  $: virtual = [currentIndex - 1, currentIndex, currentIndex + 1].filter(
-    (index) => index >= 0 && index < teasers.length && index !== initial,
-  );
+  let scrollIndex = $state(initial);
 
   function findIndex(slug: string) {
     return teasers.findIndex((t) => t.slug === slug);
@@ -50,9 +40,6 @@
       );
     }
     return cached[projectIndex];
-  }
-  $: if (browser) {
-    updateUrl(currentIndex);
   }
 
   function updateUrl(index: number) {
@@ -72,6 +59,36 @@
       title: teaser.title,
     };
   }
+  let currentIndex = $derived(Math.round(scrollIndex));
+  let previous = $derived(teasers[currentIndex - 1]?.slug);
+  let current = $derived(teasers[currentIndex]?.slug);
+  let next = $derived(teasers[currentIndex + 1]?.slug);
+  // @todo Debounce
+  run(() => {
+    if (browser && previous) {
+      void loadProject(previous);
+    }
+  });
+  run(() => {
+    if (browser && current) {
+      void loadProject(current);
+    }
+  });
+  run(() => {
+    if (browser && next) {
+      void loadProject(next);
+    }
+  });
+  let virtual = $derived(
+    [currentIndex - 1, currentIndex, currentIndex + 1].filter(
+      (index) => index >= 0 && index < teasers.length && index !== initial,
+    ),
+  );
+  run(() => {
+    if (browser) {
+      updateUrl(currentIndex);
+    }
+  });
 </script>
 
 <Scroller max={teasers.length - 1} bind:value={scrollIndex} />
@@ -91,7 +108,7 @@
   {/each}
   {#if initial > currentIndex - 2 && initial < currentIndex + 2}
     <ScrollytellingItem scroll={scrollIndex - initial}>
-      <slot />
+      {@render children?.()}
     </ScrollytellingItem>
   {/if}
 </div>

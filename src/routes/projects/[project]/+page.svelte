@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { run } from "svelte/legacy";
+
   import { goto, preloadData } from "$app/navigation";
   import Disclaimer from "$lib/components/Disclaimer.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
@@ -9,11 +11,13 @@
     cardOut,
   } from "../../../services/cardTransition";
 
-  export let data;
-  $: project = data.project;
-  $: if (project.before && typeof window !== "undefined") {
-    void preloadData(project.before);
-  }
+  let { data } = $props();
+  let project = $derived(data.project);
+  run(() => {
+    if (project.before && typeof window !== "undefined") {
+      void preloadData(project.before);
+    }
+  });
   async function keydown(e: KeyboardEvent) {
     if (e.altKey || e.shiftKey || e.metaKey) {
       return;
@@ -31,7 +35,7 @@
 <svelte:head>
   <title>{project.title}</title>
 </svelte:head>
-<svelte:window on:keydown={keydown} />
+<svelte:window onkeydown={keydown} />
 
 {#key project}
   <Page>
@@ -41,10 +45,10 @@
   </Page>
 {/key}
 
-<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   class="previous"
-  on:mousedown={() => {
+  onmousedown={() => {
     cardTransition.set("right");
   }}
 >
@@ -56,10 +60,10 @@
 </div>
 
 {#if project.after}
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     class="next"
-    on:mousedown={() => {
+    onmousedown={() => {
       cardTransition.set("left");
     }}
   >

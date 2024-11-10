@@ -1,4 +1,11 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
+
+  type Props = {
+    children?: Snippet;
+  };
+
+  let { children }: Props = $props();
   function out(node: Element) {
     node.classList.add("outro");
     return {
@@ -10,7 +17,7 @@
 </script>
 
 <div class="page" class:outro={false} out:out|global>
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

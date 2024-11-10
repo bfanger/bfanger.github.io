@@ -2,7 +2,7 @@
   import { browser } from "$app/environment";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
 
-  export let data;
+  let { data } = $props();
 </script>
 
 <svelte:head>

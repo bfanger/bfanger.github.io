@@ -1,6 +1,14 @@
 <script lang="ts">
-  export let href: string;
-  export let type: "next" | "previous";
+  import type { Snippet } from "svelte";
+
+  type Props = {
+    href: string;
+    type: "next" | "previous";
+    onmousedown?: () => void;
+    children?: Snippet;
+  };
+
+  let { href, type, onmousedown, children }: Props = $props();
 </script>
 
 <a
@@ -9,10 +17,10 @@
   class="nav-button"
   class:next={type === "next"}
   class:previous={type === "previous"}
-  on:mousedown
+  onmousedown={() => onmousedown?.()}
 >
   <div class="label">
-    <slot />
+    {@render children?.()}
   </div>
 </a>
 

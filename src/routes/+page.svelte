@@ -7,12 +7,12 @@
   import Page from "$lib/components/Page.svelte";
   import cardTransition from "../services/cardTransition";
 
-  export let data;
+  let { data } = $props();
 
   const introVisible = data.withIntro;
-  let cardVisible = data.withCard;
-  $: skipped = data.skipped;
-  let Avatar: any = undefined;
+  let cardVisible = $state(data.withCard);
+  let skipped = $derived(data.skipped);
+  let Avatar: any = $state(undefined);
   const isServer = typeof window === "undefined";
 
   if (!import.meta.env.SSR) {
@@ -46,7 +46,7 @@
           <img src="images/avatar.webp" class="avatar" alt="Bob Fanger" />
           <div class="avatar">
             {#if Avatar}
-              <svelte:component this={Avatar} />
+              <Avatar />
             {/if}
           </div>
           <h1 class="title">Hoi, ik ben Bob&nbsp;Fanger</h1>
@@ -84,7 +84,7 @@
         <NavButton
           type="next"
           href="/portfolio"
-          on:mousedown={() => {
+          onmousedown={() => {
             cardTransition.set("left");
           }}
         >

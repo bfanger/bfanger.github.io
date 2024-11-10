@@ -1,9 +1,16 @@
 <script lang="ts">
-  export let homepage = false;
+  import type { Snippet } from "svelte";
+
+  type Props = {
+    homepage?: boolean;
+    children?: Snippet;
+  };
+
+  let { homepage = false, children }: Props = $props();
 </script>
 
 <div class="card" class:homepage>
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>
