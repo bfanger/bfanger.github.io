@@ -19,7 +19,7 @@
   function extractYear(project: Teaser) {
     const match = project.released.toString().match(/^[0-9]+/);
     if (match === null) {
-      console.warn(`Project[${project.slug}].released is invalid`); // eslint-disable-line no-console
+      console.warn(`Project[${project.slug}].released is invalid`);
       return 2000;
     }
     return parseInt(match[0], 10);

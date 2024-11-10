@@ -33,6 +33,7 @@ export default function observeSize(el: Element, options?: ResizedOptions) {
       } else {
         sizes = entry.contentBoxSize;
       }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       size.set(Array.isArray(sizes) ? sizes[0] : sizes);
       skipOne = false;
     });

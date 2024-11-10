@@ -87,7 +87,7 @@ export async function processImage(
   let destStat;
   try {
     destStat = fs.statSync(dest);
-  } catch (err) {
+  } catch {
     destStat = { mtime: new Date(0) };
   }
   if (sourceStat.mtime > destStat.mtime) {
@@ -100,7 +100,6 @@ export async function processImage(
       source,
       destination + filename,
     ]).catch((err: any) => {
-      // eslint-disable-next-line no-console
       console.warn(err);
       return copyFile(source, destination + filename);
     });
@@ -121,7 +120,7 @@ export async function processImage(
         if (err.code === 98) {
           return; // conversion results in a file larger than the original
         }
-        console.warn(err.message); // eslint-disable-line no-console
+        console.warn(err.message);
       });
     }
   }

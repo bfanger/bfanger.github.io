@@ -21,7 +21,7 @@
     });
   }
 
-  onMount(async () => {
+  onMount(() => {
     (window as any).introPromise.then(() => {
       cardVisible = true;
     });
@@ -67,7 +67,7 @@
             Daarnaast ben ik ook actief op:
             <br />
             <a href="https://github.com/bfanger/">
-              <i class="icon-github" />
+              <i class="icon-github"></i>
               GitHub
             </a>
             en

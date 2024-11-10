@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates */
 import { get, writable } from "svelte/store";
 import { fly } from "svelte/transition";
 

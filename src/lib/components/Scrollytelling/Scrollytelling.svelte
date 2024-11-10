@@ -43,6 +43,7 @@
 
   function loadProject(slug: string) {
     const projectIndex = findIndex(slug);
+    /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
     if (!cached[projectIndex]) {
       cached[projectIndex] = fetch(`/projects/${slug}.json`).then((r) =>
         r.json(),
