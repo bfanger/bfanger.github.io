@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { run } from "svelte/legacy";
-
   import type { Project } from "$lib/project-fns";
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
@@ -64,17 +62,17 @@
   let current = $derived(teasers[currentIndex]?.slug);
   let next = $derived(teasers[currentIndex + 1]?.slug);
   // @todo Debounce
-  run(() => {
+  $effect(() => {
     if (browser && previous) {
       void loadProject(previous);
     }
   });
-  run(() => {
+  $effect(() => {
     if (browser && current) {
       void loadProject(current);
     }
   });
-  run(() => {
+  $effect(() => {
     if (browser && next) {
       void loadProject(next);
     }
@@ -84,7 +82,7 @@
       (index) => index >= 0 && index < teasers.length && index !== initial,
     ),
   );
-  run(() => {
+  $effect(() => {
     if (browser) {
       updateUrl(currentIndex);
     }

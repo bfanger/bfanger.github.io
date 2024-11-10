@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { run } from "svelte/legacy";
-
   import { goto, preloadData } from "$app/navigation";
   import Disclaimer from "$lib/components/Disclaimer.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
@@ -13,7 +11,7 @@
 
   let { data } = $props();
   let project = $derived(data.project);
-  run(() => {
+  $effect(() => {
     if (project.before && typeof window !== "undefined") {
       void preloadData(project.before);
     }

@@ -30,8 +30,6 @@
 </script>
 
 <script lang="ts">
-  import { run } from "svelte/legacy";
-
   let el: HTMLCanvasElement | undefined = $state();
   let renderer: WebGLRenderer;
   let scene: Scene;
@@ -80,7 +78,7 @@
     avatar.rotation.z = z;
     renderer.render(scene, camera);
   }
-  run(() => {
+  $effect(() => {
     rotate($xz);
   });
 </script>

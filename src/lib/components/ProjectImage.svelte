@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { run } from "svelte/legacy";
-
   import { noop } from "lodash-es";
   import { tick } from "svelte";
 
@@ -49,7 +47,7 @@
   function loaded() {
     css.height = "auto";
   }
-  run(() => {
+  $effect(() => {
     void loading(src);
   });
   let style = $derived(`max-width: 100%; height: ${css.height};`);
