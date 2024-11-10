@@ -43,7 +43,7 @@
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
-  class="project-page__previous"
+  class="previous"
   on:mousedown={() => {
     cardTransition.set("right");
   }}
@@ -58,7 +58,7 @@
 {#if project.after}
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
-    class="project-page__next"
+    class="next"
     on:mousedown={() => {
       cardTransition.set("left");
     }}
@@ -66,45 +66,51 @@
     <NavButton href={project.after} type="next">Volgende</NavButton>
   </div>
 {/if}
-<div class="project-page__disclaimer">
+<div class="disclaimer">
   <Disclaimer />
 </div>
 
-<style lang="scss">
-  .project-page__disclaimer {
+<style>
+  .disclaimer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
   }
-  .project-page__previous {
+
+  .previous {
     position: fixed;
     z-index: 1;
     bottom: calc(50% - 35px);
     left: calc(50vw - 550px);
     transform: translateX(-50%);
-    @media (max-width: 1290px) {
+
+    @media (width <= 1290px) {
       left: 30px;
       transform: none;
     }
-    @media (max-width: 880px) {
+
+    @media (width <= 880px) {
       bottom: 50px;
       left: 20px;
     }
   }
-  .project-page__next {
+
+  .next {
     position: fixed;
     z-index: 1;
-    bottom: calc(50% - 35px);
     right: calc(50vw - 550px);
+    bottom: calc(50% - 35px);
     transform: translateX(50%);
-    @media (max-width: 1290px) {
+
+    @media (width <= 1290px) {
       right: 30px;
       transform: none;
     }
-    @media (max-width: 880px) {
-      bottom: 50px;
+
+    @media (width <= 880px) {
       right: 20px;
+      bottom: 50px;
     }
   }
 </style>

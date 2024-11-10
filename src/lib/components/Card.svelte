@@ -6,20 +6,24 @@
   <slot />
 </div>
 
-<style lang="scss">
+<style>
   .card {
     display: block;
-    background: rgba(#ffffff, 0.9);
-    min-width: 33%;
+
+    box-sizing: border-box;
     width: 100%;
+    min-width: 33%;
     max-width: 760px;
     padding: 10px 20px;
-    box-sizing: border-box;
-    box-shadow: 6px 6px 60px rgba(black, 0.2);
-    @media (min-width: 500px) {
+
+    background: #ffffffe6;
+    box-shadow: 6px 6px 60px #0003;
+
+    @media (width >= 500px) {
       padding: 25px 30px;
     }
   }
+
   .homepage {
     position: relative;
     width: auto;

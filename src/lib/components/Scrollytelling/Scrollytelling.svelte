@@ -96,7 +96,7 @@
   {/if}
 </div>
 
-<style lang="scss">
+<style>
   .viewport {
     position: fixed;
     inset: 0;

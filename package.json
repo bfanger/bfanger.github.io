@@ -11,7 +11,7 @@
     "lint:prettier": "prettier --check .",
     "lint:svelte-check": "svelte-check --fail-on-warnings",
     "lint:eslint": "eslint --max-warnings=0",
-    "skip:lint:stylelint": "stylelint --max-warnings=0 \"src/**/*.{css,svelte}\"",
+    "lint:stylelint": "stylelint --max-warnings=0 \"src/**/*.{css,svelte}\"",
     "format": "eslint --fix && stylelint --fix \"src/**/*.{css,svelte}\" && prettier --write .",
     "preinstall": "npx -y only-allow pnpm",
     "prepare": "husky",
@@ -24,7 +24,7 @@
     "*.{ts,svelte,js,cjs,mjs}": [
       "eslint --max-warnings 0 --no-ignore"
     ],
-    "*.{ts,js,svelte,css,scss,json,html}": [
+    "*.{ts,js,svelte,css,json,html}": [
       "prettier --check"
     ]
   },
@@ -58,7 +58,6 @@
     "prettier-plugin-svelte": "^3.2.7",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "rimraf": "^6.0.1",
-    "sass": "~1.80.6",
     "stylelint": "^16.10.0",
     "stylelint-config-clean-order": "^6.1.0",
     "stylelint-config-standard": "^36.0.1",

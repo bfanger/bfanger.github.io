@@ -53,16 +53,18 @@
   on:load={loaded}
 />
 
-<style lang="scss">
+<style>
   .project-image {
     display: block;
     align-self: center;
-    max-height: 50vh;
-    box-shadow: 3px 0px 15px rgba(#000, 0.05);
+
     width: auto;
-    margin-left: auto;
+    max-height: 50vh;
     margin-right: auto;
     margin-bottom: 1.5em;
+    margin-left: auto;
+
     border-radius: 3px;
+    box-shadow: 3px 0 15px #0000000d;
   }
 </style>

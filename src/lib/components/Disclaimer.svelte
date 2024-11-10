@@ -4,14 +4,14 @@
   uitgevoerd.
 </footer>
 
-<style lang="scss">
+<style>
   .disclaimer {
+    padding: 15px 15px 3px;
     font-size: 12px;
     color: #fff;
-    padding: 15px 15px 3px 15px;
     text-align: center;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (width <= 800px) {
       font-size: 9px;
     }
   }

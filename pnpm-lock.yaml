@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  sass: '1.77'
-
 importers:
 
   .:
@@ -98,9 +95,6 @@ importers:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
-      sass:
-        specifier: ~1.80.6
-        version: 1.80.6
       stylelint:
         specifier: ^16.10.0
         version: 16.10.0(typescript@5.6.3)
@@ -2563,7 +2557,7 @@ packages:
       '@types/node': ^18.0.0 || >=20.0.0
       less: '*'
       lightningcss: ^1.21.0
-      sass: '1.77'
+      sass: '*'
       sass-embedded: '*'
       stylus: '*'
       sugarss: '*'
@@ -3975,7 +3969,8 @@ snapshots:
     dependencies:
       queue: 6.0.2
 
-  immutable@4.3.7: {}
+  immutable@4.3.7:
+    optional: true
 
   import-fresh@3.3.0:
     dependencies:
@@ -4681,6 +4676,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.0
+    optional: true
 
   section-matter@1.0.0:
     dependencies:

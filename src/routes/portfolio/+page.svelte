@@ -67,18 +67,19 @@
 
 <a hidden href="/scrollytelling/bfanger.nl-v3">poc</a>
 
-<style lang="scss">
+<style>
   .previous {
     position: fixed;
-
     bottom: calc(50% - 35px);
     left: calc(50vw - 550px);
     transform: translateX(-50%);
-    @media (max-width: 1290px) {
+
+    @media (width <= 1290px) {
       left: 30px;
       transform: none;
     }
-    @media (max-width: 880px) {
+
+    @media (width <= 880px) {
       bottom: 40px;
       left: 40px;
     }

@@ -13,22 +13,26 @@
   <slot />
 </div>
 
-<style lang="scss">
+<style>
   .page {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
-    padding: 15px 15px 30px 15px;
+
     box-sizing: border-box;
+    padding: 15px 15px 30px;
   }
+
   .outro {
     position: absolute;
     top: 0;
     left: 0;
+
+    overflow: hidden;
+
     width: 100%;
     height: 100%;
-    overflow: hidden;
   }
 </style>

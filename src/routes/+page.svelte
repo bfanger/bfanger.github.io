@@ -43,17 +43,13 @@
         out:fly|global={{ x: -100 }}
       >
         <Card homepage>
-          <img
-            src="images/avatar.webp"
-            class="homepage__avatar"
-            alt="Bob Fanger"
-          />
-          <div class="homepage__avatar">
+          <img src="images/avatar.webp" class="avatar" alt="Bob Fanger" />
+          <div class="avatar">
             {#if Avatar}
               <svelte:component this={Avatar} />
             {/if}
           </div>
-          <h1 class="homepage__title">Hoi, ik ben Bob&nbsp;Fanger</h1>
+          <h1 class="title">Hoi, ik ben Bob&nbsp;Fanger</h1>
           <p>
             Ik ben een webdeveloper bij
             <a
@@ -78,7 +74,7 @@
         </Card>
       </div>
       <div
-        class="homepage--porfolio"
+        class="porfolio"
         in:fly|global={{
           y: 50,
           delay: skipped ? 0 : 100,
@@ -99,40 +95,46 @@
   </div>
 </Page>
 
-<style lang="scss">
-  @import "../util";
-
-  .homepage__title {
-    @include fluid-property(font-size, 22px, 32px);
+<style>
+  .title {
+    font-size: clamp(22px, calc(18px + 1.136vw), 32px);
   }
-  .homepage__avatar {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid white;
-    box-shadow: -2px 4px 20px rgba(black, 0.1);
+
+  .avatar {
     position: absolute;
     top: calc(100% - 10px);
     left: -140px;
-    @media (max-width: 730px) {
+
+    overflow: hidden;
+
+    width: 180px;
+    height: 180px;
+
+    border: 4px solid white;
+    border-radius: 50%;
+    box-shadow: -2px 4px 20px rgb(0 0 0 / 10%);
+
+    @media (width <= 730px) {
       top: auto;
       bottom: calc(100% + 20px);
       left: calc(50% - 90px);
     }
   }
-  .homepage--porfolio {
+
+  .porfolio {
     position: fixed;
-    bottom: calc(50% - 35px);
     right: calc(50vw - 550px);
+    bottom: calc(50% - 35px);
     transform: translateX(50%);
-    @media (max-width: 1290px) {
+
+    @media (width <= 1290px) {
       right: 30px;
       transform: none;
     }
-    @media (max-width: 880px) {
-      bottom: 40px;
+
+    @media (width <= 880px) {
       right: 50%;
+      bottom: 40px;
       transform: translateX(50%);
     }
   }

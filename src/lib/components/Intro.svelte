@@ -83,170 +83,198 @@
   </button>
 </div>
 
-<style lang="scss">
-  @use "sass:math";
-  $duration: 2s;
-  $frameCount: (120 - 1);
-
-  @function frame($frame) {
-    @return ($frame - 1) * math.div(100%, $frameCount);
-  }
-
+<style>
   .intro {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
+    inset: 0;
     font-size: 20px;
   }
+
   .bob-fanger {
+    will-change: transform;
+
     position: absolute;
     top: calc(50% - 0.8em);
     left: calc(50% - 7.7em);
+    transform: translateZ(0);
+
     display: flex;
     flex-direction: row;
-    transform: translateZ(0);
-    will-change: transform;
+
+    animation: bob-fanger 2s;
 
     svg {
       height: 0.8em;
     }
-    animation: bob-fanger $duration;
-    @media (min-width: 500px) {
+
+    @media (width >= 500px) {
       font-size: 30px;
     }
   }
-  @keyframes bob-fanger {
-    #{frame(1)} {
-      transform: translateX(2.5em) translateY(-55vh);
-    }
-    #{frame(51)} {
-      transform: translateX(2.5em);
-    }
-    #{frame(61)} {
-      transform: translateX(2.5em);
-    }
-    #{frame(71)} {
-      transform: translateX(0);
-    }
-  }
+
   .clip-bob {
+    overflow: hidden;
     display: flex;
     flex-direction: row;
+
     padding-right: 0.8em;
     padding-left: 1.6em;
-    overflow: hidden;
   }
 
   .b {
+    will-change: transform;
     transform: translateX(2.3em);
-    will-change: transform;
-    animation: b $duration;
+    animation: b 2s;
   }
-  @keyframes b {
-    #{frame(1)} {
-      transform: translateX(0);
-    }
-    #{frame(61)} {
-      transform: translateX(0);
-    }
-    #{frame(74)} {
-      transform: translateX(-0.8em);
-    }
-    #{frame(83)} {
-      transform: translateX(2.5em);
-    }
-    #{frame(85)} {
-      transform: translateX(2.3em);
-    }
-  }
+
   .ob {
+    will-change: transform;
     transform: translateX(2.6em);
-    will-change: transform;
-    animation: ob $duration;
+    animation: ob 2s;
   }
-  @keyframes ob {
-    #{frame(1)} {
-      transform: translateX(0);
-    }
-    #{frame(61)} {
-      transform: translateX(0);
-    }
-    #{frame(74)} {
-      transform: translateX(-0.8em);
-    }
-    #{frame(82)} {
-      transform: translateX(2.6em);
-    }
-  }
+
   .fanger {
-    transform: translateX(0);
     will-change: transform;
-    animation: fanger $duration ease-out;
+    transform: translateX(0);
+    animation: fanger 2s ease-out;
   }
-  @keyframes fanger {
-    #{frame(1)} {
-      transform: translateX(-0.3em);
-    }
-    #{frame(79)} {
-      transform: translateX(-0.3em);
-    }
-    #{frame(88)} {
-      transform: translateX(0);
-    }
-  }
+
   .clip-nl {
-    display: flex;
     overflow: hidden;
+    display: flex;
     padding-right: 1em;
   }
+
   .nl {
-    transform: translateZ(0);
     will-change: transform;
-    animation: nl $duration ease-out;
+    transform: translateZ(0);
+    animation: nl 2s ease-out;
   }
-  @keyframes nl {
-    #{frame(1)} {
-      transform: translateX(-2.1em);
-    }
-    #{frame(83)} {
-      transform: translateX(-2.1em);
-    }
-    #{frame(91)} {
-      transform: translateX(0.2em);
-    }
-    #{frame(95)} {
-      transform: translateX(0);
-    }
-  }
+
   .skip {
-    border: 0;
+    cursor: pointer;
+
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
+
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
     padding: 1.2rem 2rem;
+
     font-size: 1.6rem;
+
     opacity: 0;
-    cursor: pointer;
+    background: transparent;
+    border: 0;
   }
+
   .skip-button {
-    background: rgba(black, 0.3);
-    color: white;
     padding: 1.2rem 2rem;
-    border: 1px solid white;
+
     font-weight: bold;
+    color: white;
+
+    background: #0000004d;
+    border: 1px solid white;
 
     &:hover {
-      background: white;
       color: black;
+      background: white;
+    }
+  }
+
+  @keyframes bob-fanger {
+    0% {
+      transform: translateX(2.5em) translateY(-55vh);
+    }
+
+    42.0% {
+      transform: translateX(2.5em);
+    }
+
+    50.4% {
+      transform: translateX(2.5em);
+    }
+
+    58.8% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes b {
+    0% {
+      transform: translateX(0);
+    }
+
+    50.4% {
+      transform: translateX(0);
+    }
+
+    61.3% {
+      transform: translateX(-0.8em);
+    }
+
+    68.9% {
+      transform: translateX(2.5em);
+    }
+
+    70.6% {
+      transform: translateX(2.3em);
+    }
+  }
+
+  @keyframes ob {
+    0% {
+      transform: translateX(0);
+    }
+
+    50.4% {
+      transform: translateX(0);
+    }
+
+    61.3% {
+      transform: translateX(-0.8em);
+    }
+
+    68.0% {
+      transform: translateX(2.6em);
+    }
+  }
+
+  @keyframes fanger {
+    0% {
+      transform: translateX(-0.3em);
+    }
+
+    65.5% {
+      transform: translateX(-0.3em);
+    }
+
+    73.1% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes nl {
+    0% {
+      transform: translateX(-2.1em);
+    }
+
+    68.9% {
+      transform: translateX(-2.1em);
+    }
+
+    75.6% {
+      transform: translateX(0.2em);
+    }
+
+    79.0% {
+      transform: translateX(0);
     }
   }
 </style>

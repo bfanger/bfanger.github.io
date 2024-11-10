@@ -31,11 +31,12 @@
   </div>
 </Card>
 
-<style lang="scss">
+<style>
   .footer {
     display: flex;
     justify-content: space-between;
   }
+
   .release-date {
     color: #aaa;
   }
