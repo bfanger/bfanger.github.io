@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    
+		<link href="../_app/immutable/assets/0.DTf6doCA.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Card.C0zTdFKU.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Page.9JXGE-rP.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Disclaimer.DGUSkA5C.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cardTransition.Cdu0K9Km.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/ProjectCard.BZBQGi-J.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/6.CoydOEnX.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.BZbQG5IU.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/yBbZfmcL.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/5bxpvR_4.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/YhocaKZe.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CYgJF_JY.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/C3uF77Tp.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.CGtbzAaD.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/vKSTBWPW.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CNUIBfIj.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DqkE_y2J.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/-kk17F26.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/-1Zt02-7.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.CAkzUPne.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/gJKSPmBw.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Dxr2MA7t.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/6.C_ampVIZ.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/X8PGvswT.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Bwm231Xl.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/w0z99Znv.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DoAH-0qJ.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/C-paJy2u.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CQ1-HF2C.js"><!--[--><!--]--><title>IoT Exchange</title>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app><!--[--><!--[--><!----><div class="layout svelte-zde2se"><!--[!--><!----><!----><div class="page svelte-811tgx"><div><div class="card svelte-15qig29"><h1>IoT Exchange</h1> <!--[--><img class="project-image svelte-1fwvro4" style="max-width: 100%; height: auto;" src="/build/img/iot-exchange.png" width="3510" height="2022" alt="Een screenshot van het project" onload="this.__e=event"><!--]--> <!----><p>De <a href="https://https://iot-exchange.io/">IoT Exchange</a> is een berichten doorgeeft service voor IoT (internet of things) apparaten met een nadrukt op beveiliging en snelheid. Voor dit project heb ik de portal gebouwd en deels ook het design daarvan. In deze portal kun je je account beheren en heb heb je een overzicht van je apparaten.</p>
+<!----> <div class="footer svelte-1ygtz9y"><a href="/portfolio">&lt; Terug naar portfolio</a> <span class="release-date svelte-1ygtz9y">Februari 2025</span></div><!----></div><!----></div><!----></div><!----> <div class="previous svelte-fari94"><!--[!--><a href="/portfolio" data-sveltekit-preload-data="" class="nav-button svelte-100nyn9 previous"><div class="label svelte-100nyn9"><!---->Portfolio<!----></div></a><!--]--></div> <!--[--><div class="next svelte-fari94"><a href="thisisprivate" data-sveltekit-preload-data="" class="nav-button svelte-100nyn9 next"><div class="label svelte-100nyn9"><!---->Volgende<!----></div></a><!----></div><!--]--> <div class="disclaimer svelte-fari94"><footer class="disclaimer svelte-vy5m68">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.</footer><!----></div><!----><!--]--><!----></div><!----><!--]--> <!--[!--><!--]--><!--]-->
+			<script type="application/json" data-sveltekit-fetched data-url="/projects/iot-exchange.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"iot-exchange\",\"title\":\"IoT Exchange\",\"released\":\"2025-02\",\"content\":\"\u003Cp>De \u003Ca href=\\\"https://https://iot-exchange.io/\\\">IoT Exchange\u003C/a> is een berichten doorgeeft service voor IoT (internet of things) apparaten met een nadrukt op beveiliging en snelheid. Voor dit project heb ik de portal gebouwd en deels ook het design daarvan. In deze portal kun je je account beheren en heb heb je een overzicht van je apparaten.\u003C/p>\\n\",\"after\":\"thisisprivate\",\"image\":{\"src\":\"/build/img/iot-exchange.png\",\"width\":3510,\"height\":2022}}"}</script>
+			<script>
+				{
+					__sveltekit_1c06xnb = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.BZbQG5IU.js"),
+						import("../_app/immutable/entry/app.CGtbzAaD.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</svelte-app>
+  </body>
+</html>
