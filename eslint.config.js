@@ -6,13 +6,11 @@ import ts from "typescript-eslint";
 import prettier from "eslint-config-prettier";
 import svelte from "eslint-plugin-svelte";
 import globals from "globals";
-import svelteParser from "svelte-eslint-parser";
 
 export default ts.config(
   js.configs.recommended,
   ...ts.configs.recommendedTypeChecked,
   ...svelte.configs["flat/recommended"],
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   prettier,
   ...svelte.configs["flat/prettier"],
   {
@@ -20,7 +18,6 @@ export default ts.config(
       ecmaVersion: 2022,
       sourceType: "module",
       globals: { ...globals.node, ...globals.browser },
-      parser: svelteParser,
       parserOptions: {
         parser: ts.parser,
         extraFileExtensions: [".svelte"],
@@ -47,6 +44,7 @@ export default ts.config(
       "prefer-template": "warn",
       "svelte/block-lang": ["warn", { script: "ts" }],
       "svelte/no-at-html-tags": "off",
+      "svelte/require-each-key": "off",
     },
   },
   {

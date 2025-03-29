@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { promisify } from "node:util";
 import matter from "gray-matter";
-import { imageSize } from "image-size";
+import { imageSizeFromFile } from "image-size/fromFile";
 import { orderBy } from "lodash-es";
 import { marked } from "marked";
 
@@ -124,7 +124,7 @@ export async function processImage(
       });
     }
   }
-  const { width, height } = imageSize(source);
+  const { width, height } = await imageSizeFromFile(source);
   if (!width || !height) {
     throw new Error("imageSize failed");
   }

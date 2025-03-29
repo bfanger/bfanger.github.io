@@ -36,6 +36,7 @@
     height: 70px;
     padding-right: 25px;
     padding-left: 25px;
+    border-radius: 35px;
 
     background: linear-gradient(
       to bottom,
@@ -44,7 +45,6 @@
       rgb(0 0 0 / 70%) 70%,
       rgb(0 0 0 / 80%)
     );
-    border-radius: 35px;
     box-shadow: 2px 2px 30px rgb(0 0 0 / 20%);
 
     &:hover {
@@ -57,7 +57,7 @@
       300 22px/70px Raleway,
       sans-serif;
     color: white;
-    text-shadow: 0 0 10 rgb(0 0 0 / 50%);
+    text-shadow: 0 0 10px rgb(0 0 0 / 50%);
   }
 
   .previous,

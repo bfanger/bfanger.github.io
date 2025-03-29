@@ -165,22 +165,22 @@
     width: 100%;
     height: 100%;
     padding: 1.2rem 2rem;
+    border: 0;
 
     font-size: 1.6rem;
 
     opacity: 0;
     background: transparent;
-    border: 0;
   }
 
   .skip-button {
     padding: 1.2rem 2rem;
+    border: 1px solid white;
 
     font-weight: bold;
     color: white;
 
     background: #0000004d;
-    border: 1px solid white;
 
     &:hover {
       color: black;

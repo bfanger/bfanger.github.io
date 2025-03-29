@@ -109,9 +109,9 @@
 
     width: 180px;
     height: 180px;
-
     border: 4px solid white;
     border-radius: 50%;
+
     box-shadow: -2px 4px 20px rgb(0 0 0 / 10%);
 
     @media (width <= 730px) {

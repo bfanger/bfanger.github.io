@@ -74,8 +74,8 @@
     margin-right: auto;
     margin-bottom: 1.5em;
     margin-left: auto;
-
     border-radius: 3px;
+
     box-shadow: 3px 0 15px #0000000d;
   }
 </style>
