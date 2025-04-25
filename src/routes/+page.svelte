@@ -52,12 +52,7 @@
           <h1 class="title">Hoi, ik ben Bob&nbsp;Fanger</h1>
           <p>
             Ik ben een webdeveloper bij
-            <a
-              href="https://www.thisisdevelopment.nl/"
-              title="This is Development"
-            >
-              Th[is] Development
-            </a>
+            <a href="https://www.this.nl/">This.nl </a>
             .
             <br />
             Daarnaast ben ik ook actief op:
