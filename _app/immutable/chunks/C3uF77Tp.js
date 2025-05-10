@@ -1,1 +1,0 @@
-import{W as o,X as t,T as c}from"./5bxpvR_4.js";function f(e){throw new Error("https://svelte.dev/e/lifecycle_outside_component")}function u(e){t===null&&f(),o(()=>{const n=c(e);if(typeof n=="function")return n})}export{u as o};
