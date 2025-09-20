@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      function introEnded() {
+        introEnded.resolve(true);
+      }
+      function introSkip(e) {
+        if (getComputedStyle(e.target).opacity === "0") {
+          e.target.style.opacity = 1;
+        } else {
+          introEnded.resolve("skip");
+        }
+      }
+      var introPromise = Promise.resolve(false);
+      if (location.pathname === "/") {
+        introPromise = new Promise((resolve) => {
+          introEnded.resolve = resolve;
+        });
+      }
+    </script>
+    
+		<link href="../_app/immutable/assets/0.Bb1riFWO.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Card.B_WQQzlm.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Page.DEP-3fP4.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Disclaimer.B08MGlZ7.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cardTransition.C4FqmO4n.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/ProjectCard.CJU1zmO7.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/6.D7esa2iR.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.DRDPS5hH.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/xTO4w2z0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CaTcOTgH.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/M1qROfWy.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/D0iwhpLH.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DWvuQjhu.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.Kbp_l9pl.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/BvHFMzgR.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DsnmJJEf.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/BP2hkfCR.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/BH0057Z9.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/BLle4rFf.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.B2WiTmPk.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CJZPip-Q.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Co-1QMVx.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/6.DqqCW5NE.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Cg5Dd0dJ.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/B__D0ygY.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/h0iFnsdb.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/BmPlwLLh.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DZnX7L_6.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/7Hh4xBnI.js"><!--[--><!--]--><title>Dulux Connect</title>
+  </head>
+  <body>
+    <img
+      id="bg"
+      class="background"
+      style="opacity: 0; will-change: opacity"
+      src="/images/millennial-colors.jpg"
+      alt=""
+      draggable="false"
+    />
+    <script>
+      const bg = document.getElementById("bg");
+      if (bg.complete) {
+        bg.style.opacity = "1";
+      } else {
+        bg.addEventListener("load", function () {
+          bg.style.opacity = "1";
+        });
+      }
+      bg.addEventListener("transitionend", function () {
+        bg.style.willChange = "";
+      });
+    </script>
+    <svelte-app><!--[--><!--[--><!----><div class="layout svelte-12qhfyh"><!--[!--><!----><!----><div class="page svelte-37b3kl"><div><div class="card svelte-1udyrqm"><h1>Dulux Connect</h1> <!--[--><img class="project-image svelte-1uy0g6i" style="max-width: 100%; height: auto;" src="/build/img/dulux-connect.png" width="2712" height="1876" alt="Een screenshot van het project" onload="this.__e=event"/><!--]--> <!----><p><a href="https://connect.dulux.co.uk/">Dulux Connect</a> is het platform waar de aannemers hun profiel kunnen beheren.</p>
+<p>Omdat de data nu in ons beheer is, hebben we de api&#39;s voor <a href="https://connectdirectory.dulux.co.uk/">Dulux Connect Directory</a> kunnen verbeteren en zijn deze nu sneller en stabieler.</p>
+<!----> <div class="footer svelte-oviq8z"><a href="/portfolio">&lt; Terug naar portfolio</a> <span class="release-date svelte-oviq8z">April 2025</span></div><!----></div><!----></div><!----></div><!----> <div class="previous svelte-1jlknep"><!--[--><a href="ecom-checkout-akzonobel" data-sveltekit-preload-data="" class="nav-button svelte-1n2ql5p previous"><div class="label svelte-1n2ql5p"><!---->Vorige<!----></div></a><!--]--></div> <!--[--><div class="next svelte-1jlknep"><a href="iot-exchange" data-sveltekit-preload-data="" class="nav-button svelte-1n2ql5p next"><div class="label svelte-1n2ql5p"><!---->Volgende<!----></div></a><!----></div><!--]--> <div class="disclaimer svelte-1jlknep"><footer class="disclaimer svelte-1rveik1">Deze projecten zijn gerealiseerd tijdens mijn dienstperiode bij de diverse
+  werkgevers en zijn de concept &amp; design fases reeds door overige partijen
+  uitgevoerd.</footer><!----></div><!----><!--]--><!----></div><!----><!--]--> <!--[!--><!--]--><!--]-->
+			<script type="application/json" data-sveltekit-fetched data-url="/projects/dulux-connect.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"dulux-connect\",\"title\":\"Dulux Connect\",\"released\":\"2025-04\",\"content\":\"\u003Cp>\u003Ca href=\\\"https://connect.dulux.co.uk/\\\">Dulux Connect\u003C/a> is het platform waar de aannemers hun profiel kunnen beheren.\u003C/p>\\n\u003Cp>Omdat de data nu in ons beheer is, hebben we de api&#39;s voor \u003Ca href=\\\"https://connectdirectory.dulux.co.uk/\\\">Dulux Connect Directory\u003C/a> kunnen verbeteren en zijn deze nu sneller en stabieler.\u003C/p>\\n\",\"before\":\"ecom-checkout-akzonobel\",\"after\":\"iot-exchange\",\"image\":{\"src\":\"/build/img/dulux-connect.png\",\"width\":2712,\"height\":1876}}"}</script>
+			<script>
+				{
+					__sveltekit_c1m89x = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.DRDPS5hH.js"),
+						import("../_app/immutable/entry/app.Kbp_l9pl.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</svelte-app>
+  </body>
+</html>
