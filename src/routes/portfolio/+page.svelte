@@ -8,6 +8,7 @@
     cardIn,
     cardOut,
   } from "../../services/cardTransition";
+  import { resolve } from "$app/paths";
 
   let { data } = $props();
 
@@ -44,7 +45,11 @@
         >
           {#each grouped[year] as project}
             <li>
-              <a href="projects/{project.slug}">{project.title}</a>
+              <a
+                href={resolve("/projects/[project]", {
+                  project: project.slug,
+                })}>{project.title}</a
+              >
             </li>
           {/each}
         </ul>
@@ -65,7 +70,11 @@
   <Disclaimer />
 </Page>
 
-<a hidden href="/scrollytelling/bfanger.nl-v3">poc</a>
+<a
+  hidden
+  href={resolve("/scrollytelling/[project]", { project: "bfanger.nl-v3" })}
+  >poc</a
+>
 
 <style>
   .previous {

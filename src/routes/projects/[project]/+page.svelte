@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto, preloadData } from "$app/navigation";
+  import { resolve } from "$app/paths";
   import Disclaimer from "$lib/components/Disclaimer.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
   import Page from "$lib/components/Page.svelte";
@@ -22,10 +23,10 @@
     }
     if (e.key === "ArrowLeft" && project.before) {
       cardTransition.set("right");
-      await goto(project.before);
+      await goto(resolve("/projects/[project]", { project: project.before }));
     } else if (e.key === "ArrowRight" && project.after) {
       cardTransition.set("left");
-      await goto(project.after);
+      await goto(resolve("/projects/[project]", { project: project.after }));
     }
   }
 </script>

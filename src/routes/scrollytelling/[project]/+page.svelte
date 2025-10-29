@@ -1,5 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
+  import { resolve } from "$app/paths";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
 
   let { data } = $props();
@@ -13,11 +14,23 @@
 {#if !browser}
   <div>
     {#if data.project.before}
-      <a href="/scrollytelling/{data.project.before}">Vorige</a>
+      <a
+        href={resolve("/scrollytelling/[project]", {
+          project: data.project.before,
+        })}
+      >
+        Vorige
+      </a>
     {/if}
 
     {#if data.project.after}
-      <a href="/scrollytelling/{data.project.after}">Volgende</a>
+      <a
+        href={resolve("/scrollytelling/[project]", {
+          project: data.project.after,
+        })}
+      >
+        Volgende
+      </a>
     {/if}
   </div>
 {/if}

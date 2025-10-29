@@ -20,7 +20,7 @@
 
   let { teasers, children }: Props = $props();
 
-  const initial = findIndex($page.params.project);
+  const initial = findIndex($page.params.project ?? "");
   const cached: Record<number, Promise<Project>> = $state({}); // @todo Prime cache with server project data
 
   let scrollIndex = $state(initial);
