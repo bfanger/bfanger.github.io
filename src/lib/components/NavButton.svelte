@@ -7,7 +7,6 @@
     onmousedown?: () => void;
     children?: Snippet;
   };
-
   let { href, type, onmousedown, children }: Props = $props();
 </script>
 

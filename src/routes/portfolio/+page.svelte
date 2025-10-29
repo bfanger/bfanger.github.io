@@ -48,7 +48,8 @@
               <a
                 href={resolve("/projects/[project]", {
                   project: project.slug,
-                })}>{project.title}</a
+                })}
+                data-sveltekit-noscroll>{project.title}</a
               >
             </li>
           {/each}
@@ -69,12 +70,6 @@
   </div>
   <Disclaimer />
 </Page>
-
-<a
-  hidden
-  href={resolve("/scrollytelling/[project]", { project: "bfanger.nl-v3" })}
-  >poc</a
->
 
 <style>
   .previous {

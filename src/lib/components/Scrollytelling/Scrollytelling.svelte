@@ -1,11 +1,13 @@
 <script lang="ts">
   import type { Project } from "$lib/project-fns";
   import { browser } from "$app/environment";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import ProjectCard from "$lib/components/ProjectCard.svelte";
   import Scroller from "$lib/components/Scroller.svelte";
   import ScrollytellingItem from "./ScrollytellingItem.svelte";
   import type { Snippet } from "svelte";
+  import cardTransition from "../../../services/cardTransition";
+  import NavButton from "$lib/components/NavButton.svelte";
 
   type Teaser = {
     slug: string;
@@ -17,10 +19,9 @@
     teasers: Teaser[];
     children?: Snippet;
   };
-
   let { teasers, children }: Props = $props();
 
-  const initial = findIndex($page.params.project ?? "");
+  const initial = findIndex(page.params.project ?? "");
   const cached: Record<number, Promise<Project>> = $state({}); // @todo Prime cache with server project data
 
   let scrollIndex = $state(initial);
@@ -42,11 +43,11 @@
 
   function updateUrl(index: number) {
     const { slug } = teasers[index];
-    const url = `/scrollytelling/${slug}`;
+    const url = `/projects/${slug}`;
     if (window.location.pathname === url) {
       return;
     }
-    window.history.pushState({ scroll: index }, "", `/scrollytelling/${slug}`);
+    window.history.pushState({ scroll: index }, "", `/projects/${slug}`);
   }
 
   function placeholder(teaser: Teaser): Project {
@@ -110,10 +111,37 @@
     </ScrollytellingItem>
   {/if}
 </div>
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+<div
+  class="previous"
+  onmousedown={() => {
+    cardTransition.set("right");
+  }}
+>
+  <NavButton href="/portfolio" type="previous">Portfolio</NavButton>
+</div>
 
 <style>
   .viewport {
     position: fixed;
     inset: 0;
+  }
+
+  .previous {
+    position: fixed;
+    z-index: 1;
+    bottom: calc(50% - 35px);
+    left: calc(50vw - 550px);
+    transform: translateX(-50%);
+
+    @media (width <= 1290px) {
+      left: 30px;
+      transform: none;
+    }
+
+    @media (width <= 880px) {
+      bottom: 50px;
+      left: 20px;
+    }
   }
 </style>

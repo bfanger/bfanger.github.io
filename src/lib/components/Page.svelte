@@ -4,8 +4,8 @@
   type Props = {
     children?: Snippet;
   };
-
   let { children }: Props = $props();
+
   function out(node: Element) {
     node.classList.add("outro");
     return {

@@ -8,7 +8,6 @@
     height: number;
     alt?: string;
   };
-
   let {
     src,
     width,

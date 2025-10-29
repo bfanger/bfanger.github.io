@@ -8,7 +8,6 @@
     message: string;
     children?: Snippet;
   };
-
   let { title, message, children }: Props = $props();
 </script>
 

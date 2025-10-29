@@ -5,7 +5,6 @@
     homepage?: boolean;
     children?: Snippet;
   };
-
   let { homepage = false, children }: Props = $props();
 </script>
 

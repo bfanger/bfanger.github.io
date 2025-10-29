@@ -3,13 +3,12 @@
   import ProjectImage from "./ProjectImage.svelte";
   import type { Project } from "$lib/project-fns";
   import { formatReleaseDate } from "$lib/formatDate";
-  import { resolve } from "$app/paths";
 
   type Props = {
     project: Project;
   };
-
   let { project }: Props = $props();
+
   let image = $derived(project.image);
 </script>
 
@@ -26,7 +25,6 @@
   <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   {@html project.content}
   <div class="footer">
-    <a href={resolve("/portfolio")}>&lt; Terug naar portfolio</a>
     <span class="release-date">
       {formatReleaseDate(project.released)}
     </span>
@@ -36,7 +34,7 @@
 <style>
   .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .release-date {

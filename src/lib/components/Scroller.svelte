@@ -8,7 +8,6 @@
     max: number;
     value: number;
   };
-
   let { max, value = $bindable() }: Props = $props();
 
   let range = $derived(max);

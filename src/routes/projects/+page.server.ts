@@ -3,5 +3,5 @@ import { allProjects } from "$lib/project-fns";
 
 export async function load() {
   const projects = await allProjects();
-  redirect(301, `/scrollytelling/${projects[0].slug}`);
+  redirect(301, `/projects/${projects[0].slug}`);
 }
