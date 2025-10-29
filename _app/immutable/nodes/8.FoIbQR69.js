@@ -1,0 +1,1 @@
+import{r as e}from"../chunks/djvsYbDl.js";function r(){e(301,"https://swagger-explained.bfanger.nl/")}const o=Object.freeze(Object.defineProperty({__proto__:null,load:r},Symbol.toStringTag,{value:"Module"}));export{o as universal};
