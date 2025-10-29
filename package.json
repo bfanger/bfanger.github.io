@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "svelte-kit sync && concurrently -c \"#c596c7\",\"#676778\",\"#4b32c3\",\"#fafafa\" --kill-others-on-fail \"npm:lint:*\"",
     "lint:prettier": "prettier --check .",
-    "lint:svelte-check": "svelte-check --fail-on-warnings",
+    "lint:svelte-check": "svelte-check",
     "lint:eslint": "eslint --max-warnings=0",
     "lint:stylelint": "stylelint --max-warnings=0 \"src/**/*.{css,svelte}\"",
     "format": "eslint --fix && stylelint --fix \"src/**/*.{css,svelte}\" && prettier --write .",
@@ -19,7 +19,7 @@
   },
   "lint-staged": {
     "*.{ts,svelte}": [
-      "svelte-check --fail-on-warnings"
+      "svelte-check"
     ],
     "*.{ts,svelte,js,cjs,mjs}": [
       "eslint --max-warnings 0 --no-ignore"

@@ -47,7 +47,7 @@
     if (window.location.pathname === url) {
       return;
     }
-    window.history.pushState({ scroll: index }, "", `/projects/${slug}`);
+    window.history.replaceState({ scroll: index }, "", `/projects/${slug}`);
   }
 
   function placeholder(teaser: Teaser): Project {
