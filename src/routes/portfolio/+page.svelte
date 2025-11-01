@@ -9,6 +9,7 @@
     cardOut,
   } from "../../services/cardTransition";
   import { resolve } from "$app/paths";
+  import { fade } from "svelte/transition";
 
   let { data } = $props();
 
@@ -68,6 +69,20 @@
       Home
     </NavButton>
   </div>
+
+  <div class="next" out:fade={{ duration: 200 }}>
+    <NavButton
+      type="next"
+      href={resolve("/projects/[project]", {
+        project: grouped[years[0]][0].slug,
+      })}
+      onmousedown={() => {
+        cardTransition.set("left");
+      }}
+    >
+      {years[0]}
+    </NavButton>
+  </div>
   <Disclaimer />
 </Page>
 
@@ -86,6 +101,23 @@
     @media (width <= 880px) {
       bottom: 40px;
       left: 40px;
+    }
+  }
+
+  .next {
+    position: fixed;
+    right: calc(50vw - 550px);
+    bottom: calc(50% - 35px);
+    transform: translateX(50%);
+
+    @media (width <= 1290px) {
+      right: 30px;
+      transform: none;
+    }
+
+    @media (width <= 880px) {
+      right: 40px;
+      bottom: 40px;
     }
   }
 </style>

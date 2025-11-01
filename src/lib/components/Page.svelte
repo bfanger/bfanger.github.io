@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Layout from "./Layout.svelte";
   import type { Snippet } from "svelte";
 
   type Props = {
@@ -6,7 +7,7 @@
   };
   let { children }: Props = $props();
 
-  function out(node: Element) {
+  function outro(node: Element) {
     node.classList.add("outro");
     return {
       tick(t: number) {
@@ -16,9 +17,11 @@
   }
 </script>
 
-<div class="page" class:outro={false} out:out|global>
-  {@render children?.()}
-</div>
+<Layout>
+  <div class="page" class:outro={false} out:outro|global>
+    {@render children?.()}
+  </div>
+</Layout>
 
 <style>
   .page {

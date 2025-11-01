@@ -6,7 +6,10 @@
   import Scroller from "$lib/components/Scroller.svelte";
   import ScrollytellingItem from "./ScrollytellingItem.svelte";
   import type { Snippet } from "svelte";
-  import cardTransition from "../../../services/cardTransition";
+  import cardTransition, {
+    cardIn,
+    cardOut,
+  } from "../../../services/cardTransition";
   import NavButton from "$lib/components/NavButton.svelte";
 
   type Teaser = {
@@ -17,7 +20,7 @@
 
   type Props = {
     teasers: Teaser[];
-    children?: Snippet;
+    children: Snippet;
   };
   let { teasers, children }: Props = $props();
 
@@ -62,7 +65,7 @@
   let previous = $derived(teasers[currentIndex - 1]?.slug);
   let current = $derived(teasers[currentIndex]?.slug);
   let next = $derived(teasers[currentIndex + 1]?.slug);
-  // @todo Debounce
+
   $effect(() => {
     if (browser && previous) {
       void loadProject(previous);
@@ -91,7 +94,7 @@
 </script>
 
 <Scroller max={teasers.length - 1} bind:value={scrollIndex} />
-<div class="viewport">
+<div class="viewport" in:cardIn|global={{}} out:cardOut|global={{}}>
   {#each virtual as index (index)}
     <ScrollytellingItem scroll={scrollIndex - index}>
       {#await cached[index]}
@@ -107,7 +110,7 @@
   {/each}
   {#if initial > currentIndex - 2 && initial < currentIndex + 2}
     <ScrollytellingItem scroll={scrollIndex - initial}>
-      {@render children?.()}
+      {@render children()}
     </ScrollytellingItem>
   {/if}
 </div>
@@ -124,7 +127,11 @@
 <style>
   .viewport {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100svh;
   }
 
   .previous {
