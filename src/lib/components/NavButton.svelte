@@ -1,8 +1,10 @@
 <script lang="ts">
+  /* eslint-disable svelte/no-navigation-without-resolve */
+  import type { ResolvedPathname } from "$app/types";
   import type { Snippet } from "svelte";
 
   type Props = {
-    href: string;
+    href: ResolvedPathname;
     type: "next" | "previous";
     onmousedown?: () => void;
     children?: Snippet;
