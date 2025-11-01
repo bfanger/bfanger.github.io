@@ -58,7 +58,7 @@
       {/each}
     </Card>
   </div>
-  <div class="previous">
+  <div class="previous" out:fade|global={{ duration: 200 }}>
     <NavButton
       href="/"
       type="previous"
@@ -70,7 +70,7 @@
     </NavButton>
   </div>
 
-  <div class="next" out:fade={{ duration: 200 }}>
+  <div class="next" out:fade|global={{ duration: 200 }}>
     <NavButton
       type="next"
       href={resolve("/projects/[project]", {

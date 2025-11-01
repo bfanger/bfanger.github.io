@@ -13,7 +13,7 @@
 </script>
 
 <Card>
-  <h1>{project.title}</h1>
+  <h1 class="title">{project.title}</h1>
   {#if image}
     <ProjectImage
       src={image.src}
@@ -32,6 +32,17 @@
 </Card>
 
 <style>
+  .title {
+    @media (width < 500px) {
+      margin-bottom: 10px;
+    }
+
+    @media (width >= 500px) {
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+  }
+
   .footer {
     display: flex;
     justify-content: flex-end;

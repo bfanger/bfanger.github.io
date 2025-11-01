@@ -44,6 +44,7 @@
       rgb(0 0 0 / 70%) 70%,
       rgb(0 0 0 / 80%)
     );
+    backdrop-filter: blur(8px);
     box-shadow: 2px 2px 30px rgb(0 0 0 / 20%);
 
     &:hover {
@@ -53,7 +54,7 @@
 
   .label {
     font:
-      300 22px/70px Raleway,
+      400 22px/70px Glory,
       sans-serif;
     color: white;
     text-shadow: 0 0 10px rgb(0 0 0 / 50%);
@@ -67,9 +68,11 @@
       transition: 0.15s all;
     }
 
-    &:hover .label {
-      max-width: 400px;
-      transition: 0.25s all;
+    @media (hover: hover) {
+      &:hover .label {
+        max-width: 400px;
+        transition: 0.25s all;
+      }
     }
   }
 
@@ -89,8 +92,10 @@
       background-size: contain;
     }
 
-    &:hover .label {
-      padding-right: 10px;
+    @media (hover: hover) {
+      &:hover .label {
+        padding-right: 10px;
+      }
     }
   }
 
@@ -110,8 +115,10 @@
       background-size: contain;
     }
 
-    &:hover .label {
-      padding-left: 10px;
+    @media (hover: hover) {
+      &:hover .label {
+        padding-left: 10px;
+      }
     }
   }
 </style>

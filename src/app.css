@@ -19,10 +19,19 @@ body {
 @font-face {
   font-family: "Titillium Web";
   font-weight: 300;
-  src:
-    local("Titillium Web24 Light"),
-    url("/fonts/titillium-web-light.woff2") format("woff2"),
-    url("/fonts/titillium-web-light.woff") format("woff");
+  src: url("/fonts/titillium-web-light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Raleway;
+  font-weight: 300;
+  src: url("/fonts/raleway-light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Glory;
+  font-weight: 100 1000;
+  src: url("/fonts/glory.woff2") format("woff2 supports variations");
 }
 
 h1,
@@ -31,8 +40,8 @@ h3 {
   margin-top: 0;
   margin-bottom: 0.4em;
 
-  font-family: Raleway, sans-serif;
-  font-weight: 300;
+  font-family: Glory, sans-serif;
+  font-weight: 400;
   color: #4a4a4a;
 }
 

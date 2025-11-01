@@ -5,7 +5,7 @@
 
   type Props = {
     scroll: number;
-    children?: Snippet;
+    children: Snippet;
   };
 
   let { scroll, children }: Props = $props();
@@ -62,7 +62,7 @@
   style:transform={transform(scroll, $size.blockSize)}
   use:observeSize={size}
 >
-  {@render children?.()}
+  {@render children()}
 </div>
 
 <style>

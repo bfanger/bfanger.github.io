@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
+  import { fade, fly } from "svelte/transition";
   import Card from "$lib/components/Card.svelte";
   import Intro from "$lib/components/Intro.svelte";
   import NavButton from "$lib/components/NavButton.svelte";
@@ -75,6 +75,7 @@
           delay: skipped ? 0 : 100,
           duration: skipped ? 250 : 600,
         }}
+        out:fade|global={{ duration: 200 }}
       >
         <NavButton
           type="next"

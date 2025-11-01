@@ -11,6 +11,7 @@
     cardOut,
   } from "../../../services/cardTransition";
   import NavButton from "$lib/components/NavButton.svelte";
+  import { fade } from "svelte/transition";
 
   type Teaser = {
     slug: string;
@@ -117,6 +118,7 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   class="previous"
+  out:fade|global={{ duration: 200 }}
   onmousedown={() => {
     cardTransition.set("right");
   }}
@@ -147,8 +149,8 @@
     }
 
     @media (width <= 880px) {
-      bottom: 50px;
-      left: 20px;
+      bottom: 40px;
+      left: 40px;
     }
   }
 </style>
