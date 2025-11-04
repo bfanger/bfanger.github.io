@@ -1,12 +1,14 @@
-import { error, json } from "@sveltejs/kit";
-import type { Project } from "$lib/project-fns";
-import { allProjects, processImage } from "$lib/project-fns";
+import { error } from "@sveltejs/kit";
+import { prerender } from "$app/server";
+import { z } from "zod/v4";
+import type { Project } from "./project-fns";
+import { allProjects, processImage } from "./project-fns";
 
-export async function GET({ params }) {
+export const fetchProject = prerender(z.string(), async (slug) => {
   const projects = await allProjects();
-  const index = projects.findIndex((p) => p.slug === params.project);
+  const index = projects.findIndex((p) => p.slug === slug);
   if (index === -1) {
-    error(404, `Geen project gevonden voor "${params.project}"`);
+    error(404, `Geen project gevonden voor "${slug}"`);
   }
   const data = projects[index];
   const project: Project = {
@@ -24,5 +26,5 @@ export async function GET({ params }) {
   if (data.image) {
     project.image = await processImage(data.image);
   }
-  return json(project);
-}
+  return project;
+});

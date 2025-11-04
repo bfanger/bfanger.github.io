@@ -12,6 +12,7 @@
   } from "../../../services/cardTransition";
   import NavButton from "$lib/components/NavButton.svelte";
   import { fade } from "svelte/transition";
+  import { fetchProject } from "$lib/fetchProject.remote";
 
   type Teaser = {
     slug: string;
@@ -38,9 +39,7 @@
     const projectIndex = findIndex(slug);
     /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
     if (!cached[projectIndex]) {
-      cached[projectIndex] = fetch(`/projects/${slug}.json`).then((r) =>
-        r.json(),
-      );
+      cached[projectIndex] = fetchProject(slug);
     }
     return cached[projectIndex];
   }

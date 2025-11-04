@@ -11,6 +11,7 @@ const commit = spawnSync("git rev-parse HEAD", {
 export default {
   preprocess: runesMode(),
   kit: {
+    experimental: { remoteFunctions: true },
     adapter: adapter(),
     ...(commit ? { version: { name: commit } } : {}),
   },
