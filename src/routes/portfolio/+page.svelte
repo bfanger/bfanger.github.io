@@ -36,10 +36,27 @@
   <div in:cardIn|global={{}} out:cardOut|global={{}}>
     <Card>
       <h1>Portfolio van Bob Fanger</h1>
+      <ul class="top-picks">
+        {#each data.topPicks as project}
+          <li>
+            <a
+              class="top-pick"
+              href={resolve("/projects/[project]", {
+                project: project.slug,
+              })}
+              data-sveltekit-noscroll
+            >
+              <img src="/build/img/{project.image}" alt={project.alt} />
+              {project.title}
+            </a>
+          </li>
+        {/each}
+      </ul>
       {#each years as year}
         <h2>{year}</h2>
         <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
         <ul
+          class="project-list"
           onmousedown={() => {
             cardTransition.set("left");
           }}
@@ -87,6 +104,57 @@
 </Page>
 
 <style>
+  .top-picks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .top-pick {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    align-items: center;
+
+    font:
+      450 18px Glory,
+      sans-serif;
+    color: black;
+
+    img {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+
+      @supports (corner-shape: squircle) {
+        border-radius: 40px;
+
+        corner-shape: squircle;
+      }
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      img {
+        transform: scale(1.02);
+      }
+    }
+
+    @media (width >= 500px) {
+      font-size: 22px;
+    }
+  }
+
+  .project-list {
+    padding-left: 24px;
+  }
+
   .previous {
     position: fixed;
     bottom: calc(50% - 35px);

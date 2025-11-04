@@ -7,5 +7,10 @@ export async function load() {
     title: project.title,
     released: project.released,
   }));
-  return { teasers };
+  const topPicks = projects
+    .filter((t) => t.promoted)
+    .toSorted((a, b) => {
+      return a.promoted! - b.promoted!;
+    });
+  return { teasers, topPicks };
 }

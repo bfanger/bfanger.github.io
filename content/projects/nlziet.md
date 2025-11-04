@@ -10,8 +10,10 @@ tags:
   - rxjs
   - smarttv
   - bitmovin
-  - shaka
+  - shaka-player
+promoted: 3
 ---
 
-De SmartTV applicatie van [NLZIET](https://www.nlziet.nl/) o.b.v. het Mauna Framework.
-NLZiet is een alternatief voor kabeltelevisie, maar naast live tv kijken bied deze ook met extra features zoals terugkijken of reclame vrij kijken.
+[NLZIET](https://www.nlziet.nl/) is een alternatief voor kabeltelevisie, maar naast live tv kijken bied deze ook met extra features zoals terugkijken of reclame vrij kijken.
+
+Wij hebben voor NLZiet de SmartTV app ontwikkeld, deze maakt gebruik van het Mauna Framework dat we bij Triple ontwikkeld hebben.

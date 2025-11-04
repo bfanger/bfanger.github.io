@@ -8,6 +8,7 @@ tags:
 image: lego-boost.png
 alt: Lego Boost
 released: "2018-04"
+promoted: 1
 ---
 
 Verreweg het leukste project van 2018. Een campagne site waarbij je zelf blokken in een timeline kan slepen om zodoende de LEGO Boost robot te "programmeren".

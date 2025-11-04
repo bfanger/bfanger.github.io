@@ -18,6 +18,7 @@ export type Project = {
   };
   content: string;
   released: string;
+  promoted?: number;
   after?: string;
   before?: string;
 };
@@ -55,11 +56,13 @@ export async function allProjects(): Promise<RawProject[]> {
       const slug = file.substr(0, file.length - 3);
       return loadProject(slug);
     });
-  return orderBy(
+  const ordered = orderBy(
     await Promise.all(projectPromises),
     ["released", "title"],
     ["desc", "asc"],
   );
+
+  return ordered;
 }
 const destination = `${path.resolve(process.cwd(), "static/build/img")}/`;
 if (fs.existsSync(destination) === false) {
