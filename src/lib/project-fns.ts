@@ -10,6 +10,7 @@ import { marked } from "marked";
 export type Project = {
   slug: string;
   title: string;
+  canonical?: string;
   image?: {
     src: string;
     width: number;
@@ -56,13 +57,26 @@ export async function allProjects(): Promise<RawProject[]> {
       const slug = file.substr(0, file.length - 3);
       return loadProject(slug);
     });
-  const ordered = orderBy(
+  return orderBy(
     await Promise.all(projectPromises),
     ["released", "title"],
     ["desc", "asc"],
   );
+}
 
-  return ordered;
+export function extractPromoted(projects: RawProject[]) {
+  const topPicks = projects
+    .filter((t) => t.promoted)
+    .toSorted((a, b) => {
+      return a.promoted! - b.promoted!;
+    })
+    .map((p) => ({
+      ...p,
+      canonical: p.slug,
+      slug: `top${p.promoted}`,
+      released: "",
+    }));
+  return topPicks;
 }
 const destination = `${path.resolve(process.cwd(), "static/build/img")}/`;
 if (fs.existsSync(destination) === false) {

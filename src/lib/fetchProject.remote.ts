@@ -2,10 +2,11 @@ import { error } from "@sveltejs/kit";
 import { prerender } from "$app/server";
 import { z } from "zod/v4";
 import type { Project } from "./project-fns";
-import { allProjects, processImage } from "./project-fns";
+import { allProjects, extractPromoted, processImage } from "./project-fns";
 
 export const fetchProject = prerender(z.string(), async (slug) => {
-  const projects = await allProjects();
+  const base = await allProjects();
+  const projects = [...base, ...extractPromoted(base)];
   const index = projects.findIndex((p) => p.slug === slug);
   if (index === -1) {
     error(404, `Geen project gevonden voor "${slug}"`);
@@ -16,6 +17,7 @@ export const fetchProject = prerender(z.string(), async (slug) => {
     title: data.title,
     released: data.released,
     content: data.content,
+    canonical: "canonical" in data ? data.canonical : undefined,
   };
   if (index !== 0) {
     project.before = projects[index - 1].slug;

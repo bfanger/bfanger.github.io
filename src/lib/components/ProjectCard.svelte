@@ -24,11 +24,13 @@
   {/if}
   <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   {@html project.content}
-  <div class="footer">
-    <span class="release-date">
-      {formatReleaseDate(project.released)}
-    </span>
-  </div>
+  {#if project.released}
+    <div class="footer">
+      <span class="release-date">
+        {formatReleaseDate(project.released)}
+      </span>
+    </div>
+  {/if}
 </Card>
 
 <style>

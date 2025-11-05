@@ -1,8 +1,9 @@
-import { allProjects } from "$lib/project-fns";
+import { allProjects, extractPromoted } from "$lib/project-fns";
 
 export async function load() {
   const projects = await allProjects();
-  const teasers = projects.map((project) => ({
+  const promoted = extractPromoted(projects);
+  const teasers = [...promoted, ...projects].map((project) => ({
     slug: project.slug,
     title: project.title,
     released: project.released,

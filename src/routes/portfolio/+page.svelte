@@ -37,7 +37,7 @@
   <div in:cardIn|global={{}} out:cardOut|global={{}}>
     <Card>
       <h1>Portfolio van Bob Fanger</h1>
-      <TopPicks projects={data.topPicks} />
+      <TopPicks projects={data.promoted} />
 
       {#each years as year}
         <h2>{year}</h2>
@@ -84,7 +84,7 @@
         cardTransition.set("left");
       }}
     >
-      {years[0]}
+      Volgende
     </NavButton>
   </div>
   <Disclaimer />
