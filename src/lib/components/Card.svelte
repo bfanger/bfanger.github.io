@@ -17,7 +17,7 @@
     display: block;
 
     box-sizing: border-box;
-    width: calc(100vw - 60px);
+    width: calc(100vw - 32px);
     min-width: 33%;
     max-width: 760px;
     margin-inline: auto;

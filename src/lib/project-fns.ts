@@ -33,7 +33,7 @@ const hasPngquant = execFile("which pngquant")
   .catch(() => false);
 
 const dir = path.resolve(process.cwd(), "content/projects");
-type RawProject = Project & { image: string; alt: string };
+export type RawProject = Project & { image: string; alt: string };
 
 async function loadProject(slug: string) {
   const file = await readFile(path.resolve(dir, `${slug}.md`));

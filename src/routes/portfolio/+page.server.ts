@@ -12,5 +12,6 @@ export async function load() {
     .toSorted((a, b) => {
       return a.promoted! - b.promoted!;
     });
+
   return { teasers, topPicks };
 }
