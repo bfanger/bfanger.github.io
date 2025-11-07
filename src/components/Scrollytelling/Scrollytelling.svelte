@@ -12,7 +12,6 @@
   } from "../../services/cardTransition";
   import NavButton from "../NavButton.svelte";
   import { fade } from "svelte/transition";
-  import { fetchProject } from "../../services/fetchProject.remote";
   import { resolve } from "$app/paths";
   import { replaceState } from "$app/navigation";
 
@@ -41,7 +40,9 @@
     const projectIndex = findIndex(slug);
     /* eslint-disable-next-line @typescript-eslint/no-misused-promises */
     if (!cached[projectIndex]) {
-      cached[projectIndex] = fetchProject(slug);
+      cached[projectIndex] = fetch(`/projects/${slug}.json`).then((res) =>
+        res.json(),
+      );
     }
     return cached[projectIndex];
   }
