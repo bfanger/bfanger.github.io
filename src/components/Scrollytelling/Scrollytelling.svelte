@@ -86,7 +86,7 @@
     }
   });
   let virtual = $derived(
-    [currentIndex - 1, currentIndex, currentIndex + 1].filter(
+    (browser ? [currentIndex - 1, currentIndex, currentIndex + 1] : []).filter(
       (index) => index >= 0 && index < teasers.length && index !== initial,
     ),
   );
@@ -98,7 +98,12 @@
 </script>
 
 <Scroller max={teasers.length} bind:value={scrollIndex} />
-<div class="viewport" in:cardIn|global={{}} out:cardOut|global={{}}>
+<div
+  class="viewport"
+  class:ssr={!browser}
+  in:cardIn|global={{}}
+  out:cardOut|global={{}}
+>
   {#each virtual as index (index)}
     <ScrollytellingItem scroll={scrollIndex - index}>
       {#await cached[index]}
@@ -136,7 +141,16 @@
     left: 0;
 
     width: 100%;
-    height: 100svh;
+    min-height: 100svh;
+
+    &.ssr {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .previous {

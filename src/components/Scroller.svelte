@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { onMount } from "svelte";
 
   type Props = {
@@ -55,9 +56,11 @@
   }
 </script>
 
-<div class="scroller" style:height="{max * 100}svh"></div>
-<div class="size" bind:clientHeight></div>
 <svelte:window onscroll={start} on:scrollend={end} />
+{#if browser}
+  <div class="scroller" style:height="{max * 100}svh"></div>
+  <div class="size" bind:clientHeight></div>
+{/if}
 
 <style>
   .scroller {

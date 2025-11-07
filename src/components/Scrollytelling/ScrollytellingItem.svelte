@@ -2,6 +2,7 @@
   import { writable } from "svelte/store";
   import observeSize from "../../services/observeSize";
   import type { Snippet } from "svelte";
+  import { browser } from "$app/environment";
 
   type Props = {
     scroll: number;
@@ -59,6 +60,7 @@
 
 <div
   class="item"
+  class:ssr={!browser}
   style:transform={transform(scroll, $size.blockSize)}
   use:observeSize={size}
 >
@@ -70,6 +72,10 @@
     will-change: transform;
     position: absolute;
     top: 0;
+
+    &.ssr {
+      position: static;
+    }
 
     @media (width <= 768px) {
       left: 0;
