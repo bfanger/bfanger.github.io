@@ -13,6 +13,8 @@
   import NavButton from "$lib/components/NavButton.svelte";
   import { fade } from "svelte/transition";
   import { fetchProject } from "$lib/fetchProject.remote";
+  import { resolve } from "$app/paths";
+  import { replaceState } from "$app/navigation";
 
   type Teaser = {
     slug: string;
@@ -50,7 +52,9 @@
     if (window.location.pathname === url) {
       return;
     }
-    window.history.replaceState({ scroll: index }, "", `/projects/${slug}`);
+    replaceState(resolve("/projects/[project]", { project: slug }), {
+      scroll: index,
+    });
   }
 
   function placeholder(teaser: Teaser): Project {
@@ -62,23 +66,23 @@
     };
   }
   let currentIndex = $derived(Math.round(scrollIndex));
-  let previous = $derived(teasers[currentIndex - 1]?.slug);
-  let current = $derived(teasers[currentIndex]?.slug);
-  let next = $derived(teasers[currentIndex + 1]?.slug);
+  let previous = $derived(teasers[currentIndex - 1]);
+  let current = $derived(teasers[currentIndex]);
+  let next = $derived(teasers[currentIndex + 1]);
 
   $effect(() => {
-    if (browser && previous) {
-      void loadProject(previous);
-    }
-  });
-  $effect(() => {
     if (browser && current) {
-      void loadProject(current);
+      void loadProject(current.slug);
     }
   });
   $effect(() => {
     if (browser && next) {
-      void loadProject(next);
+      void loadProject(next.slug);
+    }
+  });
+  $effect(() => {
+    if (browser && previous) {
+      void loadProject(previous.slug);
     }
   });
   let virtual = $derived(
@@ -151,5 +155,12 @@
       bottom: 40px;
       left: 40px;
     }
+  }
+
+  .down {
+    position: fixed;
+    z-index: 1;
+    right: 40px;
+    bottom: 40px;
   }
 </style>
