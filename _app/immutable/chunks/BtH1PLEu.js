@@ -1,0 +1,1 @@
+import{x as u,b as o,V as _,h as t,P as g,C as m,L as a,l as i,k as d,m as p}from"./Cp8cVCIs.js";function E(n,r){let s=null,f=t;var l;if(t){s=p;for(var e=g(document.head);e!==null&&(e.nodeType!==m||e.data!==n);)e=a(e);if(e===null)i(!1);else{var y=a(e);e.remove(),d(y)}}t||(l=document.head.appendChild(u()));try{o(()=>r(l),_)}finally{f&&(i(!0),d(s))}}export{E as h};
