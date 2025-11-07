@@ -6,6 +6,8 @@ import matter from "gray-matter";
 import { imageSizeFromFile } from "image-size/fromFile";
 import { orderBy } from "lodash-es";
 import { marked } from "marked";
+import { error } from "@sveltejs/kit";
+import cache from "./cache";
 
 export type Project = {
   slug: string;
@@ -50,18 +52,20 @@ async function loadProject(slug: string) {
 }
 
 export async function allProjects(): Promise<RawProject[]> {
-  const files = await readDir(dir);
-  const projectPromises = files
-    .filter((file) => file.endsWith(".md"))
-    .map((file) => {
-      const slug = file.substr(0, file.length - 3);
-      return loadProject(slug);
-    });
-  return orderBy(
-    await Promise.all(projectPromises),
-    ["released", "title"],
-    ["desc", "asc"],
-  );
+  return cache({ key: "projects", dedupe: 1, ttl: 5 }, async () => {
+    const files = await readDir(dir);
+    const projectPromises = files
+      .filter((file) => file.endsWith(".md"))
+      .map((file) => {
+        const slug = file.substr(0, file.length - 3);
+        return loadProject(slug);
+      });
+    return orderBy(
+      await Promise.all(projectPromises),
+      ["released", "title"],
+      ["desc", "asc"],
+    );
+  });
 }
 
 export function extractPromoted(projects: RawProject[]) {
@@ -146,4 +150,31 @@ export async function processImage(
     throw new Error("imageSize failed");
   }
   return { src: `/build/img/${filename}`, alt, width, height };
+}
+
+export async function singleProject(slug: string) {
+  const base = await allProjects();
+  const projects = [...base, ...extractPromoted(base)];
+  const index = projects.findIndex((p) => p.slug === slug);
+  if (index === -1) {
+    error(404, `Geen project gevonden voor "${slug}"`);
+  }
+  const data = projects[index];
+  const project: Project = {
+    slug: data.slug,
+    title: data.title,
+    released: data.released,
+    content: data.content,
+    canonical: "canonical" in data ? data.canonical : undefined,
+  };
+  if (index !== 0) {
+    project.before = projects[index - 1].slug;
+  }
+  if (index < projects.length - 1) {
+    project.after = projects[index + 1].slug;
+  }
+  if (data.image) {
+    project.image = await processImage(data.image);
+  }
+  return project;
 }

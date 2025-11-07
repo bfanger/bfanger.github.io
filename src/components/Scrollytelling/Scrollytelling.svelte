@@ -1,18 +1,18 @@
 <script lang="ts">
-  import type { Project } from "$lib/project-fns";
+  import type { Project } from "../../services/project-fns";
   import { browser } from "$app/environment";
   import { page } from "$app/state";
-  import ProjectCard from "$lib/components/ProjectCard.svelte";
-  import Scroller from "$lib/components/Scroller.svelte";
+  import ProjectCard from "../ProjectCard.svelte";
+  import Scroller from "../Scroller.svelte";
   import ScrollytellingItem from "./ScrollytellingItem.svelte";
   import type { Snippet } from "svelte";
   import cardTransition, {
     cardIn,
     cardOut,
-  } from "../../../services/cardTransition";
-  import NavButton from "$lib/components/NavButton.svelte";
+  } from "../../services/cardTransition";
+  import NavButton from "../NavButton.svelte";
   import { fade } from "svelte/transition";
-  import { fetchProject } from "$lib/fetchProject.remote";
+  import { fetchProject } from "../../services/fetchProject.remote";
   import { resolve } from "$app/paths";
   import { replaceState } from "$app/navigation";
 
@@ -97,7 +97,7 @@
   });
 </script>
 
-<Scroller max={teasers.length - 1} bind:value={scrollIndex} />
+<Scroller max={teasers.length} bind:value={scrollIndex} />
 <div class="viewport" in:cardIn|global={{}} out:cardOut|global={{}}>
   {#each virtual as index (index)}
     <ScrollytellingItem scroll={scrollIndex - index}>
@@ -155,12 +155,5 @@
       bottom: 40px;
       left: 40px;
     }
-  }
-
-  .down {
-    position: fixed;
-    z-index: 1;
-    right: 40px;
-    bottom: 40px;
   }
 </style>

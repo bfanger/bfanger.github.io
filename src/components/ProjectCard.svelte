@@ -1,8 +1,8 @@
 <script lang="ts">
   import Card from "./Card.svelte";
   import ProjectImage from "./ProjectImage.svelte";
-  import type { Project } from "$lib/project-fns";
-  import { formatReleaseDate } from "$lib/formatDate";
+  import type { Project } from "../services/project-fns";
+  import { formatReleaseDate } from "../services/formatDate";
 
   type Props = {
     project: Project;

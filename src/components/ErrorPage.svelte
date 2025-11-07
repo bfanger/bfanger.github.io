@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from "$lib/components/Card.svelte";
-  import Page from "$lib/components/Page.svelte";
+  import Card from "./Card.svelte";
+  import Page from "./Page.svelte";
   import type { Snippet } from "svelte";
 
   type Props = {

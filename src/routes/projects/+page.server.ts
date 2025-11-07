@@ -1,5 +1,5 @@
 import { redirect } from "@sveltejs/kit";
-import { allProjects } from "$lib/project-fns";
+import { allProjects } from "../../services/project-fns";
 
 export async function load() {
   const projects = await allProjects();

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import { resolve } from "$app/paths";
-  import ProjectCard from "$lib/components/ProjectCard.svelte";
+  import ProjectCard from "../../../components/ProjectCard.svelte";
 
   let { data } = $props();
 </script>

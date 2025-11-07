@@ -1,6 +1,6 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import type { RawProject } from "$lib/project-fns";
+  import type { RawProject } from "../../services/project-fns";
   import cardTransition from "../../services/cardTransition";
 
   type Props = {

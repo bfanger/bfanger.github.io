@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { fade, fly } from "svelte/transition";
-  import Card from "$lib/components/Card.svelte";
-  import Intro from "$lib/components/Intro.svelte";
-  import NavButton from "$lib/components/NavButton.svelte";
-  import Page from "$lib/components/Page.svelte";
+  import Card from "../components/Card.svelte";
+  import Intro from "../components/Intro.svelte";
+  import NavButton from "../components/NavButton.svelte";
+  import Page from "../components/Page.svelte";
   import cardTransition from "../services/cardTransition";
 
   let { data } = $props();
@@ -16,7 +16,7 @@
   const isServer = typeof window === "undefined";
 
   if (!import.meta.env.SSR) {
-    void import("$lib/components/Avatar.svelte").then((m) => {
+    void import("../components/Avatar.svelte").then((m) => {
       Avatar = m.default;
     });
   }

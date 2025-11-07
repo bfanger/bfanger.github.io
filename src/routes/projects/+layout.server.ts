@@ -1,4 +1,4 @@
-import { allProjects, extractPromoted } from "$lib/project-fns";
+import { allProjects, extractPromoted } from "../../services/project-fns";
 
 export async function load() {
   const projects = await allProjects();

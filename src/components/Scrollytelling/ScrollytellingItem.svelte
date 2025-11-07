@@ -1,6 +1,6 @@
 <script lang="ts">
   import { writable } from "svelte/store";
-  import observeSize from "../../../services/observeSize";
+  import observeSize from "../../services/observeSize";
   import type { Snippet } from "svelte";
 
   type Props = {
