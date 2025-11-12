@@ -6,10 +6,11 @@
 
   type Props = {
     scroll: number;
+    inert?: boolean;
     children: Snippet;
   };
 
-  let { scroll, children }: Props = $props();
+  let { scroll, inert, children }: Props = $props();
 
   const padding = 16;
 
@@ -62,6 +63,7 @@
   class="item"
   class:ssr={!browser}
   style:transform={transform(scroll, $size.blockSize)}
+  {inert}
   use:observeSize={size}
 >
   {@render children()}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { resolve } from "$app/paths";
   import { scale } from "svelte/transition";
 
@@ -27,6 +28,7 @@
   <img
     draggable="false"
     class="arrow"
+    class:start-rotated={browser}
     src="/images/nav-button-next.svg"
     alt=""
     height="42"
@@ -81,8 +83,12 @@
     height: auto;
     transition: ease-out transform 0.1s;
 
-    @starting-style {
-      transform: translateY(0) rotate(0deg) !important;
+    &.start-rotated {
+      @media (width <= 1000px) {
+        @starting-style {
+          transform: translateY(0) rotate(0deg) !important;
+        }
+      }
     }
 
     :active & {

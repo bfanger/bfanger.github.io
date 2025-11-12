@@ -112,7 +112,10 @@
   out:cardOut|global={{}}
 >
   {#each virtual as index (index)}
-    <ScrollytellingItem scroll={scrollIndex - index}>
+    <ScrollytellingItem
+      scroll={scrollIndex - index}
+      inert={index !== currentIndex}
+    >
       {#await cached[index]}
         <ProjectCard project={placeholder(teasers[index])} />
       {:then project}
@@ -125,7 +128,10 @@
     </ScrollytellingItem>
   {/each}
   {#if initial > currentIndex - 2 && initial < currentIndex + 2}
-    <ScrollytellingItem scroll={scrollIndex - initial}>
+    <ScrollytellingItem
+      scroll={scrollIndex - initial}
+      inert={initial !== currentIndex}
+    >
       {@render children()}
     </ScrollytellingItem>
   {/if}
