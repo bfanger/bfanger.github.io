@@ -168,8 +168,10 @@
     top: 0;
     left: 0;
 
+    overflow: clip;
+
     width: 100%;
-    min-height: 100svh;
+    min-height: 100dvh;
 
     &.ssr {
       position: relative;

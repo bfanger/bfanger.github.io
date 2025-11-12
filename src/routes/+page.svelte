@@ -75,7 +75,7 @@
           delay: skipped ? 0 : 100,
           duration: skipped ? 250 : 600,
         }}
-        out:fade|global={{ duration: 200 }}
+        out:fade|global={{ duration: 150 }}
       >
         <NavButton
           type="next"

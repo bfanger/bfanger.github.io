@@ -35,12 +35,13 @@
 
 <style>
   .layout {
-    position: relative;
+    position: absolute;
+    top: 0;
 
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    min-height: 100vh;
+    height: clamp(100vh, 100vh, max-content);
   }
 </style>

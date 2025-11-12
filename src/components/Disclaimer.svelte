@@ -12,6 +12,7 @@
     text-align: center;
 
     @media screen and (width <= 800px) {
+      padding-inline: 100px;
       font-size: 9px;
     }
   }

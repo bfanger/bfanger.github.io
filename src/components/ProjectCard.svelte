@@ -1,6 +1,5 @@
 <script lang="ts">
   import Card from "./Card.svelte";
-  import ProjectImage from "./ProjectImage.svelte";
   import type { Project } from "../services/project-fns";
   import { formatReleaseDate } from "../services/formatDate";
 
@@ -15,15 +14,19 @@
 <Card>
   <h1 class="title">{project.title}</h1>
   {#if image}
-    <ProjectImage
-      src={image.src}
-      width={image.width}
-      height={image.height}
-      alt={image.alt}
-    />
+    <div class="image-container">
+      <img
+        class="project-image"
+        style:aspect-ratio="{image.width} / {image.height}"
+        src={image.src}
+        alt={image.alt}
+      />
+    </div>
   {/if}
   <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-  {@html project.content}
+  <div>
+    {@html project.content}
+  </div>
   {#if project.released}
     <div class="footer">
       <span class="release-date">
@@ -45,12 +48,28 @@
     }
   }
 
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-image {
+    max-width: 100%;
+    max-height: 50svh;
+    margin-inline: auto;
+    border-radius: 3px;
+
+    box-shadow: 3px 0 15px #0000000d;
+  }
+
   .footer {
     display: flex;
     justify-content: flex-end;
   }
 
   .release-date {
-    color: #aaa;
+    color: #9b9b9b;
   }
 </style>

@@ -17,10 +17,7 @@
   /** The size of each step in pixels */
   let size = $state(0);
   let tween = $state<Tween<number>>();
-
-  let scrolling: ReturnType<typeof requestAnimationFrame> | undefined;
-  let lastChange = Date.now();
-  let previous = value;
+  let scroll = $state<Tween<number>>();
 
   if (value !== 0) {
     onMount(() => {
@@ -32,10 +29,11 @@
    * Animated programmatic scroll
    */
   move = async (delta: number) => {
+    scroll = undefined;
     let target = Math.round(tween?.target ?? value) + delta;
     if (!tween) {
       tween = new Tween(value, {
-        duration: 300,
+        duration: 400,
         easing: cubicOut,
       });
     }
@@ -50,51 +48,34 @@
     tween = undefined;
   };
 
-  function sync() {
-    const factor = window.scrollY / (size * max);
-    value = factor * max;
-  }
-
-  function raf() {
-    sync();
-    if (previous !== value) {
-      lastChange = Date.now();
-      previous = value;
-      scrolling = requestAnimationFrame(raf);
-    } else if (Date.now() - lastChange < 1000) {
-      scrolling = requestAnimationFrame(raf);
-    } else {
-      scrolling = undefined;
-    }
-  }
-
-  function start() {
-    lastChange = Date.now();
+  function onscroll() {
     tween = undefined;
-    sync();
-    if (!scrolling) {
-      scrolling = requestAnimationFrame(raf);
+    const target = (window.scrollY / (size * max)) * max;
+    if (!scroll) {
+      scroll = new Tween(target, {
+        duration: 50,
+        easing: cubicOut,
+      });
     }
+    void scroll.set(target);
   }
 
-  function end() {
-    sync();
-    if (scrolling) {
-      cancelAnimationFrame(scrolling);
-      scrolling = undefined;
-    }
+  function onscrollend() {
+    scroll = undefined;
   }
 
   $effect(() => {
-    if (tween) {
+    if (scroll) {
+      value = scroll.current;
+    } else if (tween) {
       value = tween.current;
     }
   });
 </script>
 
-<svelte:window onscroll={start} on:scrollend={end} />
+<svelte:window {onscroll} {onscrollend} />
 {#if browser}
-  <div class="scroller" style:height="{max * 100}svh"></div>
+  <div class="scroller" style:height="{max * 60}svh"></div>
   <div class="size" bind:clientHeight={size}></div>
 {/if}
 
@@ -103,15 +84,20 @@
     position: absolute;
     top: 0;
     left: 0;
+
     width: 1px;
+
+    visibility: hidden;
   }
 
   .size {
     position: absolute;
     top: 0;
-    left: -1px;
+    left: 0;
 
-    width: 1px;
-    height: 100svh;
+    width: 0;
+    height: 60svh;
+
+    visibility: hidden;
   }
 </style>
