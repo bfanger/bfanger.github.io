@@ -6,26 +6,22 @@
 
   type Props = {
     scroll: number;
+    screenHeight: number;
     inert?: boolean;
     children: Snippet;
   };
 
-  let { scroll, inert, children }: Props = $props();
+  let { scroll, screenHeight, inert, children }: Props = $props();
 
   const padding = 16;
 
   const size = writable<ResizeObserverSize>({ inlineSize: 0, blockSize: 0 });
 
   function y(offset: number, itemHeight: number): number {
-    const screenHeight = window.innerHeight;
     const halfScreen = screenHeight / 2;
     if (offset > 1) {
       // 1.0: cardbottom at screentop
       return -itemHeight;
-    }
-    if (offset < -1) {
-      // -1.0: cardtop at screenbottom
-      return screenHeight;
     }
     if (offset > 0.5) {
       // 0.5: cardbottom at screenmiddle
@@ -51,7 +47,7 @@
       const progress = (offset - 0.75) * 4;
       scale = 1 - progress * progress * 0.2;
     }
-    if (offset < -0.5 && offset > -1) {
+    if (offset < -0.5 && offset > -1.5) {
       const progress = (offset + 0.5) * -2;
       scale = 1 - progress * progress * 0.3;
     }

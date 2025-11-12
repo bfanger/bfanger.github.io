@@ -24,7 +24,7 @@
     padding: 10px 20px;
     border-radius: 20px;
 
-    background: #ffffffe6;
+    background: #f8f7fe;
     box-shadow: 6px 6px 60px #0003;
 
     corner-shape: squircle;

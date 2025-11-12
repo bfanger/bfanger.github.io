@@ -10,18 +10,23 @@
      */
     max: number;
     value: number;
+    /** The size of each step in pixels */
+    increments: number;
     move?: (delta: number) => Promise<void>;
   };
-  let { max, value = $bindable(), move = $bindable() }: Props = $props();
+  let {
+    max,
+    value = $bindable(),
+    move = $bindable(),
+    increments,
+  }: Props = $props();
 
-  /** The size of each step in pixels */
-  let size = $state(0);
   let tween = $state<Tween<number>>();
   let scroll = $state<Tween<number>>();
 
   if (value !== 0) {
     onMount(() => {
-      window.scrollTo({ top: size * value, behavior: "instant" });
+      window.scrollTo({ top: increments * value, behavior: "instant" });
     });
   }
 
@@ -43,14 +48,14 @@
       easing: cubicOut,
     });
     if (tween === currentTween) {
-      window.scrollTo({ top: size * target, behavior: "instant" });
+      window.scrollTo({ top: increments * target, behavior: "instant" });
     }
     tween = undefined;
   };
 
   function onscroll() {
     tween = undefined;
-    const target = (window.scrollY / (size * max)) * max;
+    const target = (window.scrollY / (increments * max)) * max;
     if (!scroll) {
       scroll = new Tween(target, {
         duration: 50,
@@ -75,8 +80,7 @@
 
 <svelte:window {onscroll} {onscrollend} />
 {#if browser}
-  <div class="scroller" style:height="{max * 60}svh"></div>
-  <div class="size" bind:clientHeight={size}></div>
+  <div class="scroller" style:height="{max * increments}svh"></div>
 {/if}
 
 <style>
@@ -86,17 +90,6 @@
     left: 0;
 
     width: 1px;
-
-    visibility: hidden;
-  }
-
-  .size {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 60svh;
 
     visibility: hidden;
   }

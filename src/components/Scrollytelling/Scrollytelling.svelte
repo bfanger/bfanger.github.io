@@ -32,6 +32,7 @@
   const cached: Record<number, Promise<Project>> = $state({}); // @todo Prime cache with server project data
 
   let scrollIndex = $state(initial);
+  let screenHeight = $state(1);
 
   function findIndex(slug: string) {
     return teasers.findIndex((t) => t.slug === slug);
@@ -104,7 +105,6 @@
   });
 </script>
 
-<Scroller max={teasers.length} bind:value={scrollIndex} bind:move />
 <div
   class="viewport"
   class:ssr={!browser}
@@ -115,6 +115,7 @@
     <ScrollytellingItem
       scroll={scrollIndex - index}
       inert={index !== currentIndex}
+      {screenHeight}
     >
       {#await cached[index]}
         <ProjectCard project={placeholder(teasers[index])} />
@@ -131,11 +132,19 @@
     <ScrollytellingItem
       scroll={scrollIndex - initial}
       inert={initial !== currentIndex}
+      {screenHeight}
     >
       {@render children()}
     </ScrollytellingItem>
   {/if}
 </div>
+<div class="screen-height" bind:clientHeight={screenHeight}></div>
+<Scroller
+  max={teasers.length}
+  bind:value={scrollIndex}
+  bind:move
+  increments={screenHeight * 0.7}
+/>
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   class="previous"
@@ -181,6 +190,17 @@
       align-items: center;
       justify-content: center;
     }
+  }
+
+  .screen-height {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 100svh;
+
+    visibility: hidden;
   }
 
   .previous {
