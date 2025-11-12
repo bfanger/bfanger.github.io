@@ -141,9 +141,9 @@
 <div class="screen-height" bind:clientHeight={screenHeight}></div>
 <Scroller
   max={teasers.length}
+  {screenHeight}
   bind:value={scrollIndex}
   bind:move
-  increments={screenHeight * 0.7}
 />
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
