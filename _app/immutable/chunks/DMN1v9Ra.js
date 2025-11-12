@@ -1,1 +1,0 @@
-import{l as o,b as u,m as _,h as t,o as g,C as m,q as a,k as i,j as d,v as p}from"./Dta-Ywbb.js";function E(n,r){let s=null,f=t;var l;if(t){s=p;for(var e=g(document.head);e!==null&&(e.nodeType!==m||e.data!==n);)e=a(e);if(e===null)i(!1);else{var y=a(e);e.remove(),d(y)}}t||(l=document.head.appendChild(o()));try{u(()=>r(l),_)}finally{f&&(i(!0),d(s))}}export{E as h};
