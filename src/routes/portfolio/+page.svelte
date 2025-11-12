@@ -106,7 +106,7 @@
       transform: none;
     }
 
-    @media (width <= 880px) {
+    @media (width <= 1000px) {
       bottom: 40px;
       left: 40px;
     }
@@ -123,7 +123,7 @@
       transform: none;
     }
 
-    @media (width <= 880px) {
+    @media (width <= 1000px) {
       right: 40px;
       bottom: 40px;
     }

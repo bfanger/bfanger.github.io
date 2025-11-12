@@ -14,6 +14,7 @@
   import { fade } from "svelte/transition";
   import { resolve } from "$app/paths";
   import { replaceState } from "$app/navigation";
+  import ScrollArrow from "./ScrollArrow.svelte";
 
   type Teaser = {
     slug: string;
@@ -46,16 +47,20 @@
     }
     return cached[projectIndex];
   }
-
+  // Fix for Safari's SecurityError: Attempt to use history.replaceState() more than X times per Y seconds.
+  let debounceTimer: ReturnType<typeof setTimeout>;
   function updateUrl(index: number) {
-    const { slug } = teasers[index];
-    const url = `/projects/${slug}`;
-    if (window.location.pathname === url) {
-      return;
-    }
-    replaceState(resolve("/projects/[project]", { project: slug }), {
-      scroll: index,
-    });
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      const { slug } = teasers[index];
+      const url = `/projects/${slug}`;
+      if (window.location.pathname === url) {
+        return;
+      }
+      replaceState(resolve("/projects/[project]", { project: slug }), {
+        scroll: index,
+      });
+    }, 100);
   }
 
   function placeholder(teaser: Teaser): Project {
@@ -70,6 +75,7 @@
   let previous = $derived(teasers[currentIndex - 1]);
   let current = $derived(teasers[currentIndex]);
   let next = $derived(teasers[currentIndex + 1]);
+  let move = $state(() => Promise.resolve());
 
   $effect(() => {
     if (browser && current) {
@@ -98,7 +104,7 @@
   });
 </script>
 
-<Scroller max={teasers.length} bind:value={scrollIndex} />
+<Scroller max={teasers.length} bind:value={scrollIndex} bind:move />
 <div
   class="viewport"
   class:ssr={!browser}
@@ -134,6 +140,21 @@
 >
   <NavButton href="/portfolio" type="previous">Portfolio</NavButton>
 </div>
+<div class="up-down" out:fade|global={{ duration: 200 }}>
+  <div class="up">
+    {#if previous}
+      <ScrollArrow
+        slug={previous.slug}
+        title={previous.title}
+        direction="up"
+        {move}
+      />
+    {/if}
+  </div>
+  {#if next}
+    <ScrollArrow slug={next.slug} title={next.title} direction="down" {move} />
+  {/if}
+</div>
 
 <style>
   .viewport {
@@ -166,9 +187,39 @@
       transform: none;
     }
 
-    @media (width <= 880px) {
+    @media (width <= 1000px) {
       bottom: 40px;
       left: 40px;
+    }
+  }
+
+  .up-down {
+    position: fixed;
+    z-index: 1;
+    right: calc(50vw - 575px);
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+
+    @media (width <= 1290px) {
+      right: 40px;
+    }
+
+    @media (width <= 1000px) {
+      bottom: 40px;
+      display: block;
+    }
+
+    @media (width > 1000px) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .up {
+    @media (width <= 1000px) {
+      display: none;
     }
   }
 </style>

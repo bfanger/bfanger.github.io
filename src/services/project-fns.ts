@@ -6,7 +6,6 @@ import matter from "gray-matter";
 import { imageSizeFromFile } from "image-size/fromFile";
 import { orderBy } from "lodash-es";
 import { marked } from "marked";
-import cache from "./cache";
 
 export type Project = {
   slug: string;
@@ -51,20 +50,18 @@ async function loadProject(slug: string) {
 }
 
 export async function allProjects(): Promise<RawProject[]> {
-  return cache({ key: "projects", dedupe: 1, ttl: 5 }, async () => {
-    const files = await readDir(dir);
-    const projectPromises = files
-      .filter((file) => file.endsWith(".md"))
-      .map((file) => {
-        const slug = file.substr(0, file.length - 3);
-        return loadProject(slug);
-      });
-    return orderBy(
-      await Promise.all(projectPromises),
-      ["released", "title"],
-      ["desc", "asc"],
-    );
-  });
+  const files = await readDir(dir);
+  const projectPromises = files
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => {
+      const slug = file.substr(0, file.length - 3);
+      return loadProject(slug);
+    });
+  return orderBy(
+    await Promise.all(projectPromises),
+    ["released", "title"],
+    ["desc", "asc"],
+  );
 }
 
 export function extractPromoted(projects: RawProject[]) {

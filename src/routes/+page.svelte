@@ -128,7 +128,7 @@
       transform: none;
     }
 
-    @media (width <= 880px) {
+    @media (width <= 1000px) {
       right: 50%;
       bottom: 40px;
       transform: translateX(50%);

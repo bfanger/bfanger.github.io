@@ -39,6 +39,7 @@
     padding-left: 25px;
     border-radius: 35px;
 
+    backface-visibility: hidden;
     background: linear-gradient(
       to bottom,
       rgb(0 0 0 / 80%),
@@ -51,6 +52,11 @@
 
     &:hover {
       text-decoration: none;
+    }
+
+    &:focus-visible {
+      outline: 4px solid rgb(255 255 255 / 80%);
+      outline-offset: 4px;
     }
   }
 
