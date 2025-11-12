@@ -1,6 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
   import { Tween } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
 
@@ -22,9 +22,9 @@
 
   let tween = $state<Tween<number>>();
   let scroll = $state<Tween<number>>();
-
   if (value !== 0) {
-    onMount(() => {
+    onMount(async () => {
+      await tick();
       window.scrollTo({ top: screenHeight * value, behavior: "instant" });
     });
   }
