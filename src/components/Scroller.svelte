@@ -1,8 +1,9 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { onMount, tick } from "svelte";
+  import { tick, type Snippet } from "svelte";
   import { Tween } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
+  import abortSignal from "../services/abortSignal";
 
   type Props = {
     /**
@@ -12,28 +13,23 @@
     value: number;
     screenHeight: number;
     move?: (delta: number) => Promise<void>;
+    children: Snippet;
   };
   let {
     max,
     value = $bindable(),
     move = $bindable(),
     screenHeight,
+    children,
   }: Props = $props();
 
   let tween = $state<Tween<number>>();
-  let scroll = $state<Tween<number>>();
-  if (value !== 0) {
-    onMount(async () => {
-      await tick();
-      window.scrollTo({ top: screenHeight * value, behavior: "instant" });
-    });
-  }
+  let container: HTMLElement;
 
   /**
    * Animated programmatic scroll
    */
   move = async (delta: number) => {
-    scroll = undefined;
     let target = Math.round(tween?.target ?? value) + delta;
     if (!tween) {
       tween = new Tween(value, {
@@ -41,55 +37,59 @@
         easing: cubicOut,
       });
     }
-    const currentTween = tween;
     await tween.set(target, {
       duration: 300,
       easing: cubicOut,
     });
-    if (tween === currentTween) {
-      window.scrollTo({ top: screenHeight * target, behavior: "instant" });
-    }
     tween = undefined;
   };
 
   function onscroll() {
-    tween = undefined;
-    const target = (window.scrollY / (screenHeight * max)) * max;
-    if (!scroll) {
-      scroll = new Tween(target, {
-        duration: 50,
-        easing: cubicOut,
-      });
+    if (!container || tween) {
+      return;
     }
-    void scroll.set(target);
+    value = Math.round((container.scrollTop / (screenHeight * max)) * max);
   }
 
   function onscrollend() {
-    scroll = undefined;
+    // scroll = undefined;
   }
 
   $effect(() => {
-    if (scroll) {
-      value = scroll.current;
-    } else if (tween) {
-      value = tween.current;
+    if (tween) {
+      container.scrollTop = tween.current * screenHeight;
+      value = Math.round(tween.current);
     }
   });
 </script>
 
-<svelte:window {onscroll} {onscrollend} />
 {#if browser}
-  <div class="scroller" style:height="{max * screenHeight}px"></div>
+  <div
+    class="scroller"
+    style:height="{max * screenHeight}px"
+    {@attach (el) => {
+      container = el.parentElement as HTMLElement;
+      void tick().then(() => {
+        container.scrollTop = value * screenHeight;
+      });
+      const { signal, abort } = abortSignal();
+      container.addEventListener("scroll", onscroll, {
+        passive: true,
+        signal,
+      });
+      container.addEventListener("scrollend", onscrollend, {
+        passive: true,
+        signal,
+      });
+      return abort;
+    }}
+  >
+    {@render children()}
+  </div>
 {/if}
 
 <style>
   .scroller {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 1px;
-
-    visibility: hidden;
+    position: relative;
   }
 </style>

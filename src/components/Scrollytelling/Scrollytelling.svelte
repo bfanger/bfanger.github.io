@@ -31,7 +31,7 @@
   const initial = findIndex(page.params.project ?? "");
   const cached: Record<number, Promise<Project>> = $state({}); // @todo Prime cache with server project data
 
-  let scrollIndex = $state(initial);
+  let currentIndex = $state(initial);
   let screenHeight = $state(1);
 
   function findIndex(slug: string) {
@@ -72,7 +72,7 @@
       title: teaser.title,
     };
   }
-  let currentIndex = $derived(Math.round(scrollIndex));
+
   let previous = $derived(teasers[currentIndex - 1]);
   let current = $derived(teasers[currentIndex]);
   let next = $derived(teasers[currentIndex + 1]);
@@ -105,46 +105,50 @@
   });
 </script>
 
-<div
-  class="viewport"
-  class:ssr={!browser}
-  in:cardIn|global={{}}
-  out:cardOut|global={{}}
->
-  {#each virtual as index (index)}
-    <ScrollytellingItem
-      scroll={scrollIndex - index}
-      inert={index !== currentIndex}
-      {screenHeight}
-    >
-      {#await cached[index]}
-        <ProjectCard project={placeholder(teasers[index])} />
-      {:then project}
-        {#if project}
-          <ProjectCard {project} />
-        {:else}
-          <ProjectCard project={placeholder(teasers[index])} />
-        {/if}
-      {/await}
-    </ScrollytellingItem>
-  {/each}
-  {#if initial > currentIndex - 2 && initial < currentIndex + 2}
-    <ScrollytellingItem
-      scroll={scrollIndex - initial}
-      inert={initial !== currentIndex}
-      {screenHeight}
-    >
+<div class="viewport" in:cardIn|global={{}} out:cardOut|global={{}}>
+  <div class="screen-height" bind:clientHeight={screenHeight}></div>
+  {#if !browser}
+    <ScrollytellingItem index={initial} screenHeight={1}>
       {@render children()}
     </ScrollytellingItem>
+  {:else}
+    <Scroller
+      max={teasers.length}
+      {screenHeight}
+      bind:value={currentIndex}
+      bind:move
+    >
+      {#each virtual as index (index)}
+        <ScrollytellingItem
+          {index}
+          inert={index !== currentIndex}
+          {screenHeight}
+        >
+          {#await cached[index]}
+            <ProjectCard project={placeholder(teasers[index])} />
+          {:then project}
+            {#if project}
+              <ProjectCard {project} />
+            {:else}
+              <ProjectCard project={placeholder(teasers[index])} />
+            {/if}
+          {/await}
+        </ScrollytellingItem>
+      {/each}
+      {#if initial > currentIndex - 2 && initial < currentIndex + 2}
+        <!-- scroll={scrollIndex - initial} -->
+        <ScrollytellingItem
+          index={initial}
+          inert={initial !== currentIndex}
+          {screenHeight}
+        >
+          {@render children()}
+        </ScrollytellingItem>
+      {/if}
+    </Scroller>
   {/if}
 </div>
-<div class="screen-height" bind:clientHeight={screenHeight}></div>
-<Scroller
-  max={teasers.length}
-  {screenHeight}
-  bind:value={scrollIndex}
-  bind:move
-/>
+
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   class="previous"
@@ -177,19 +181,11 @@
     top: 0;
     left: 0;
 
-    overflow: clip;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
 
     width: 100%;
-    min-height: 100dvh;
-
-    &.ssr {
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+    height: 100dvh;
   }
 
   .screen-height {

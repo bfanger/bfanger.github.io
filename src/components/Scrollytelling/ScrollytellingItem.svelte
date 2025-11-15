@@ -1,88 +1,32 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
-  import observeSize from "../../services/observeSize";
   import type { Snippet } from "svelte";
-  import { browser } from "$app/environment";
 
   type Props = {
-    scroll: number;
+    index: number;
     screenHeight: number;
     inert?: boolean;
     children: Snippet;
   };
 
-  let { scroll, screenHeight, inert, children }: Props = $props();
-
-  const padding = 16;
-
-  const size = writable<ResizeObserverSize>({ inlineSize: 0, blockSize: 0 });
-
-  function y(offset: number, itemHeight: number): number {
-    const halfScreen = screenHeight / 2;
-    if (offset > 1) {
-      // 1.0: cardbottom at screentop
-      return -itemHeight;
-    }
-    if (offset > 0.5) {
-      // 0.5: cardbottom at screenmiddle
-      const process = (offset - 0.5) * 2;
-      return -itemHeight + halfScreen - halfScreen * process;
-    }
-    if (offset < -0.5) {
-      // -0.5: cardtop at screenmiddle
-      const process = (offset + 1.5) * 2 - 1;
-      return screenHeight - halfScreen * process;
-    }
-    // -0.5 till 0.5
-    const process = offset + 0.5;
-    return halfScreen - itemHeight * process;
-  }
-
-  function transform(offset: number, itemHeight: number): string {
-    if (itemHeight === 0) {
-      return "";
-    }
-    let scale = 1;
-    if (offset > 0.75 && offset < 1) {
-      const progress = (offset - 0.75) * 4;
-      scale = 1 - progress * progress * 0.2;
-    }
-    if (offset < -0.5 && offset > -1.5) {
-      const progress = (offset + 0.5) * -2;
-      scale = 1 - progress * progress * 0.3;
-    }
-    return `translateY(${y(offset, itemHeight + padding)}px) scale(${scale})`;
-  }
+  let { index, screenHeight, inert, children }: Props = $props();
 </script>
 
-<div
-  class="item"
-  class:ssr={!browser}
-  style:transform={transform(scroll, $size.blockSize)}
-  {inert}
-  use:observeSize={size}
->
-  {@render children()}
+<div class="item" {inert} style:top={`${index * screenHeight}px`}>
+  <div>
+    {@render children()}
+  </div>
 </div>
 
 <style>
   .item {
-    will-change: transform;
+    isolation: isolate;
     position: absolute;
     top: 0;
 
-    &.ssr {
-      position: static;
-    }
+    display: grid;
+    place-items: center;
 
-    @media (width <= 768px) {
-      left: 0;
-      width: 100%;
-    }
-
-    @media (width >= 768px) {
-      left: calc(50% - 380px);
-      width: 760px;
-    }
+    width: 100%;
+    min-height: 100svh;
   }
 </style>
