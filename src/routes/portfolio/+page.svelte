@@ -77,9 +77,7 @@
   <div class="next" out:fade|global={{ duration: 200 }}>
     <NavButton
       type="next"
-      href={resolve("/projects/[project]", {
-        project: grouped[years[0]][0].slug,
-      })}
+      href={resolve("/projects/[project]", { project: "top1" })}
       onmousedown={() => {
         cardTransition.set("left");
       }}

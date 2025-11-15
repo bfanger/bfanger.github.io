@@ -1,9 +1,8 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { tick, type Snippet } from "svelte";
+  import { untrack, type Snippet } from "svelte";
   import { Tween } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
-  import abortSignal from "../services/abortSignal";
 
   type Props = {
     /**
@@ -31,16 +30,12 @@
    */
   move = async (delta: number) => {
     let target = Math.round(tween?.target ?? value) + delta;
+    let duration = 200;
     if (!tween) {
-      tween = new Tween(value, {
-        duration: 400,
-        easing: cubicOut,
-      });
+      tween = new Tween(value, { easing: cubicOut });
+      duration = 400;
     }
-    await tween.set(target, {
-      duration: 300,
-      easing: cubicOut,
-    });
+    await tween.set(target, { duration });
     tween = undefined;
   };
 
@@ -51,14 +46,15 @@
     value = Math.round((container.scrollTop / (screenHeight * max)) * max);
   }
 
-  function onscrollend() {
-    // scroll = undefined;
-  }
-
   $effect(() => {
     if (tween) {
       container.scrollTop = tween.current * screenHeight;
       value = Math.round(tween.current);
+    }
+  });
+  $effect(() => {
+    if (container && screenHeight > 1) {
+      container.scrollTop = untrack(() => value * screenHeight);
     }
   });
 </script>
@@ -69,19 +65,10 @@
     style:height="{max * screenHeight}px"
     {@attach (el) => {
       container = el.parentElement as HTMLElement;
-      void tick().then(() => {
-        container.scrollTop = value * screenHeight;
-      });
-      const { signal, abort } = abortSignal();
-      container.addEventListener("scroll", onscroll, {
-        passive: true,
-        signal,
-      });
-      container.addEventListener("scrollend", onscrollend, {
-        passive: true,
-        signal,
-      });
-      return abort;
+      container.addEventListener("scroll", onscroll, { passive: true });
+      return () => {
+        container.removeEventListener("scroll", onscroll);
+      };
     }}
   >
     {@render children()}
