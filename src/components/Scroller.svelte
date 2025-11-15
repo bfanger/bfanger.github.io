@@ -3,6 +3,7 @@
   import { untrack, type Snippet } from "svelte";
   import { Tween } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
+  import screenSize from "../services/screenSize.svelte";
 
   type Props = {
     /**
@@ -10,7 +11,6 @@
      */
     max: number;
     value: number;
-    screenHeight: number;
     move?: (delta: number) => Promise<void>;
     children: Snippet;
   };
@@ -18,7 +18,6 @@
     max,
     value = $bindable(),
     move = $bindable(),
-    screenHeight,
     children,
   }: Props = $props();
 
@@ -43,18 +42,18 @@
     if (!container || tween) {
       return;
     }
-    value = Math.round((container.scrollTop / (screenHeight * max)) * max);
+    value = Math.round((container.scrollTop / (screenSize.height * max)) * max);
   }
 
   $effect(() => {
     if (tween) {
-      container.scrollTop = tween.current * screenHeight;
+      container.scrollTop = tween.current * screenSize.height;
       value = Math.round(tween.current);
     }
   });
   $effect(() => {
-    if (container && screenHeight > 1) {
-      container.scrollTop = untrack(() => value * screenHeight);
+    if (container && screenSize.height > 1) {
+      container.scrollTop = untrack(() => value * screenSize.height);
     }
   });
 </script>
@@ -62,7 +61,7 @@
 {#if browser}
   <div
     class="scroller"
-    style:height="{max * screenHeight}px"
+    style:height="{max * screenSize.height}px"
     {@attach (el) => {
       container = el.parentElement as HTMLElement;
       container.addEventListener("scroll", onscroll, { passive: true });

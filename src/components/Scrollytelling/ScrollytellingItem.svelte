@@ -1,17 +1,22 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import screenSize from "../../services/screenSize.svelte";
+  import { browser } from "$app/environment";
 
   type Props = {
     index: number;
-    screenHeight: number;
     inert?: boolean;
     children: Snippet;
   };
 
-  let { index, screenHeight, inert, children }: Props = $props();
+  let { index, inert, children }: Props = $props();
 </script>
 
-<div class="item" {inert} style:top={`${index * screenHeight}px`}>
+<div
+  class="item"
+  {inert}
+  style:top={browser ? `${index * screenSize.height}px` : undefined}
+>
   <div>
     {@render children()}
   </div>

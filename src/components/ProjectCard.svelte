@@ -2,6 +2,8 @@
   import Card from "./Card.svelte";
   import type { Project } from "../services/project-fns";
   import { formatReleaseDate } from "../services/formatDate";
+  import screenSize from "../services/screenSize.svelte";
+  import { browser } from "$app/environment";
 
   type Props = {
     project: Project;
@@ -9,6 +11,28 @@
   let { project }: Props = $props();
 
   let image = $derived(project.image);
+
+  let scaled = $derived.by(() => {
+    if (!browser || !image) {
+      return { width: undefined, height: undefined };
+    }
+    let scale = 1;
+    if (screenSize.width > 700) {
+      scale = Math.min(700 / image.width, 1);
+    } else {
+      scale = Math.min((screenSize.width - 72) / image.width, 1);
+    }
+    const size = {
+      width: Math.floor(image.width * scale),
+      height: Math.floor(image.height * scale),
+    };
+    if (size.height > screenSize.height * 0.5) {
+      scale = (screenSize.height * 0.5) / size.height;
+      size.width *= scale;
+      size.height *= scale;
+    }
+    return size;
+  });
 </script>
 
 <Card>
@@ -17,9 +41,10 @@
     <div class="image-container">
       <img
         class="project-image"
-        style:aspect-ratio="{image.width} / {image.height}"
         src={image.src}
         alt={image.alt}
+        width={scaled.width}
+        height={scaled.height}
       />
     </div>
   {/if}
@@ -56,6 +81,8 @@
   }
 
   .project-image {
+    display: block;
+
     max-width: 100%;
     max-height: 50svh;
     margin-inline: auto;

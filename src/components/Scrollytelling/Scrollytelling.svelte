@@ -32,7 +32,6 @@
   const cached: Record<number, Promise<Project>> = $state({}); // @todo Prime cache with server project data
 
   let currentIndex = $state(initial);
-  let screenHeight = $state(1);
 
   function findIndex(slug: string) {
     return teasers.findIndex((t) => t.slug === slug);
@@ -106,24 +105,14 @@
 </script>
 
 <div class="viewport" in:cardIn|global={{}} out:cardOut|global={{}}>
-  <div class="screen-height" bind:clientHeight={screenHeight}></div>
   {#if !browser}
-    <ScrollytellingItem index={initial} screenHeight={1}>
+    <ScrollytellingItem index={initial}>
       {@render children()}
     </ScrollytellingItem>
   {:else}
-    <Scroller
-      max={teasers.length}
-      {screenHeight}
-      bind:value={currentIndex}
-      bind:move
-    >
+    <Scroller max={teasers.length} bind:value={currentIndex} bind:move>
       {#each virtual as index (index)}
-        <ScrollytellingItem
-          {index}
-          inert={index !== currentIndex}
-          {screenHeight}
-        >
+        <ScrollytellingItem {index} inert={index !== currentIndex}>
           {#await cached[index]}
             <ProjectCard project={placeholder(teasers[index])} />
           {:then project}
@@ -137,11 +126,7 @@
       {/each}
       {#if initial > currentIndex - 2 && initial < currentIndex + 2}
         <!-- scroll={scrollIndex - initial} -->
-        <ScrollytellingItem
-          index={initial}
-          inert={initial !== currentIndex}
-          {screenHeight}
-        >
+        <ScrollytellingItem index={initial} inert={initial !== currentIndex}>
           {@render children()}
         </ScrollytellingItem>
       {/if}
@@ -186,17 +171,6 @@
 
     width: 100%;
     height: 100dvh;
-  }
-
-  .screen-height {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 100svh;
-
-    visibility: hidden;
   }
 
   .previous {
