@@ -71,27 +71,17 @@
       title: teaser.title,
     };
   }
-
+  $effect(() => {
+    if (browser) {
+      teasers
+        .slice(currentIndex - 1, currentIndex + 2)
+        .forEach((teaser) => void loadProject(teaser.slug));
+    }
+  });
   let previous = $derived(teasers[currentIndex - 1]);
-  let current = $derived(teasers[currentIndex]);
   let next = $derived(teasers[currentIndex + 1]);
   let move = $state(() => Promise.resolve());
 
-  $effect(() => {
-    if (browser && current) {
-      void loadProject(current.slug);
-    }
-  });
-  $effect(() => {
-    if (browser && next) {
-      void loadProject(next.slug);
-    }
-  });
-  $effect(() => {
-    if (browser && previous) {
-      void loadProject(previous.slug);
-    }
-  });
   let virtual = $derived(
     (browser ? [currentIndex - 1, currentIndex, currentIndex + 1] : []).filter(
       (index) => index >= 0 && index < teasers.length && index !== initial,
