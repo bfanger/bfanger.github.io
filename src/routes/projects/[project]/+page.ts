@@ -10,5 +10,13 @@ export async function load({ params, fetch }) {
     error(request.status, "Failed to load project");
   }
   const project: Project = await request.json();
+  if (
+    project.image?.src &&
+    project.slug.slice(0, 3) === "top" &&
+    typeof document !== "undefined"
+  ) {
+    const img = new Image();
+    img.src = project.image.src;
+  }
   return { project };
 }

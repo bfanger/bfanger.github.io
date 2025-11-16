@@ -6,6 +6,7 @@
   import NavButton from "../components/NavButton.svelte";
   import Page from "../components/Page.svelte";
   import cardTransition from "../services/cardTransition";
+  import { preloadCode, preloadData } from "$app/navigation";
 
   let { data } = $props();
 
@@ -22,8 +23,13 @@
   }
 
   onMount(() => {
-    (window as any).introPromise.then(() => {
+    (window as any).introPromise.then(async () => {
       cardVisible = true;
+      await preloadCode("/portfolio");
+      await preloadData("/portfolio");
+      await preloadData("/projects/top1");
+      await preloadData("/projects/top2");
+      await preloadData("/projects/top3");
     });
   });
 </script>
