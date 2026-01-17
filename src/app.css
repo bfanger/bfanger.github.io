@@ -1,7 +1,7 @@
 html {
   height: 100%;
   font:
-    300 62.5%/ 1.4 "Titillium Web",
+    300 62.5%/1.4 "Titillium Web",
     sans-serif;
   background: #5c6ae4;
 }
@@ -19,18 +19,21 @@ body {
 @font-face {
   font-family: "Titillium Web";
   font-weight: 300;
+
   src: url("/fonts/titillium-web-light.woff2") format("woff2");
 }
 
 @font-face {
   font-family: Raleway;
   font-weight: 300;
+
   src: url("/fonts/raleway-light.woff2") format("woff2");
 }
 
 @font-face {
   font-family: Glory;
   font-weight: 100 1000;
+
   src: url("/fonts/glory.woff2") format("woff2 supports variations");
 }
 
