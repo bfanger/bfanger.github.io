@@ -11,7 +11,7 @@ tags:
 image: mijnzwemcoach.png
 ---
 
-De [mijnzwemcoach](https://www.mijnzwemcoach.nl/) is een e-commerce website van de [knzb](https://www.knzb.nl/) (Koninklijke Nederlandse Zwem Bond)
+De [mijnzwemcoach](https://www.mijnzwemcoach.nl/) is een e-commercewebsite van de [KNZB](https://www.knzb.nl/) (Koninklijke Nederlandse Zwem Bond).
 
 Mijn rol was het bieden van extra ondersteuning in de laatste weken voor livegang.  
-Ik heb met name verbetering doorgevoert aan het cursussen overzicht met kaart.
+Ik heb met name verbeteringen doorgevoerd aan het cursusoverzicht met kaart.

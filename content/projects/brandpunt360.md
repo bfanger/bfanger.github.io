@@ -11,4 +11,4 @@ tags:
 image: brandpunt360.png
 ---
 
-Op [kro-ncrv.nl](https://kro-ncrv.nl/) website kon je 360&deg; video's bekijken, deze geschoten zijn met een Samsung Gear 360 camera.
+Op de [kro-ncrv.nl](https://kro-ncrv.nl/) website kon je 360° video's bekijken, die geschoten zijn met een Samsung Gear 360-camera.

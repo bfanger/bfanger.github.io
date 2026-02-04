@@ -9,7 +9,7 @@ alt: Fitchannel
 released: "2017-06"
 ---
 
-Versie 2.0 van [fitchannel.com](https://fitchannel.com/) een online fitness dienst.
+Versie 2.0 van [fitchannel.com](https://fitchannel.com/), een online fitnessdienst.
 
 Gebruikte technieken:
 

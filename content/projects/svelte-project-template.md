@@ -12,7 +12,7 @@ tags:
 ---
 
 Na veelvuldig gebruik gemaakt te hebben van de officiële [SvelteKit](https://kit.svelte.dev/) starters, merkte ik dat
-Ik steeds dezelfde aanpassingen nodig had.
-[svelte-project-template](https://github.com/bfanger/svelte-project-template) is een repository waarmee je [Svelte](https://svelte.dev/) project kunt opzetten, met daarin TypeScript, Sass, ESLint, etc al voorgeconfigureerd.
+ik steeds dezelfde aanpassingen nodig had.
+[svelte-project-template](https://github.com/bfanger/svelte-project-template) is een repository waarmee je een [Svelte](https://svelte.dev/) project kunt opzetten, met daarin TypeScript, ESLint, etc. al voorgeconfigureerd.
 
 Hierdoor heb je binnen een minuut een nieuwe omgeving om mee te experimenteren.

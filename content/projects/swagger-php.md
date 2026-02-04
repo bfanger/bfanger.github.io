@@ -11,7 +11,7 @@ alt: Swagger
 released: "2013"
 ---
 
-[Swagger-PHP](https://github.com/zircote/swagger-php) is een library waarmee je door php doc-comments (annotations) in de code te plaatsen een documentatie voor je REST API kunt genereren.
-De documentatie wordt weergegeven in swagger-ui waaruit je ook direct je API call kunt testen.
+[Swagger-PHP](https://github.com/zircote/swagger-php) is een library waarmee je door PHP doc-comments (annotations) in de code te plaatsen, documentatie voor je REST API kunt genereren.
+De documentatie wordt weergegeven in Swagger-UI, waaruit je ook direct je API-call kunt testen.
 
-Wat begon met een paar patches is uitgegroeit tot een core-developer rol voor de open source library Swagger-PHP.
+Wat begon met een paar patches is uitgegroeid tot een core-developerrol voor de open source library Swagger-PHP.

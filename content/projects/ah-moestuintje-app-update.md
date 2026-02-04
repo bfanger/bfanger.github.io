@@ -10,6 +10,6 @@ tags:
   - cordova
 ---
 
-De app is aangepast voor het nieuwe seizoen en bijgewerkt naar de nieuwe ionic versie, waardoor de iPhone X nu ook ondersteund word.
+De app is aangepast voor het nieuwe seizoen en bijgewerkt naar de nieuwe Ionic-versie, waardoor de iPhone X nu ook ondersteund wordt.
 
-Helaas werkte ook deze keer cordova niet mee, dit keer was het o.a. de local-notificatie plugin die bij het registeren van permissies een nare bug in angular change-detection veroorzaakte.
+Helaas werkte ook deze keer Cordova niet mee, dit keer was het onder andere de local-notification plugin die bij het registreren van permissies een nare bug in Angular change-detection veroorzaakte.

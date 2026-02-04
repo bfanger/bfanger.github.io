@@ -11,5 +11,5 @@ tags:
   - maps
 ---
 
-De Rookvrije Generatie is een campagne website waarbij je petities kan tekenen voor rookvrije schoolpleinen, sportverenigingen en speelplekken.  
-Ik heb hiervoor de interactive kaarten gemaakt o.b.v. [leaflet](https://leafletjs.com/) i.c.m. de kaartgegevens van [mapbox](https://mapbox.com/).
+De Rookvrije Generatie is een campagnewebsite waarbij je petities kunt tekenen voor rookvrije schoolpleinen, sportverenigingen en speelplekken.  
+Ik heb hiervoor de interactieve kaarten gemaakt op basis van [Leaflet](https://leafletjs.com/) in combinatie met de kaartgegevens van [Mapbox](https://mapbox.com/).

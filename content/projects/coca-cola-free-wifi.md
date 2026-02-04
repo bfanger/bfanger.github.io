@@ -11,6 +11,6 @@ tags:
 image: coca-cola-wifi.png
 ---
 
-Zodra je met een van de Coca Cola wifi hotspots verbindt krijgt dan een reclame foto te zien die wij een 3d effect hebben gegeven waardoor je d.m.v. je telefoon te kantelen de foto van verschillende kanten kunt bekijken, een soort kijkdoos effect als het ware.
-De foto wordt opgesneden in lagen en bijgevult met de clone tool. Vervolgens worden deze lagen met 3d bewerkingsprogramma [Blender](https://blender.org) in 3d ruimte geplaatst en geprojecteerd waardoor we o.a. het cola flesje mooie ronding konden geven.
-Dit was een heel leuk project om te maken, zowel de techniek threejs/webgl, gyroscoop en rekenen met [quaternionen](https://nl.wikipedia.org/wiki/Quaternion) en het leren modeleren in 3d.
+Zodra je met een van de Coca-Cola wifi-hotspots verbindt, krijg je een reclamefoto te zien die wij een 3D-effect hebben gegeven, waardoor je door je telefoon te kantelen de foto van verschillende kanten kunt bekijken, een soort kijkdoos effect als het ware.
+De foto wordt opgesneden in lagen en bijgevuld met de clone tool. Vervolgens worden deze lagen met 3D-bewerkingsprogramma [Blender](https://blender.org) in 3D-ruimte geplaatst en geprojecteerd, waardoor we onder andere het colaflesje een mooie ronding konden geven.
+Dit was een heel leuk project om te maken, zowel de techniek (Threejs/WebGL, gyroscoop en rekenen met [quaternionen](https://nl.wikipedia.org/wiki/Quaternion)) als het leren modelleren in 3D.

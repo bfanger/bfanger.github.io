@@ -7,4 +7,4 @@ released: "2010"
 image: olthof.png
 ---
 
-Een kleine site met een nieuw o.b.v. het wms-micro systeem.
+Een kleine site met een nieuw ontwerp op basis van het wms-micro systeem.

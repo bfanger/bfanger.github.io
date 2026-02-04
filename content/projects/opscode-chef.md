@@ -10,4 +10,4 @@ alt: Chef
 released: "2012"
 ---
 
-Het automatiseren van het inrichten van servers/sites via opscode chef.
+Het automatiseren van het inrichten van servers/sites via Opscode Chef.

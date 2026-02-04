@@ -11,4 +11,4 @@ image: angular.png
 released: 2014-10
 ---
 
-[angular-keyboard](https://github.com/bfanger/angular-keyboard) een angular module met als focus 'toetsenbord ondersteuning voor webapps.
+[angular-keyboard](https://github.com/bfanger/angular-keyboard) is een AngularJS-module met als focus toetsenbordondersteuning voor webapps.

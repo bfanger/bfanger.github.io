@@ -39,6 +39,10 @@
     width: auto;
     border-radius: 50px;
 
+    @media (width < 500px) {
+      padding: 20px 25px;
+    }
+
     @supports (corner-shape: squircle) {
       border-radius: 70px;
     }

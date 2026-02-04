@@ -10,4 +10,4 @@ image: brandcourse.png
 released: 2014-05
 ---
 
-Een quiz met vragen over de nieuwe visie van philips: "Innovation and You" i.p.v. "Sense and Simplicity".
+Een quiz met vragen over de nieuwe visie van Philips: "Innovation and You" in plaats van "Sense and Simplicity".

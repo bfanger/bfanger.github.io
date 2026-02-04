@@ -11,8 +11,8 @@ alt: Game
 released: "2021-10-02"
 ---
 
-[Multiplayer Dice Game](https://github.com/bfanger/multiplayer-dice-game) is een online multiplayer dobbel spel.
+[Multiplayer Dice Game](https://github.com/bfanger/multiplayer-dice-game) is een online multiplayer dobbelspel.
 
-Voor het realtime multiplayer aspect van de game wordt [socket.io](https://socket.io/) gebruikt, om de livereload workflow te kunnen behouden worden de gespeelde spellen in [redis](https://redis.io/) opgeslagen en worden de zetten via pub/sub verstuurd naar de andere spelers.
+Voor het realtime multiplayer aspect van de game wordt [socket.io](https://socket.io/) gebruikt, en worden de gespeelde spellen in [redis](https://redis.io/) opgeslagen en worden de zetten via pub/sub verstuurd naar de andere spelers.
 
-Bijzonder is dat ipv events wordt de gehele gamestate verstuurd. de client vergelijkt deze state dan met eventuele vorige state en berekend welke events er waren.
+Bijzonder is dat in plaats van events de gehele gamestate wordt verstuurd. De client vergelijkt deze state dan met eventuele vorige state en berekent welke events er waren.

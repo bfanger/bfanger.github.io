@@ -10,6 +10,6 @@ tags:
   - airbnb
 ---
 
-In het [eslint-config-triple](https://www.npmjs.com/package/eslint-config-triple) package worden de eslint voorkeuren van het [Triple](https://wearetriple.com) webteam vastgelegd.
+In het [eslint-config-triple](https://www.npmjs.com/package/eslint-config-triple) package worden de ESLint-voorkeuren van het [Triple](https://wearetriple.com) webteam vastgelegd.
 
-Hierdoor is er stuk minder [ESLint](https://eslint.org/) configuratie nodig binnen een project en kunnen we de instellingen waar we afwijken van [Prettier](https://prettier.io/) en [airbnb](https://github.com/airbnb/javascript) op een centrale plek doorvoeren.
+Hierdoor is er een stuk minder [ESLint](https://eslint.org/) configuratie nodig binnen een project en kunnen we de instellingen waar we afwijken van [Prettier](https://prettier.io/) en [airbnb](https://github.com/airbnb/javascript) op een centrale plek doorvoeren.

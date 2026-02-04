@@ -10,4 +10,4 @@ alt: Essent
 released: "2013"
 ---
 
-Variant op Ganzebord, maar dan met energie vragen.
+Variant op ganzenbord, maar dan met energievraagstukken.

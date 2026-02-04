@@ -14,6 +14,6 @@ tags:
 promoted: 3
 ---
 
-[NLZIET](https://www.nlziet.nl/) is een alternatief voor kabeltelevisie, maar naast live tv kijken bied deze ook met extra features zoals terugkijken of reclame vrij kijken.
+[NLZIET](https://www.nlziet.nl/) is een alternatief voor kabeltelevisie, maar naast live tv kijken biedt deze dienst ook extra features zoals terugkijken of reclamevrij kijken.
 
-Wij hebben voor NLZiet de SmartTV app ontwikkeld, deze maakt gebruik van het Mauna Framework dat we bij Triple ontwikkeld hebben.
+Wij hebben voor NLZIET de SmartTV app ontwikkeld, deze maakt gebruik van het Mauna Framework dat we bij Triple ontwikkeld hebben.

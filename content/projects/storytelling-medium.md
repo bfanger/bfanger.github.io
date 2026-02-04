@@ -10,5 +10,5 @@ tags:
 ---
 
 Ik heb voor de "Web Weekly" een presentatie aan mijn collega's gegeven.  
-Daarna heb ik de achterliggende ideeën nog verder uitgewerkt en "op papier" gezet door een medium artikel te schrijven:
+Daarna heb ik de achterliggende ideeën nog verder uitgewerkt en "op papier" gezet door een Medium artikel te schrijven:
 [Storytelling for Frontend Engineers](https://bfanger.medium.com/storytelling-for-frontend-engineers-c6a34bca1941)

@@ -9,4 +9,4 @@ alt: ING - Meet SAM
 released: "2013"
 ---
 
-Intropagina met video's met uitleg over SAM, het nieuwe "Social Collaboration Platform"
+Intropagina met video's met uitleg over SAM, het nieuwe "Social Collaboration Platform".

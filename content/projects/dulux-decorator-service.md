@@ -12,6 +12,6 @@ alt: Dulux Decorating Service
 
 De [decoratingservice.dulux.co.uk](https://decoratingservice.dulux.co.uk/) is een site waar bezoekers een offerte kunnen aanvragen voor het schilderen van hun huis.
 
-Ik heb dit project van collega overgenomen toen hij met zwangerschapsverlof was, mijn rol was met het verbinden van de backend API.
+Ik heb dit project van een collega overgenomen toen hij met zwangerschapsverlof was. Mijn rol was het verbinden van de backend-API.
 
 De verfroller voortgangsbalk was leuk om te maken.

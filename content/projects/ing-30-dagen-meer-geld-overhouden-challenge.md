@@ -12,4 +12,4 @@ image: ing-challenge.jpg
 released: 2015-01
 ---
 
-Een app voor zowel iOS als android waar mee je 30x elke dag een challenge op tip krijgt waarmee je geld kunt besparen.
+Een app voor zowel iOS als Android waarmee je dertig dagen lang elke dag een challenge of tip krijgt waarmee je geld kunt besparen.
