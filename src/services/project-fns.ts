@@ -1,5 +1,6 @@
 import childProcess from "node:child_process";
 import fs from "node:fs";
+import { readFile, readdir, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import matter from "gray-matter";
@@ -24,9 +25,6 @@ export type Project = {
   before?: string;
 };
 
-const readFile = promisify(fs.readFile);
-const readDir = promisify(fs.readdir);
-const copyFile = promisify(fs.copyFile);
 const execFile = promisify(childProcess.execFile);
 
 const hasPngquant = execFile("which pngquant")
@@ -50,7 +48,7 @@ async function loadProject(slug: string) {
 }
 
 export async function allProjects(): Promise<RawProject[]> {
-  const files = await readDir(dir);
+  const files = await readdir(dir);
   const projectPromises = files
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
@@ -117,8 +115,17 @@ export async function processImage(
       source,
       destination + filename,
     ]).catch((err: any) => {
-      console.warn(err);
-      return copyFile(source, destination + filename);
+      return execFile("convert", [
+        "-resize",
+        "1000x>",
+        "-quality",
+        "85",
+        source,
+        destination + filename,
+      ]).catch(() => {
+        console.warn(err);
+        return copyFile(source, destination + filename);
+      });
     });
 
     if (

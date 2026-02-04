@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { fade, fly } from "svelte/transition";
   import Card from "../components/Card.svelte";
   import Intro from "../components/Intro.svelte";
@@ -10,8 +10,8 @@
 
   let { data } = $props();
 
-  const introVisible = data.withIntro;
-  let cardVisible = $state(data.withCard);
+  const introVisible = untrack(() => data.withIntro as boolean);
+  let cardVisible = $derived(data.withCard);
   let skipped = $derived(data.skipped);
   let Avatar: any = $state(undefined);
   const isServer = typeof window === "undefined";
