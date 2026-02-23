@@ -10,7 +10,6 @@ alt: This.nl
 released: "2026-01"
 ---
 
-
 Ik heb meegewerkt aan het implementeren van de nieuwe huisstijl voor de [This.nl](https://this.nl/) website.  
 Deze nieuwe huisstijl, met professionele fotografie in plaats van AI-assets, heeft een meer corporate uitstraling die beter past bij de doelgroep van This.
 

@@ -1,5 +1,7 @@
+import { browser } from "$app/environment";
+
 export async function load() {
-  if (typeof window === "undefined") {
+  if (!browser) {
     return { withIntro: true, withCard: true, skipped: false };
   }
 

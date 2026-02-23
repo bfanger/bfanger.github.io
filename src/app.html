@@ -5,22 +5,10 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
-      function introEnded() {
-        introEnded.resolve(true);
-      }
-      function introSkip(e) {
-        if (getComputedStyle(e.target).opacity === "0") {
-          e.target.style.opacity = 1;
-        } else {
-          introEnded.resolve("skip");
-        }
-      }
-      var introPromise = Promise.resolve(false);
-      if (location.pathname === "/") {
-        introPromise = new Promise((resolve) => {
-          introEnded.resolve = resolve;
-        });
-      }
+      var introResolve;
+      var introPromise = new Promise((resolve) => {
+        introResolve = resolve;
+      });
     </script>
     %sveltekit.head%
   </head>
@@ -47,5 +35,25 @@
       });
     </script>
     <svelte-app>%sveltekit.body%</svelte-app>
+    <script type="module">
+      document.addEventListener("DOMContentLoaded", () => {
+        const introEnd = document.getElementById("introEnd");
+        if (!introEnd) {
+          introResolve(false);
+          return;
+        }
+        introEnd.addEventListener("animationend", () => {
+          introResolve(true);
+        });
+        const introSkip = document.getElementById("introSkip");
+        introSkip?.addEventListener("click", ({ target }) => {
+          if (getComputedStyle(target).opacity === "0") {
+            target.style.opacity = 1;
+          } else {
+            introResolve("skip");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

@@ -7,6 +7,7 @@
   import Page from "../components/Page.svelte";
   import cardTransition from "../services/cardTransition";
   import { preloadCode, preloadData } from "$app/navigation";
+  import { browser } from "$app/environment";
 
   let { data } = $props();
 
@@ -14,7 +15,6 @@
   let cardVisible = $derived(data.withCard);
   let skipped = $derived(data.skipped);
   let Avatar: any = $state(undefined);
-  const isServer = typeof window === "undefined";
 
   if (!import.meta.env.SSR) {
     void import("../components/Avatar.svelte").then((m) => {
@@ -42,7 +42,7 @@
     <Intro />
   {/if}
 
-  <div hidden={isServer}>
+  <div hidden={!browser}>
     {#if cardVisible}
       <div
         in:fly|global={{ y: 50, duration: skipped ? 250 : 500 }}

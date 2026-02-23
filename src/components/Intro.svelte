@@ -1,8 +1,3 @@
-<script lang="ts">
-  const endProps = { onanimationend: "introEnded()" } as any;
-  const skipProps = { onclick: "introSkip(event)" } as any;
-</script>
-
 <div class="intro">
   <div class="bob-fanger">
     <div class="clip-bob">
@@ -59,7 +54,7 @@
       />
     </svg>
     <div class="clip-nl">
-      <svg class="nl" viewBox="0 0 168 64" {...endProps}>
+      <svg class="nl" viewBox="0 0 168 64" id="introEnd">
         <path
           d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
@@ -78,7 +73,7 @@
       </svg>
     </div>
   </div>
-  <button class="skip" {...skipProps}>
+  <button class="skip" id="introSkip">
     <div class="skip-button">Intro overslaan</div>
   </button>
 </div>
