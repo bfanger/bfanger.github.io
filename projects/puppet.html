@@ -5,56 +5,46 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
-      function introEnded() {
-        introEnded.resolve(true);
-      }
-      function introSkip(e) {
-        if (getComputedStyle(e.target).opacity === "0") {
-          e.target.style.opacity = 1;
-        } else {
-          introEnded.resolve("skip");
-        }
-      }
-      var introPromise = Promise.resolve(false);
-      if (location.pathname === "/") {
-        introPromise = new Promise((resolve) => {
-          introEnded.resolve = resolve;
-        });
-      }
+      var introResolve;
+      var introPromise = new Promise((resolve) => {
+        introResolve = resolve;
+      });
     </script>
-    
+    <link href="../_app/immutable/entry/start.DjJR9fsm.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/5rqqTuJA.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/lWxA7woT.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BkVGLnSJ.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CYgJF_JY.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/Ch7-MQip.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BQdXrJsl.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/B17Q6ahh.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/app.C_2lIKhX.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/yy4TeWcL.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BcVte1uB.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/DIoBXm32.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BAYYAX3d.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/2mEp6uXQ.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/0.BK3ALzSe.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/Bo0vJfHF.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/2.jbU2mtOq.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BglK9Cmn.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BQh-LHRD.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CYQSc1nu.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BFibr7Bc.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CThnK4Tg.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/B6wTssC4.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/vK_o3JBb.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/C9Nphf3e.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CoG0geaG.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/7.1o61Z95X.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/Cxx9n8vM.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/UrImTL79.js" rel="modulepreload">
+		<!--1jlknep--><meta name="robots" content="noindex"/> <!--[!--><!--]--><!---->
 		<link href="../_app/immutable/assets/0.UdU-f5Ve.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Card.DavDRG4I.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/ProjectCard.BwduGbc1.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/NavButton.BaOdbn6u.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/2.DB5NgCQd.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.DJPeBNQ_.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/3EXgZ_7p.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/crR_otGq.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BMzhnI4Y.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/D0iwhpLH.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BbpkOiE1.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/6tDFlYVk.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.CS290SAh.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BVdqVLZh.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BiiWgEkY.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/C3bjOpXW.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/B__EghOo.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/5v8fVb9F.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.C1W4xU7L.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/WOz2B7iA.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/2.DKZkb-qt.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/D5Yn7DFr.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Cve8xCjE.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Rr-shSJ_.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/rqftMZRe.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/D__OZ-H1.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BPrw1hOt.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/vK_o3JBb.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/CFe4jfAr.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/7.Dbr7aV9f.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/djvsYbDl.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/D1Ck7ngq.js"><!--1jlknep--><meta name="robots" content="noindex"/> <!--[!--><!--]--><!---->
   </head>
   <body>
     <img
@@ -78,26 +68,26 @@
         bg.style.willChange = "";
       });
     </script>
-    <svelte-app><!--[--><!--[--><!----><!--[--><!----><div class="viewport svelte-1l59ohf"><!--[--><div class="item svelte-65plo"><div class="svelte-65plo"><!----><div class="card svelte-1s7zazm"><h1 class="title svelte-1ntrexv">Puppet configuratie</h1> <!--[--><div class="image-container svelte-1ntrexv"><img class="project-image svelte-1ntrexv" src="/build/img/puppet.png"/></div><!--]--> <div><!----><p>We maakten bij NoProtocol gebruik van <a href="https://www.chef.io/">Opscode Chef</a> om de servers &amp; sites te configureren.
+    <svelte-app><!--[--><!--[--><!--[--><!--[--><!--[--><div class="viewport svelte-1l59ohf"><!--[--><div class="item svelte-65plo"><div class="svelte-65plo"><!--[--><div class="card svelte-1s7zazm"><h1 class="title svelte-1ntrexv">Puppet configuratie</h1> <!--[--><div class="image-container svelte-1ntrexv"><img class="project-image svelte-1ntrexv" src="/build/img/puppet.png"/></div><!--]--> <div><!----><p>We maakten bij NoProtocol gebruik van <a href="https://www.chef.io/">Opscode Chef</a> om de servers &amp; sites te configureren.
 Maar omdat deze problemen gaf bij &quot;recente&quot; 12.04 ubuntu (al ruim 1 jaar oud) versies zijn we naar alternatieven gaan kijken.
 Na een kort experiment met OpenPanel zijn met <a href="https://puppet.com/">Puppetlabs Puppet</a> gestart.</p>
 <p>Het grote voordeel van puppet t.o.v. andere oplossingen is de declaratieve beschrijving in de puppet files (*.pp)
 Hierdoor is het mogelijk om te bekijken wat puppet zal aanpassen voordat je de server daadwerkelijk aanpast.</p>
 <p>Om het toevoegen van nieuwe sites te vereenvoudigen heb ik een wizard gemaakt die op basis van een paar vragen een een puppet file genereerd.
 Voor chef was dat een cli tool, maar voor puppet heb ik de wizard als een angular webapp geschreven.</p>
-<!----></div> <!--[--><div class="footer svelte-1ntrexv"><span class="release-date svelte-1ntrexv">Oktober 2013</span></div><!--]--><!----></div><!----><!----><!----><!----></div></div><!--]--></div> <div class="previous svelte-1l59ohf"><a href="/portfolio" data-sveltekit-preload-data="" class="nav-button svelte-1al44kl previous"><div class="label svelte-1al44kl"><!---->Portfolio<!----></div></a><!----></div> <div class="up-down svelte-1l59ohf"><div class="up svelte-1l59ohf"><!--[--><a class="scroll-arrow svelte-18ta0lw up" href="../projects/samsung-galaxy-tab-pro" data-sveltekit-replacestate="" aria-label="Vorige"><img draggable="false" class="arrow svelte-18ta0lw" src="/images/nav-button-next.svg" alt="" height="42" width="28"/> Samsung - Galaxy Tab Pro</a><!--]--></div> <!--[--><a class="scroll-arrow svelte-18ta0lw down" href="../projects/bfanger.nl-v3" data-sveltekit-replacestate="" aria-label="Volgende"><img draggable="false" class="arrow svelte-18ta0lw" src="/images/nav-button-next.svg" alt="" height="42" width="28"/> BFanger.nl v3</a><!--]--></div><!----><!--]--><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+<!----></div> <!--[--><div class="footer svelte-1ntrexv"><span class="release-date svelte-1ntrexv">Oktober 2013</span></div><!--]--><!----></div><!--]--><!----><!----><!----></div></div><!--]--></div> <div class="previous svelte-1l59ohf"><a href="/portfolio" data-sveltekit-preload-data="" class="nav-button svelte-1al44kl previous"><div class="label svelte-1al44kl"><!---->Portfolio<!----></div></a><!----></div> <div class="up-down svelte-1l59ohf"><div class="up svelte-1l59ohf"><!--[--><a class="scroll-arrow svelte-18ta0lw up" href="../projects/samsung-galaxy-tab-pro" data-sveltekit-replacestate="" aria-label="Vorige"><img draggable="false" class="arrow svelte-18ta0lw" src="/images/nav-button-next.svg" alt="" height="42" width="28"/> Samsung - Galaxy Tab Pro</a><!--]--></div> <!--[--><a class="scroll-arrow svelte-18ta0lw down" href="../projects/bfanger.nl-v3" data-sveltekit-replacestate="" aria-label="Volgende"><img draggable="false" class="arrow svelte-18ta0lw" src="/images/nav-button-next.svg" alt="" height="42" width="28"/> BFanger.nl v3</a><!--]--></div><!--]--><!--]--><!----><!--]--><!--]--> <!--[!--><!--]--><!--]-->
 			<script type="application/json" data-sveltekit-fetched data-url="/projects/puppet.json">{"status":200,"statusText":"","headers":{},"body":"{\"slug\":\"puppet\",\"title\":\"Puppet configuratie\",\"released\":\"2013-10\",\"content\":\"\u003Cp>We maakten bij NoProtocol gebruik van \u003Ca href=\\\"https://www.chef.io/\\\">Opscode Chef\u003C/a> om de servers &amp; sites te configureren.\\nMaar omdat deze problemen gaf bij &quot;recente&quot; 12.04 ubuntu (al ruim 1 jaar oud) versies zijn we naar alternatieven gaan kijken.\\nNa een kort experiment met OpenPanel zijn met \u003Ca href=\\\"https://puppet.com/\\\">Puppetlabs Puppet\u003C/a> gestart.\u003C/p>\\n\u003Cp>Het grote voordeel van puppet t.o.v. andere oplossingen is de declaratieve beschrijving in de puppet files (*.pp)\\nHierdoor is het mogelijk om te bekijken wat puppet zal aanpassen voordat je de server daadwerkelijk aanpast.\u003C/p>\\n\u003Cp>Om het toevoegen van nieuwe sites te vereenvoudigen heb ik een wizard gemaakt die op basis van een paar vragen een een puppet file genereerd.\\nVoor chef was dat een cli tool, maar voor puppet heb ik de wizard als een angular webapp geschreven.\u003C/p>\\n\",\"before\":\"samsung-galaxy-tab-pro\",\"after\":\"bfanger.nl-v3\",\"image\":{\"src\":\"/build/img/puppet.png\",\"width\":800,\"height\":800}}"}</script>
 			<script>
 				{
-					__sveltekit_y92939 = {
+					__sveltekit_1jv4l4z = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../_app/immutable/entry/start.DJPeBNQ_.js"),
-						import("../_app/immutable/entry/app.CS290SAh.js")
+						import("../_app/immutable/entry/start.DjJR9fsm.js"),
+						import("../_app/immutable/entry/app.C_2lIKhX.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2, 7],
@@ -109,5 +99,25 @@ Voor chef was dat een cli tool, maar voor puppet heb ik de wizard als een angula
 				}
 			</script>
 		</svelte-app>
+    <script type="module">
+      document.addEventListener("DOMContentLoaded", () => {
+        const introEnd = document.getElementById("introEnd");
+        if (!introEnd) {
+          introResolve(false);
+          return;
+        }
+        introEnd.addEventListener("animationend", () => {
+          introResolve(true);
+        });
+        const introSkip = document.getElementById("introSkip");
+        introSkip?.addEventListener("click", ({ target }) => {
+          if (getComputedStyle(target).opacity === "0") {
+            target.style.opacity = 1;
+          } else {
+            introResolve("skip");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

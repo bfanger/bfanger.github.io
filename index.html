@@ -5,51 +5,41 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
-      function introEnded() {
-        introEnded.resolve(true);
-      }
-      function introSkip(e) {
-        if (getComputedStyle(e.target).opacity === "0") {
-          e.target.style.opacity = 1;
-        } else {
-          introEnded.resolve("skip");
-        }
-      }
-      var introPromise = Promise.resolve(false);
-      if (location.pathname === "/") {
-        introPromise = new Promise((resolve) => {
-          introEnded.resolve = resolve;
-        });
-      }
+      var introResolve;
+      var introPromise = new Promise((resolve) => {
+        introResolve = resolve;
+      });
     </script>
-    
+    <link href="./_app/immutable/entry/start.DjJR9fsm.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/5rqqTuJA.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/lWxA7woT.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BkVGLnSJ.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CYgJF_JY.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Ch7-MQip.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BQdXrJsl.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/B17Q6ahh.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.C_2lIKhX.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/yy4TeWcL.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BcVte1uB.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DIoBXm32.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BAYYAX3d.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/2mEp6uXQ.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/0.BK3ALzSe.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Bo0vJfHF.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/3.QSvUEUMB.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CoG0geaG.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BQh-LHRD.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/UrImTL79.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CThnK4Tg.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/C9Nphf3e.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/B6wTssC4.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BSvv0HSV.js" rel="modulepreload">
+		<!--1uha8ag--><!----><title>BFanger.nl - Bob Fanger</title>
 		<link href="./_app/immutable/assets/0.UdU-f5Ve.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Card.DavDRG4I.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/NavButton.BaOdbn6u.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/Page.CA_G05ax.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/3.C2OVu_yJ.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.DJPeBNQ_.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/3EXgZ_7p.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/crR_otGq.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BMzhnI4Y.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/D0iwhpLH.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BbpkOiE1.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/6tDFlYVk.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.CS290SAh.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BVdqVLZh.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BiiWgEkY.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/C3bjOpXW.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/B__EghOo.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/5v8fVb9F.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.C1W4xU7L.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/WOz2B7iA.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.CHluD0Cw.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Cve8xCjE.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/D1Ck7ngq.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/D__OZ-H1.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/BPrw1hOt.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/CFe4jfAr.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/Q-o7usS5.js"><!--1uha8ag--><!----><title>BFanger.nl - Bob Fanger</title>
   </head>
   <body>
     <img
@@ -73,7 +63,7 @@
         bg.style.willChange = "";
       });
     </script>
-    <svelte-app><!--[--><!--[--><!----><!--[!--><!----><div class="layout svelte-1325jhu"><div class="page svelte-vsdkct"><!--[--><div class="intro svelte-rl21xe"><div class="bob-fanger svelte-rl21xe"><div class="clip-bob svelte-rl21xe"><svg class="b svelte-rl21xe" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M0 56V0h48v8h8v16h-8v8h8v16h-8v8H0zm16-32h24V8H16v16zm0
+    <svelte-app><!--[--><!--[--><!--[--><!--[!--><!--[--><div class="layout svelte-1325jhu"><div class="page svelte-vsdkct"><!--[--><div class="intro svelte-rl21xe"><div class="bob-fanger svelte-rl21xe"><div class="clip-bob svelte-rl21xe"><svg class="b svelte-rl21xe" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M0 56V0h48v8h8v16h-8v8h8v16h-8v8H0zm16-32h24V8H16v16zm0
           24h24V32H16v16zm56
           8v-8h-8V24h8v-8h40v8h8v24h-8v8H72zm8-8h24V24H80v24zm56
           8v-8h-8V0h16v16h32v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm112
@@ -103,7 +93,7 @@
         8v-8h32v-8h-32v-8h-8V24h8v-8h48v40h-8v8h-40zm8-24h24V24h-24v16zm56
         16v-8h-8V24h8v-8h40v8h8v16h-40v8h32v8h-40zm8-24h24v-8h-24v8zm72-8h8v8h-8v24h-16V16h16v8zm32-8v8h-24v-8h24zm24
         40V40h16v16h-16zm48 0V16h48v8h8v32h-16V24h-24v32h-16zm72
-        0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd" class="svelte-rl21xe"></path></svg> <div class="clip-nl svelte-rl21xe"><svg class="nl svelte-rl21xe" viewBox="0 0 168 64" onanimationend="introEnded()"><path d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
+        0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd" class="svelte-rl21xe"></path></svg> <div class="clip-nl svelte-rl21xe"><svg class="nl svelte-rl21xe" viewBox="0 0 168 64" id="introEnd"><path d="M-656 56V0h48v8h8v16h-8v8h8v16h-8v8h-48zm16-32h24V8h-24v16zm0
           24h24V32h-24v16zm56
           8v-8h-8V24h8v-8h40v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm56
           8v-8h-8V0h16v16h32v8h8v24h-8v8h-40zm8-8h24V24h-24v24zm112
@@ -113,19 +103,19 @@
           8v-8h32v-8h-32v-8h-8V24h8v-8h48v40h-8v8h-40zm8-24h24V24h-24v16zm56
           16v-8h-8V24h8v-8h40v8h8v16h-40v8h32v8h-40zm8-24h24v-8h-24v8zm72-8h8v8h-8v24h-16V16h16v8zm32-8v8h-24v-8h24zM0
           56V40h16v16H0zm48 0V16h48v8h8v32H88V24H64v32H48zm72
-          0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd" class="svelte-rl21xe"></path></svg></div></div> <button class="skip svelte-rl21xe" onclick="introSkip(event)"><div class="skip-button svelte-rl21xe">Intro overslaan</div></button></div><!--]--> <div hidden><!--[--><div><div class="card svelte-1s7zazm homepage"><img src="images/avatar.webp" class="avatar svelte-1uha8ag" alt="Bob Fanger"/> <div class="avatar svelte-1uha8ag"><!--[!--><!--]--></div> <h1 class="title svelte-1uha8ag">Hoi, ik ben Bob Fanger</h1> <p>Ik ben een webdeveloper bij <a href="https://www.this.nl/">This.nl</a> . <br/> Daarnaast ben ik ook actief op: <br/> <a href="https://github.com/bfanger/"><i class="icon-github"></i> GitHub</a> en <a href="https://stackoverflow.com/users/19165/bob-fanger">StackOverflow</a></p><!----></div><!----></div> <div class="porfolio svelte-1uha8ag"><a href="/portfolio" data-sveltekit-preload-data="" class="nav-button svelte-1al44kl next"><div class="label svelte-1al44kl"><!---->Portfolio<!----></div></a><!----></div><!--]--></div><!----></div><!----></div><!----><!--]--><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+          0v-8h16V8h-8V0h24v48h16v8h-48z" fill="#FFF" fill-rule="evenodd" class="svelte-rl21xe"></path></svg></div></div> <button class="skip svelte-rl21xe" id="introSkip"><div class="skip-button svelte-rl21xe">Intro overslaan</div></button></div><!--]--> <div hidden=""><!--[--><div><div class="card svelte-1s7zazm homepage"><img src="images/avatar.webp" class="avatar svelte-1uha8ag" alt="Bob Fanger"/> <div class="avatar svelte-1uha8ag"><!--[!--><!--]--></div> <h1 class="title svelte-1uha8ag">Hoi, ik ben Bob Fanger</h1> <p>Ik ben een webdeveloper bij <a href="https://www.this.nl/">This.nl</a> . <br/> Daarnaast ben ik ook actief op: <br/> <a href="https://github.com/bfanger/"><i class="icon-github"></i> GitHub</a> en <a href="https://stackoverflow.com/users/19165/bob-fanger">StackOverflow</a></p><!----></div><!----></div> <div class="porfolio svelte-1uha8ag"><a href="/portfolio" data-sveltekit-preload-data="" class="nav-button svelte-1al44kl next"><div class="label svelte-1al44kl"><!---->Portfolio<!----></div></a><!----></div><!--]--></div><!----></div><!----></div><!--]--><!--]--><!----><!--]--><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_y92939 = {
+					__sveltekit_1jv4l4z = {
 						base: new URL(".", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.DJPeBNQ_.js"),
-						import("./_app/immutable/entry/app.CS290SAh.js")
+						import("./_app/immutable/entry/start.DjJR9fsm.js"),
+						import("./_app/immutable/entry/app.C_2lIKhX.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
@@ -137,5 +127,25 @@
 				}
 			</script>
 		</svelte-app>
+    <script type="module">
+      document.addEventListener("DOMContentLoaded", () => {
+        const introEnd = document.getElementById("introEnd");
+        if (!introEnd) {
+          introResolve(false);
+          return;
+        }
+        introEnd.addEventListener("animationend", () => {
+          introResolve(true);
+        });
+        const introSkip = document.getElementById("introSkip");
+        introSkip?.addEventListener("click", ({ target }) => {
+          if (getComputedStyle(target).opacity === "0") {
+            target.style.opacity = 1;
+          } else {
+            introResolve("skip");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
