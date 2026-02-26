@@ -10,7 +10,7 @@ alt: Poppenkast 3D
 released: "2026-02-23"
 ---
 
-Een [webapp](https://poppenkast.bfanger.nl) waarbij je met je handen voor de webcam een sokpop nadoet.
+Op [poppenkast.bfanger.nl](https://poppenkast.bfanger.nl) kun met je handen voor de webcam een sokpop besturen.
 
 Dit leuke hobbyproject heb ik gebruikt om me te verdiepen in het gebruik van AI. Maar in plaats van dat de AI een creatieve activiteit vervangt, is het juist aan de bezoeker om met zijn eigen creativiteit een verhaaltje te bedenken of na te spelen.
 
