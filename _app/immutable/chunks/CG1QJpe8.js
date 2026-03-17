@@ -1,0 +1,1 @@
+import{I as e,S as t,V as n,at as r,c as i,h as a,i as o,rt as s,w as c}from"./B4a0zzJr.js";var l=c(`<div><!></div>`);function u(c,u){let d=o(u,`homepage`,3,!1);var f=l();let p;a(n(f),()=>u.children??r),s(f),e(()=>p=i(f,1,`card svelte-1s7zazm`,null,p,{homepage:d()})),t(c,f)}export{u as t};
