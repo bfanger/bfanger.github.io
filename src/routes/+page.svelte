@@ -57,11 +57,7 @@
           </div>
           <h1 class="title">Hoi, ik ben Bob&nbsp;Fanger</h1>
           <p>
-            Ik ben een webdeveloper bij
-            <a href="https://www.this.nl/">This.nl </a>
-            .
-            <br />
-            Daarnaast ben ik ook actief op:
+            Een Senior Front-End Developer actief op:
             <br />
             <a href="https://github.com/bfanger/">
               <i class="icon-github"></i>
