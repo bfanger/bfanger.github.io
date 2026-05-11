@@ -1,5 +1,4 @@
 <script lang="ts">
-  /* eslint-disable svelte/no-navigation-without-resolve */
   import type { ResolvedPathname } from "$app/types";
   import type { Snippet } from "svelte";
 
@@ -12,6 +11,7 @@
   let { href, type, onmousedown, children }: Props = $props();
 </script>
 
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 <a
   {href}
   data-sveltekit-preload-data

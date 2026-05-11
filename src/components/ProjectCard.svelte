@@ -16,6 +16,7 @@
     if (!browser || !image) {
       return { width: undefined, height: undefined };
     }
+    // eslint-disable-next-line no-useless-assignment
     let scale = 1;
     if (screenSize.width > 700) {
       scale = Math.min(700 / image.width, 1);

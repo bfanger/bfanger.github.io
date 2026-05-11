@@ -17,6 +17,7 @@
   let {
     max,
     value = $bindable(),
+    // eslint-disable-next-line no-useless-assignment
     move = $bindable(),
     children,
   }: Props = $props();
@@ -27,6 +28,7 @@
   /**
    * Animated programmatic scroll
    */
+  // eslint-disable-next-line no-useless-assignment
   move = async (delta: number) => {
     let target = Math.round(tween?.target ?? value) + delta;
     let duration = 200;
