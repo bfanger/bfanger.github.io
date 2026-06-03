@@ -4,3 +4,4 @@ node_modules
 /.netlify
 /build
 /static/build
+.pnpm-store

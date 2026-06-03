@@ -2,3 +2,4 @@
 /build
 /pnpm-lock.yaml
 *.gltf
+.pnpm-store
