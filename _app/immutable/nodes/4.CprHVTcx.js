@@ -1,1 +1,0 @@
-import"../chunks/C0Yo9buv.js";import"../chunks/CsaauQz1.js";import{t as e}from"../chunks/_W7y8UCO.js";function t(t){e(t,{title:`404`,message:`Pagina niet gevonden`})}export{t as component};
