@@ -10,6 +10,7 @@ alt: IoT Creators
 released: "2024-04"
 ---
 
-De [T-Mobile - IoT Creators](https://iotcreators.com/) portal voor het beheren van IoT devices kreeg een reskin, hiervoor is gebruik gemaakt van [Material UI](https://mui.com/). D
+De [portal](https://portal.iotcreators.com/) van T-Mobile's [IoT Creators](https://docs.iotcreators.com/) voor het beheren van IoT devices kreeg een rewrite & design update, hiervoor is gebruik gemaakt van [Material UI](https://mui.com/).
 
-De rewrite was al ver gevorderd toen bij het project kwam, ik heb voornamelijk gewerkt aan het het oplossen van bugs en heb [Playwright E2E](https://playwright.dev/) ingezet zodat de bugs ook wegblijven.
+De rewrite was in een gevorderd stadium, maar nog erg buggy toen bij het project aansloot, naast een aantal schermen over te zetten, ben ik voornamelijk bezig geweest met het oplossen van bugs.
+Om er voor te zorgen dat de bugs ook wegblijven heb [Playwright E2E](https://playwright.dev/) ingezet.
