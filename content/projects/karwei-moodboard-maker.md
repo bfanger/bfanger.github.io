@@ -8,4 +8,4 @@ tags:
   - pixi
 ---
 
-De [Karwei Moodboard Maker](https://inspiratie.karwei.nl/moodboard-maker/) is en leuke actiepagina waarbij je door een aantal multiple choice vragen te beantwoorden een moodboard kunt genereren.
+De [Karwei](https://www.karwei.nl/) Moodboard Maker was en leuke actiepagina waarbij je door een aantal multiple choice vragen te beantwoorden een moodboard kunt genereren.

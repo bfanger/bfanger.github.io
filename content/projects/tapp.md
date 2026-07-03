@@ -10,7 +10,7 @@ tags:
   - d3
 ---
 
-Voor [TAPP](https://horeca-activation-campaign.tapp.cafe/) hebben we een webapp ontwikkeld waarmee je als horeca eigenaar inzicht krijgt in hoe je presteert ten opzichte van andere ondernemingen.
+Voor [TAPP](https://www.tapp.cafe/) hebben we een webapp ontwikkeld waarmee je als horeca eigenaar inzicht krijgt in hoe je presteert ten opzichte van andere ondernemingen.
 
 TAPP is een leuke, energieke partij om mee samen te werken en heeft hele lekkere koffie op hun kantoor.
 

@@ -9,5 +9,5 @@ tags:
   - vue
 ---
 
-De [talentmanager](https://talentmanager.picompany.nl) is een quiz met een 14 vragen waarmee een profiel bepaald wordt.
+De talentmanager is een quiz ontwikkeld voor [pi company](https://www.gitp.nl/) met een 14 vragen waarmee een profiel bepaald wordt.
 Voor dit project heb ik vue-cli integratie geschreven voor wordpress projecten.
