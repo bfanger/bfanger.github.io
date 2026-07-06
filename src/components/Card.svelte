@@ -27,7 +27,9 @@
     background: rgb(255 255 255 / 80%);
     box-shadow: 6px 6px 60px #0003;
 
-    corner-shape: squircle;
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+    }
 
     @media (width >= 500px) {
       padding: 25px 30px;

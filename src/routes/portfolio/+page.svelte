@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { groupBy } from "lodash-es";
   import Card from "../../components/Card.svelte";
   import Disclaimer from "../../components/Disclaimer.svelte";
   import NavButton from "../../components/NavButton.svelte";
@@ -25,7 +24,7 @@
     return parseInt(match[0], 10);
   }
   let grouped = $derived(
-    groupBy(data.teasers, extractYear) as Record<string, Teaser[]>,
+    Object.groupBy(data.teasers, extractYear) as Record<string, Teaser[]>,
   );
   let years = $derived(Object.keys(grouped).sort().reverse());
 </script>

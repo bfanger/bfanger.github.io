@@ -7,7 +7,7 @@ tags:
 
 image: poppenkast.png
 alt: Poppenkast 3D
-released: "2026-02-23"
+released: "2026-03-01"
 ---
 
 Op [poppenkast.bfanger.nl](https://poppenkast.bfanger.nl) kun met je handen voor de webcam een sokpop besturen.

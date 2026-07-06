@@ -5,7 +5,6 @@ import path from "node:path";
 import { promisify } from "node:util";
 import matter from "gray-matter";
 import { imageSizeFromFile } from "image-size/fromFile";
-import { orderBy } from "lodash-es";
 import { marked } from "marked";
 
 export type Project = {
@@ -55,10 +54,10 @@ export async function allProjects(): Promise<RawProject[]> {
       const slug = file.substr(0, file.length - 3);
       return loadProject(slug);
     });
-  return orderBy(
-    await Promise.all(projectPromises),
-    ["released", "title"],
-    ["desc", "asc"],
+  const projects = await Promise.all(projectPromises);
+  return projects.sort(
+    (a, b) =>
+      b.released.localeCompare(a.released) || a.title.localeCompare(b.title),
   );
 }
 
