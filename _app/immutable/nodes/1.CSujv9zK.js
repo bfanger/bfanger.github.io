@@ -1,0 +1,1 @@
+import{Q as e,Z as t,k as n,q as r}from"../chunks/Dd_Fu4E-.js";import"../chunks/xihTtKlq.js";import{t as i}from"../chunks/BerIHpX0.js";import{t as a}from"../chunks/BhwxdmUL.js";function o(o,s){e(s,!0);let c=r(()=>i.status>=400?i.status:`Error`),l=r(()=>i.error?.message||`Oops`);a(o,{get title(){return n(c)},get message(){return n(l)}}),t()}export{o as component};
