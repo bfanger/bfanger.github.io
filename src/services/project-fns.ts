@@ -4,7 +4,7 @@ import { readFile, readdir, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import matter from "gray-matter";
-import { imageSizeFromFile } from "image-size/fromFile";
+import sharp from "sharp";
 import { marked } from "marked";
 
 export type Project = {
@@ -147,9 +147,9 @@ export async function processImage(
       });
     }
   }
-  const { width, height } = await imageSizeFromFile(source);
+  const { width, height } = await sharp(source).metadata();
   if (!width || !height) {
-    throw new Error("imageSize failed");
+    throw new Error("sharp metadata failed");
   }
   return { src: `/build/img/${filename}`, alt, width, height };
 }
