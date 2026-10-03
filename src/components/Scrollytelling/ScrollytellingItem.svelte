@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
   import screenSize from "../../services/screenSize.svelte";
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
 
   type Props = {
     index: number;

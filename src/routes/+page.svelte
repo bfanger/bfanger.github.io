@@ -7,7 +7,7 @@
   import Page from "../components/Page.svelte";
   import cardTransition from "../services/cardTransition";
   import { preloadCode, preloadData } from "$app/navigation";
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
 
   let { data } = $props();
 
@@ -26,16 +26,27 @@
     (window as any).introPromise.then(async () => {
       cardVisible = true;
       await preloadCode("/portfolio");
-      await preloadData("/portfolio");
-      await preloadData("/projects/top1");
-      await preloadData("/projects/top2");
-      await preloadData("/projects/top3");
+      for (const url of [
+        "/portfolio",
+        "/projects/top1",
+        "/projects/top2",
+        "/projects/top3",
+      ]) {
+        const result = await preloadData(url);
+        if (result?.type === "error") {
+          console.error(
+            `preload failed for ${url}`,
+            result.status,
+            result.error,
+          );
+        }
+      }
     });
   });
 </script>
 
 <svelte:head>
-  <title>BFanger.nl - Bob Fanger</title>
+  <title>BFanger.nl - Bob&nbsp;Fanger</title>
 </svelte:head>
 <Page>
   {#if introVisible}
@@ -55,7 +66,7 @@
               <Avatar />
             {/if}
           </div>
-          <h1 class="title">Hoi, ik ben Bob&nbsp;Fanger</h1>
+          <h1 class="title">Hoi, ik ben Bob Fanger</h1>
           <p>
             Een Senior Front-End Developer actief op:
             <br />

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Project } from "../../services/project-fns";
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
   import { page } from "$app/state";
   import ProjectCard from "../ProjectCard.svelte";
   import Scroller from "../Scroller.svelte";
@@ -13,15 +13,10 @@
   import NavButton from "../NavButton.svelte";
   import { fade } from "svelte/transition";
   import { resolve } from "$app/paths";
-  import { replaceState } from "$app/navigation";
+  import { goto } from "$app/navigation";
   import ScrollArrow from "./ScrollArrow.svelte";
 
-  type Teaser = {
-    slug: string;
-    title: string;
-    released: string;
-  };
-
+  type Teaser = { slug: string; title: string; released: string };
   type Props = {
     teasers: Teaser[];
     children: Snippet;
@@ -49,16 +44,22 @@
   }
   // Fix for Safari's SecurityError: Attempt to use history.replaceState() more than X times per Y seconds.
   let debounceTimer: ReturnType<typeof setTimeout>;
+
   function updateUrl(index: number) {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-      const { slug } = teasers[index];
+      const teaser = teasers[index];
+      const { slug } = teaser;
       const url = `/projects/${slug}`;
       if (window.location.pathname === url) {
         return;
       }
-      replaceState(resolve("/projects/[project]", { project: slug }), {
-        scroll: index,
+      void goto(resolve("/projects/[project]", { project: slug }), {
+        shallow: true,
+        replace: true,
+        state: { scroll: index },
+      }).then(() => {
+        document.title = teaser.title;
       });
     }, 100);
   }
@@ -89,7 +90,7 @@
   );
   $effect(() => {
     if (browser) {
-      updateUrl(currentIndex);
+      void updateUrl(currentIndex);
     }
   });
 </script>
@@ -134,6 +135,7 @@
 >
   <NavButton href="/portfolio" type="previous">Portfolio</NavButton>
 </div>
+
 <div class="up-down" out:fade|global={{ duration: 200 }}>
   <div class="up">
     {#if previous}

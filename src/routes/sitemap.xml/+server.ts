@@ -1,4 +1,3 @@
-import { text } from "@sveltejs/kit";
 import { allProjects } from "../../services/project-fns";
 
 export const prerender = true;
@@ -25,7 +24,7 @@ export async function GET() {
   xml += `
 </urlset>`;
 
-  return text(xml, {
+  return new Response(xml, {
     headers: {
       "Content-Type": "application/xml",
     },

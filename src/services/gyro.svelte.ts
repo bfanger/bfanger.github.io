@@ -1,4 +1,4 @@
-import { browser } from "$app/environment";
+import { browser } from "$app/env";
 import { Euler, Quaternion } from "three";
 
 class Gyro {
@@ -18,6 +18,7 @@ if (browser) {
     if (e.alpha === null || e.beta === null || e.gamma === null) {
       return;
     }
+
     gyro.rotation = new Quaternion().setFromEuler(
       new Euler(
         (e.beta * Math.PI) / 180,

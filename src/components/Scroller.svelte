@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
   import { untrack, type Snippet } from "svelte";
   import { Tween } from "svelte/motion";
   import { cubicOut } from "svelte/easing";

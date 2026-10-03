@@ -3,13 +3,12 @@
   import type { Project } from "../services/project-fns";
   import { formatReleaseDate } from "../services/formatDate";
   import screenSize from "../services/screenSize.svelte";
-  import { browser } from "$app/environment";
+  import { browser } from "$app/env";
 
   type Props = {
     project: Project;
   };
   let { project }: Props = $props();
-
   let image = $derived(project.image);
 
   let scaled = $derived.by(() => {

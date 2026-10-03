@@ -1,4 +1,4 @@
-import { error, json } from "@sveltejs/kit";
+import { error } from "@sveltejs/kit";
 import {
   allProjects,
   processImage,
@@ -30,5 +30,5 @@ export async function GET({ params }) {
   if (data.image) {
     project.image = await processImage(data.image);
   }
-  return json(project);
+  return Response.json(project);
 }
