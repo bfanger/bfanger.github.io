@@ -1,1 +1,0 @@
-import{t as e}from"../chunks/DK3Fl9T5.js";import{n as t}from"../chunks/_olR8ncz.js";var n=e({load:()=>r});function r(){t(301,`https://swagger-explained.bfanger.nl/`)}export{n as universal};
