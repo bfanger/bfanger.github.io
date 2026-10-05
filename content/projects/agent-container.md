@@ -10,8 +10,8 @@ alt: Agent Container
 released: "2026-06"
 ---
 
-Ik heb [agent-container](https://github.com/bfanger/agent-container) ingericht: een [Docker](https://www.docker.com/) container die een AI-coding agent in een sandbox draait, zodat je deze in de "yolo"-modus kunt gebruiken. Omdat de agent alleen toegang heeft tot waar je hem toegang toe geeft. De AI heeft wel internettoegang, dus nog steeds opletten met persoonsgegevens, secrets in .env, enzovoorts.
-Ook is er de nodige tooling al voorgeïnstalleerd, zodat de AI (en ik) die direct kan gebruiken.
+[Agent-Container](https://github.com/bfanger/agent-container) is een [Docker](https://www.docker.com/) container waarin een AI-coding agent beperkt toegang heeft tot je systeem, hierdoor kan de agent in de "yolo"-modus draaien. De agent heeft immers alleen toegang tot de bestanden waar je hem toegang toe hebt gegeven. De AI heeft wel internettoegang, dus nog steeds opletten met persoonsgegevens, secrets in .env, enzovoorts.
+Ook is er de nodige tooling voorgeïnstalleerd, zodat de LLM (en ik) deze direct kunnen gebruiken.
 
-Verder bevat deze repo de llama-configuratie waarmee ik lokaal diverse AI modellen draai op mijn NVIDIA powered Gaming PC.  
+Daarnaast bevat deze repo de llama-configuratie waarmee ik lokaal diverse AI modellen draai op mijn NVIDIA powered PC.  
 Als harnas vind ik [Pi](https://pi.dev) fijn werken en mijn favoriete model is [Qwen 27b](https://qwen.ai/blog?id=qwen3.6-27b).
