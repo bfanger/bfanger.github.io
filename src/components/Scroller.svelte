@@ -5,22 +5,17 @@
   import { cubicOut } from "svelte/easing";
   import screenSize from "../services/screenSize.svelte";
 
+  export type MoveFn = (delta: number) => Promise<void>;
   type Props = {
     /**
      * Usage is like using an <input type="range" />
      */
     max: number;
     value: number;
-    move?: (delta: number) => Promise<void>;
+    setMove: (fn: MoveFn) => void;
     children: Snippet;
   };
-  let {
-    max,
-    value = $bindable(),
-    // eslint-disable-next-line no-useless-assignment
-    move = $bindable(),
-    children,
-  }: Props = $props();
+  let { max, value = $bindable(), setMove, children }: Props = $props();
 
   let tween = $state<Tween<number>>();
   let container: HTMLElement;
@@ -28,8 +23,7 @@
   /**
    * Animated programmatic scroll
    */
-  // eslint-disable-next-line no-useless-assignment
-  move = async (delta: number) => {
+  const move = async (delta: number) => {
     let target = Math.round(tween?.target ?? value) + delta;
     let duration = 200;
     if (!tween) {
@@ -39,6 +33,7 @@
     await tween.set(target, { duration });
     tween = undefined;
   };
+  $effect(() => setMove(move));
 
   function onscroll() {
     if (!container || tween) {

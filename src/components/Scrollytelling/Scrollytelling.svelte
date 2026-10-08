@@ -3,7 +3,7 @@
   import { browser } from "$app/env";
   import { page } from "$app/state";
   import ProjectCard from "../ProjectCard.svelte";
-  import Scroller from "../Scroller.svelte";
+  import Scroller, { type MoveFn } from "../Scroller.svelte";
   import ScrollytellingItem from "./ScrollytellingItem.svelte";
   import type { Snippet } from "svelte";
   import cardTransition, {
@@ -81,7 +81,7 @@
   });
   let previous = $derived(teasers[currentIndex - 1]);
   let next = $derived(teasers[currentIndex + 1]);
-  let move = $state(() => Promise.resolve());
+  let move = $state<MoveFn>(() => Promise.resolve());
 
   let virtual = $derived(
     (browser ? [currentIndex - 1, currentIndex, currentIndex + 1] : []).filter(
@@ -101,7 +101,13 @@
       {@render children()}
     </ScrollytellingItem>
   {:else}
-    <Scroller max={teasers.length} bind:value={currentIndex} bind:move>
+    <Scroller
+      max={teasers.length}
+      bind:value={currentIndex}
+      setMove={(fn) => {
+        move = fn;
+      }}
+    >
       {#each virtual as index (index)}
         <ScrollytellingItem {index} inert={index !== currentIndex}>
           {#await cached[index]}

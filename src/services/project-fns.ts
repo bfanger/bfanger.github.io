@@ -83,9 +83,14 @@ if (fs.existsSync(destination) === false) {
   }
   fs.mkdirSync(destination);
 }
+const thumbnailsDir = `${path.resolve(process.cwd(), "static/build/thumbnails")}/`;
+if (fs.existsSync(thumbnailsDir) === false) {
+  fs.mkdirSync(thumbnailsDir);
+}
 
 type ProcessedImage = {
   src: string;
+  thumbnail: string;
   alt?: string;
   width: number;
   height: number;
@@ -96,6 +101,7 @@ export async function processImage(
 ): Promise<ProcessedImage> {
   const source = path.resolve(dir, "screenshots", filename);
   const dest = path.resolve(destination, filename);
+  const thumbnail = `${path.basename(filename, path.extname(filename))}.jpg`;
 
   const sourceStat = fs.statSync(source);
   let destStat;
@@ -106,25 +112,15 @@ export async function processImage(
   }
   if (sourceStat.mtime > destStat.mtime) {
     await execFile("magick", [
-      "convert",
+      source,
       "-resize",
       "1000x>",
       "-quality",
       "85",
-      source,
       destination + filename,
     ]).catch((err: any) => {
-      return execFile("convert", [
-        "-resize",
-        "1000x>",
-        "-quality",
-        "85",
-        source,
-        destination + filename,
-      ]).catch(() => {
-        console.warn(err);
-        return copyFile(source, destination + filename);
-      });
+      console.warn(err);
+      return copyFile(source, destination + filename);
     });
 
     if (
@@ -146,10 +142,30 @@ export async function processImage(
         console.warn(err.message);
       });
     }
+
+    await execFile("magick", [
+      source,
+      "-background",
+      "#3f3a42",
+      "-flatten",
+      "-resize",
+      "x160",
+      "-quality",
+      "75",
+      thumbnailsDir + thumbnail,
+    ]).catch((err: any) => {
+      console.warn(err);
+    });
   }
   const { width, height } = await sharp(source).metadata();
   if (!width || !height) {
     throw new Error("sharp metadata failed");
   }
-  return { src: `/build/img/${filename}`, alt, width, height };
+  return {
+    src: `/build/img/${filename}`,
+    thumbnail: `/build/thumbnails/${thumbnail}`,
+    alt,
+    width,
+    height,
+  };
 }

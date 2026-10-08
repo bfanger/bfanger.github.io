@@ -10,10 +10,12 @@
   import { resolve } from "$app/paths";
   import { fade } from "svelte/transition";
   import TopPicks from "./TopPicks.svelte";
+  import Helix from "../../components/Helix.svelte";
+  import type { Teaser } from "./+page.server";
 
   let { data } = $props();
 
-  type Teaser = (typeof data)["teasers"][number];
+  let innerWidth = $state(1);
 
   function extractYear(project: Teaser) {
     const match = project.released.toString().match(/^[0-9]+/);
@@ -29,37 +31,44 @@
   let years = $derived(Object.keys(grouped).sort().reverse());
 </script>
 
+<svelte:window bind:innerWidth />
+
 <svelte:head>
   <title>Bob Fanger's portfolio</title>
 </svelte:head>
 <Page>
   <div in:cardIn|global={{}} out:cardOut|global={{}}>
-    <Card>
-      <h1>Portfolio van Bob Fanger</h1>
-      <TopPicks projects={data.promoted} />
+    {#if innerWidth > 1000}
+      <Helix teasers={data.teasers} />
+    {/if}
+    <div class="helix-fix">
+      <Card>
+        <h1>Portfolio van Bob Fanger</h1>
+        <TopPicks projects={data.promoted} />
 
-      {#each years as year}
-        <h2>{year}</h2>
-        <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
-        <ul
-          class="project-list"
-          onmousedown={() => {
-            cardTransition.set("left");
-          }}
-        >
-          {#each grouped[year] as project}
-            <li>
-              <a
-                href={resolve("/projects/[project]", {
-                  project: project.slug,
-                })}
-                data-sveltekit-noscroll>{project.title}</a
-              >
-            </li>
-          {/each}
-        </ul>
-      {/each}
-    </Card>
+        {#each years as year}
+          <h2>{year}</h2>
+          <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+          <ul
+            class="project-list"
+            onmousedown={() => {
+              cardTransition.set("left");
+            }}
+          >
+            {#each grouped[year] as project}
+              <li>
+                <a
+                  href={resolve("/projects/[project]", {
+                    project: project.slug,
+                  })}
+                  data-sveltekit-noscroll>{project.title}</a
+                >
+              </li>
+            {/each}
+          </ul>
+        {/each}
+      </Card>
+    </div>
   </div>
   <div class="previous" out:fade|global={{ duration: 200 }}>
     <NavButton
@@ -124,5 +133,12 @@
       right: 40px;
       bottom: 40px;
     }
+  }
+
+  .helix-fix {
+    position: relative;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, transparent 30vh, #fff6 60vh);
+    backdrop-filter: blur(8px);
   }
 </style>
