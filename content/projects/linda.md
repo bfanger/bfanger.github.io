@@ -6,6 +6,7 @@ image: linda.png
 alt: Linda
 tags:
   - react
+  - typescript
   - svg
 ---
 

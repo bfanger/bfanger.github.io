@@ -1,6 +1,7 @@
 ---
 title: Virtuele Poppenkast
 tags:
+  - react
   - three.js
   - r3f
   - ai

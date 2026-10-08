@@ -67,6 +67,7 @@
   function placeholder(teaser: Teaser): Project {
     return {
       content: "",
+      tags: [],
       released: teaser.released,
       slug: teaser.slug,
       title: teaser.title,

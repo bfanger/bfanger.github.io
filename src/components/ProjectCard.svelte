@@ -52,13 +52,18 @@
   <div>
     {@html project.content}
   </div>
-  {#if project.released}
-    <div class="footer">
+  <div class="footer">
+    <span class="tags">
+      {#each project.tags as tag}
+        <span class="tag">{tag}</span>
+      {/each}
+    </span>
+    {#if project.released}
       <span class="release-date">
         {formatReleaseDate(project.released)}
       </span>
-    </div>
-  {/if}
+    {/if}
+  </div>
 </Card>
 
 <style>
@@ -93,7 +98,26 @@
 
   .footer {
     display: flex;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .tag {
+    padding: 1px 8px 3px;
+    border: 1px solid #c9ccd6;
+    border-radius: 50px;
+
+    font:
+      500 14px Glory,
+      sans-serif;
+    color: #6e717c;
   }
 
   .release-date {

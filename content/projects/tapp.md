@@ -5,7 +5,7 @@ released: "2023-05"
 image: tapp.png
 alt: Tapp Horeca
 tags:
-  - next
+  - next.js
   - react
   - d3
 ---

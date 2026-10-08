@@ -4,6 +4,7 @@ tags:
   - svelte
   - golang
   - rive
+  - encryption
 employer: this
 released: 2025-01
 image: thisisprivate.png

@@ -6,13 +6,12 @@ image: andc.png
 alt: "&C"
 tags:
   - svelte
-  - sveltekit
   - contentful
   - shopify
   - buckaroo
   - playwright
   - adb2c
-  - scrum
+  - azure
 ---
 
 [www.andc.tv](https://www.andc.tv) (&C) is een website voor het gelijknamige tijdschrift van Chantal Janzen.  

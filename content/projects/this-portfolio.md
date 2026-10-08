@@ -5,6 +5,7 @@ tags:
   - threejs
   - webflow
   - r3f
+  - react
 
 image: this-portfolio.png
 alt: Portfolio This.nl

@@ -18,6 +18,7 @@ export type Project = {
     alt?: string;
   };
   content: string;
+  tags: string[];
   released: string;
   promoted?: number;
   after?: string;

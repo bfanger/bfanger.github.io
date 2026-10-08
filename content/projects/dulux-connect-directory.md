@@ -3,6 +3,7 @@ title: Dulux Connect Directory
 tags:
   - svelte
   - directus
+  - typescript
 employer: this
 released: 2024-12
 image: dulux-connect-directory.png

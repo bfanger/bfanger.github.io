@@ -4,6 +4,8 @@ employer: this
 tags:
   - react
   - tanstack-router
+  - laravel
+  - stripe
 image: iot-exchange.png
 alt: IoT Exchange
 released: "2025-02"

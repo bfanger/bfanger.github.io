@@ -2,7 +2,10 @@
 title: Store Management - AkzoNobel
 tags:
   - react
+  - tailwind
   - openapi
+  - laravel
+  - vue
 employer: this
 released: 2025-11
 image: store-management-akzonobel.png

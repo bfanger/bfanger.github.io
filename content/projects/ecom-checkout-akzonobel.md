@@ -2,6 +2,7 @@
 title: E-commerce Checkout - AkzoNobel
 tags:
   - react
+  - tailwind
   - openapi
   - solidus
 employer: this

@@ -4,7 +4,8 @@ employer: this
 tags:
   - next.js
   - directus
-
+  - typescript
+  - react
 image: this.nl.png
 alt: This.nl
 released: "2026-01"

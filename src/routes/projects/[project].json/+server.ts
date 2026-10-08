@@ -18,8 +18,9 @@ export async function GET({ params }) {
     slug: data.slug,
     title: data.title,
     released: data.released,
-    content: data.content,
+    tags: data.tags,
     canonical: "canonical" in data ? data.canonical : undefined,
+    content: data.content,
   };
   if (index !== 0) {
     project.before = projects[index - 1].slug;

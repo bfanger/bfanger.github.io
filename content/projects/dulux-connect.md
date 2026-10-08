@@ -2,7 +2,10 @@
 title: Dulux Connect
 tags:
   - svelte
+  - vue
   - directus
+  - prisma-orm
+
 employer: this
 released: 2025-04
 image: dulux-connect.png
