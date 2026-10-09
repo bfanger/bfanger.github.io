@@ -4,6 +4,8 @@ employer: hotelbooker
 released: "2006"
 image: hotelcadeau_v1.png
 alt: HotelCadeau website versie 1
+tags:
+  - php
 ---
 
 HotelCadeau was een site waar je een voucher (tegoedbon) kon bestellen voor een overnachting in een hotel.

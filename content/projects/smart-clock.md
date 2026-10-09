@@ -4,6 +4,7 @@ employer: open source
 tags:
   - golang
   - sdl2
+  - raspberry-pi
 image: smart-clock.png
 released: "2018-12"
 promoted: 2

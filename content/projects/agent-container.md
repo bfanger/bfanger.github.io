@@ -3,7 +3,9 @@ title: Agent Container
 tags:
   - llama
   - ai
-  - pi
+  - pi-agent
+  - opencode
+  - claud-code
   - docker
 image: agent-container.png
 alt: Agent Container

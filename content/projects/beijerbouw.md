@@ -4,6 +4,9 @@ employer: noprotocol
 released: 2010-02
 image: beijerwonen.png
 alt: Beijerwonen website
+tags:
+  - jquery
+  - wms-micro
 ---
 
 Een website-familie bestaande uit: Beijerbouw.nl, Beijerwonen.nl en [Trinity-projectontwikkeling.nl](https://www.trinity-projectontwikkeling.nl/) is vanuit een zelf ontwikkeld CMS te beheren.

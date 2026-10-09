@@ -4,6 +4,9 @@ employer: webcontent
 title: Q-Plast
 released: 2010-02
 image: qplast.png
+tags:
+  - jquery
+  - wms-micro
 ---
 
 Voor [Q-Plast.nl](https://www.q-plast.nl/) heb ik het design gemaakt.

@@ -4,6 +4,8 @@ employer: hotelbooker
 released: 2006-06
 image: hotelspecials_v3.png
 alt: HotelSpecials website versie 2
+tags:
+  - php
 ---
 
 Ook deze keer kreeg [Hotelspecials.nl](https://www.hotelspecials.nl) een facelift, maar dat spreekt eigenlijk voor zich.

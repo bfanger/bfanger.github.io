@@ -4,6 +4,8 @@ employer: webcontent
 released: 2010-03
 image: advanced_engineering.png
 alt: Advanced Engineering
+tags:
+  - jquery
 ---
 
 Het redesign van [AdvancedEngineering.nl](http://www.advancedengineering.nl/) was geïnspireerd door de allsecure.nl website.

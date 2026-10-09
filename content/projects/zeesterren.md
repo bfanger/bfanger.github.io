@@ -4,6 +4,8 @@ employer: webcontent
 released: 2010-12
 image: zeesterren.png
 alt: Reserveren bij Zeesterren.be
+tags:
+  - jquery
 ---
 
 Op Zeesterren.be website kon je een appartment reserveren.

@@ -3,8 +3,8 @@ title: Lego Boost
 employer: noprotocol
 tags:
   - vue
-  - video
   - rxjs
+  - multitouch
 image: lego-boost.png
 alt: Lego Boost
 released: "2018-04"

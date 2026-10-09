@@ -4,6 +4,7 @@
   import { formatReleaseDate } from "../services/formatDate";
   import screenSize from "../services/screenSize.svelte";
   import { browser } from "$app/env";
+  import Tags from "./Tags.svelte";
 
   type Props = {
     project: Project;
@@ -53,11 +54,7 @@
     {@html project.content}
   </div>
   <div class="footer">
-    <span class="tags">
-      {#each project.tags as tag}
-        <span class="tag">{tag}</span>
-      {/each}
-    </span>
+    <Tags tags={project.tags} />
     {#if project.released}
       <span class="release-date">
         {formatReleaseDate(project.released)}
@@ -100,24 +97,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .tag {
-    padding: 1px 8px 3px;
-    border: 1px solid #c9ccd6;
-    border-radius: 50px;
-
-    font:
-      500 14px Glory,
-      sans-serif;
-    color: #6e717c;
   }
 
   .release-date {

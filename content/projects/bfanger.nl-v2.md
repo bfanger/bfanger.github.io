@@ -3,6 +3,8 @@ title: BFanger.nl v2
 image: bfanger-nl.png
 alt: Deze website
 released: "2010"
+tags:
+  - php
 ---
 
 [bfanger.nl](https://bfanger.nl) maakt gebruik van het [SledgeHammer PHP Framework](https://github.com/sledgehammer/sledgehammer) en draait op een [WD My Book World Edition](https://tweakers.net/pricewatch/234073/wd-my-book-world-edition-1tb/specificaties/) netwerkschijf.

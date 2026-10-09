@@ -4,6 +4,9 @@ employer: hotelbooker
 released: "2008"
 image: buckaroo.png
 alt: Deze website
+tags:
+  - e-commerce
+  - payment-provider
 ---
 
 HotelCadeau uitgebreid met online betalingsmogelijkheden, waaronder iDEAL.

@@ -6,6 +6,7 @@ import { promisify } from "node:util";
 import matter from "gray-matter";
 import sharp from "sharp";
 import { marked } from "marked";
+import * as v from "valibot";
 
 export type Project = {
   slug: string;
@@ -33,11 +34,22 @@ const hasPngquant = execFile("which pngquant")
 
 const dir = path.resolve(process.cwd(), "content/projects");
 export type RawProject = Project & { image: string; alt: string };
+const frontmatterSchema = v.object({
+  title: v.string(),
+  tags: v.array(v.string()),
+});
 
 async function loadProject(slug: string) {
   const file = await readFile(path.resolve(dir, `${slug}.md`));
 
   const result = matter(file);
+  const valid = v.safeParse(frontmatterSchema, result.data);
+  if (!valid.success) {
+    console.warn(
+      `Project ${slug} has incomplete metadata`,
+      valid.issues.map((issue) => issue.message),
+    );
+  }
 
   const content = marked.parse(result.content, { async: false, gfm: true });
   return {

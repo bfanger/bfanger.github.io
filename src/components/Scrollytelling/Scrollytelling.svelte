@@ -134,7 +134,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-  class="previous"
+  class="portfolio-link"
   out:fade|global={{ duration: 200 }}
   onmousedown={() => {
     cardTransition.set("right");
@@ -172,7 +172,7 @@
     height: 100dvh;
   }
 
-  .previous {
+  .portfolio-link {
     position: fixed;
     z-index: 1;
     bottom: calc(50% - 35px);

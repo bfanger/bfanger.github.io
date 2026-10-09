@@ -5,7 +5,7 @@ released: 2015-10
 type: hybrid app
 tags:
   - ionic
-  - angular
+  - angularjs
   - webrtc
   - ios
   - android

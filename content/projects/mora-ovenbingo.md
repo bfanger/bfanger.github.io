@@ -4,6 +4,8 @@ employer: noprotocol
 released: 2016-11
 type: campagne
 image: mora-ovenbingo.png
+tags:
+  - adobe
 ---
 
 Een campagne website waarbij je 4 weken lang elke week kans maakte op prijzen.

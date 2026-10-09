@@ -4,6 +4,8 @@ employer: hotelbooker
 released: 2007-07
 image: hotelcadeau_v2.png
 alt: HotelCadeau website versie 2
+tags:
+  - php
 ---
 
 Na ervaring opgedaan te hebben met de eerste HotelCadeau website is er begonnen aan de 2de versie.

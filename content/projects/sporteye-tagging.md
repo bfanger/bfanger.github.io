@@ -5,7 +5,7 @@ tags:
   - ffmpeg
   - hls
   - websockets
-  - angular
+  - angularjs
   - rxjs
 image: sporteye-tagging.png
 alt: Sporteye Interface

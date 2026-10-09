@@ -4,6 +4,9 @@ employer: webcontent
 released: 2010-02
 image: nassau_blog.png
 alt: Blog door Vera Peerdeman
+tags:
+  - blogspot
+  - php
 ---
 
 De blogwebsites van [de Nassau](https://www.nassau.nu/) heb ik ontworpen in [Adobe](https://www.adobe.com/) Photoshop en vervolgens omgezet naar een Blogspot template.

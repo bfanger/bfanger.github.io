@@ -5,7 +5,7 @@ employer: noprotocol
 type: hybrid app
 tags:
   - ionic
-  - angular
+  - angularjs
   - greensock
   - ios
   - android

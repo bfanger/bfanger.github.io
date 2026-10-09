@@ -4,6 +4,8 @@ employer: d-tail-company
 released: "2010"
 image: episerver-intranet.png
 alt: EPiServer Intranet
+tags:
+  - csharp
 ---
 
 Een intranetwebsite op basis van EPiServer, een op het ASP.NET-platform draaiend CMS-systeem.

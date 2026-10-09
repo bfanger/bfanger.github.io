@@ -4,6 +4,8 @@ employer: hotelbooker
 released: 2009-08
 image: hotelspecials_v4.png
 alt: Hotelspecials.nl versie 4
+tags:
+  - php
 ---
 
 Een rewrite van de [Hotelspecials.nl](https://www.hotelspecials.nl) en bijgehorende backoffice systemen.
