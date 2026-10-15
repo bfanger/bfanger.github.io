@@ -8,6 +8,7 @@ tags:
   - next.js
   - react
   - d3
+  - storybook
 ---
 
 Voor [TAPP](https://www.tapp.cafe/) hebben we een webapp ontwikkeld waarmee je als horeca eigenaar inzicht krijgt in hoe je presteert ten opzichte van andere ondernemingen.

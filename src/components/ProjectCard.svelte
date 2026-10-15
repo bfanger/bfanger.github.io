@@ -101,5 +101,6 @@
 
   .release-date {
     color: #9b9b9b;
+    text-align: right;
   }
 </style>

@@ -10,6 +10,7 @@ tags:
   - shopify
   - buckaroo
   - playwright
+  - storybook
   - adb2c
   - azure
 ---

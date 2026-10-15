@@ -5,6 +5,7 @@ tags:
   - tailwind
   - openapi
   - solidus
+  - storybook
 employer: this
 released: 2025-09
 image: ecom-checkout-akzonobel.png
